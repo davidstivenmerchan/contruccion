@@ -1,0 +1,18 @@
+.franga__verde{
+    grid-area: franjav;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00c23a;
+    color: var(--white-color);
+
+    figure{
+        img{
+            border-radius: 50%;
+        }
+    }
+
+    p{
+        width: 50%;
+    }
+}
