@@ -1,0 +1,184 @@
+body{
+    margin: 0;
+}
+.menu{
+    background: #238276;
+    width: 350px;
+    height: 1000px;
+}
+.menu img{
+    width: 180px;
+    height: 180px;
+    padding: 40px 80px;
+}
+.menu h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 60px;
+}
+.menu p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin-left: 30px;
+}
+.menu input{
+    width: 350px;
+    height: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #238276;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.menu input:hover{
+    background-color: orangered;
+    color: black;
+}
+.form1{
+    width: 800px;
+    height: 650px;
+    border: 1px solid;
+    margin-left: 500px;
+    margin-top: -950px;
+    box-shadow: 10px 10px 15px black;
+    visibility: hidden;
+    opacity: 0;
+}
+.form1-active{
+    visibility: visible;
+    opacity: 1;
+}
+.form1 h1{
+    background: orangered;
+    color: white;
+    height: 60px;
+    margin-top: 0px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form1 label{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 30px;
+}
+.form1 input{
+    width: 480px;
+    height: 25px;
+    margin-left: 280px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.form1 input[type="submit"]{
+    border: 1px solid;
+    margin-top: 30px;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    background-color: orangered;
+    margin-left: 180px;
+}
+select{
+    width: 480px;
+    height: 25px;
+    margin-left: 280px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.form2{
+    width: 800px;
+    height: 480px;
+    border: 1px solid;
+    margin-left: 500px;
+    margin-top: -550px;
+    box-shadow: 10px 10px 15px black;
+    visibility: hidden;
+    opacity: 0;
+}
+.form2-active{
+    visibility: visible;
+    opacity: 1;
+}
+.form2 h1{
+    background: orangered;
+    color: white;
+    height: 60px;
+    margin-top: 0px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form2 label{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 30px;
+}
+.form2 input{
+    width: 480px;
+    height: 25px;
+    margin-left: 280px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.form2 input[type="submit"]{
+    border: 1px solid;
+    margin-top: 40px;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    background-color: orangered;
+    margin-left: 180px;
+}
+.tabla{
+    visibility: hidden;
+    opacity: 0;
+}
+.tabla table{
+    font-family: sans-serif;
+    text-align: center;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-left: 500px;
+    margin-top: 100px;
+    width: 20px;
+
+}
+.tabla table td{
+    border: 1px solid;
+}
+.tabla-active{
+    visibility: visible;
+    opacity: 1;
+}
+.tabla2{
+    visibility: hidden;
+    opacity: 0;
+}
+.tabla2 table{
+    font-family: sans-serif;
+    text-align: center;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-left: 500px;
+    margin-top: 100px;
+    margin-top: -300px;
+}
+.tabla2 table td{
+    border: 1px solid;
+    width: 150px;
+}
+.tabla2-active{
+    visibility: visible;
+    opacity: 1;
+}
