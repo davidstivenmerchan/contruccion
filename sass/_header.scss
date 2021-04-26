@@ -1,0 +1,17 @@
+header{
+    background-color: var(--black-color);
+    color:var(--white-color);
+    grid-area: header;
+    display: flex;
+    justify-content: flex-end;
+    nav{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        width:30%;
+        a{
+            text-decoration: none;
+            color: var(--white-color);
+        }
+    }
+}
