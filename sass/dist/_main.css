@@ -1,0 +1,7 @@
+main {
+  width: 100%;
+  grid-area: main;
+  grid-template-areas: "nosotros nosotros nosotros";
+  display: flex;
+  flex-direction: column;
+}

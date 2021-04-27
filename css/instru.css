@@ -1,0 +1,67 @@
+body{
+    display: flex;
+}
+.menu{
+    background: #238276;
+    width: 350px;
+    height: 800px;
+}
+.menu img{
+    width: 180px;
+    height: 180px;
+    padding: 40px 80px;
+}
+.menu h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 60px;
+}
+.menu p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin-left: 30px;
+}
+.menu input{
+    width: 350px;
+    height: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #238276;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.menu input:hover{
+    background-color: orangered;
+    color: black;
+}
+.asignar{
+    margin-left: 500px;
+    margin-top: -600px;
+}
+.asignar label{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.asignar input{
+    width: 420px;
+    height: 25px;
+    margin-left: 30px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+button{
+    width: 100px;
+    height: 30px;
+    border: none;
+    background: orangered;
+    color: white;
+}
+.tabla{
+    width: 15px;
+    margin-left: 500px;
+}

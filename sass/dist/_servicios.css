@@ -1,0 +1,28 @@
+.servicios {
+  grid-area: servicios;
+  width: 80%;
+  margin: auto;
+}
+.servicios .cards {
+  display: flex;
+  margin: auto;
+}
+.servicios .cards .card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.servicios .cards .card img {
+  width: 100%;
+}
+.servicios .cards .card button {
+  border: none;
+  border-radius: 50px;
+  color: var(--white-color);
+  cursor: pointer;
+  outline: 0;
+  width: 70%;
+  height: 30px;
+  background-color: #53aa01;
+}
