@@ -22,7 +22,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(9, auto);
-  grid-template-areas: "header header header" "banner banner banner" "servicios servicios servicios" "nosotros nosotros nosotros" "conctacto conctacto conctacto";
+  grid-template-areas: "header header header" "banner banner banner" "servicios servicios servicios" "nosotros nosotros nosotros" "conctacto conctacto conctacto" "organizaciones organizaciones organizaciones" "footer footer footer";
 }
 
 header {
@@ -211,6 +211,40 @@ header .opciones .registrate {
   margin: 1rem 0;
   outline: 0;
   width: 70%;
+}
+
+.organizaciones {
+  grid-area: organizaciones;
+  background-color: #f38200;
+  width: 100%;
+}
+.organizaciones .content {
+  width: 70%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.organizaciones .content figure {
+  cursor: pointer;
+  width: 20%;
+  max-width: 100%;
+}
+.organizaciones .content figure img {
+  max-width: 100%;
+}
+.organizaciones .content .facebook img {
+  height: 29px;
+}
+
+footer {
+  background-color: #f38200;
+  font-size: 2rem;
+  color: #ffffff;
+  height: 3rem;
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
