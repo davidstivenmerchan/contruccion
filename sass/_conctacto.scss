@@ -1,55 +1,66 @@
 .contactenos{
     grid-area: conctacto;
-    width: 80%;
-    margin: auto;
-    .cont{
-        display: flex;
-        justify-content: space-between;
+    width: 100%;
+    background-image: url("../assets/cursos-virtuales-sena.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    // filter: brightness(50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000000;
 
-        article{
-            width: 40%;
-        }
+    .cont{
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(2 , auto);
         form{
             h2{
-                color: #139929;
                 text-align: center;
             }
-            label{
-                margin: 0.7rem 0;
-            }
-            input[type="text"], 
+            display: flex;
+            flex-direction: column;
+            padding: 2rem ;
+            background-color: #ffffff;
+            input[type="text"],
             input[type="email"]{
                 width: 100%;
-                height: 30px;
-                border: 1px solid var(--black-color);
+                height: 2rem;
+                margin:.5rem 0;
+            }
+            a{
+                text-decoration: none;
+                margin: .5rem 0;
             }
             textarea{
                 width: 100%;
-                height: 100px;
+                height: 6rem;
                 resize: none;
-                border: 1px solid var(--black-color);
-                margin-bottom: 10px;
-            }
-            a{
-                color:#176999;
-            }
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            border: 1px solid var(--black-color);
-            padding: 1rem 2.5rem;
-            input[type="submit"]{
-                background-color: #139929;
-                color: var(--white-color);
-                border: none;
-                outline: 0;
-                width: 80%;
-                height: 2.5rem;
-                align-self: center;
             }
             .terminos{
+                display: flex;
+                flex-direction:row;
+                // input[type="checkbox"]{
+                //     margin: 0;
+                //     padding: 0;
+                // }
+                label{
+                    cursor: pointer;
+                }
+
+            }
+
+            input[type="submit"]{
+                align-self: center;
+                border: none;
+                border-radius: 3rem;
+                background-color: #ff9100;
+                color:#ffffff;
+                cursor: pointer;
+                height: 2rem;
                 margin: 1rem 0;
+                outline: 0;
+                width: 70%;
             }
         }
     }

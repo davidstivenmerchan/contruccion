@@ -1,16 +1,13 @@
 .container{
-    width: 100%;
-    max-width: 100%;
+    width:100%;
+    max-width:100%;
     display:grid;
-    // gap:20px;
-    grid-template-columns: repeat(3 , 1fr);
-    grid-template-rows: repeat(7, auto);
-    grid-template-areas: "header header header"
-                          "carousel carousel carousel"
-                          "franjav franjav franjav"
-                          "nosotros nosotros nosotros"
-                          "servicios servicios servicios"
-                          "conctacto conctacto conctacto"
-                          "footer footer footer";
-    
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows:repeat(9 , auto);
+
+    grid-template-areas:"header header header"
+                        "banner banner banner"
+                        "servicios servicios servicios"
+                        "nosotros nosotros nosotros"
+                        "conctacto conctacto conctacto";
 }

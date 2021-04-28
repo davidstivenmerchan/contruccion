@@ -4,152 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONSTRUCCION SENA</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <title>CONSTRUCCION SENA</title>
 </head>
 <body>
     <div class="container">
-        <header class="header">
+        <header>
+            <figure class="logo">
+                <img src="./assets/pie de pagina.png" alt="icono sena" title="icono sena">
+            </figure>
             <nav>
                 <a href="#"> Inicio </a>
                 <a href="#"> Nosotros </a>
                 <a href="#"> Servicios </a>
                 <a href="#"> Conctactenos </a>
             </nav>
-            <figure>
-                <img src="./assets/login-2.jpg" alt="inicio de sesion" title="inicio de sesion">
-            </figure>
+            <div class="opciones">
+                <button class="registrate"> Registrate </button>
+                <button class="iniciosesion"> Iniciar sesion</button>
+            </div>
         </header>
-        <figure class="carousel">
-            <img src="./assets/20191015_091538.jpg" alt="foto promocion">
-            <p> Utiliza Todo lo que necesitas para sus obras de nuestra bodega </p>
+        <figure class="banner">
+            <img src="./assets/unnamed.png" alt="industria y construccion" title="industria y construccion">
         </figure>
-        <div class="franga__verde" >
-            <figure>
-                <img src="./assets/activo-5.jpg" alt="logo sena" title="logo sena">
-            </figure>
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non accusamus eaque dolore 
-                esse beatae officia face illum sunt consectetur repudiandae! Delectus adipisci 
-                saepe quae laudantium iste unde eligendi, debitis eveniet!
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non accusamus eaque dolore 
-                esse beatae officia face illum sunt consectetur repudiandae! Delectus adipisci 
-                saepe quae laudantium iste unde eligendi, debitis eveniet!
-            </p>
-            <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non accusamus eaque dolore 
-                esse beatae officia face illum sunt consectetur repudiandae! Delectus adipisci 
-                saepe quae laudantium iste unde eligendi, debitis eveniet!
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non accusamus eaque dolore 
-                esse beatae officia face illum sunt consectetur repudiandae! Delectus adipisci 
-                saepe quae laudantium iste unde eligendi, debitis eveniet!.
-            </p>
-        </div>
-
-        <!-- <main> -->
-            <section class="nosotros">
-                <h2>NOSOTROS</h2>
-                <hr>
-                <div class="nosotrosconte">
+        <section class="servicios">
+            <h2>SERVICIOS</h2>
+            <hr>
+            <div class="cards">
+                <figure class="card">
+                    <img src="./assets/activo-5.jpg" alt="">
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur a dolorem 
-                        excepturi nemo explicabo unde expedita tempora amet? Totam, possimus dolores.
-                        Iusto corrupti nihil eum unde fuga a, dicta aperiam.
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur a dolorem 
-                        excepturi nemo explicabo unde expedita tempora amet? Totam, possimus dolores.
-                        Iusto corrupti nihil eum unde fuga a, dicta aperiam.
+                        Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
+                        de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
                     </p>
-                    <figure>
-                        <img src="./assets/20191114_125014.jpg" alt="img nosotros" alt="img nosotros">
-                    </figure>
-                </div>
+                    <button> Leer mas </button>
+                </figure>
+                <figure class="card">
+                    <img src="./assets/Group_45.jpg" alt="">
+                    <p>
+                        Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
+                        de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
+                    </p>
+                    <button> Leer mas </button>
+                </figure>
+                <figure class="card">
+                    <img src="./assets/Group_45.jpg" alt="">
+                    <p>
+                        Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
+                        de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
+                    </p>
+                    <button> Leer mas </button>
+                </figure>
+            </div>
+        </section>
+        <section class="nosotros">
+            <h2>NOSOTROS</h2>
+            <div class="nosotrosconte">
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur a dolorem 
+                    excepturi nemo explicabo unde expedita tempora amet? Totam, possimus dolores.
+                    Iusto corrupti nihil eum unde fuga a, dicta aperiam.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur a dolorem 
+                    excepturi nemo explicabo unde expedita tempora amet? Totam, possimus dolores.
+                    Iusto corrupti nihil eum unde fuga a, dicta aperiam.
+                </p>
+                <figure>
+                    <img src="./assets/descarga (8).jpg" alt="img nosotros" alt="img nosotros">
+                </figure>
+            </div>
+            <article>
+                ¡SOMOS LA MEJOR ELECCION  DE CONTROL DE PARQUEADERO DE SU EMPRESA!
+                
+            </article>
+        </section>
+        <section class="contactenos">
+            <h2>CONCTACTENOS</h2>
+            
+            <div class="cont">
                 <article>
-                    ¡SOMOS LA MEJOR ELECCION  DE CONTROL DE PARQUEADERO DE SU EMPRESA!
+                    Para cualquier inquietud . quja o reclamo , por favor conctactenos a la linea principal
+                    SENA REGIONAL TOLIMA.
+                    nuestras oficinas estan ubicadas en el centro de la industria y la construccion
                 </article>
-            </section>
+                <form action="#" class="conctactenos" id="conctactenos">
+                    <h2>CONCTACTENOS</h2>
+                    <label for="nombre">Nombre </label>
+                    <input type="text" id="nombre" class="nombre" name="nombre" placeholder="escribe tu nombre...">
+                    <label for="telefono"> Telefono </label>
+                    <input type="text" id="telefono" class="telefono" name="telefono" placeholder="escribe tu telefono...">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="email" placeholder="anino79@misena.edu.co">
+                    <label for="mensaje">Deje su mensaje</label>
+                    <textarea name="nensaje" id="mensaje" cols="30" rows="10"></textarea>
 
-            <section class="servicios">
-                <h2>SERVICIOS</h2>
-                <hr />
-                <div class="cards">
-                    <figure class="card">
-                        <img src="./assets/20191015_091538.jpg" alt="">
-                        <p>
-                            Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
-                            de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
-                        </p>
-                        <button> Leer mas </button>
-                    </figure>
-                    <figure class="card">
-                        <img src="./assets/20191015_091538.jpg" alt="">
-                        <p>
-                            Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
-                            de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
-                        </p>
-                        <button> Leer mas </button>
-                    </figure>
-                    <figure class="card">
-                        <img src="./assets/20191015_091538.jpg" alt="">
-                        <p>
-                            Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
-                            de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
-                        </p>
-                        <button> Leer mas </button>
-                    </figure>
-                </div>
-            </section>
+                    <a href="#"> Politica de privacidad </a>
+                    <div class="terminos">
+                        <input type="checkbox" name="termino" id="terminos">
+                        <label for="terminos" > He leido y acepto la politica de privacidad </label>
+                    </div>
 
-            <section class="contactenos">
-                <h2>CONCTACTENOS</h2>
-                <hr>
-                <div class="cont">
-                    <article>
-                        Para cualquier inquietud . quja o reclamo , por favor conctactenos a la linea principal
-                        SENA REGIONAL TOLIMA.
-                        nuestras oficinas estan ubicadas en el centro de la industria y la construccion
-                    </article>
-                    <form action="#" class="conctactenos" id="conctactenos">
-                        <h2>CONCTACTENOS</h2>
-                        <label for="nombre">Nombre </label>
-                        <input type="text" id="nombre" class="nombre" name="nombre" placeholder="escribe tu nombre...">
-                        <label for="telefono"> Telefono </label>
-                        <input type="text" id="telefono" class="telefono" name="telefono" placeholder="escribe tu telefono...">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="email" placeholder="anino79@misena.edu.co">
-                        <label for="mensaje">Deje su mensaje</label>
-                        <textarea name="nensaje" id="mensaje" cols="30" rows="10"></textarea>
-    
-                        <a href="#"> Politica de privacidad </a>
-                        <div class="terminos">
-                            <input type="checkbox" name="termino" id="terminos">
-                            <label for="terminos" > He leido y acepto la politica de privacidad </label>
-                        </div>
-    
-                        <input type="submit" value="Enviar">
-                    </form>
-                </div>
-            </section>
-            <footer>
-                <figure>
-                    <img src="" alt="">
-                </figure>
-                <figure>
-                    <img src="" alt="">
-                </figure>
-                <figure>
-                    <img src="" alt="">
-                </figure>
-                <figure>
-                    <img src="" alt="">
-                </figure>
-                <figure>
-                    <img src="" alt="">
-                </figure>
-                <p>Centro de Industria y la construccion</p>
-                <p> Regional Tolima </p>
-                <p>141-Sector, Cra, 45 Sur #1255, Ibague, Tolima</p>
-            </footer>
-        <!-- </main> -->
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </section>
     </div>
 </body>
 </html>
