@@ -50,17 +50,14 @@
     <?php
      require_once '../conexion/conexion.php';
 
-    // //function select($mysqli, $consulta){
-    //    // $array= [];
-    //     //$query= mysqli_query($mysqli,$consulta);
-    //    // while ($query){
-    //         array_push($array, $query['nom_documento']);
-    //     }
-    //     return $query;
-    // }
-     //$consul= "SELECT nom_documento FROM tipo_documento";
+    function select($mysqli, $consulta){
+        $query= mysqli_query($mysqli,$consulta);
+        $db = mysqli_fetch_all($query) ;
+        return $db;
+    }
+     $consul= "SELECT nom_documento FROM tipo_documento";
 
-    //$consul= "SELECT nom_tipo_usuario FROM tipo_usuario";
+    $consul= "SELECT nom_tipo_usuario FROM tipo_usuario";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,16 +80,13 @@
                     <input type="number" name="doc">
                 </p>
                 <p>
-                    <?php
-                         $tipo= select($mysqli, "SELECT nom_documento FROM tipo_documento");
-                    ?>
                     <label for="tipo_doc">Tipo de Documento</label>
                     <select name="tip_doc" id="tip_doc" required>
                     <option value="">Seleccione el Tipo de Documento</option>
                     <?php
                         $tipo_docu= select($mysqli, "SELECT nom_documento FROM tipo_documento");
                         foreach ($tipo_docu as $tipo_doc) :  ?>
-                        <option value="<?php echo $tipo_doc[0]?>"><?php echo $tipo_doc[1]?></option>
+                        <option value="<?php echo $tipo_doc[07]?>"><?php echo $tipo_doc[0] ;?></option>
                     <?php
                         endforeach;
                     ?>
@@ -103,8 +97,9 @@
                     <select name="tip_usu" id="tip_usu" required>
                     <option value="">Seleccione el Tipo de Usuario</option>
                     <?php
-                        foreach ($query1 as $tipo_usu) :  ?>
-                        <option value="<?php echo $tipo_usu['nom_tipo_usuario']?>"><?php echo $tipo_usu['nom_tipo_usuario']?></option>
+                        $tipoUsua = select($mysqli, "SELECT nom_tipo_usuario from tipo_usuario");
+                        foreach ($tipoUsua as $tipo_usu) :  ?>
+                        <option value="<?php echo $tipo_usu[0]?>"><?php echo $tipo_usu[0]?></option>
                     <?php
                         endforeach;
                     ?>
