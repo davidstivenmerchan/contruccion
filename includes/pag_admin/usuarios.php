@@ -1,5 +1,5 @@
 <?php
-     require_once '../conexion/conexion.php';
+     require_once '../../conexion/conexion.php';
 
     function select($mysqli, $consulta){
         $query= mysqli_query($mysqli,$consulta);
