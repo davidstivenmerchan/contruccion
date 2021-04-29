@@ -1,9 +1,9 @@
 <?php
-    require_once ("../conexion/conexion.php");
+    require_once './../conexion/conexion.php';
 ?>
 <?php
     $consul= "SELECT nom_tip_doc FROM tipo_documento";
-    $query= mysqli_query($mysqli,$consul);
+    $query= mysqli_query($mysqli , $consul);
     $respu= mysqli_fetch_assoc($query);  
     
     $consul= "SELECT nom_tip_usu FROM tipo_usuario";
@@ -12,7 +12,7 @@
 
     $consul= "SELECT nom_tip_dis FROM tipo_dispositivo";
     $query2= mysqli_query($mysqli,$consul);
-    $respu= mysqli_fetch_assoc($query2); 
+    $respu = mysqli_fetch_assoc($query2); 
 
     $consul= "SELECT nom_marca FROM marca";
     $query3= mysqli_query($mysqli,$consul);
