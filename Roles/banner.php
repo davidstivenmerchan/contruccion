@@ -26,16 +26,23 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="../includes/pag_admin/usuarios.php">
                         <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
                         <span class="title">Usuarios</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="../includes/pag_admin/equipos.php">
                         <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                         <span class="title">Equipos</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../includes/pag_admin/ambientes.php">
+                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <span class="title">Ambientes</span>
                     </a>
                 </li>
 

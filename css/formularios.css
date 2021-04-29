@@ -1,0 +1,49 @@
+.form1{
+    width: 400px;
+    height: 200px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.form1 p{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    width: 100px;
+    margin-top: 80px;
+    margin-left: 6px;
+}
+.form1 p[type='title']{
+    width: 100%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    padding: 10px;
+}
+.form1 .linea{
+    width: 100%;
+    border: 1px lightgray solid;
+
+}
+.form1 input[type='number']{
+    width: 30px;
+    height: 20px;
+}
+.form1 input{
+    width: 250px;
+    height: 20px;
+
+}
+.form1 p[type='nom']{
+    width: 500px;
+    margin-left: -20px;
+
+}
+.form1 button{
+    width: 200px;
+    height: 30px;
+    border: 0;
+    background: lightgray;
+    margin-left: 90px;
+    margin-top: -90px;
+}
