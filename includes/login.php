@@ -11,7 +11,8 @@ if ($_POST['ingresar']){
     $datos= mysqli_fetch_assoc($query);
 
     if ($datos){
-        
+
+        $_SESSION['cc'] = $datos['cedula'];
         $_SESSION['tipo_doc'] = $datos['id_tipo_documento'];
         $_SESSION['tipo_usu'] = $datos['id_tipo_usuario'];
         $_SESSION['cod_carnet'] = $datos['Cod_Carnet'];
