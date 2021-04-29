@@ -31,7 +31,7 @@ if ($_POST['ingresar']){
 
         
         if($_SESSION['tipo_usu']==1){
-            header("location: ../Roles/administrador.php");
+            header("location: ../Roles/admin.php");
             exit();
         }
         if($_SESSION['tipo_usu']==2){
