@@ -27,7 +27,7 @@
         <div class="linea"></div>
         <img src="img/usu.png" alt="">
         <div class="wrapper">
-            <form action="">
+            <form action="../insertarusuarios.php" method="POST">
                 <p>
                     <label for="doc">Documento</label>
                     <input type="number" name="doc">
@@ -77,7 +77,7 @@
                     <input type="text" name="genero" id="genero">
                 </p>
                 <p>
-                    <label for="email_per">E-mail Personal</label>
+                    <label for="email_per">E-mail Personal</label> 
                     <input type="email" name="email per" id="email per">
                 </p>
                 <p>
@@ -124,7 +124,7 @@
     <div class="form1">
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
-    <form action="">
+    <form action="../insertarusuarios.php" method="POST">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_usu" id="id_usu">
@@ -134,7 +134,8 @@
             <input type="text" name="nom_usu" id="nom_usu">
         </p>
         <p>
-            <button>Guardar</button>
+            <input type="submit" value="Guardar">
+           
         </p>
     </form>
     </div>
