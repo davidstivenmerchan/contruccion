@@ -12,14 +12,14 @@
 <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="#" class="primero">
                         <span class="icon" ><i class="fa fa-gavel" aria-hidden="true"></i></span>
                         <span class="title"><h2>Menu</h2></span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="./pag_admin/principal.html">
                         <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
                         <span class="title">Principal</span>
                     </a>

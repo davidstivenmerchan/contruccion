@@ -22,7 +22,7 @@ const getHTML = ({ url , success , error }) => {
 
 document.addEventListener('DOMContentLoaded' , e => {
     getHTML({
-        url: 'pag_admin/home.php',
+        url: 'pag_admin/principal.html',
         success: (html) => $main.innerHTML = html,
         error: (error) => $main.innerHTML = `<h1> ${error} </h1>`
     });
@@ -34,6 +34,8 @@ $elemento.forEach( el =>{
     el.addEventListener('click' , (e) => {
         e.preventDefault();
         // console.log(el.href);
+        if(el.classList.contains('primero')) return ;
+
         getHTML({
             url: el.href,
             success: (html) => $main.innerHTML = html,
