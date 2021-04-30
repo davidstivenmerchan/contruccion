@@ -40,4 +40,4 @@ $elemento.forEach( el =>{
             error: (error) => $main.innerHTML = `<h1> ${error} </h1>`
         });
     });
-});
+}); 
