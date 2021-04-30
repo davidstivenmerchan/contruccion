@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="./../../css/formularios.css">
 </head>
 <body>
+    <!-- <div class="container">
+        <?php //require './banner.php'; ?>
+    </div> -->
     <div class="form">
         <p>Crear usuarios</p>
         <div class="linea"></div>
