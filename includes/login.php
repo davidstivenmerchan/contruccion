@@ -1,5 +1,5 @@
 <?php
-require_once '../conexion/conexion.php';
+require_once './conexion.php';
 session_start();
 
 if (isset($_POST['ingresar'])){
@@ -33,11 +33,11 @@ if (isset($_POST['ingresar'])){
 
         
         if($_SESSION['tipo_usu']==1){
-            header("location: ../Roles/admin.php");
+            header("location: ../Roles/admi/admin.php");
             exit();
         }
         if($_SESSION['tipo_usu']==2){
-            header("location: ../Roles/instructor.php");
+            header("location: ../Roles/instru/instructor.php");
             exit();
         }
         else{

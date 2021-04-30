@@ -1,6 +1,6 @@
 <?php
 
-include('../conexion/conexion.php');
+include('../../includes/conexion.php');
 
 if(isset($_POST['enviar1'])){
 

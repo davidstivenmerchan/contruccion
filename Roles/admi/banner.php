@@ -26,21 +26,21 @@
                 </li>
 
                 <li>
-                    <a href="../includes/pag_admin/usuarios.php">
+                    <a href="pag_admin/usuarios.php">
                         <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                         <span class="title">Usuarios</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="../includes/pag_admin/equipos.php">
+                    <a href="pag_admin/equipos.php">
                         <span class="icon"><i class="fa fa-desktop" aria-hidden="true"></i></span>
                         <span class="title">Equipos</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="../includes/pag_admin/ambientes.php">
+                    <a href="pag_admin/ambientes.php">
                         <span class="icon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
                         <span class="title">Ambientes</span>
                     </a>
