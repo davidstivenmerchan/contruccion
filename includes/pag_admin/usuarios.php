@@ -1,14 +1,14 @@
 <?php
      require_once '../../conexion/conexion.php';
+?>
+<?php
+     $consul= "SELECT * FROM tipo_documento";
+     $query= mysqli_query($mysqli,$consul);
+     $respu= mysqli_fetch_assoc($query); 
 
-    function select($mysqli, $consulta){
-        $query= mysqli_query($mysqli,$consulta);
-        $db = mysqli_fetch_all($query) ;
-        return $db;
-    }
-     $consul= "SELECT nom_documento FROM tipo_documento";
-
-    $consul= "SELECT nom_tipo_usuario FROM tipo_usuario";
+     $consul= "SELECT * FROM tipo_usuario";
+     $query1= mysqli_query($mysqli,$consul);
+     $respu= mysqli_fetch_assoc($query1); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +17,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
-    <link rel="stylesheet" href="../css/formu_user.css">
-    <link rel="stylesheet" href="./../../css/formu_user.css">
-    <link rel="stylesheet" href="./../../css/formularios.css">
+    <link rel="stylesheet" href="../../css/formu_user.css">
+    <link rel="stylesheet" href="../../css/formularios.css">
+
 </head>
 <body>
     <div class="form">
@@ -37,9 +37,8 @@
                     <select name="tip_doc" id="tip_doc" required>
                     <option value="">Seleccione el Tipo de Documento</option>
                     <?php
-                        $tipo_docu= select($mysqli, "SELECT nom_documento FROM tipo_documento");
-                        foreach ($tipo_docu as $tipo_doc) :  ?>
-                        <option value="<?php echo $tipo_doc[07]?>"><?php echo $tipo_doc[0] ;?></option>
+                        foreach ($query as $tipo_doc) :  ?>
+                        <option value="<?php echo $tipo_doc['id_tipo_documento']?>"><?php echo $tipo_doc['nom_documento']?></option>
                     <?php
                         endforeach;
                     ?>
@@ -50,9 +49,8 @@
                     <select name="tip_usu" id="tip_usu" required>
                     <option value="">Seleccione el Tipo de Usuario</option>
                     <?php
-                        $tipoUsua = select($mysqli, "SELECT nom_tipo_usuario from tipo_usuario");
-                        foreach ($tipoUsua as $tipo_usu) :  ?>
-                        <option value="<?php echo $tipo_usu[0]?>"><?php echo $tipo_usu[0]?></option>
+                        foreach ($query1 as $tipo_usu) :  ?>
+                        <option value="<?php echo $tipo_usu['id_tipo_usuario']?>"><?php echo $tipo_usu['nom_tipo_usuario']?></option>
                     <?php
                         endforeach;
                     ?>
@@ -80,7 +78,7 @@
                 </p>
                 <p>
                     <label for="email_per">E-mail Personal</label> 
-                    <input type="email" name="email per" id="email per">
+                    <input type="email" name="email_per" id="email per">
                 </p>
                 <p>
                     <label for="email_sena">E-mail Sena</label>
@@ -95,20 +93,20 @@
                     <input type="file" name="imagen" id="imagen">
                 </p>
                 <p>
-                    <button>Registrar</button>
+                    <input type="submit" value="Registrar" name="enviar1">
+                  
                 </p>
             </form>
         </div>
     </div>
-</body>
-</html>
+
 
 
 
     <div class="form1">
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
-    <form action="">
+    <form action="../insertarusuarios.php" method="POST">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_doc" id="id_doc">
@@ -118,7 +116,7 @@
             <input type="text" name="nom_doc" id="nom_doc">
         </p>
         <p>
-            <button>Guardar</button>
+        <input type="submit" value="Guardar" name="enviar2">
         </p>
     </form>
     </div>
@@ -137,7 +135,7 @@
             <input type="text" name="nom_usu" id="nom_usu">
         </p>
         <p>
-            <input type="submit" value="Guardar">
+        <input type="submit" value="Guardar" name="enviar3">
            
         </p>
     </form>
