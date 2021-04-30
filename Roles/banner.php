@@ -13,7 +13,7 @@
             <ul>
                 <li>
                     <a href="#">
-                        <span class="icon" > </span>
+                        <span class="icon" ><i class="fa fa-gavel" aria-hidden="true"></i></span>
                         <span class="title"><h2>Menu</h2></span>
                     </a>
                 </li>
@@ -27,37 +27,36 @@
 
                 <li>
                     <a href="../includes/pag_admin/usuarios.php">
-                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                         <span class="title">Usuarios</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="../includes/pag_admin/equipos.php">
-                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <span class="icon"><i class="fa fa-desktop" aria-hidden="true"></i></span>
                         <span class="title">Equipos</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="../includes/pag_admin/ambientes.php">
-                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <span class="icon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
                         <span class="title">Ambientes</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <span class="icon"> </span>
+                        <span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
                         <span class="title">Control</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
-                        <span class="icon"> </span>
-                        <!--Se envia al archivo salir.php para que se destruya la sesion-->
-                        <span class="title"><a href="../includes/salir.php">Salir</a> </span>
+                    <a href="../includes/salir.php">
+                        <span class="icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+                        <span class="title">Salir</span>
                     </a>
                 </li>
             </ul>
