@@ -29,6 +29,8 @@
                 <img src="../../assets/senaf.jpg" height="70px" alt="">
             </div>
         </div>
+        <main> 
+        </main>
 
         
         
@@ -45,5 +47,6 @@
             main.classList.toggle('active');
         }
     </script>
+    <script src="./../js/admin.js"></script>
 </body>
 </html>
