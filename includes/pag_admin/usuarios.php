@@ -1,14 +1,14 @@
 <?php
      require_once '../../conexion/conexion.php';
-?>
-<?php
-     $consul= "SELECT nom_documento FROM tipo_documento";
-     $query= mysqli_query($mysqli,$consul);
-     $respu= mysqli_fetch_assoc($query); 
 
-     $consul= "SELECT nom_tipo_usuario FROM tipo_usuario";
-     $query1= mysqli_query($mysqli,$consul);
-     $respu= mysqli_fetch_assoc($query1); 
+    function select($mysqli, $consulta){
+        $query= mysqli_query($mysqli,$consulta);
+        $db = mysqli_fetch_all($query) ;
+        return $db;
+    }
+     $consul= "SELECT nom_documento FROM tipo_documento";
+
+    $consul= "SELECT nom_tipo_usuario FROM tipo_usuario";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +17,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
-    <link rel="stylesheet" href="../../css/formu_user.css">
-    <link rel="stylesheet" href="../../css/formularios.css">
-
+    <link rel="stylesheet" href="../css/formu_user.css">
+    <link rel="stylesheet" href="./../../css/formu_user.css">
+    <link rel="stylesheet" href="./../../css/formularios.css">
 </head>
 <body>
     <div class="form">
@@ -37,8 +37,9 @@
                     <select name="tip_doc" id="tip_doc" required>
                     <option value="">Seleccione el Tipo de Documento</option>
                     <?php
-                        foreach ($query as $tipo_doc) :  ?>
-                        <option value="<?php echo $tipo_doc['nom_documento']?>"><?php echo $tipo_doc['nom_documento']?></option>
+                        $tipo_docu= select($mysqli, "SELECT nom_documento FROM tipo_documento");
+                        foreach ($tipo_docu as $tipo_doc) :  ?>
+                        <option value="<?php echo $tipo_doc[07]?>"><?php echo $tipo_doc[0] ;?></option>
                     <?php
                         endforeach;
                     ?>
@@ -49,8 +50,9 @@
                     <select name="tip_usu" id="tip_usu" required>
                     <option value="">Seleccione el Tipo de Usuario</option>
                     <?php
-                        foreach ($query1 as $tipo_usu) :  ?>
-                        <option value="<?php echo $tipo_usu['nom_tipo_usuario']?>"><?php echo $tipo_usu['nom_tipo_usuario']?></option>
+                        $tipoUsua = select($mysqli, "SELECT nom_tipo_usuario from tipo_usuario");
+                        foreach ($tipoUsua as $tipo_usu) :  ?>
+                        <option value="<?php echo $tipo_usu[0]?>"><?php echo $tipo_usu[0]?></option>
                     <?php
                         endforeach;
                     ?>
@@ -98,7 +100,8 @@
             </form>
         </div>
     </div>
-
+</body>
+</html>
 
 
 
