@@ -25,7 +25,7 @@
                 
             </div>
             <div class="user">
-                <img src="../contruccion/img/C.C.1005712070.JPG" height="70px" alt="">
+                <img src="../assets/senaf.jpg" height="70px" alt="">
             </div>
         </div>
 
