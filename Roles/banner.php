@@ -56,7 +56,8 @@
                 <li>
                     <a href="#">
                         <span class="icon"> </span>
-                        <span class="title">Salir</span>
+                        <!--Se envia al archivo salir.php para que se destruya la sesion-->
+                        <span class="title"><a href="../includes/salir.php">Salir</a> </span>
                     </a>
                 </li>
             </ul>
