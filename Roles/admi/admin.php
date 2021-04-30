@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="./../../css/admin.css">
     <!-- <link rel="stylesheet" href="./css/calendario.css"> -->
 </head>
 <body>
@@ -29,25 +30,44 @@
             </div>
         </div>
 
-        <!-- calendario 
-            <div class="cardBox">
-                <div class="root">
-                    <div class="calendar" id="calendar">
-            
-                    </div>
+        <div class="cardBox">
+            <div class="card">
+                <div>
+                    <div><img src="../../assets/senaf.jpg" alt=""> </div>
+                    <div><p>Lorem ipsum dolor sit amet consectetur adipisicing s e consequuntur, architecto suscipit velit debitis.</p></div>
                 </div>
-                <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-                <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
-                <script  type="text/javascript" src="./js/calendar.js"></script>
-                <script type="text/javascript">
-                    let calendar = new Calendar('calendar');
-                    calendar.getElement().addEventListener('change', e => {
-                        console.log(calendar.value().format('LLL'));
-                    });
-                </script>   
             </div>
-        </div>-->
-    <!-- MENU -->
+        
+
+        
+            <div class="card">
+                <div>
+                    <div><img src="../../assets/senaf.jpg" alt=""> </div>
+                    <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis est qs nisi, earum sapiente cosuscipit velit debitis.</p></div>
+                </div>
+            </div>
+        
+
+        
+            <div class="card">
+                <div>
+                    <div><img src="../../assets/senaf.jpg" alt=""> </div>
+                    <div><p>Lorem ipsum dolor sit amet consectetur adipisicing els nisi, earum sapiente consequuntur, architecto suscipit velit debitis.</p></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cardBox2">
+            <div class="card2">
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis neque blanditiis quae distinctio assumenda itaque dolorem delectus. A, aspernatur repudiandae? Assumenda, libero! Quae laboriosam sit mollitia cum expedita? Commodi, mollitia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus delectus, blanditiis aliquid magni nulla pariatur enim illo ratione non impedit debitis quos porro doloribus itaque? Placeat, mollitia. Exercitationem, eum nulla!</p>
+                </div>
+                <div><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim et labore necessitatibus, pariatur, debitis amet omnis maxime unde exercitationem repudiandae facere aperiam repellat optio, modi dignissimos adipisci consequatur beatae quia?</p></div>
+                <div><img src="../../assets/sena.jpg" alt=""></div>
+            </div>
+        </div>
+        
     
     
     <script>
