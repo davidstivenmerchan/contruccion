@@ -32,6 +32,7 @@ const $elemento = document.querySelectorAll('.navigation ul li a');
 console.log($elemento);
 $elemento.forEach( el =>{
     el.addEventListener('click' , (e) => {
+        if(el.classList.contains('salir')) return;
         e.preventDefault();
         // console.log(el.href);
         if(el.classList.contains('primero')) return ;

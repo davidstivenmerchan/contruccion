@@ -54,7 +54,7 @@
                 </li>
 
                 <li>
-                    <a href="../includes/salir.php">
+                    <a href="../../includes/salir.php" class="salir">
                         <span class="icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
                         <span class="title">Salir</span>
                     </a>
