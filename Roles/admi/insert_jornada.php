@@ -1,5 +1,5 @@
 <?php
-include '../conexion/conexion.php';
+include('../../includes/conexion.php');
 
     $id_jornada = $_POST['id_jornada'];
     $nom_jornada = $_POST['nom_jornada'];

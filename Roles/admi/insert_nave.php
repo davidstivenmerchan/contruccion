@@ -1,5 +1,5 @@
 <?php
-include '../conexion/conexion.php';
+include('../../includes/conexion.php');
 
     $id_nave = $_POST['id_nave'];
     $nom_nave = $_POST['nom_nave'];
