@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="./../../css/admin.css">
     <!-- <link rel="stylesheet" href="./css/calendario.css"> -->
 </head>
 <body>
@@ -23,30 +26,14 @@
                 
             </div>
             <div class="user">
-                <img src="../contruccion/img/C.C.1005712070.JPG" height="70px" alt="">
+                <img src="../../assets/senaf.jpg" height="70px" alt="">
             </div>
         </div>
+        <main> 
+        </main>
 
-        <!-- calendario 
-            <div class="cardBox">
-                <div class="root">
-                    <div class="calendar" id="calendar">
-            
-                    </div>
-                </div>
-                <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-                <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
-                <script  type="text/javascript" src="./js/calendar.js"></script>
-                <script type="text/javascript">
-                    let calendar = new Calendar('calendar');
-                    calendar.getElement().addEventListener('change', e => {
-                        console.log(calendar.value().format('LLL'));
-                    });
-                </script>   
-            </div>
-        </div>-->
-    <!-- MENU -->
-
+        
+        
     
     
     <script>
@@ -60,5 +47,6 @@
             main.classList.toggle('active');
         }
     </script>
+    <script src="./../js/admin.js"></script>
 </body>
 </html>

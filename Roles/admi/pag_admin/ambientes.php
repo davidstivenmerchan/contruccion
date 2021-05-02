@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../css/formularios2.css">
+    <link rel="stylesheet" href="../../../css/formularios2.css">
 </head>
 <body>
 <div class="form1">
     <p type="title">Crear Naves</p>
     <div class="linea"></div>
-    <form action="">
+    <form action="../insert_nave.php" method="post">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_nave" id="id_nave">
@@ -29,7 +29,7 @@
 <div class="form1">
     <p type="title">Crear la jornada</p>
     <div class="linea"></div>
-    <form action="">
+    <form action="../insert_jornada.php" method="post">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_jornada" id="id_jornada">
@@ -47,7 +47,7 @@
 <div class="form1">
     <p type="title">Crear la Formacion</p>
     <div class="linea"></div>
-    <form action="">
+    <form action="../insert_formacion.php" method="post">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_formacion" id="id_formacion">

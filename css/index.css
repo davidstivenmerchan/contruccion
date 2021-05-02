@@ -1,7 +1,7 @@
 body{
     margin: 0;
     min-height: 100vh;
-    background-image: url(../img/fondocirculo.png);
+    background-image: url(../assets/fondocirculo.png);
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(5px);
@@ -25,7 +25,7 @@ body:before{
 .contenedor{
     width: 600px;
     height: 400px;
-    background-color: rgba(255, 103, 25, 0.3);
+    
     border-radius: 15px;
 }
 .contenedor h1{
@@ -52,6 +52,7 @@ body:before{
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: arial;
+    outline: 0;
 }
 .contenedor input[type= "submit"]{
     width: 400px;

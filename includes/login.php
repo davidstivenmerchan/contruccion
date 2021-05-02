@@ -1,7 +1,8 @@
 <?php
-require_once ("../conexion/conexion.php");
+require_once './conexion.php';
+session_start();
 
-if ($_POST['ingresar']){
+if (isset($_POST['ingresar'])){
 
     $usuario=$_POST['re_usu'];
     $clave=$_POST['re_con'];
@@ -10,6 +11,7 @@ if ($_POST['ingresar']){
     $query= mysqli_query($mysqli,$sql);
     $datos= mysqli_fetch_assoc($query);
 
+    // var_dump($datos);
     if ($datos){
 
         $_SESSION['cc'] = $datos['cedula'];
@@ -31,20 +33,22 @@ if ($_POST['ingresar']){
 
         
         if($_SESSION['tipo_usu']==1){
-            header("location: ../Roles/admin.php");
+            header("location: ../Roles/admi/admin.php");
             exit();
         }
         if($_SESSION['tipo_usu']==2){
-            header("location: ../Roles/instructor.php");
+            header("location: ../Roles/instru/instructor.php");
             exit();
         }
         else{
-            header("location: error.htmls");
+            header("location: error.html");
             exit();
         }
 
     }
 
+}else {
+    echo "ñero aca hay nada";
 }
 
 

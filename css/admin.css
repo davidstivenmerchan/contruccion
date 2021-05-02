@@ -179,7 +179,36 @@ body{
 }
 
 .cardBox{
-    margin-top: 100px;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat( 3,1fr );
+    grid-gap: 20px;
+}
+
+.cardBox .card{
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.cardBox2{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    
+}
+
+.cardBox2 .card2{
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 
