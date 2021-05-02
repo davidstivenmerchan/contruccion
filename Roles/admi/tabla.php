@@ -29,26 +29,27 @@ $respu4= mysqli_fetch_assoc($query4);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/tabla.css">
     <link rel="stylesheet" href="../../css/formu_user.css">
    
     <title>Document</title>
 </head>
 <body>
-<h1>TABLAAAA!!! </h1>
+<h1>Registro de Dispositivos Electronicos </h1>
 
-<form action="">
+<form action="registro_dispositivo_e.php" method="POST" class="fommu">
 
 <p>
     <label for="serial">Serial</label>
-    <input type="number" name="serial" id="serial">
+    <input type="number" name="serial" id="serial" >
 </p>
 <p>
     <label for="placa_sena">Placa Sena</label>
-    <input type="text" name="placa_sena" id="placa_sena">
+    <input type="text" name="placa_sena" id="placa_sena" autocomplete="off">
 </p>
 <p>
     <label for="nom_dispositivo">Nombre Dispositivo</label>
-    <input type="text" name="nom_dispositivo" id="nom_dispositivo">
+    <input type="text" name="nom_dispositivo" id="nom_dispositivo" autocomplete="off">
 </p>
 <!-- selectores  -->
 <select name="id_tipo_dis" id="id_tipo_dis" required>
@@ -91,9 +92,7 @@ $respu4= mysqli_fetch_assoc($query4);
 ?>
 </select>
 
-
-
-
+<input type="submit" value="REGISTRAR" name="registrar" class="resgi">
 </form>
 </body>
 </html>
