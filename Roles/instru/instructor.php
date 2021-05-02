@@ -1,5 +1,5 @@
 <?php
-  require_once ('../../includes/conexion.php')   
+  require_once ('../../includes/conexion.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
