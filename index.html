@@ -21,19 +21,35 @@
             </nav>
             <div class="opciones">
                 <a href="#"><button class="registrate"> Registrate </button></a>
-                <a href="./login.html"><button class="iniciosesion"> Iniciar sesion</button></a>
+                <button class="iniciosesion" onclick="aparecer()"> Iniciar sesion</button>
             </div>
         </header>
         <figure class="banner">
             <img src="./assets/unnamed.png" alt="industria y construccion" title="industria y construccion">
         </figure>
+        <h3>SISTEMA DE ENTRADA Y SALIDA DE APRENDICES SENA</h3>
+        <div class="login-box" id="login">
+            <img src="assets/logo_solo.png" class="avatar" alt="avatar image">
+            <h1>INICIAR SESION</h1>
+            <form method= "post" name="form1" id="form1" action="includes/login.php" autocomplete="off"> 
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario"> 
+            <label for="password">Contraseña</label>
+            <input type="password" name="clave" id="password" placeholder="Ingrese su contraseña">
+            <input type="submit" name="ingresar" id="inicio" value="Ingresar">
+            <a href="includes/recuperar_clave.html">Recordar Contraseña</a><br>
+            <img src="assets/marca-x.png" alt="cerrar" class="cerrar" width="20px" height="20px" onclick="desaparecer()">
+            </form>
+        </div>
+
+
         <section class="servicios">
             <h2>SERVICIOS</h2>
             <hr>
             <div class="cards">
                 <figure class="card">
                     <img src="./assets/activo-5.jpg" alt="">
-                    <p>
+                    <p align="justify">
                         Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
                         de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
                     </p>
@@ -41,17 +57,18 @@
                 </figure>
                 <figure class="card">
                     <img src="./assets/Group_45.jpg" alt="">
-                    <p>
-                        Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
-                        de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
+                    <p align="justify">
+                        En este sistema nos basamos en la asignacion de equipos de computo a los aprendices, con el fin de que no se presenten
+                        molestias, ni perdida de tiempo a la hora de trabajar de los aprendices  
                     </p>
                     <button> Leer mas </button>
                 </figure>
                 <figure class="card">
                     <img src="./assets/Group_45.jpg" alt="">
-                    <p>
-                        Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
-                        de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
+                    <p align="justify">
+                        Este sistema busca ahorrar tiempo a la hora de iniciar las clases y de automatizar procesos tan
+                        sencillos como lo es la entrada y salida de los aprendices y la asignacion de equipos, teniendo un
+                        reporte del uso de estos.
                     </p>
                     <button> Leer mas </button>
                 </figure>
@@ -60,34 +77,31 @@
         <section class="nosotros">
             <h2>NOSOTROS</h2>
             <div class="nosotrosconte">
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur a dolorem 
-                    excepturi nemo explicabo unde expedita tempora amet? Totam, possimus dolores.
-                    Iusto corrupti nihil eum unde fuga a, dicta aperiam.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur a dolorem 
-                    excepturi nemo explicabo unde expedita tempora amet? Totam, possimus dolores.
-                    Iusto corrupti nihil eum unde fuga a, dicta aperiam.
+                <p align="justify">
+                    Somos un grupo de aprendices que busca dar soluciones a problemas sencillos de nuestra institucion,
+                    esperamos innovar en procesos que hacemos rutinariamente cuando ingresamos al ambiente de formacion;
+                    con esta aplicacion buscamos facilitar funciones del instructor como del aprendiz, estamos comprometidos
+                    con ayudar y aprender del SENA para seguir formandonos como buenas personas para la productividad
+                    de nuestros estudios.
                 </p>
                 <figure>
                     <img src="./assets/descarga (8).jpg" alt="img nosotros" alt="img nosotros">
                 </figure>
             </div>
-            <article>
-                ¡!
-                
-            </article>
         </section>
         <section class="contactenos">
-            <h2>CONCTACTENOS</h2>
+            <h4>CONTACTENOS</h4>
             
             <div class="cont">
-                <article>
-                    Para cualquier inquietud . quja o reclamo , por favor conctactenos a la linea principal
-                    SENA REGIONAL TOLIMA.
-                    nuestras oficinas estan ubicadas en el centro de la industria y la construccion
+                <article  align="justify">
+                    Para cualquier queja o inquietud respecto a la aplicacion dejenos un mensaje, intentaremos
+                    darle solucion lo mas pronto posible.
+                    Si necesita ayuda sobre el manejo de la aplicacion dirijase al manual de usuario
+                    o haga clic aqui.
+                    Si quiere saber mas informacion llame a la linea 00000000 o dirijase a la oficina principal.
                 </article>
                 <form action="#" class="conctactenos" id="conctactenos">
-                    <h2>CONCTACTENOS</h2>
+                    <h2>CONTACTENOS</h2>
                     <label for="nombre">Nombre </label>
                     <input type="text" id="nombre" class="nombre" name="nombre" placeholder="escribe tu nombre...">
                     <label for="telefono"> Telefono </label>
@@ -131,4 +145,5 @@
         </footer>
     </div>
 </body>
+<script src="Roles/js/index.js"></script>
 </html>
