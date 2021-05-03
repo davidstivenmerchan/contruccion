@@ -72,6 +72,111 @@ header .opciones .registrate {
   color: #ff7402;
   border: 1px solid #ff7402;
 }
+.container h3{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 50px;
+  font-size: 80px;
+  margin-top: -400px;
+  width: 80vw;
+  color: white;
+}
+/* login */
+.login-box{
+  width: 320px;
+  height: 420px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  top: 57%;
+  left: 85%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+  transition: 0.10s;
+  visibility: hidden;
+  opacity: 0;
+}
+.login-box-activo{
+  visibility: visible;
+  opacity: 1;
+}
+.login-box .avatar{
+  width: 110px;
+  height: 110px;
+  border-radius: 30%;
+  position: absolute;
+  top: -65px;
+  left: calc(50% - 50px);
+}
+
+.login-box h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-box label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.login-box input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #FE6E00;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-box input[type="submit"]:hover {
+  cursor: pointer;
+  background:  white;;
+  color: black;
+}
+
+.login-box a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-box a:hover {
+  color: #fff;
+  text-align:  left;
+}
+.login-box .cerrar{
+  margin-left: 260px;
+  position: absolute;
+  margin-top: -370px;
+  cursor: pointer;
+}
 
 .banner {
   grid-area: header/banner;
@@ -100,12 +205,15 @@ header .opciones .registrate {
   width: 70%;
   align-items: center;
   margin: auto;
+  text-align: justify;
 }
 .servicios .cards {
   display: flex;
   justify-content: space-between;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  text-align: justify;
+  
 }
 .servicios .cards .card {
   display: flex;
@@ -162,8 +270,16 @@ header .opciones .registrate {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #000000;
+  color: white;
+  font-size: 20px;
 }
+.contactenos h4{
+  margin-left: -200px;
+  font-size: 50px;
+  margin-top: 30px;
+  color: black;
+}
+
 .contactenos .cont {
   width: 70%;
   display: grid;
@@ -173,25 +289,42 @@ header .opciones .registrate {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 15px;
+  height: 520px;
+  margin-top: -150px;
+
 }
 .contactenos .cont form h2 {
   text-align: center;
+  color: white;
+  font-size: 30px;
+  margin-top: 0px;
 }
 .contactenos .cont form input[type=text],
 .contactenos .cont form input[type=email] {
   width: 100%;
   height: 2rem;
   margin: 0.5rem 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  border-bottom: 1px solid #fff;
 }
 .contactenos .cont form a {
   text-decoration: none;
   margin: 0.5rem 0;
+  color: white;
 }
 .contactenos .cont form textarea {
   width: 100%;
   height: 6rem;
   resize: none;
+  background: transparent;
+  border: 1px solid #fff;
 }
 .contactenos .cont form .terminos {
   display: flex;
@@ -199,6 +332,7 @@ header .opciones .registrate {
 }
 .contactenos .cont form .terminos label {
   cursor: pointer;
+  color: white;
 }
 .contactenos .cont form input[type=submit] {
   align-self: center;
@@ -211,6 +345,7 @@ header .opciones .registrate {
   margin: 1rem 0;
   outline: 0;
   width: 70%;
+  font-size: 20px;
 }
 
 .organizaciones {
