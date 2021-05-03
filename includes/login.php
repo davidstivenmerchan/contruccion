@@ -4,8 +4,8 @@ session_start();
 
 if (isset($_POST['ingresar'])){
 
-    $usuario=$_POST['re_usu'];
-    $clave=$_POST['re_con'];
+    $usuario=$_POST['usuario'];
+    $clave=$_POST['clave'];
 
     $sql="SELECT * FROM usuarios WHERE documento='$usuario' AND password='$clave'";
     $query= mysqli_query($mysqli,$sql);
