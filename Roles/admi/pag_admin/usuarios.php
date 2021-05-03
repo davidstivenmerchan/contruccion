@@ -18,8 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
-    <link rel="stylesheet" href="../../css/formu_user.css">
-    <link rel="stylesheet" href="../../css/formularios.css">
+    <!-- <link rel="stylesheet" href="../../css/formu_user.css">
+    <link rel="stylesheet" href="../../css/formularios.css"> -->
 
 </head>
 <body>
