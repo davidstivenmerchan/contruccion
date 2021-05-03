@@ -11,7 +11,6 @@
     <!-- <link rel="stylesheet" href="./css/calendario.css"> -->
 </head>
 <body>
-    <div class="red"></div>
     <div class="container">
         <?php require './banner.php'; ?>
         <div class="topbar">

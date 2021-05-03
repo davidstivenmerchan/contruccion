@@ -31,7 +31,7 @@
         <div class="linea"></div>
         <img src="../../assets/Group_45.jpg" alt="holi">
         <div class="wrapper">
-            <form action="../insertarusuarios.php" method="POST">
+            <form action="insertarusuarios.php" method="POST">
                 <p>
                     <label for="doc">Documento</label>
                     <input type="number" name="doc">
@@ -110,7 +110,7 @@
     <div class="form1">
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
-    <form action="../insertarusuarios.php" method="POST">
+    <form action="insertarusuarios.php" method="POST">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_doc" id="id_doc">
@@ -129,7 +129,7 @@
     <div class="form1">
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
-    <form action="../insertarusuarios.php" method="POST">
+    <form action="insertarusuarios.php" method="POST">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_usu" id="id_usu">

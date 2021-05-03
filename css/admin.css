@@ -32,16 +32,6 @@ body{
     /* margin:70px auto; */
 }
 
-.red {
-    grid-column-start: 1 / -1;
-    grid-row: 1 / -1;
-    background-color: red;
-    border-radius:50%;
-     z-index: 100; 
-    width: 100vw;
-    height:100vh;
-    position:fixed;
-}
 .navigation{
     grid-area: banner;
 }
@@ -50,9 +40,18 @@ body{
     grid-area: header;
     display: flex;
     justify-content: space-between;
+    padding: 0 2rem;
     /* width: 200vw; */
     align-items: center;
     z-index: 300;
+}
+.topbar .toggle::before{
+    z-index: 10000;
+    font-family: "FontAwesome", sans-serif;
+    content: "";
+    color:#ffffff;
+    cursor:pointer;
+    font-size: 2rem;
 }
 .topbar .search{
     width:30vw;
