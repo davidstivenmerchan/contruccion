@@ -1,0 +1,16 @@
+
+.topbar{
+    padding: 0 3rem;
+}
+main{
+    width: 80vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    padding: auto;
+    gap: 1.5rem 0;
+}
+
+.form1{
+    margin: auto;
+}
