@@ -11,11 +11,9 @@
     <!-- <link rel="stylesheet" href="./css/calendario.css"> -->
 </head>
 <body>
+    <div class="red"></div>
     <div class="container">
         <?php require './banner.php'; ?>
-    </div>
-
-    <div class="main">
         <div class="topbar">
             <div class="toggle" onclick="toggleMenu();"></div>
             <div class="search">
@@ -31,11 +29,7 @@
         </div>
         <main> 
         </main>
-
-        
-        
-    
-    
+    </div>
     <script>
         function toggleMenu()
         {

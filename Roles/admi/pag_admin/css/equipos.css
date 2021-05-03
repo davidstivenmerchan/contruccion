@@ -1,0 +1,17 @@
+/* body{
+    width:50%;
+} */
+
+.topbar{
+    padding: 0 3rem;
+}
+main{
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    padding: auto;
+    gap: 2rem 0;
+}
+.form1 {
+    margin:auto;
+}

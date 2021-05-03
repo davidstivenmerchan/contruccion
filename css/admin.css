@@ -1,214 +1,90 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*  */
+html{
     font-family: 'Poppins', sans-serif;
-    
+    font-size:16px;
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
 }
 
 body{
     overflow-x: hidden;
+    padding: 0;
+    margin:0;
 }
 
-.container{
-    position: relative;
-    width: 100%;
+.container {
+    width:100vw;
+    min-width: 100%;
+    /* height: 100%; */
+    display:grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "banner header"
+                         "banner main";
+   
+    /* margin:70px auto; */
 }
 
-.navigation.active{
-    width: 60px;
+.red {
+    grid-column-start: 1 / -1;
+    grid-row: 1 / -1;
+    background-color: red;
+    border-radius:50%;
+     z-index: 100; 
+    width: 100vw;
+    height:100vh;
+    position:fixed;
 }
-
 .navigation{
-    position: fixed;
-    width: 300px;
-    height: 100%;
-    background-color: #e57816 !important;
-    transition: 0.5s;
-    overflow: hidden;
+    grid-area: banner;
 }
-
-.navigation ul{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-.navigation ul li{
-    position: relative;
-    width: 100%;
-}
-
-.navigation ul li:hover{
-    background: rgb(245, 187, 78);
-}
-
-.navigation ul li:nth-child(1){
-    margin-bottom: 20px;
-}
-
-.navigation ul li:nth-child(1):hover{
-    background: transparent;
-}
-
-.navigation ul li a{
-    position: relative;
-    display: block;
-    width: 100%;
-    display: flex;
-    text-decoration: none;
-    color: #fff;
-}
-
-.navigation ul li a .icon{
-    position: relative;
-    display: block;
-    min-width: 60px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-}
-
-.navigation ul li a .icon .fa{
-    color: #fff;
-    font-size: 24px;
-
-}
-
-.navigation ul li a .title{
-    position: relative;
-    display: block;
-    padding: 0 10px;
-    height: 60px;
-    line-height: 60px;
-    white-space: nowrap;
-}
-
-.main{
-    position: absolute;
-    width: calc(100% - 300px);
-    left: 300px;
-    min-height: 100vh;
-    background: #f5f5f5;
-    transition: 0.5s;
-}
-
-.main.active{
-    width: calc(100% - 60px);
-    left: 60px;
-}
-
-.main .topbar{
-    width: 100%;
-    background: #fff;
-    height: 60px;
-    padding: 0 10px;
+.topbar{
+    background-color: #bebcbc;
+    grid-area: header;
     display: flex;
     justify-content: space-between;
-    align-items: canter;
+    /* width: 200vw; */
+    align-items: center;
+    z-index: 300;
 }
-
-.toggle{
-    position: relative;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-}
-
-.toggle::before{
-    content: '\f0c9';
-    font-family: fontAwesome;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    line-height: 60px;
-    font-size: 24px;
-    text-align: center;
-    color: #111;
-}
-
-.search{
-    position: relative;
-    width: 400px;
-    margin: 0 10px;
-}
-
-.search label{
-    position: relative;
-    width: 100%;
+.topbar .search{
+    width:30vw;
 
 }
-
-.search label input{
-    width: 100%;
-    height: 40px;
-    border-radius: 40px;
-    padding: 5px 20px;
-    padding-left: 35px;
-    outline: none;
-    border: 1px solid rgb(0,0,0,0.2);
+.topbar .search input{
+    border-radius: 2rem;
+    width:100%;
+    height: 2.5rem;
+    border: thin solid #000000;
+    padding: 0 30px;
+    outline: 0;
+    margin:1rem 0 0 0;
 }
-
-.search label .fa{
-    position: absolute;
-    left: 15px;
-    top: 4px;
+.topbar .fa{
+    transform: translate(15px, -32px);
 }
-
-.user{
-    position: relative;
-    min-width: 50px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow:hidden;
-    cursor: pointer;
-}
-
-.user img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.cardBox{
-    position: relative;
-    width: 100%;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat( 3,1fr );
-    grid-gap: 20px;
-}
-
-.cardBox .card{
-    position: relative;
-    background-color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.cardBox2{
-    position: relative;
-    width: 100%;
-    padding: 20px;
+/* .topbar .user {
     
+} */
+.topbar .user img{
+    width: 50px;
+    height:50px;
+    border-radius:50%;
 }
-
-.cardBox2 .card2{
-    position: relative;
-    background-color: #fff;
-    padding: 20px;
-    justify-content: space-between;
-    cursor: pointer;
+main{
+    background-color: #bebcbc;
+    /* z-index: -100; */
+    width: 100%;
+    z-index: 100;
+    grid-area: main;
+    margin:auto;
 }
 
 
