@@ -1,73 +1,81 @@
 .navigation.active{
     width: 60px;
+    /* display: flex;
+    justify-content: center; */
+}
+.navigation.active ul li a .title{
+    display:none;
 }
 
-.navigation{
+/* .navigation{
     /* position: fixed; */
-    width: 300px;
+    /* width: 300px;
     max-width: 300px;
     height: 98%;
-    background-color: #e57816 !important;
     transition: 0.5s;
     overflow: hidden;
     z-index: 1000;
+} */ 
+/* .navigation ul li:hover{
+    background: rgb(245, 187, 78);
+} */
+
+/* .navigation ul li:nth-child(1){
+    margin-bottom: 20px;
+} */
+
+/* .navigation ul li:nth-child(1):hover{
+    background: transparent;
+} */
+
+.navigation{
+    background-color: #e57816 !important;
+    width:20vw;
+    /* display: flex;
+    flex-direction: column; */
+    padding: 6vh 0 0 0;
+    display: flex;
+    justify-content: flex-start;
+    transition: 0.5s;
+    overflow: hidden;
 }
 
-.navigation ul{
+.navigation ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     list-style: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* width: 100%; */
-}
+    height: 100vh;
+}   
 
 .navigation ul li{
-    position: relative;
-    left:-40px;
-    width: 22vw;
+    margin: 0;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
 }
 
+.navigation ul li a{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    text-decoration: none;
+}
+.navigation ul li a .fa{
+    font-size: 1.5rem;
+    color:#ffffff;
+}
+
+.navigation ul li a .title{
+    color:#ffffff;
+}
 .navigation ul li:hover{
     background: rgb(245, 187, 78);
-}
-
-.navigation ul li:nth-child(1){
-    margin-bottom: 20px;
-}
-
+} 
 .navigation ul li:nth-child(1):hover{
     background: transparent;
 }
 
-.navigation ul li a{
-    position: relative;
-    display: block;
-    width: 100%;
-    display: flex;
-    text-decoration: none;
-    color: #fff;
-}
 
-.navigation ul li a .icon{
-    position: relative;
-    display: block;
-    min-width: 60px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-}
 
-.navigation ul li a .icon .fa{
-    color: #fff;
-    font-size: 24px;
-
-}
-
-.navigation ul li a .title{
-    position: relative;
-    display: block;
-    padding: 0 10px;
-    height: 60px;
-    line-height: 60px;
-    white-space: nowrap;
-}
