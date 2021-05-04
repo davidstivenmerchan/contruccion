@@ -24,7 +24,7 @@ body{
     min-width: 100%;
     /* height: 100%; */
     display:grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: minmax(60px, auto) 1fr;
     grid-template-rows: repeat(2, auto);
     grid-template-areas: "banner header"
                          "banner main";
@@ -79,11 +79,27 @@ body{
 }
 main{
     background-color: #bebcbc;
-    /* z-index: -100; */
     width: 100%;
     z-index: 100;
     grid-area: main;
     margin:auto;
 }
 
+/* @media screen and (max-width: 900px){
+    .container{
+        /* display: grid;
+        grid-template-areas: "header header"
+                             "main main"; */
+    /* }
+     .navigation{
+        display: none;
+        transform: translateX(-80vw);
+    }
+    .topbar{
+        width: 100vw;
+    }
+    main{
+        width: 10vw;
+    } */
 
+/* }  */

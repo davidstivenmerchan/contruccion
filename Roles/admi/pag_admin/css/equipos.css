@@ -1,12 +1,18 @@
-/* body{
-    width:50%;
-} */
-
 .topbar{
-    padding: 0 3rem;
+    grid-area: header;
+    /* padding: 0 3rem; */
 }
+.navigation{
+    grid-area: banner;
+    max-width: 20vw;
+}
+
 main{
-    width: 80vw;
+    /* width: 80vw; */
+    /* width: ; */
+    width: 100%;
+    grid-area: main;
+    max-width: 100vw;
     display: grid;
     grid-template-columns: repeat(2, auto);
     padding: auto;
@@ -14,4 +20,5 @@ main{
 }
 .form1 {
     margin:auto;
+    width: 80%;
 }
