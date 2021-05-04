@@ -1,6 +1,10 @@
+main{
+    grid-area: main;
+    width: 100%;
+}
 .form{
     /* width: 100%; */
-    width: 78vw;
+    width:100%;
     margin:0;
     padding: 0;
     display: flex;

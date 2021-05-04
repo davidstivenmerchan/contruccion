@@ -31,6 +31,7 @@
 .navigation{
     background-color: #e57816 !important;
     width:20vw;
+    max-width: 20vw;
     /* display: flex;
     flex-direction: column; */
     padding: 6vh 0 0 0;
