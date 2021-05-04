@@ -12,11 +12,8 @@
 <body>
 <div class="navigation">
             <ul>
-                <li>
-                    <a href="#" class="primero">
-                        <span class="icon" ><i class="fa fa-gavel" aria-hidden="true"></i></span>
-                        <span class="title"><h2>Menu</h2></span>
-                    </a>
+                <li class="ip">
+                    <img src="../../assets/logo_sin_fondo.png" alt="" class="img"> 
                 </li>
 
                 <li>
