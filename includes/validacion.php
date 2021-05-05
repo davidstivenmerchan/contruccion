@@ -1,9 +1,9 @@
 <?php
    session_start();
 
-    if(!isset($_SESSION['cc']) || !isset($_SESSION['clave']))
+    if(!isset($_SESSION['clave']) || !isset($_SESSION['cc']))
     {
-       header("location: ../index.php");
+       header("location: ../../index.html");
         exit;
    }
 ?>   
