@@ -1,3 +1,5 @@
+import { aparecer, desaparecer } from './toogle_admin.js';
+
 const $main = document.querySelector("main");
 
 const getHTML = ({ url , success , error }) => {
@@ -44,3 +46,24 @@ $elemento.forEach( el =>{
         });
     });
 }); 
+
+
+
+/** a */
+document.addEventListener('click' , e => {
+
+    const formularios = [ 'form' , 'form1' , 'form2'];
+
+    if(e.target.matches('.aparecer')){
+        const [ , primera ] = e.target.classList;
+        const elemento = document.querySelector(`.${primera}`).getAttribute('data-form');
+        const nuevoArray = formularios.filter( (formulario )=> formulario !== elemento )
+        desaparecer( nuevoArray )
+        aparecer( elemento );
+    }
+    if(e.target.matches('.cerrar')){
+        const [ , primera ] = e.target.classList;
+        const elemento = document.querySelector(`.${primera}`).getAttribute('data-form');
+        desaparecer( [ elemento ] );
+    }
+});
