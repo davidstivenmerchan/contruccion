@@ -1,4 +1,8 @@
+<?php
+ 
+require_once("../../includes/validacion.php");
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
