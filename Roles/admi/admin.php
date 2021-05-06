@@ -44,6 +44,6 @@ require_once("../../includes/validacion.php");
             main.classList.toggle('active');
         }
     </script>
-    <script src="./../js/admin.js"></script>
+    <script src="./../js/admin.js" type="module"></script>
 </body>
 </html>
