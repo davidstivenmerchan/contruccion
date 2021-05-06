@@ -25,7 +25,7 @@ body{
     /* height: 100%; */
     display:grid;
     grid-template-columns: minmax(60px, auto) 1fr;
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: minmax(4rem, 4rem) 1fr;
     grid-template-areas: "banner header"
                          "banner main";
    

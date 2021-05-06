@@ -57,9 +57,11 @@
 }
 
 .navigation ul li a{
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: left;
+    align-items: center;
     text-decoration: none;
 }
 .navigation ul li a .fa{
