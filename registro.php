@@ -38,10 +38,10 @@
 
 <div class="papa">
     <h1>REGISTRO DE USUARIOS</h1>
-    <form action="">
+    <form action="registrousuarios/registro_usu.php" method="POST">
     <div>
         <input type="number" name="cc" id="" placeholder="Ingrese numero de documento">
-        <input type="text" name="cod_carnet" id="" placeholder="Ingrese su numero de carnet">
+        <input type="number" name="cod_carnet" id="" placeholder="Ingrese su numero de carnet">
         <input type="text" name="nom" id="" placeholder="Ingrese sus nombres">
     </div>
     <div>
@@ -51,8 +51,8 @@
     </div>
     <div>
         <input type="text" name="correo_s" id="" placeholder="Ingrese su correo sena">
-        <input type="number" name="correo_s" id="" placeholder="Ingrese su telefono">
-        <input type="text" name="correo_s" id="" placeholder="Ingrese su contraseña">
+        <input type="number" name="tell" id="" placeholder="Ingrese su telefono">
+        <input type="password" name="password" id="" placeholder="Ingrese su contraseña">
     </div>
     <div class="sele1">
         <select name="tip_doc" id="tip_doc" required>
@@ -129,7 +129,7 @@
         
     
     <div class="sele4">
-        <input type="submit" value="REGISTRAR">
+        <input type="submit" value="REGISTRAR" name="enviar">
     </div>
 
     
