@@ -69,7 +69,7 @@ select:focus{
 .sele4 input{
     width: 720px;
     height: 40px;
-    border-bottom: none;
+    border: black solid 1px;
     
 }
 .sele4 input:hover{
