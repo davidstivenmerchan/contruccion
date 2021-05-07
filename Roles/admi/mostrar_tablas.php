@@ -15,7 +15,7 @@
 </head>
 <body>
 
-        <table class="tabla" border="2">
+        <table class="tabla">
             <tr class="titulo">
                 
                 <td>Id Tipo Documento</td>
@@ -44,7 +44,7 @@
         </table>
 
 
-        <table class="tabla" border="1">
+        <table class="tabla">
             <tr class="titulo">
                 <td>Id Tipo Dispositivo</td>
                 <td>Nombre Tipo Dispositivo</td>
@@ -71,7 +71,7 @@
         
         </table>
 
-        <table class="tabla" border="1">
+        <table class="tabla">
             <tr class="titulo">
                 <td>Id Tipo Usuario</td>
                 <td>Nombre Tipo Usuario</td>
@@ -99,7 +99,7 @@
         </table>
 
 
-        <table class="tabla"  border="1">
+        <table class="tabla">
             <tr class="titulo">
                 <td>Id Salida</td>
                 <td>Fecha Salida</td>
@@ -137,7 +137,7 @@
         
         </table>
 
-        <table class="tabla"  border="1">
+        <table class="tabla">
             <tr class="titulo">
                 <td>Documento</td>
                 <td>Tipo Documento</td>
@@ -153,7 +153,7 @@
             </tr>
 
             <?php
-                 $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,Apellidos,fecha_nacimiento,genero,correo_personal,correo_sena,telefono
+                $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,Apellidos,fecha_nacimiento,genero,correo_personal,correo_sena,telefono
                         FROM usuarios,tipo_documento,tipo_usuario
                         WHERE usuarios.id_tipo_documento = tipo_documento.id_tipo_documento
                         AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario";
@@ -186,7 +186,7 @@
         </table>
 
 
-        <table class="tabla"  border="1">
+        <table class="tabla">
         <p style="margin : 50px;">Matricula</p>
             <tr class="titulo">
                 <td>Numero matricula</td>
