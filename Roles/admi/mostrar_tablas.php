@@ -11,12 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../css/mostrar_usu.css">
+    <link rel="stylesheet" href="../../css/mostrar_tablas.css">
 </head>
 <body>
 
-        <table class="documento" style="margin: 50px;" border="1">
-            <tr>
+        <table class="tabla" border="2">
+            <tr class="titulo">
+                
                 <td>Id Tipo Documento</td>
                 <td>Nombre Tipo Documento</td>
             </tr>
@@ -31,7 +32,7 @@
             ?>
 
 
-            <tr>
+            <tr class="datos">
                 <td><?php echo $mostrar['id_tipo_documento'] ?></td>
                 <td><?php echo $mostrar['nom_documento'] ?></td>
             </tr>
@@ -43,8 +44,8 @@
         </table>
 
 
-        <table class="dispositivo" style="margin: 50px;" border="1">
-            <tr>
+        <table class="tabla" border="1">
+            <tr class="titulo">
                 <td>Id Tipo Dispositivo</td>
                 <td>Nombre Tipo Dispositivo</td>
             </tr>
@@ -59,7 +60,7 @@
             ?>
 
 
-            <tr>
+            <tr class="datos">
                 <td><?php echo $mostrar['id_tipo_dispositivo'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_dispositivo'] ?></td>
             </tr>
@@ -70,8 +71,8 @@
         
         </table>
 
-        <table class="tipo_usuario" style="margin: 50px;" border="1">
-            <tr>
+        <table class="tabla" border="1">
+            <tr class="titulo">
                 <td>Id Tipo Usuario</td>
                 <td>Nombre Tipo Usuario</td>
             </tr>
@@ -86,7 +87,7 @@
             ?>
 
 
-            <tr>
+            <tr class="datos">
                 <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
             </tr>
@@ -98,8 +99,8 @@
         </table>
 
 
-        <table class="salida" style="margin: 50px;" border="1">
-            <tr>
+        <table class="tabla"  border="1">
+            <tr class="titulo">
                 <td>Id Salida</td>
                 <td>Fecha Salida</td>
                 <td>Hora Salida</td>
@@ -119,7 +120,7 @@
             ?>
 
 
-            <tr>
+            <tr class="datos">
                 <td><?php echo $mostrar['id_salida'] ?></td>
                 <td><?php echo $mostrar['fecha_salida'] ?></td>
                 <td><?php echo $mostrar['hora_salida'] ?></td>
@@ -136,8 +137,8 @@
         
         </table>
 
-        <table class="usuario" style="margin: 50px;" border="1">
-            <tr>
+        <table class="tabla"  border="1">
+            <tr class="titulo">
                 <td>Documento</td>
                 <td>Tipo Documento</td>
                 <td>Tipo Usuario</td>
@@ -164,7 +165,7 @@
             ?>
 
 
-            <tr>
+            <tr class="datos">
                 <td><?php echo $mostrar['documento'] ?></td>
                 <td><?php echo $mostrar['nom_documento'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
@@ -185,9 +186,9 @@
         </table>
 
 
-        <table class="matricula" style="margin: 50px;" border="1">
+        <table class="tabla"  border="1">
         <p style="margin : 50px;">Matricula</p>
-            <tr>
+            <tr class="titulo">
                 <td>Numero matricula</td>
                 <td>Fecha Matricula</td>
                 <td>Numero Ficha</td>
@@ -222,7 +223,7 @@
             ?>
 
 
-            <tr>
+            <tr class="datos">
                 <td><?php echo $mostrar['id_matricula'] ?></td>
                 <td><?php echo $mostrar['fecha_matricula'] ?></td>
                 <td><?php echo $mostrar['num_ficha'] ?></td>
