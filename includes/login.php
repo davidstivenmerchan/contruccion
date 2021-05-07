@@ -1,11 +1,15 @@
 <?php
-require_once './conexion.php';
+
 session_start();
 
+require_once 'conexion.php';
+
+?>
+<?php
 if (isset($_POST['ingresar'])){
 
-    $usuario=$_POST['re_usu'];
-    $clave=$_POST['re_con'];
+    $usuario=$_POST['usuario'];
+    $clave=$_POST['clave'];
 
     $sql="SELECT * FROM usuarios WHERE documento='$usuario' AND password='$clave'";
     $query= mysqli_query($mysqli,$sql);
@@ -13,8 +17,8 @@ if (isset($_POST['ingresar'])){
 
     // var_dump($datos);
     if ($datos){
-
-        $_SESSION['cc'] = $datos['cedula'];
+ 
+        $_SESSION['cc'] = $datos['documento'];
         $_SESSION['tipo_doc'] = $datos['id_tipo_documento'];
         $_SESSION['tipo_usu'] = $datos['id_tipo_usuario'];
         $_SESSION['cod_carnet'] = $datos['Cod_Carnet'];
@@ -52,3 +56,4 @@ if (isset($_POST['ingresar'])){
 }
 
 
+?>

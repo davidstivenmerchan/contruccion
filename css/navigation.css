@@ -1,0 +1,84 @@
+.navigation.active{
+    width: 60px;
+    padding: 0;
+}
+.navigation.active ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.navigation.active .ip{
+    margin: 0;
+}
+.navigation.active ul li a .title{
+    display:none;
+}
+.navigation.active ul li a .fa{
+    margin: 0 0 0 1vw;
+}
+.navigation.active .img{
+    visibility: hidden;
+    transition: 0.2s;
+}
+.navigation .img{
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 0 10vh 0;
+}
+.navigation .ip{
+    margin: 3rem 0;
+}
+.navigation{
+    background-color: #9E62F5 !important;
+    width:20vw;
+    max-width: 20vw;
+    padding: 10vh 0 0 0;
+    display: flex;
+    justify-content: flex-start;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    height: 100vh;
+}   
+
+.navigation ul li{
+    margin: 0;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.navigation ul li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-decoration: none;
+}
+.navigation ul li a .fa{
+    font-size: 1.5rem;
+    color:#ffffff;
+    margin: 0 50px;
+}
+
+.navigation ul li a .title{
+    color:#ffffff;
+}
+.navigation ul li:hover{
+    background: rgb(245, 187, 78);
+} 
+.navigation ul li:nth-child(1):hover{
+    background: transparent;
+}
+
+
+

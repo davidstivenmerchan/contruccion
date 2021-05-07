@@ -11,12 +11,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="../../css/mostrar_usu.css">
 </head>
 <body>
 
         <table class="documento" style="margin: 50px;" border="1">
             <tr>
+=======
+    <link rel="stylesheet" href="../../css/mostrar_tablas.css">
+</head>
+<body>
+
+        <table class="tabla">
+            <tr class="titulo">
+                
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td>Id Tipo Documento</td>
                 <td>Nombre Tipo Documento</td>
             </tr>
@@ -31,7 +41,11 @@
             ?>
 
 
+<<<<<<< HEAD
             <tr>
+=======
+            <tr class="datos">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td><?php echo $mostrar['id_tipo_documento'] ?></td>
                 <td><?php echo $mostrar['nom_documento'] ?></td>
             </tr>
@@ -43,8 +57,13 @@
         </table>
 
 
+<<<<<<< HEAD
         <table class="dispositivo" style="margin: 50px;" border="1">
             <tr>
+=======
+        <table class="tabla">
+            <tr class="titulo">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td>Id Tipo Dispositivo</td>
                 <td>Nombre Tipo Dispositivo</td>
             </tr>
@@ -59,7 +78,11 @@
             ?>
 
 
+<<<<<<< HEAD
             <tr>
+=======
+            <tr class="datos">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td><?php echo $mostrar['id_tipo_dispositivo'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_dispositivo'] ?></td>
             </tr>
@@ -70,8 +93,13 @@
         
         </table>
 
+<<<<<<< HEAD
         <table class="tipo_usuario" style="margin: 50px;" border="1">
             <tr>
+=======
+        <table class="tabla">
+            <tr class="titulo">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td>Id Tipo Usuario</td>
                 <td>Nombre Tipo Usuario</td>
             </tr>
@@ -86,7 +114,11 @@
             ?>
 
 
+<<<<<<< HEAD
             <tr>
+=======
+            <tr class="datos">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
             </tr>
@@ -98,8 +130,13 @@
         </table>
 
 
+<<<<<<< HEAD
         <table class="salida" style="margin: 50px;" border="1">
             <tr>
+=======
+        <table class="tabla">
+            <tr class="titulo">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td>Id Salida</td>
                 <td>Fecha Salida</td>
                 <td>Hora Salida</td>
@@ -119,7 +156,11 @@
             ?>
 
 
+<<<<<<< HEAD
             <tr>
+=======
+            <tr class="datos">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td><?php echo $mostrar['id_salida'] ?></td>
                 <td><?php echo $mostrar['fecha_salida'] ?></td>
                 <td><?php echo $mostrar['hora_salida'] ?></td>
@@ -136,8 +177,13 @@
         
         </table>
 
+<<<<<<< HEAD
         <table class="usuario" style="margin: 50px;" border="1">
             <tr>
+=======
+        <table class="tabla">
+            <tr class="titulo">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td>Documento</td>
                 <td>Tipo Documento</td>
                 <td>Tipo Usuario</td>
@@ -152,7 +198,11 @@
             </tr>
 
             <?php
+<<<<<<< HEAD
                  $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,Apellidos,fecha_nacimiento,genero,correo_personal,correo_sena,telefono
+=======
+                $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,Apellidos,fecha_nacimiento,genero,correo_personal,correo_sena,telefono
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                         FROM usuarios,tipo_documento,tipo_usuario
                         WHERE usuarios.id_tipo_documento = tipo_documento.id_tipo_documento
                         AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario";
@@ -164,7 +214,11 @@
             ?>
 
 
+<<<<<<< HEAD
             <tr>
+=======
+            <tr class="datos">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td><?php echo $mostrar['documento'] ?></td>
                 <td><?php echo $mostrar['nom_documento'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
@@ -185,9 +239,15 @@
         </table>
 
 
+<<<<<<< HEAD
         <table class="matricula" style="margin: 50px;" border="1">
         <p style="margin : 50px;">Matricula</p>
             <tr>
+=======
+        <table class="tabla">
+        <p style="margin : 50px;">Matricula</p>
+            <tr class="titulo">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td>Numero matricula</td>
                 <td>Fecha Matricula</td>
                 <td>Numero Ficha</td>
@@ -222,7 +282,11 @@
             ?>
 
 
+<<<<<<< HEAD
             <tr>
+=======
+            <tr class="datos">
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
                 <td><?php echo $mostrar['id_matricula'] ?></td>
                 <td><?php echo $mostrar['fecha_matricula'] ?></td>
                 <td><?php echo $mostrar['num_ficha'] ?></td>
@@ -241,7 +305,11 @@
                 }
                 ?>
         
+<<<<<<< HEAD
               
+=======
+        </table>
+>>>>>>> ffcc5701bba0f6a024e29f3b78966cc1762024f6
 
 
 

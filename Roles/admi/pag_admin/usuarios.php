@@ -17,20 +17,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
-    <link rel="stylesheet" href="../../../css/formu_user.css">
-    <link rel="stylesheet" href="../../../css/formularios.css">
+    <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
+    <!-- <link rel="stylesheet" href="../../css/formu_user.css">
+    <link rel="stylesheet" href="../../css/formularios.css"> -->
 
 </head>
 <body>
     <!-- <div class="container">
         <?php //require './banner.php'; ?>
     </div> -->
+    <section class="cards">
+        <div class="card">
+            <h3>Registrar usuario</h3>
+
+            <div class="botones">
+                <button class="aparecer formu1" data-form="form">APARECER</button>
+                <button class="cerrar formu1" data-form="form">CERRAR</button>
+            </div>
+        </div>
+        <div class="card">
+        <h3>Registrar tipo de documento</h3>
+
+            <div class="botones">
+                <button class="aparecer fomu2" data-form="form1">APARECER</button>
+                <button class="cerrar formu2" data-form="form1">CERRAR</button>
+            </div>
+        </div>
+        <div class="card">
+        <h3>Registrar tipo de usuario</h3>
+
+            <div class="botones">
+                <button class="aparecer formu3" data-form="form2">APARECER</button>
+                <button class="cerrar formu3" data-form="form2">CERRAR</button>
+            </div>
+        </div>
+    </section>
     <div class="form">
         <p>Crear usuarios</p>
         <div class="linea"></div>
-        <img src="img/usu.png" alt="">
+        <img src="../../assets/Group_45.jpg" alt="holi">
         <div class="wrapper">
-            <form action="../insertarusuarios.php" method="POST">
+            <form action="insertarusuarios.php" method="POST">
                 <p>
                     <label for="doc">Documento</label>
                     <input type="number" name="doc">
@@ -109,7 +136,7 @@
     <div class="form1">
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
-    <form action="../insertarusuarios.php" method="POST">
+    <form action="insertarusuarios.php" method="POST">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_doc" id="id_doc">
@@ -125,10 +152,10 @@
     </div>
 
 
-    <div class="form1">
+    <div class="form1 form2">
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
-    <form action="../insertarusuarios.php" method="POST">
+    <form action="insertarusuarios.php" method="POST">
         <p>
         <label for="id">ID</label><br>
         <input type="number" name="id_usu" id="id_usu">
