@@ -30,7 +30,7 @@
     margin: 3rem 0;
 }
 .navigation{
-    background-color: #9E62F5 !important;
+    background-color: rgb(245, 187, 78) !important;
     width:20vw;
     max-width: 20vw;
     padding: 10vh 0 0 0;
@@ -74,7 +74,7 @@
     color:#ffffff;
 }
 .navigation ul li:hover{
-    background: rgb(245, 187, 78);
+    background: #FF6719;
 } 
 .navigation ul li:nth-child(1):hover{
     background: transparent;
