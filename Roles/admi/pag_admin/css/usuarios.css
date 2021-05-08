@@ -48,7 +48,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    display:none;
+    /* display:none; */
     margin: 0 auto;
 }
 .form img{
@@ -120,4 +120,7 @@ main{
     /* display: block; */
     display: flex;
     justify-self: center;
+}
+.invisible{
+    display: none;
 }
