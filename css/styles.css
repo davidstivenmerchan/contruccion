@@ -410,4 +410,31 @@ footer {
   align-items: center;
 }
 
+.scroll-top-btn{
+  background-color: #f38200;
+  cursor: pointer;
+  position: fixed;
+  bottom: 2vh;
+  right: calc( 2rem + 1vw );
+  z-index: 999;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  outline: 0; 
+  border: none;
+  color:#000000;
+  transition: all 0.3s ease-out;
+}
+
+.scroll-top-btn:hover{
+  background-color: #0dce17 ;
+  color:#ffffff;
+}
+.hidden{
+  visibility: hidden;
+  opacity: 0;
+}
+
 /*# sourceMappingURL=styles.css.map */
