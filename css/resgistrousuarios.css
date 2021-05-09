@@ -32,6 +32,7 @@ select{
     margin-left: 50px;
     border: none;
     border-bottom: gray solid 2px;
+    width: 190px ;
 }
 select:focus{
     outline: none;
