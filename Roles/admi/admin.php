@@ -1,7 +1,17 @@
 <?php
  
 require_once("../../includes/validacion.php");
-
+require_once './../../includes/conexion.php';
+$documento = $_SESSION['cc'];
+$user = [];
+$sql = "SELECT nombres from usuarios where documento= ?";
+$query = mysqli_prepare($mysqli, $sql);
+$ok = mysqli_stmt_bind_param($query, 'i', $documento);
+$ok = mysqli_stmt_execute($query);
+$ok = mysqli_stmt_bind_result($query, $nombres);
+while(mysqli_stmt_fetch($query)){
+    array_push($user, ['nombres' => $nombres]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +37,7 @@ require_once("../../includes/validacion.php");
                 
             </div>
             <div class="user">
+                <?php echo $user[0]['nombres']; ?>
                 <img src="../../assets/senaf.jpg" height="70px" alt="">
             </div>
         </div>
