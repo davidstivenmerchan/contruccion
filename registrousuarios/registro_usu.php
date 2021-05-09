@@ -31,27 +31,60 @@ if(isset($_POST['enviar'])){
     '$nom','$ape','$date','$genero','$correo_p','$correo_s',$tell,'$password','$imagen')";
     $ejecu = mysqli_query($mysqli,$consulta1);
 
-    if($ejecu){
-        echo "<script> alert('Funciono el registro'); </script>";
-    }else{
-        echo "<script> alert('NO Funciono el registro'); </script>";
+
+
+    $consulta2 = "INSERT INTO ambiente(id_ambiente,id_nave) values($n_number_ambiente,$nave)";
+    $ejecu2=mysqli_query($mysqli,$consulta2);
+ 
+
+    $consulta3 = "INSERT INTO detalle_formacion(id_formacion,num_ficha,id_ambiente) 
+    values($formacion,$n_ficha,$n_number_ambiente)";
+    $ejecu3 = mysqli_query($mysqli,$consulta3);
+
+
+    $consulta4 = "SELECT MAX(`id_detalle_formacion`) FROM detalle_formacion";
+    $ejecu4=mysqli_query($mysqli,$consulta4);
+    $dato = mysqli_fetch_assoc($ejecu4);
+
+    if($dato){
+        $id_detalle_formacion= $dato["MAX(`id_detalle_formacion`)"];
+
+        echo $id_detalle_formacion;
     }
 
+    $consulta5 = "INSERT INTO matricula(id_detalle_formacion,documento,fecha_matricula,id_jornada)
+    values($id_detalle_formacion,$cedula,'$date_matricula',$jornada)";
+    $ejecu5 = mysqli_query($mysqli,$consulta5);
+ 
+    
 
+    if($ejecu){
 
+        if($ejecu2){
 
+            if($ejecu3){
 
+                if($ejecu4){
 
+                    if($ejecu5){
+                        echo "<script> alert('TODO FUNCIONO'); </script>";
+                    }else{
+                        echo "<script> alert('NO Funciono el registro 5'); </script>";
+                    }
+                }else{
+                    echo "<script> alert('NO Funciono el registro 4'); </script>";
+                }
+            }else{
 
-
-
+                echo "<script> alert('NO Funciono el registro 3'); </script>";
+            }
+        }else{
+            echo "<script> alert('NO Funciono el registro 2'); </script>";
+        }
+    }else{
+        echo "<script> alert('NO Funciono el registro 1'); </script>";
+    }
 }
-
-
-
-
-
-
 
 
 ?>
