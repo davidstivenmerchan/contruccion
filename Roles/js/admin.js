@@ -53,17 +53,32 @@ $elemento.forEach( el =>{
 document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2'];
+    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4'];
 
-    if(e.target.matches('.aparecer')){
+    const callAparecer = ( array ) =>{
         const [ , primera ] = e.target.classList;
         const elemento = document.querySelector(`.${primera}`).getAttribute('data-form');
-        const nuevoArray = formularios.filter( (formulario )=> formulario !== elemento )
+        const nuevoArray = array.filter( (formulario )=> formulario !== elemento );
         desaparecer( nuevoArray )
         aparecer( elemento );
     }
-    if(e.target.matches('.cerrar')){
+    
+    const callDesaparecer = () =>{
         const [ , primera ] = e.target.classList;
         const elemento = document.querySelector(`.${primera}`).getAttribute('data-form');
         desaparecer( [ elemento ] );
+    }
+
+    if(e.target.matches('.aparecer')){
+        callAparecer(formularios);
+    }
+    if(e.target.matches('.cerrar')){
+        callDesaparecer();
+    }
+    if(e.target.matches('.aparecerequipos')){
+        callAparecer(formula);
+    }
+    if(e.target.matches('.cerrarequipos')){
+        callDesaparecer();
     }
 });

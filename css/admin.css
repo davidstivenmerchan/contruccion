@@ -68,6 +68,12 @@ body{
 }
 .topbar .fa{
     transform: translate(15px, -32px);
+}.topbar .user{
+    width:10%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 /* .topbar .user {
     
