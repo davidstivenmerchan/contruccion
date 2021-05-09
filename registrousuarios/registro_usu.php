@@ -27,8 +27,8 @@ if(isset($_POST['enviar'])){
 
 
     $consulta1 = "INSERT INTO usuarios(documento,id_tipo_documento,id_tipo_usuario,Cod_Carnet,Nombres,Apellidos,
-    fecha_nacimiento,genero,correo_personal,correo_sena,telefono,password,foto) values($cedula,$tip_doc,$tip_usu,$cod_carnet,
-    '$nom','$ape','$date','$genero','$correo_p','$correo_s',$tell,'$password','$imagen')";
+    fecha_nacimiento,id_genero,correo_personal,correo_sena,telefono,password,foto) values($cedula,$tip_doc,$tip_usu,$cod_carnet,
+    '$nom','$ape','$date',$genero,'$correo_p','$correo_s',$tell,'$password','$imagen')";
     $ejecu = mysqli_query($mysqli,$consulta1);
 
 
