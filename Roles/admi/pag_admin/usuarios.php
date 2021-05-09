@@ -18,6 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
+    <link rel="stylesheet" href="../../css/mostrar_tablas.css">
 
 </head>
 <body>
@@ -48,6 +49,12 @@
         </div>
     </section>
     <div class="form">
+
+   
+   
+
+
+
         <p>Crear usuarios</p>
         <div class="linea"></div>
         <img src="../../assets/Group_45.jpg" alt="holi">
@@ -97,7 +104,7 @@
                     <label for="fecha">Fecha de Nacimiento</label>
                     <input type="date" name="fecha" id="fecha">
                 </p>
-                <p>
+                <p> 
                     <label for="genero">Genero</label>
                     <input type="text" name="genero" id="genero">
                 </p>
@@ -123,12 +130,45 @@
                 </p>
             </form>
         </div>
+
+    
     </div>
 
 
 
 
     <div class="form1">
+
+    <table class="tabla">
+            <tr class="titulo">
+                
+                <td>Id Tipo Documento</td>
+                <td>Nombre Tipo Documento</td>
+            </tr>
+
+            <?php
+                $sql="SELECT * FROM tipo_documento";
+                $result=mysqli_query($mysqli,$sql);
+
+                while($mostrar=mysqli_fetch_array($result)){
+
+                
+            ?>
+
+
+            <tr class="datos">
+                <td><?php echo $mostrar['id_tipo_documento'] ?></td>
+                <td><?php echo $mostrar['nom_documento'] ?></td>
+            </tr>
+            
+                <?php
+                }
+                ?>
+        
+        </table>
+
+
+
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
     <form action="insertarusuarios.php" method="POST">
@@ -148,6 +188,34 @@
 
 
     <div class="form1 form2">
+
+    <table class="tabla">
+            <tr class="titulo">
+                <td>Id Tipo Usuario</td>
+                <td>Nombre Tipo Usuario</td>
+            </tr>
+
+            <?php
+                $sql="SELECT * FROM tipo_usuario";
+                $result=mysqli_query($mysqli,$sql);
+
+                while($mostrar=mysqli_fetch_array($result)){
+
+                
+            ?>
+
+
+            <tr class="datos">
+                <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
+                <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
+            </tr>
+            
+                <?php
+                }
+                ?>
+        
+        </table>
+
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
     <form action="insertarusuarios.php" method="POST">

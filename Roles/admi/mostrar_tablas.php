@@ -153,10 +153,12 @@
             </tr>
 
             <?php
-                $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,Apellidos,fecha_nacimiento,genero,correo_personal,correo_sena,telefono
-                        FROM usuarios,tipo_documento,tipo_usuario
+                $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,
+                             Apellidos,fecha_nacimiento,nom_genero,correo_personal,correo_sena,telefono
+                        FROM usuarios,tipo_documento,tipo_usuario,genero
                         WHERE usuarios.id_tipo_documento = tipo_documento.id_tipo_documento
-                        AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario";
+                        AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario
+                        AND usuarios.id_genero = genero.id_genero";
                 $result=mysqli_query($mysqli,$sql);
 
                 while($mostrar=mysqli_fetch_array($result)){
@@ -173,7 +175,7 @@
                 <td><?php echo $mostrar['Nombres'] ?></td>
                 <td><?php echo $mostrar['Apellidos'] ?></td>
                 <td><?php echo $mostrar['fecha_nacimiento'] ?></td>
-                <td><?php echo $mostrar['genero'] ?></td>
+                <td><?php echo $mostrar['nom_genero'] ?></td>
                 <td><?php echo $mostrar['correo_personal'] ?></td>
                 <td><?php echo $mostrar['correo_sena'] ?></td>
                 <td><?php echo $mostrar['telefono'] ?></td>
