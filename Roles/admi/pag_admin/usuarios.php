@@ -24,38 +24,157 @@
 <body>
     <section class="cards">
         <div class="card">
-            <h3>Registrar usuario</h3>
+            <h3>Usuarios</h3>
 
             <div class="botones">
-                <button class="aparecer formu1" data-form="form">APARECER</button>
-                <button class="cerrar formu1" data-form="form">CERRAR</button>
+                <button class="aparecer formu1" data-form="form">VER TABLA</button>
+                <button class="aparecer formu4" data-form="form3">REGISTRAR</button>
             </div>
         </div>
         <div class="card">
-        <h3>Registrar tipo de documento</h3>
+        <h3>Tipo de documento</h3>
 
             <div class="botones">
-                <button class="aparecer fomu2" data-form="form1">APARECER</button>
-                <button class="cerrar formu2" data-form="form1">CERRAR</button>
+                <button class="aparecer fomu2" data-form="form1">VER TABLA</button>
+                <button class="aparecer formu5" data-form="form4">REGISTRAR</button>
             </div>
         </div>
         <div class="card">
-        <h3>Registrar tipo de usuario</h3>
+        <h3>Tipo de usuario</h3>
 
             <div class="botones">
-                <button class="aparecer formu3" data-form="form2">APARECER</button>
-                <button class="cerrar formu3" data-form="form2">CERRAR</button>
+                <button class="aparecer formu3" data-form="form2">VER TABLA</button>
+                <button class="aparecer formu6" data-form="form5">REGISTRAR</button>
             </div>
         </div>
     </section>
+
+    
     <div class="form">
+    <table class="tablausu">
+                <tr class="titulo">
+                    <td>Documento</td>
+                    <td>Tipo Documento</td>
+                    <td>Tipo Usuario</td>
+                    <td>Cod Carnet</td>
+                    <td>Nombres</td>
+                    <td>Apellidos</td>
+                    <td>Fecha Nacimiento</td>
+                    <td>Genero</td>
+                    <td>Correo Personal</td>
+                    <td>Correo SENA</td>
+                    <td>Telefono</td>
+                </tr>
+
+                <?php
+                    $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,
+                                Apellidos,fecha_nacimiento,nom_genero,correo_personal,correo_sena,telefono
+                            FROM usuarios,tipo_documento,tipo_usuario,genero
+                            WHERE usuarios.id_tipo_documento = tipo_documento.id_tipo_documento
+                            AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario
+                            AND usuarios.id_genero = genero.id_genero";
+                    $result=mysqli_query($mysqli,$sql);
+
+                    while($mostrar=mysqli_fetch_array($result)){
+
+                    
+                ?>
+
+
+                <tr class="datos">
+                    <td><?php echo $mostrar['documento'] ?></td>
+                    <td><?php echo $mostrar['nom_documento'] ?></td>
+                    <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
+                    <td><?php echo $mostrar['Cod_Carnet'] ?></td>
+                    <td><?php echo $mostrar['Nombres'] ?></td>
+                    <td><?php echo $mostrar['Apellidos'] ?></td>
+                    <td><?php echo $mostrar['fecha_nacimiento'] ?></td>
+                    <td><?php echo $mostrar['nom_genero'] ?></td>
+                    <td><?php echo $mostrar['correo_personal'] ?></td>
+                    <td><?php echo $mostrar['correo_sena'] ?></td>
+                    <td><?php echo $mostrar['telefono'] ?></td>
+                </tr>
+                
+                    <?php
+                    }
+                    ?>
+            
+        </table>
+    
+    </div>
+
+ 
+
+
+
+
+    <div class="form1">
+
+    <table class="tabla">
+            <tr class="titulo">
+                
+                <td>Id Tipo Documento</td>
+                <td>Nombre Tipo Documento</td>
+            </tr>
+
+            <?php
+                $sql="SELECT * FROM tipo_documento";
+                $result=mysqli_query($mysqli,$sql);
+
+                while($mostrar=mysqli_fetch_array($result)){
+
+                
+            ?>
+
+
+            <tr class="datos">
+                <td><?php echo $mostrar['id_tipo_documento'] ?></td>
+                <td><?php echo $mostrar['nom_documento'] ?></td>
+            </tr>
+            
+                <?php
+                }
+                ?>
+        
+        </table>
+    </div>
+
+
+    <div class="form1 form2">
+
+    <table class="tabla">
+            <tr class="titulo">
+                <td>Id Tipo Usuario</td>
+                <td>Nombre Tipo Usuario</td>
+            </tr>
+
+            <?php
+                $sql="SELECT * FROM tipo_usuario";
+                $result=mysqli_query($mysqli,$sql);
+
+                while($mostrar=mysqli_fetch_array($result)){
+
+                
+            ?>
+
+
+            <tr class="datos">
+                <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
+                <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
+            </tr>
+            
+                <?php
+                }
+                ?>
+        
+        </table>
 
    
+
    
-
-
-
-        <p>Crear usuarios</p>
+    </div>
+    <div class="form form1 form2 form3">
+    <p>Crear usuarios</p>
         <div class="linea"></div>
         <img src="../../assets/Group_45.jpg" alt="holi">
         <div class="wrapper">
@@ -130,45 +249,9 @@
                 </p>
             </form>
         </div>
-
-    
     </div>
 
-
-
-
-    <div class="form1">
-
-    <table class="tabla">
-            <tr class="titulo">
-                
-                <td>Id Tipo Documento</td>
-                <td>Nombre Tipo Documento</td>
-            </tr>
-
-            <?php
-                $sql="SELECT * FROM tipo_documento";
-                $result=mysqli_query($mysqli,$sql);
-
-                while($mostrar=mysqli_fetch_array($result)){
-
-                
-            ?>
-
-
-            <tr class="datos">
-                <td><?php echo $mostrar['id_tipo_documento'] ?></td>
-                <td><?php echo $mostrar['nom_documento'] ?></td>
-            </tr>
-            
-                <?php
-                }
-                ?>
-        
-        </table>
-
-
-
+    <div class="form form1 form2 form3 form4">
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
     <form action="insertarusuarios.php" method="POST">
@@ -184,38 +267,11 @@
         <input type="submit" value="Guardar" name="enviar2">
         </p>
     </form>
+
+
     </div>
 
-
-    <div class="form1 form2">
-
-    <table class="tabla">
-            <tr class="titulo">
-                <td>Id Tipo Usuario</td>
-                <td>Nombre Tipo Usuario</td>
-            </tr>
-
-            <?php
-                $sql="SELECT * FROM tipo_usuario";
-                $result=mysqli_query($mysqli,$sql);
-
-                while($mostrar=mysqli_fetch_array($result)){
-
-                
-            ?>
-
-
-            <tr class="datos">
-                <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
-                <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
-            </tr>
-            
-                <?php
-                }
-                ?>
-        
-        </table>
-
+    <div class="form form1 form2 form3 form4 form5">
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
     <form action="insertarusuarios.php" method="POST">
@@ -232,6 +288,13 @@
            
         </p>
     </form>
+
+
     </div>
+
+
+
+
+    
 </body>
 </html>
