@@ -4,7 +4,7 @@ const $main = document.querySelector("main");
 
 const getHTML = ({ url , success , error }) => {
 
-    const xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest(); 
     xhr.addEventListener('readystatechange' , e => {
         if(xhr.readyState !== 4) return ;
 
@@ -52,8 +52,8 @@ $elemento.forEach( el =>{
 /** a */
 document.addEventListener('click' , e => {
 
-    const formularios = [ 'form' , 'form1' , 'form2'];
-    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4'];
+    const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
+    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4','formu5','formu6','form7'];
 
     const callAparecer = ( array ) =>{
         const [ , primera ] = e.target.classList;
