@@ -81,7 +81,7 @@
                 ?>
 
 
-                <tr class="datos">
+                <tr class="datos" data-documento="<?php echo $mostrar['documento'];?> ">
                     <td><?php echo $mostrar['documento'] ?></td>
                     <td><?php echo $mostrar['nom_documento'] ?></td>
                     <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
