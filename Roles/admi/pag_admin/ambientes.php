@@ -70,7 +70,7 @@
                 <tr class="datos">
                     <td><?php echo $mostrar['id_nave'] ?></td>
                     <td><?php echo $mostrar['nom_nave'] ?></td>
-                  
+                
                 </tr>
                 
                     <?php
@@ -81,7 +81,7 @@
     
     </div>
 
- 
+
 
 
 
@@ -147,9 +147,9 @@
         
         </table>
 
-   
 
-   
+
+
     </div>
     <div class="form form1 form2 form3">
     <p type="title">Crear Nave</p>
@@ -164,15 +164,15 @@
         <p>
             <br>
             <br>
-           <br>
-           <br>
+            <br>
+            <br>
         <center>
 
         <input style="margin-left:70%;" type="submit" value="Crear" name="enviar3">
 
         </center>
         
-           
+        
         </p>
     </form>
     </div>
@@ -190,15 +190,15 @@
         <p>
             <br>
             <br>
-           <br>
-           <br>
+            <br>
+            <br>
         <center>
 
         <input style="margin-left:75%;" type="submit" value="Guardar" name="enviar3">
 
         </center>
         
-           
+
         </p>
     </form>
     
@@ -214,29 +214,25 @@
         <p type="nom">
             <label style="position:absolute; left:50%;" for="nom">Nombre del programa de formacion<br>
             <br>
-            <input style="" type="text" name="nom_usu" id="nom_usu">
+            <input style="position:absolute; left:50%;" type="text" name="nom_usu" id="nom_usu">
         </p>
         <p>
             <br>
             <br>
-           <br>
-           <br>
+            <br>
+            <br>
         <center>
 
         <input style="margin-left:75%;" type="submit" value="Guardar" name="enviar3">
 
         </center>
         
-           
+        
         </p>
     </form>
 
 
     </div>
 
-
-
-
-    
 </body>
 </html>
