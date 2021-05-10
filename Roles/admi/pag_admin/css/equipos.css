@@ -40,7 +40,7 @@ table td{
     border: none;
 }
 .tablas table td .acciones,
-table .acciones{
+table {
     width: 17rem;
 }
 .form1 {
