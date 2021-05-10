@@ -31,6 +31,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuarios</title>
     <link rel="stylesheet" href="css/resgistrousuarios.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
+    
 </head>
 <body>
 <div class="papadepapa">
@@ -145,5 +148,11 @@
     </form>   
     </div> 
 </div>
+
+<div class="ico">
+<a href="index.html"><i class="icono fas fa-sign-out-alt"></i></a>
+
+</div>
+
 </body>
 </html>
