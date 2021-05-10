@@ -68,11 +68,13 @@
 
                 <?php
                     $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,
-                                Apellidos,fecha_nacimiento,nom_genero,correo_personal,correo_sena,telefono
+                            Apellidos,fecha_nacimiento,nom_genero,correo_personal,correo_sena,telefono
                             FROM usuarios,tipo_documento,tipo_usuario,genero
                             WHERE usuarios.id_tipo_documento = tipo_documento.id_tipo_documento
                             AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario
-                            AND usuarios.id_genero = genero.id_genero";
+                            AND usuarios.id_genero = genero.id_genero
+                            AND tipo_usuario.id_tipo_usuario = 2";
+                            
                     $result=mysqli_query($mysqli,$sql);
 
                     while($mostrar=mysqli_fetch_array($result)){
