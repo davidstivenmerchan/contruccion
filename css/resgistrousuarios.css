@@ -79,3 +79,16 @@ select:focus{
     
     cursor: pointer;
 }
+.ico{
+    position: absolute;
+    top:20px;
+    left: 1080px;
+}
+.icono{
+    font-size: 50px;
+    color: black;
+
+}
+.icono:hover{
+    color: orange;
+}
