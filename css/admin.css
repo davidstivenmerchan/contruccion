@@ -36,7 +36,7 @@ body{
     grid-area: banner;
 }
 .topbar{
-    background-color: #EDEDED;
+    background-color: #CCCC;
     grid-area: header;
     display: flex;
     justify-content: space-between;
