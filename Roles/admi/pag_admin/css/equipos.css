@@ -16,12 +16,33 @@ main{
     
 }
 .forms{
-     display: flex;
-     justify-content: center;
+    display: flex;
+    justify-content: center;
     padding: auto;
     gap: 2rem 0;
 }
 
+.tablas{
+    display: none;
+}
+.tablas table, 
+table
+{
+    background-color: #ffffff;
+    border:none;
+    border-spacing: 0;
+    outline: 0;
+    width: 40vw;
+}
+.tablas table td, 
+table td{
+    height: 3rem;
+    border: none;
+}
+.tablas table td .acciones,
+table .acciones{
+    width: 17rem;
+}
 .form1 {
     display: none;
     margin:auto;
@@ -32,6 +53,9 @@ main{
     /* display: flex;
     justify-content: center; */
     display: block;
+}
+.form table .titulo{
+    background-color: #cc7a00;
 }
 
 .cards{
@@ -59,7 +83,7 @@ main{
     cursor: pointer;
     border: none;
     outline: 0;
-    width: 30%;
+    width: 40%;
     height: 2rem;
 }
 
