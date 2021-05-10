@@ -53,7 +53,7 @@ $elemento.forEach( el =>{
 document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
-    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4'];
+    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9'];
 
     const callAparecer = ( array ) =>{
         const [ , primera ] = e.target.classList;
