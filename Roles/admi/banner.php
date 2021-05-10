@@ -44,9 +44,9 @@
                 </li>
 
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
-                        <span class="title">Control</span>
+                    <a href="pag_admin/grupos.php">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="title">Grupos</span>
                     </a>
                 </li>
 

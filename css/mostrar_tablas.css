@@ -1,4 +1,3 @@
-
 .tabla{
     margin: 50px;
     width: 200px;
@@ -42,6 +41,17 @@
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
     border-color: rgb(10, 10, 14);
 }
+
+.tablausu .titulo{
+    background-color: #ff6b00;
+    font-style: italic;
+}
+
+.tablausu .titulo td{
+    color: white;
+    text-align: center;
+}
+
 .tablausu td{
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -49,4 +59,38 @@
     
     width: 30px;
     padding: 5px 5px;
+}
+
+.tablamatri{
+    margin: 50px;
+    width: 900px;
+    height: 300px;
+    Border-spacing:0;
+    background: white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    border-color: rgb(10, 10, 14);
+}
+
+.tablamatri .titulo{
+    background-color: #ff6b00;
+    font-style: italic;
+}
+
+.tablamatri .titulo td{
+    color: white;
+    text-align: center;
+}
+
+.tablamatri td{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    
+    width: 30px;
+    padding: 5px 5px;
+}
+
+.tablamatri .matricula{
+    width: 500px;
+    
 }
