@@ -14,7 +14,7 @@ main{
 }
 .cards .card{
     border-radius: 10px;
-    border: thin solid #000000;
+    box-shadow: 2px 2px 2px gray;
     background-color:#ffffff;
     display: flex;
     flex-direction: column;
@@ -22,9 +22,16 @@ main{
     height: 12rem;
     padding: 0 1rem;
 }
+.cards .card h3{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: gray;
+}
 .cards .card .botones{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-top: -50px;
 }
 .cards .card .botones button{
     cursor: pointer;
@@ -33,8 +40,14 @@ main{
     outline: 0;
 }
 .cards .card .botones .aparecer{
-    background-color: #00ff00;
-    color:#ffffff;
+    background-color: #ff6b00;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: white;
+}
+.cards .card .botones .fa{
+    font-size: 40px;
 }
 .cards .card .botones .cerrar{
     background-color: red;

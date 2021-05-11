@@ -38,15 +38,15 @@
 
                 <li>
                     <a href="pag_admin/ambientes.php">
-                        <span class="icon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
+                        <span class="icon"><i class="fa fa-building" aria-hidden="true"></i></span>
                         <span class="title">Ambientes</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
-                        <span class="title">Control</span>
+                    <a href="pag_admin/grupos.php">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="title">Grupos</span>
                     </a>
                 </li>
 
