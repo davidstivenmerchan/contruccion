@@ -17,6 +17,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
     <link rel="stylesheet" href="../../css/mostrar_tablas.css">
 
@@ -27,24 +29,24 @@
             <h3>Usuarios</h3>
 
             <div class="botones">
-                <button class="aparecer formu1" data-form="form">VER TABLA</button>
-                <button class="aparecer formu4" data-form="form3">REGISTRAR</button>
+                <span><button class="aparecer formu1" data-form="form"><i class="fa fa-file-alt" ></i></button></span>
+                <span><button class="aparecer formu4" data-form="form3"><i class="fa fa-keyboard"></i></button></span>
             </div>
         </div>
         <div class="card">
         <h3>Tipo de documento</h3>
 
             <div class="botones">
-                <button class="aparecer fomu2" data-form="form1">VER TABLA</button>
-                <button class="aparecer formu5" data-form="form4">REGISTRAR</button>
+                <span><button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt"></i></button></span>
+                <span><button class="aparecer formu5" data-form="form4"><i class="fa fa-keyboard"></i></button></span>
             </div>
         </div>
         <div class="card">
         <h3>Tipo de usuario</h3>
 
             <div class="botones">
-                <button class="aparecer formu3" data-form="form2">VER TABLA</button>
-                <button class="aparecer formu6" data-form="form5">REGISTRAR</button>
+                <span><button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt"></i></button></span>
+                <span><button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard"></i></button></span>
             </div>
         </div>
     </section>
