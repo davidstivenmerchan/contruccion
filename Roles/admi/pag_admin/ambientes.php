@@ -17,8 +17,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
     <link rel="stylesheet" href="../../css/mostrar_tablas.css">
 
@@ -29,24 +27,24 @@
             <h3>Naves</h3>
 
             <div class="botones">
-                <span><button class="aparecer formu1" data-form="form"><i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i></button></span>
-                <span><button class="aparecer formu4" data-form="form3"><i class="fa fa-keyboard" title="Registrar datos de Nave"></i></button></span>
+                <button class="aparecer formu1" data-form="form">VER TABLA</button>
+                <button class="aparecer formu4" data-form="form3">REGISTRAR</button>
             </div>
         </div>
         <div class="card">
         <h3>Jornada</h3>
 
             <div class="botones">
-                <span><button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt" title="Mostrar Datos de Jornada"></i></button></span>
-                <span><button class="aparecer formu5" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de Jornada"></i></button></span>
+                <button class="aparecer fomu2" data-form="form1">VER TABLA</button>
+                <button class="aparecer formu5" data-form="form4">REGISTRAR</button>
             </div>
         </div>
         <div class="card">
         <h3>Formacion</h3>
 
             <div class="botones">
-                <span><button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button></span>
-                <span><button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formacion"></i></button></span>
+                <button class="aparecer formu3" data-form="form2">VER TABLA</button>
+                <button class="aparecer formu6" data-form="form5">REGISTRAR</button>
             </div>
         </div>
     </section>
