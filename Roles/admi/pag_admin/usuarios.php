@@ -32,24 +32,24 @@
             <h3>Usuarios</h3>
 
             <div class="botones">
-                <span><button class="aparecer formu1" data-form="form"><i class="fa fa-file-alt" ></i></button></span>
-                <span><button class="aparecer formu4" data-form="form3"><i class="fa fa-keyboard"></i></button></span>
+                <span><button class="aparecer formu1" data-form="form"><i class="fa fa-file-alt" title="Mostrar Datos de Usuarios"></i></button></span>
+                <span><button class="aparecer formu4" data-form="form3"><i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i></button></span>
             </div>
         </div>
         <div class="card">
         <h3>Tipo de documento</h3>
 
             <div class="botones">
-                <span><button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt"></i></button></span>
-                <span><button class="aparecer formu5" data-form="form4"><i class="fa fa-keyboard"></i></button></span>
+                <span><button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt" title="Mostrar Datos de tipo documento"></i></button></span>
+                <span><button class="aparecer formu5" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de tipo documento"></i></button></span>
             </div>
         </div>
         <div class="card">
         <h3>Tipo de usuario</h3>
 
             <div class="botones">
-                <span><button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt"></i></button></span>
-                <span><button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard"></i></button></span>
+                <span><button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de tipo usuario"></i></button></span>
+                <span><button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de tipo usuario"></i></button></span>
             </div>
         </div>
     </section>
