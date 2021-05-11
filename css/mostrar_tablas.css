@@ -57,7 +57,7 @@
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     
-    width: 30px;
+    width: 100px;
     padding: 5px 5px;
 }
 
@@ -93,4 +93,20 @@
 .tablamatri .matricula{
     width: 500px;
     
+}
+.ico{
+    
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.ico:hover{
+    color: #ff6b00;
+}
+.imgss{
+    display: flex;
+    
+}
+.imgss *{
+    margin: 10px;
 }
