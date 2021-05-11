@@ -90,3 +90,10 @@ main{
     grid-area: main;
     margin:auto;
 }
+
+.container .topbar .user{
+    margin-right: 40px;
+    font-size: 18px;
+    text-align: center;
+    
+}

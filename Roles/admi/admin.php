@@ -1,5 +1,5 @@
 <?php
- 
+
 require_once("../../includes/validacion.php");
 require_once './../../includes/conexion.php';
 $documento = $_SESSION['cc'];
@@ -11,6 +11,22 @@ $ok = mysqli_stmt_execute($query);
 $ok = mysqli_stmt_bind_result($query, $nombres);
 while(mysqli_stmt_fetch($query)){
     array_push($user, ['nombres' => $nombres]);
+}
+?>
+
+<?php
+
+require_once("../../includes/validacion.php");
+require_once './../../includes/conexion.php';
+$documento = $_SESSION['cc'];
+$rol = [];
+$sql = "SELECT nom_tipo_usuario from tipo_usuario,usuarios where documento= ? AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario";
+$query = mysqli_prepare($mysqli, $sql);
+$ok = mysqli_stmt_bind_param($query, 'i', $documento);
+$ok = mysqli_stmt_execute($query);
+$ok = mysqli_stmt_bind_result($query, $tipo_usu);
+while(mysqli_stmt_fetch($query)){
+    array_push($rol, ['nom_tipo_usuario' => $tipo_usu]);
 }
 ?>
 
@@ -37,7 +53,9 @@ while(mysqli_stmt_fetch($query)){
             </div>
             <div class="user">
                 <?php echo $user[0]['nombres']; ?>
-                <img src="../../assets/senaf.jpg" height="70px" alt="">
+                <br>
+                <?php echo $rol[0]['nom_tipo_usuario']; ?>
+                <img  src="../../assets/senaf.jpg" height="70px" alt="">
             </div>
         </div>
         <main> 
