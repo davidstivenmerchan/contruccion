@@ -22,46 +22,46 @@
             <h3>Crear tipo de dispositivos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i> </button>
-                <button class="aparecerequipos formula6" data-form="formu5"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
+                <button class="aparecerequipos formula1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de tipo dispositivo"></i> </button>
+                <button class="aparecerequipos formula6" data-form="formu5"> <i class="fa fa-keyboard" title="Registrar datos tipo dispositivo"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear marca de equipos </h3>
         
             <div class="botones">
-                <button class="aparecerequipos formula2" data-form="formu1"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i></button>
-                <button class="aparecerequipos formula7" data-form="formu6"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
+                <button class="aparecerequipos formula2" data-form="formu1"> <i class="fa fa-file-alt" title="Mostrar Datos marca de equipos"></i></button>
+                <button class="aparecerequipos formula7" data-form="formu6"> <i class="fa fa-keyboard" title="Registrar dato marca de equipo"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear estado dispositivo </h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula3" data-form="formu2"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i></button>
-                <button class="aparecerequipos formula8" data-form="formu7"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
+                <button class="aparecerequipos formula3" data-form="formu2"> <i class="fa fa-file-alt" title="Mostrar Datos estados dispositivos"></i></button>
+                <button class="aparecerequipos formula8" data-form="formu7"> <i class="fa fa-keyboard" title="Registrar dato estado dispositivo"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear estado aprobacion</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula4" data-form="formu3"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i>  </button>
-                <button class="aparecerequipos formula9" data-form="formu8"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
+                <button class="aparecerequipos formula4" data-form="formu3"> <i class="fa fa-file-alt" title="Mostrar Datos de estados de aprobacion"></i>  </button>
+                <button class="aparecerequipos formula9" data-form="formu8"> <i class="fa fa-keyboard" title="Registrar dato estado de aprobacion"></i> </button>
             </div>
         </div>
         <div class="card">
-            <h3>crear disponibilidad</h3>
+            <h3>Crear disponibilidad</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula5" data-form="formu4"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i>  </button>
-                <button class="aparecerequipos formula10" data-form="formu9"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
+                <button class="aparecerequipos formula5" data-form="formu4"> <i class="fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad"></i>  </button>
+                <button class="aparecerequipos formula10" data-form="formu9"> <i class="fa fa-keyboard" title="Registrar dato de estado de disponibilidad"></i> </button>
             </div>
         </div>
     </section>
     <div class="forms">
         <div class="form">
-            <h2>tipo de dispositivos</h2>
+            <h2>Tipo de dispositivos</h2>
 
             <table class="tabla">
                 <tr class="titulo">
