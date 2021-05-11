@@ -1,6 +1,5 @@
 .topbar{
     grid-area: header;
-    /* padding: 0 3rem; */
 }
 .navigation{
     grid-area: banner;
@@ -8,12 +7,9 @@
 }
 
 main{
-    /* width: 80vw; */
-    /* width: ; */
     width: 100%;
     grid-area: main;
     max-width: 100vw;
-    
 }
 .forms{
     display: flex;
@@ -62,14 +58,11 @@ table .acciones {
 }
 
 .form{
-    /* display: flex;
-    justify-content: center; */
     display: block;
 }
 .form table .titulo{
-    background-color: #cc7a00;
+    background-color: #ff6b00;
 }
-
 .cards{
     width: 90%;
     margin: 2rem 2rem;
@@ -79,6 +72,8 @@ table .acciones {
     padding: auto;
 }
 .cards .card{
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px gray;
     height:8rem;
     background-color: #ffffff;
     display: flex;
@@ -86,10 +81,27 @@ table .acciones {
     justify-content: space-evenly;
     align-items: center;
 }
+.cards .card h3{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: gray;
+}
+.cards .card .botones .aparecerequipos{
+    background-color: #ff6b00;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+}
+.cards .card .botones .fa{
+    font-size: 30px;
+}
 .cards .card .botones{
     width: 70%;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-top: -20px;
 }
 .cards .card .botones button{
     cursor: pointer;
@@ -98,17 +110,6 @@ table .acciones {
     width: 40%;
     height: 2rem;
 }
-
-.cards .card .botones .aparecerequipos{
-    background-color: #2bff00;
-    color:#ffffff;
-}
-
-.cards .card .botones .cerrarequipos{
-    background-color: red;
-    color:#ffffff;
-}
-
 .invisible{
     display: none;
 }

@@ -8,9 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
-    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <link rel="stylesheet" href="../../css/formularios2.css">
     <link rel="stylesheet" href="./pag_admin/css/equipos.css">
     <link rel="stylesheet" href="./../../css/tablas.css">
@@ -22,40 +22,40 @@
             <h3>Crear tipo de dispositivos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula1" data-form="form"> MOSTAR TABLA </button>
-                <button class="aparecerequipos formula6" data-form="formu5"> REGISTAR </button>
+                <span><button class="aparecerequipos formula1" data-form="form"><i class="fa fa-file-alt" title="Mostrar Datos de Tipo de Dispositivo"></i></button></span>
+                <span><button class="aparecerequipos formula6" data-form="formu5"><i class="fa fa-keyboard" title="Registrar datos de Tipo de Dispositivo"></i></button></span>
             </div>
         </div>
         <div class="card">
             <h3>Crear la marca de los equipos </h3>
               
             <div class="botones">
-                <button class="aparecerequipos formula2" data-form="formu1"> MOSTAR TABLA</button>
-                <button class="aparecerequipos formula7" data-form="formu6"> REGISTAR </button>
+                <span><button class="aparecerequipos formula2" data-form="formu1"><i class="fa fa-file-alt" title="Mostrar Datos de Marca"></i></button></span>
+                <span><button class="aparecerequipos formula7" data-form="formu6"><i class="fa fa-keyboard" title="Registrar datos de Marca"></i></button></span>
             </div>
         </div>
         <div class="card">
             <h3>Crear estado del dispositivo </h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula3" data-form="formu2"> MOSTAR TABLA</button>
-                <button class="aparecerequipos formula8" data-form="formu7"> REGISTAR </button>
+                <span><button class="aparecerequipos formula3" data-form="formu2"><i class="fa fa-file-alt" title="Mostrar Datos de Estado del Dispositivo"></i></button></span>
+                <span><button class="aparecerequipos formula8" data-form="formu7"><i class="fa fa-keyboard" title="Registrar datos de Estado del Dispositivo"></i></button></span>
             </div>
         </div>
         <div class="card">
             <h3> Crear estado de aprobacion </h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula4" data-form="formu3"> MOSTAR TABLA  </button>
-                <button class="aparecerequipos formula9" data-form="formu8"> REGISTAR </button>
+                <span><button class="aparecerequipos formula4" data-form="formu3"><i class="fa fa-file-alt" title="Mostrar Datos de Estado de Aprobacion"></i></button></span>
+                <span><button class="aparecerequipos formula9" data-form="formu8"><i class="fa fa-keyboard" title="Registrar datos de Estado de Aprobacion"></i></button></span>
             </div>
         </div>
         <div class="card">
             <h3> crear estado de disponibilidad </h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula5" data-form="formu4"> MOSTAR TABLA  </button>
-                <button class="aparecerequipos formula10" data-form="formu9"> REGISTAR </button>
+                <span><button class="aparecerequipos formula5" data-form="formu4"><i class="fa fa-file-alt" title="Mostrar Datos de Estado de Disponibilidad"></i></button></span>
+                <span><button class="aparecerequipos formula10" data-form="formu9"><i class="fa fa-keyboard" title="Registrar datos de Estado de Disponibilidad"></i></button></span>
             </div>
         </div>
     </section>
@@ -95,7 +95,7 @@
             
             </table>
         </div>
-        <div class="formu1 tablas">
+        <div class="formu1_tablas">
             <h2>Marcas</h2>
 
 
