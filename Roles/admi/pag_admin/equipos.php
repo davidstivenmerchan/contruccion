@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="../../css/formularios2.css">
     <link rel="stylesheet" href="./pag_admin/css/equipos.css">
@@ -81,9 +83,9 @@
                 <tr class="datos">
                     <td><?php echo $mostrar['id_tipo_dispositivo'] ?></td>
                     <td><?php echo $mostrar['nom_tipo_dispositivo'] ?></td>
-                    <td>
-                        eliminar
-                        <td>editar</td>                        
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar">                     
                     </td>
                 </tr>
                 
@@ -109,10 +111,13 @@
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
-                <tr>
+                <tr class="datos">
                     <td><?php echo $eh['id_marca']?></td>
                     <td><?php echo $eh['nom_marca']?></td>
-
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar">                     
+                    </td>
                 </tr>
                 <?php
             } 
@@ -136,10 +141,13 @@
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
-                <tr>
+                <tr class="datos">
                     <td><?php echo $eh['id_estado_dispositivo']?></td>
                     <td><?php echo $eh['nom_estado_dispositivo']?></td>
-
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar">                     
+                    </td>
                 </tr>
                 <?php
             } 
@@ -155,7 +163,7 @@
                 <tr class="header">
                     <td>Id</td>
                     <td>Estado</td>
-
+                    <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
             $con = "SELECT * from estado_aprobacion";
@@ -163,10 +171,13 @@
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
-                <tr>
+                <tr class="datos">
                     <td><?php echo $eh['id_estado_aprobacion']?></td>
                     <td><?php echo $eh['nom_aprobacion']?></td>
-
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar">                     
+                    </td>
                 </tr>
                 <?php
             } 
@@ -182,7 +193,7 @@
                 <tr class="header">
                     <td>Id</td>
                     <td>Estado</td>
-
+                    <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
             $con = "SELECT * from estado_disponibilidad";
@@ -190,10 +201,13 @@
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
-                <tr>
+                <tr class="datos">
                     <td><?php echo $eh['id_estado_disponibilidad']?></td>
                     <td><?php echo $eh['nom_estado_disponibilidad']?></td>
-
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar">                     
+                    </td>
                 </tr>
                 <?php
             } 

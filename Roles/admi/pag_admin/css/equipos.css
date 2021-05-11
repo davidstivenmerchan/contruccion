@@ -40,8 +40,20 @@ table td{
     border: none;
 }
 .tablas table td .acciones,
-table {
-    width: 17rem;
+table .acciones {
+    width: 7rem;
+}
+.datos td img{
+    cursor: pointer;
+    width: 4vh;
+    height: 4vh;
+
+}
+.datos .imgs{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .form1 {
     display: none;
