@@ -21,6 +21,9 @@
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
     <link rel="stylesheet" href="../../css/mostrar_tablas.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
+   
 
 </head>
 <body>
@@ -66,6 +69,7 @@
                     <td>Correo Personal</td>
                     <td>Correo SENA</td>
                     <td>Telefono</td>
+                    <td>Acciones</td>
                 </tr>
 
                 <?php
@@ -97,6 +101,10 @@
                     <td><?php echo $mostrar['correo_personal'] ?></td>
                     <td><?php echo $mostrar['correo_sena'] ?></td>
                     <td><?php echo $mostrar['telefono'] ?></td>
+                    <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <i class="ico fas fa-trash"></i>               
+                    </td>
                 </tr>
                 
                     <?php
@@ -119,6 +127,7 @@
                 
                 <td>Id Tipo Documento</td>
                 <td>Nombre Tipo Documento</td>
+                <td>Acciones</td>
             </tr>
 
             <?php
@@ -134,6 +143,10 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_tipo_documento'] ?></td>
                 <td><?php echo $mostrar['nom_documento'] ?></td>
+                <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <i class="ico fas fa-trash"></i>               
+                    </td>
             </tr>
             
                 <?php
@@ -150,6 +163,7 @@
             <tr class="titulo">
                 <td>Id Tipo Usuario</td>
                 <td>Nombre Tipo Usuario</td>
+                <td>Acciones</td>
             </tr>
 
             <?php
@@ -165,6 +179,10 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
+                <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <i class="ico fas fa-trash"></i>               
+                    </td>
             </tr>
             
                 <?php
