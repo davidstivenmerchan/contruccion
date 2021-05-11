@@ -22,40 +22,40 @@
             <h3>Crear tipo de dispositivos</h3>
 
             <div class="botones">
-                <span> <button class="aparecerequipos formula1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i> </button> </span>
-                <button class="aparecerequipos formula6" data-form="formu5"> REGISTAR </button>
+                <button class="aparecerequipos formula1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i> </button>
+                <button class="aparecerequipos formula6" data-form="formu5"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
             </div>
         </div>
         <div class="card">
-            <h3>Crear la marca de los equipos </h3>
-              
+            <h3>Crear marca de equipos </h3>
+        
             <div class="botones">
-                <button class="aparecerequipos formula2" data-form="formu1"> MOSTAR TABLA</button>
-                <button class="aparecerequipos formula7" data-form="formu6"> REGISTAR </button>
+                <button class="aparecerequipos formula2" data-form="formu1"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i></button>
+                <button class="aparecerequipos formula7" data-form="formu6"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
             </div>
         </div>
         <div class="card">
-            <h3>Crear estado del dispositivo </h3>
+            <h3>Crear estado dispositivo </h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula3" data-form="formu2"> MOSTAR TABLA</button>
-                <button class="aparecerequipos formula8" data-form="formu7"> REGISTAR </button>
+                <button class="aparecerequipos formula3" data-form="formu2"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i></button>
+                <button class="aparecerequipos formula8" data-form="formu7"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
             </div>
         </div>
         <div class="card">
-            <h3> Crear estado de aprobacion </h3>
+            <h3>Crear estado aprobacion</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula4" data-form="formu3"> MOSTAR TABLA  </button>
-                <button class="aparecerequipos formula9" data-form="formu8"> REGISTAR </button>
+                <button class="aparecerequipos formula4" data-form="formu3"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i>  </button>
+                <button class="aparecerequipos formula9" data-form="formu8"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
             </div>
         </div>
         <div class="card">
-            <h3> crear estado de disponibilidad </h3>
+            <h3>crear disponibilidad</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula5" data-form="formu4"> MOSTAR TABLA  </button>
-                <button class="aparecerequipos formula10" data-form="formu9"> REGISTAR </button>
+                <button class="aparecerequipos formula5" data-form="formu4"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i>  </button>
+                <button class="aparecerequipos formula10" data-form="formu9"> <i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i> </button>
             </div>
         </div>
     </section>
@@ -65,9 +65,11 @@
 
             <table class="tabla">
                 <tr class="titulo">
-                    <td>Id Tipo Dispositivo</td>
-                    <td>Nombre Tipo Dispositivo</td>
-                    <td class="acciones"> Accciones </td>
+                    <tr class="header">
+                        <td>Id Tipo Dispositivo</td>
+                        <td>Nombre Tipo Dispositivo</td>
+                        <td class="acciones"> Accciones </td>
+                    </tr>
                 </tr>
 
                 <?php
