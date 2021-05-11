@@ -22,7 +22,7 @@
             <h3>Crear tipo de dispositivos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula1" data-form="form"> MOSTAR TABLA </button>
+                <span> <button class="aparecerequipos formula1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i> </button> </span>
                 <button class="aparecerequipos formula6" data-form="formu5"> REGISTAR </button>
             </div>
         </div>
