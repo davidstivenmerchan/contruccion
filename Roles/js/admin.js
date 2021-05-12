@@ -80,17 +80,11 @@ document.addEventListener('click' , e => {
     if(e.target.matches('.cerrar')){
         callDesaparecer();
     }
-<<<<<<< HEAD
+
     if(e.target.matches('.aparecerequipos') || e.target.matches('.aparecerequipos *')){
         callAparecer(formula);
     }
-    if(e.target.matches('.cerrarequipos')){
-=======
-    if(e.target.matches('.aparecerequipos')){       
-        callAparecer(formula);
-    }
     if(e.target.matches('.cerrarequipos')){    
->>>>>>> a4758d71ead6116f8af5b1814ca6fa21bcb3ec64
         callDesaparecer();
     }
 
