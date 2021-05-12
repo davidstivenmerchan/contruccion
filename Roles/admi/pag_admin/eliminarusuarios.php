@@ -12,7 +12,9 @@
     
 
     if($ejecucion){
-        echo "<script> alert('REGISTRO ELIMINADO CORRECTAMENTE'); </script>";
+        echo "<script> alert('eliminacion exitosa!');
+            window.location= '../admin.php';
+            </script>";
     }
 
 
