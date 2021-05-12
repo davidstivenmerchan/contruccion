@@ -27,24 +27,24 @@
             <h3>Naves</h3>
 
             <div class="botones">
-                <button class="aparecer formu1" data-form="form">VER TABLA</button>
-                <button class="aparecer formu4" data-form="form3">REGISTRAR</button>
+                <span><button class="aparecer formu1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i> </button></span>
+                <span><button class="aparecer formu4" data-form="form3"> <i class="fa fa-keyboard" title="Registrar datos de Naves"></i> </button></span>
             </div>
         </div>
         <div class="card">
         <h3>Jornada</h3>
 
             <div class="botones">
-                <button class="aparecer fomu2" data-form="form1">VER TABLA</button>
-                <button class="aparecer formu5" data-form="form4">REGISTRAR</button>
+                <span> <button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt" title="Mostrar Datos de Jornadas"></i></button> </span>
+                <span> <button class="aparecer formu5" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de Jornadas"></i></button> </span>
             </div>
         </div>
         <div class="card">
         <h3>Formacion</h3>
 
             <div class="botones">
-                <button class="aparecer formu3" data-form="form2">VER TABLA</button>
-                <button class="aparecer formu6" data-form="form5">REGISTRAR</button>
+                <span> <button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> </span>
+                <span> <button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
             </div>
         </div>
     </section>

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../../css/mostrar_tablas.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
+    <script src="../../js/confirmacioneliminar.js"></script>
    
 
 </head>
@@ -66,7 +67,6 @@
                     <td>Apellidos</td>
                     <td>Fecha Nacimiento</td>
                     <td>Genero</td>
-                    <td>Correo Personal</td>
                     <td>Correo SENA</td>
                     <td>Telefono</td>
                     <td>Acciones</td>
@@ -98,12 +98,11 @@
                     <td><?php echo $mostrar['Apellidos'] ?></td>
                     <td><?php echo $mostrar['fecha_nacimiento'] ?></td>
                     <td><?php echo $mostrar['nom_genero'] ?></td>
-                    <td><?php echo $mostrar['correo_personal'] ?></td>
                     <td><?php echo $mostrar['correo_sena'] ?></td>
                     <td><?php echo $mostrar['telefono'] ?></td>
                     <td class="imgss">
-                    <i class="ico fas fa-edit"></i> |    
-                    <i class="ico fas fa-trash"></i>               
+                    <a href=""><i class="ico fas fa-edit"></i></a> |    
+                    <a href="pag_admin/eliminarusuarios.php?id=<?php echo $mostrar['documento'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>               
                     </td>
                 </tr>
                 
@@ -145,7 +144,7 @@
                 <td><?php echo $mostrar['nom_documento'] ?></td>
                 <td class="imgss">
                     <i class="ico fas fa-edit"></i> |    
-                    <i class="ico fas fa-trash"></i>               
+                    <a href="pag_admin/eliminar_tipousuario.php?id=<?php echo $mostrar['id_tipo_documento'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
             </tr>
             
@@ -181,7 +180,7 @@
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
                 <td class="imgss">
                     <i class="ico fas fa-edit"></i> |    
-                    <i class="ico fas fa-trash"></i>               
+                    <a href="pag_admin/elimi_tipdocu.php?id=<?php echo $mostrar['id_tipo_usuario'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>             
                     </td>
             </tr>
             
