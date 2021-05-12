@@ -1,5 +1,20 @@
 <?php
     require_once './../../../includes/conexion.php';
+    $consulta1 = "SELECT * FROM tipo_dispositivo";
+    $query1= mysqli_query($mysqli,$consulta1);
+    $respu1= mysqli_fetch_assoc($query1); 
+
+    $consulta2 = "SELECT * FROM estado_disponibilidad";
+    $query2= mysqli_query($mysqli,$consulta2);
+    $respu2= mysqli_fetch_assoc($query2); 
+
+    $consulta3 = "SELECT * FROM estado_dispositivo";
+    $query3= mysqli_query($mysqli,$consulta3);
+    $respu3= mysqli_fetch_assoc($query3); 
+
+    $consulta4 = "SELECT * FROM marca";
+    $query4= mysqli_query($mysqli,$consulta4);
+    $respu4= mysqli_fetch_assoc($query4); 
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +38,7 @@
 
             <div class="botones">
                 <button class="aparecerequipos formula1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de tipo dispositivo"></i> </button>
-                <button class="aparecerequipos formula6" data-form="formu5"> <i class="fa fa-keyboard" title="Registrar datos tipo dispositivo"></i> </button>
+                <button class="aparecerequipos formula7" data-form="formu6"> <i class="fa fa-keyboard" title="Registrar datos tipo dispositivo"></i> </button>
             </div>
         </div>
         <div class="card">
@@ -31,7 +46,7 @@
         
             <div class="botones">
                 <button class="aparecerequipos formula2" data-form="formu1"> <i class="fa fa-file-alt" title="Mostrar Datos marca de equipos"></i></button>
-                <button class="aparecerequipos formula7" data-form="formu6"> <i class="fa fa-keyboard" title="Registrar dato marca de equipo"></i> </button>
+                <button class="aparecerequipos formula8" data-form="formu7"> <i class="fa fa-keyboard" title="Registrar dato marca de equipo"></i> </button>
             </div>
         </div>
         <div class="card">
@@ -39,7 +54,7 @@
 
             <div class="botones">
                 <button class="aparecerequipos formula3" data-form="formu2"> <i class="fa fa-file-alt" title="Mostrar Datos estados dispositivos"></i></button>
-                <button class="aparecerequipos formula8" data-form="formu7"> <i class="fa fa-keyboard" title="Registrar dato estado dispositivo"></i> </button>
+                <button class="aparecerequipos formula9" data-form="formu8"> <i class="fa fa-keyboard" title="Registrar dato estado dispositivo"></i> </button>
             </div>
         </div>
         <div class="card">
@@ -47,7 +62,7 @@
 
             <div class="botones">
                 <button class="aparecerequipos formula4" data-form="formu3"> <i class="fa fa-file-alt" title="Mostrar Datos de estados de aprobacion"></i>  </button>
-                <button class="aparecerequipos formula9" data-form="formu8"> <i class="fa fa-keyboard" title="Registrar dato estado de aprobacion"></i> </button>
+                <button class="aparecerequipos formula10" data-form="formu9"> <i class="fa fa-keyboard" title="Registrar dato estado de aprobacion"></i> </button>
             </div>
         </div>
         <div class="card">
@@ -55,7 +70,15 @@
 
             <div class="botones">
                 <button class="aparecerequipos formula5" data-form="formu4"> <i class="fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad"></i>  </button>
-                <button class="aparecerequipos formula10" data-form="formu9"> <i class="fa fa-keyboard" title="Registrar dato de estado de disponibilidad"></i> </button>
+                <button class="aparecerequipos formula11" data-form="formu10"> <i class="fa fa-keyboard" title="Registrar dato de estado de disponibilidad"></i> </button>
+            </div>
+        </div>
+        <div class="card">
+            <h3> Equipos</h3>
+
+            <div class="botones">
+                <button class="aparecerequipos formula6" data-form="formu5"> <i class="fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad"></i>  </button>
+                <button class="aparecerequipos formula12" data-form="formu11"> <i class="fa fa-keyboard" title="Registrar dato de estado de disponibilidad"></i> </button>
             </div>
         </div>
     </section>
@@ -216,7 +239,10 @@
             ?>
             </table>
         </div>
-        <div class="form1 formu5">
+        <div class="formu5 tablas">
+            <h1>hola mundo</h1>
+        </div>
+        <div class="form1 formu6">
             <p type="title">Crear tipos de Dispositivos</p>
             <div class="linea"></div>
             <form action="">
@@ -234,7 +260,7 @@
             </form>
         </div>
 
-        <div class="form1 formu6">
+        <div class="form1 formu7">
             <p type="title">Crear la Marca de los Equipos</p>
             <div class="linea"></div>
             <form action="">
@@ -252,7 +278,7 @@
             </form>
         </div>
 
-        <div class="form1 formu7">
+        <div class="form1 formu8">
             <p type="title">Crear Estado del Dispositivo</p>
             <div class="linea"></div>
             <form action="">
@@ -271,7 +297,7 @@
         </div>
 
 
-        <div class="form1 formu8">
+        <div class="form1 formu9">
             <p type="title">Crear Estado de Aprobacion</p>
             <div class="linea"></div>
             <form action="">
@@ -289,7 +315,7 @@
             </form>
         </div>
 
-        <div class="form1 formu9">
+        <div class="form1 formu10">
             <p type="title">Crear Estado de Disponibilidad</p>
             <div class="linea"></div>
             <form action="">
@@ -304,6 +330,67 @@
                 <p>
                     <button>Guardar</button>
                 </p>
+            </form>
+        </div>
+        <div class="form1 formu11">
+            <h1>Registro de Dispositivos Electronicos </h1>
+
+            <form action="registro_dispositivo_e.php" method="POST" class="fommu">
+
+            <p>
+                <label for="serial">Serial</label>
+                <input type="number" name="serial" id="serial" >
+            </p>
+            <p>
+                <label for="placa_sena">Placa Sena</label>
+                <input type="text" name="placa_sena" id="placa_sena" autocomplete="off">
+            </p>
+            <p>
+                <label for="nom_dispositivo">Nombre Dispositivo</label>
+                <input type="text" name="nom_dispositivo" id="nom_dispositivo" autocomplete="off">
+            </p>
+            <!-- selectores  -->
+            <select name="id_tipo_dis" id="id_tipo_dis" required>
+            <option value="">Seleccione el Tipo de Dispositivo</option>
+            <?php
+                foreach ($query1 as $i) :  ?>
+                <option value="<?php echo $i['id_tipo_dispositivo']?>"><?php echo $i['nom_tipo_dispositivo']?></option>
+            <?php
+                endforeach;
+            ?>
+            </select>
+            <!-- selectores  2 -->
+            <select name="estado_disponi" id="estado_disponi" required>
+            <option value="">Seleccione el Tipo de Disponibilidad</option>
+            <?php
+                foreach ($query2 as $i) :  ?>
+                <option value="<?php echo $i['id_estado_disponibilidad']?>"><?php echo $i['nom_estado_disponibilidad']?></option>
+            <?php
+                endforeach;
+            ?>
+            </select>
+            <!-- selectores  3 -->
+            <select name="estado_disposi" id="estado_disposi" required>
+            <option value="">Seleccione el Tipo de Estado</option>
+            <?php
+                foreach ($query3 as $i) :  ?>
+                <option value="<?php echo $i['id_estado_dispositivo']?>"><?php echo $i['nom_estado_dispositivo']?></option>
+            <?php
+                endforeach;
+            ?>
+            </select>
+            <!-- selectores  4 -->
+            <select name="marca" id="marca" required>
+            <option value="">Marca</option>
+            <?php
+                foreach ($query4 as $i) :  ?>
+                <option value="<?php echo $i['id_marca']?>"><?php echo $i['nom_marca']?></option>
+            <?php
+                endforeach;
+            ?>
+            </select>
+
+            <input type="submit" value="REGISTRAR" name="registrar" class="resgi">
             </form>
         </div>
     </div>
