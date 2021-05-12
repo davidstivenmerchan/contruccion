@@ -180,7 +180,7 @@
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
                 <td class="imgss">
                     <i class="ico fas fa-edit"></i> |    
-                    <i class="ico fas fa-trash"></i>               
+                    <a href="pag_admin/elimi_tipdocu.php?id=<?php echo $mostrar['id_tipo_usuario'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>             
                     </td>
             </tr>
             
