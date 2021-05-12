@@ -6,7 +6,7 @@
 
     $id = $_GET['id'];
 
-    $consulta1 = "DELETE FROM usuarios where documento='$id' ";
+    $consulta1 = "DELETE FROM tipo_documento where id_tipo_documento='$id' ";
     $ejecucion =  mysqli_query($mysqli,$consulta1);
 
     
