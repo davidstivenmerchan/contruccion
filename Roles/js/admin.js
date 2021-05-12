@@ -1,5 +1,5 @@
 import { aparecer, desaparecer } from './toogle_admin.js';
-
+import { editTipoDispo } from './edit_tipdispo.js';
 const $main = document.querySelector("main");
 
 const getHTML = ({ url , success , error }) => {
@@ -80,5 +80,12 @@ document.addEventListener('click' , e => {
     }
     if(e.target.matches('.cerrarequipos')){
         callDesaparecer();
+    }
+
+    if(e.target.matches(".edit")){
+        if(e.target.matches('.tipdispo')){
+            const $id = e.target.getAttribute('data-tipdispo');
+            editTipoDispo($id);
+        }
     }
 });

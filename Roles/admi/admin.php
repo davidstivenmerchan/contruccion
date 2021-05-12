@@ -42,6 +42,8 @@ while(mysqli_stmt_fetch($query)){
 <body>
     <div class="container">
         <?php require './banner.php'; ?>
+        <div class="alert" id="alert">
+        </div>
         <div class="topbar">
             <div class="toggle" onclick="toggleMenu();"></div>
             <div class="search">
