@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../../css/mostrar_tablas.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
+    <script src="../../js/confirmacioneliminar.js"></script>
    
 
 </head>
@@ -101,7 +102,7 @@
                     <td><?php echo $mostrar['telefono'] ?></td>
                     <td class="imgss">
                     <a href=""><i class="ico fas fa-edit"></i></a> |    
-                    <a href="pag_admin/eliminarusuarios.php?id=<?php echo $mostrar['documento'];?>"><i class="ico fas fa-trash"></i></a>               
+                    <a href="pag_admin/eliminarusuarios.php?id=<?php echo $mostrar['documento'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>               
                     </td>
                 </tr>
                 
@@ -143,7 +144,7 @@
                 <td><?php echo $mostrar['nom_documento'] ?></td>
                 <td class="imgss">
                     <i class="ico fas fa-edit"></i> |    
-                    <i class="ico fas fa-trash"></i>               
+                    <a href="pag_admin/eliminar_tipousuario.php?id=<?php echo $mostrar['id_tipo_documento'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
             </tr>
             
