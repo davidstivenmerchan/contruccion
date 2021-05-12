@@ -263,7 +263,7 @@
         <p type="nom">
             <label style="position:absolute; left:50%;" for="nom">Nombre del programa de formacion<br>
             <br>
-            <input style="position:absolute; left:50%;" type="text" name="nom_usu" id="nom_usu">
+            <input style="position:absolute;" type="text" name="nom_usu" id="nom_usu">
         </p>
         <p>
             <br>
