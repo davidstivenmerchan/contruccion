@@ -73,14 +73,15 @@ document.addEventListener('click' , e => {
         const elemento = document.querySelector(`.${primera}`).getAttribute('data-form');
         desaparecer( [ elemento ] );
     }
-
+    // const aparecerEquipo = document.querySelectorAll
     if(e.target.matches('.aparecer')){
         callAparecer(formularios);
     }
     if(e.target.matches('.cerrar')){
         callDesaparecer();
     }
-    if(e.target.matches('.aparecerequipos')){       
+
+    if(e.target.matches('.aparecerequipos') || e.target.matches('.aparecerequipos *')){
         callAparecer(formula);
     }
     if(e.target.matches('.cerrarequipos')){    

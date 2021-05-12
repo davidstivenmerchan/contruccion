@@ -37,48 +37,49 @@
             <h3>Crear tipo de dispositivos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de tipo dispositivo"></i> </button>
-                <button class="aparecerequipos formula7" data-form="formu6"> <i class="fa fa-keyboard" title="Registrar datos tipo dispositivo"></i> </button>
+                <button class="aparecerequipos formula1" data-form="form"> <i class="aparecerequipos formula1 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form"></i> </button>
+                <button class="aparecerequipos formula7" data-form="formu6"> <i class="aparecerequipos formula7 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu6"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear marca de equipos </h3>
         
             <div class="botones">
-                <button class="aparecerequipos formula2" data-form="formu1"> <i class="fa fa-file-alt" title="Mostrar Datos marca de equipos"></i></button>
-                <button class="aparecerequipos formula8" data-form="formu7"> <i class="fa fa-keyboard" title="Registrar dato marca de equipo"></i> </button>
+                <button class="aparecerequipos formula2" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu1"></i></button>
+                <button class="aparecerequipos formula8" data-form="formu7"> <i class="aparecerequipos formula8 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="formu7"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear estado dispositivo </h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula3" data-form="formu2"> <i class="fa fa-file-alt" title="Mostrar Datos estados dispositivos"></i></button>
-                <button class="aparecerequipos formula9" data-form="formu8"> <i class="fa fa-keyboard" title="Registrar dato estado dispositivo"></i> </button>
+                <button class="aparecerequipos formula3" data-form="formu2"> <i class="aparecerequipos formula3 fa fa-file-alt" title="Mostrar Datos estados dispositivos" data-form="formu2"></i></button>
+                <button class="aparecerequipos formula9" data-form="formu8"> <i class="aparecerequipos formula9 fa fa-keyboard" title="Registrar dato estado dispositivo" data-form="formu8"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear estado aprobacion</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula4" data-form="formu3"> <i class="fa fa-file-alt" title="Mostrar Datos de estados de aprobacion"></i>  </button>
-                <button class="aparecerequipos formula10" data-form="formu9"> <i class="fa fa-keyboard" title="Registrar dato estado de aprobacion"></i> </button>
+                <button class="aparecerequipos formula4" data-form="formu3"> <i class="aparecerequipos formula4 fa fa-file-alt" title="Mostrar Datos de estados de aprobacion" data-form="formu3"></i>  </button>
+                <button class="aparecerequipos formula10" data-form="formu9"> <i class="aparecerequipos formula10 fa fa-keyboard" title="Registrar dato estado de aprobacion" data-form="formu9"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear disponibilidad</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula5" data-form="formu4"> <i class="fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad"></i>  </button>
-                <button class="aparecerequipos formula11" data-form="formu10"> <i class="fa fa-keyboard" title="Registrar dato de estado de disponibilidad"></i> </button>
+                <button class="aparecerequipos formula5" data-form="formu4"> <i class=" aparecerequipos formula5 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu4"></i>  </button>
+                <button class="aparecerequipos formula11" data-form="formu10"> <i class="aparecerequipos formula11 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu10"></i> </button>
             </div>
         </div>
+        <!-- /******* hasta aqui */ -->
         <div class="card">
             <h3>Dispositivos Electronicos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula6" data-form="formu5"> <i class="fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad"></i>  </button>
-                <button class="aparecerequipos formula12" data-form="formu11"> <i class="fa fa-keyboard" title="Registrar dato de estado de disponibilidad"></i> </button>
+                <button class="aparecerequipos formula6" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu5"></i>  </button>
+                <button class="aparecerequipos formula12" data-form="formu11"> <i class="aparecerequipos formula12 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu11"></i> </button>
             </div>
         </div>
     </section>
