@@ -75,7 +75,7 @@
         </div>
         <!-- /******* hasta aqui */ -->
         <div class="card">
-            <h3> Equipos</h3>
+            <h3>Dispositivos Electronicos</h3>
 
             <div class="botones">
                 <button class="aparecerequipos formula6" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu5"></i>  </button>
@@ -241,8 +241,51 @@
             </table>
         </div>
         <div class="formu5 tablas">
-            <h1>hola mundo</h1>
+            
+                <h2>Dispositivos Electronicos</h2>
+
+
+        <table class="tablamarca" border=1 cellspacing="0">
+            <tr class="header">
+                <td>serial</td>
+                <td>Placa Sena</td>
+                <td>Tipo Dispositivo</td>
+                <td>Nombre </td>
+                <td>Estado disponibilidad</td>
+                <td>Estado Dispositivo</td>
+                <td>Marca</td>
+                <td class="acciones">Acciones</td>
+            </tr>
+            <?php 
+        $con = "SELECT serial,placa_sena, nom_tipo_dispositivo, nom_dispositivo,nom_estado_disponibilidad,nom_estado_dispositivo,nom_marca
+                FROM dispositivo_electronico,estado_disponibilidad,estado_dispositivo,marca,tipo_dispositivo 
+                WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo 
+                AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
+                AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
+                AND dispositivo_electronico.id_marca = marca.id_marca ";
+        $m = mysqli_query($mysqli, $con);
+        while($eh = mysqli_fetch_array($m)){           
+        ?>
+
+            <tr class="datos">
+                <td><?php echo $eh['serial']?></td>
+                <td><?php echo $eh['placa_sena']?></td>
+                <td><?php echo $eh['nom_tipo_dispositivo']?></td>
+                <td><?php echo $eh['nom_dispositivo']?></td>
+                <td><?php echo $eh['nom_estado_disponibilidad']?></td>
+                <td><?php echo $eh['nom_estado_dispositivo']?></td>
+                <td><?php echo $eh['nom_marca']?></td>
+                <td class="imgs">
+                    <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit dispositivo" data-dispositivo="<?php echo $eh['serial']; ?>">
+                    <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove dispositivo" data-dispositivo="<?php echo $eh['serial']; ?>">                     
+                </td>
+            </tr>
+            <?php
+        } 
+        ?>
+        </table>
         </div>
+
         <div class="form1 formu6">
             <p type="title">Crear tipos de Dispositivos</p>
             <div class="linea"></div>
