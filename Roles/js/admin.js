@@ -1,5 +1,9 @@
 import { aparecer, desaparecer } from './toogle_admin.js';
 import { editTipoDispo } from './edit_tipdispo.js';
+import { editMarca } from './edit_marcaequipos.js';
+import { editEstadoDispositivo } from './edit_estadodispositivo.js';
+import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
+import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 const $main = document.querySelector("main");
 
 const getHTML = ({ url , success , error }) => {
@@ -87,5 +91,21 @@ document.addEventListener('click' , e => {
             const $id = e.target.getAttribute('data-tipdispo');
             editTipoDispo($id);
         }
+        if(e.target.matches(".marca")){
+            const $id = e.target.getAttribute('data-marca');
+            editMarca($id);
+        }
+        if(e.target.matches(".estado")){
+            const $id = e.target.getAttribute('data-estado');
+            editEstadoDispositivo($id);
+        }
+        if(e.target.matches(".aprobacion")){
+            const $id = e.target.getAttribute('data-estadoapro');
+            editEstadoAprobacion($id);
+        }
+        if(e.target.matches(".disponibi")){
+            const $id = e.target.getAttribute('data-estadodisponi');
+            editEstadodisponibilidad($id);
+        }        
     }
 });
