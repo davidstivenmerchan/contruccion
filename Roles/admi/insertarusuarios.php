@@ -25,7 +25,9 @@ if(isset($_POST['enviar1'])){
    
 
     if($resultados){
-        echo "<script> alert('Funciono el registro'); </script>";
+        echo "<script> alert('registro exitoso!');
+            window.location= 'admin.php';
+            </script>";
     }else{
         echo "<script> alert('noooooooo Funciono el registro'); </script>";
     }
@@ -45,7 +47,9 @@ if(isset($_POST['enviar2'])){
     
 
     if($resultados2){
-        echo "<script> alert('Funciono el registro 2'); </script>";
+        echo "<script> alert('registro exitoso!');
+            window.location= 'admin.php';
+            </script>";
     }
 
     
@@ -63,7 +67,9 @@ if(isset($_POST['enviar3'])){
     
 
     if($resultados3){
-        echo "<script> alert('Funciono el registro 3'); </script>";
+        echo "<script> alert('registro exitoso!');
+            window.location= 'admin.php';
+            </script>";
     }
 
     
