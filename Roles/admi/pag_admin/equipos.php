@@ -147,8 +147,8 @@
                     <td><?php echo $eh['id_estado_dispositivo']?></td>
                     <td><?php echo $eh['nom_estado_dispositivo']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" class="edit" alt="editar" title="editar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">
-                        <img src="./../../assets/trash-solid.svg" class="remove" alt="eliminar" title="eliminar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" class="edit estado" alt="editar" title="editar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">
+                        <img src="./../../assets/trash-solid.svg" class="remove estado" alt="eliminar" title="eliminar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -177,8 +177,8 @@
                     <td><?php echo $eh['id_estado_aprobacion']?></td>
                     <td><?php echo $eh['nom_aprobacion']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit aprobacion" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove aprobacion" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -207,8 +207,8 @@
                     <td><?php echo $eh['id_estado_disponibilidad']?></td>
                     <td><?php echo $eh['nom_estado_disponibilidad']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" data-estadodispo="<?php echo $eh['id_estado_disponibilidad']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" data-estadodispo="<?php echo $eh['id_estado_disponibilidad']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit disponibi" data-estadodisponi="<?php echo $eh['id_estado_disponibilidad']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove disponibi" data-estadodisponi="<?php echo $eh['id_estado_disponibilidad']; ?>">                     
                     </td>
                 </tr>
                 <?php
