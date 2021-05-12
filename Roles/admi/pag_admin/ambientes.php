@@ -233,6 +233,65 @@
 
 
     </div>
+    <div class="form form1 form2 form3 form4 form5 form6 form7">
+    <p type="title">Crear Fichas</p>
+    <div class="linea"></div>
+    <form action="insertarusuarios.php" method="POST">
+        
+        <p type="nom">
+            <label style="position:absolute; left:50%; margin:auto;">Numero de ficha<br>
+            <br>
+            <input style="" type="text" name="nom_usu" id="nom_usu">
+        </p>
+        <p>
+            <br>
+            <br>
+           <br>
+           <br>
+           <label style="position:absolute; left:50%;">Selecciona el programa de formacion<br>
+           <br>
+           
+           <select  name="" id="" class="" style="position:absolute;left:50%;">
+                        <?php 
+                        $tipdoc = mysqli_query($mysqli, "SELECT * from formacion");
+                        while($tipdocu = mysqli_fetch_row($tipdoc)){
+
+                        ?>
+                        <option value="<?php echo $tipdocu[0]?>"><?php echo $tipdocu[1]?></option>
+                        <?php } ?>
+
+                    </select>
+
+                    <br>
+                    <br>
+            <label style="">Selecciona la nave<br>
+           <br>
+           
+           <select  name="" id="" class="" style="position:absolute;left:50%;">
+                        <?php 
+                        $tipdoc = mysqli_query($mysqli, "SELECT * from nave");
+                        while($tipdocu = mysqli_fetch_row($tipdoc)){
+
+                        ?>
+                        <option value="<?php echo $tipdocu[0]?>"><?php echo $tipdocu[1]?></option>
+                        <?php } ?>
+
+                    </select>
+
+
+        <center>
+
+        <input style="margin-top:8rem; margin-left:380px;" type="submit" value="Guardar" name="enviar3">
+
+        </center>
+        
+           
+        </p>
+    </form>
+
+
+    </div>
+
 
 </body>
 </html>
