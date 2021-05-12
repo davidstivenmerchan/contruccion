@@ -276,10 +276,6 @@
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
     <form action="insertarusuarios.php" method="POST">
-        <p>
-        <label for="id">ID</label><br>
-        <input type="number" name="id_doc" id="id_doc">
-        </p>
         <p type="nom">
             <label for="nom">Nombre del Tipo de Documento</label><br>
             <input type="text" name="nom_doc" id="nom_doc">
@@ -296,17 +292,12 @@
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
     <form action="insertarusuarios.php" method="POST">
-        <p>
-        <label for="id">ID</label><br>
-        <input type="number" name="id_usu" id="id_usu">
-        </p>
         <p type="nom">
             <label for="nom">Nombre del Tipo de Usuario</label><br>
             <input type="text" name="nom_usu" id="nom_usu">
         </p>
         <p>
         <input type="submit" value="Guardar" name="enviar3">
-           
         </p>
     </form>
 
