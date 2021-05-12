@@ -20,7 +20,6 @@ export const editTipoDispo = ( id ) =>{
         </form>
         `;
         const $formModal = document.querySelector('.formmodal');
-        console.log($formModal);
         $formModal.classList.remove('desplazar');
     })
     .catch( err => console.error(err) );

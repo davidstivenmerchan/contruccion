@@ -8,6 +8,7 @@ export const editEstadoAprobacion = ( id ) =>{
         $alert.classList.add('ver');
         $alert.innerHTML = `
         <form class="formmodal"id="estado_aprobacion" >
+        <div class="cerrarmodal">X</div>
         <input type="hidden" name="id" value="${data[0].id}">
         <label for="esta_aprobacion"> ID </label>
         <input type="text" name="iddisable" id="esta_aprobacion" placeholder="${data[0].id}" disabled>
@@ -17,7 +18,8 @@ export const editEstadoAprobacion = ( id ) =>{
         <input type="submit" value="actualizar"/>
         </form>
         `;
-        console.log(data);
+        const $formModal = document.querySelector('.formmodal');
+        $formModal.classList.remove('desplazar');
     })
     .catch( err => console.error(err) );
 
