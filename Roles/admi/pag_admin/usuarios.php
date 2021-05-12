@@ -66,7 +66,6 @@
                     <td>Apellidos</td>
                     <td>Fecha Nacimiento</td>
                     <td>Genero</td>
-                    <td>Correo Personal</td>
                     <td>Correo SENA</td>
                     <td>Telefono</td>
                     <td>Acciones</td>
@@ -98,12 +97,11 @@
                     <td><?php echo $mostrar['Apellidos'] ?></td>
                     <td><?php echo $mostrar['fecha_nacimiento'] ?></td>
                     <td><?php echo $mostrar['nom_genero'] ?></td>
-                    <td><?php echo $mostrar['correo_personal'] ?></td>
                     <td><?php echo $mostrar['correo_sena'] ?></td>
                     <td><?php echo $mostrar['telefono'] ?></td>
                     <td class="imgss">
-                    <i class="ico fas fa-edit"></i> |    
-                    <i class="ico fas fa-trash"></i>               
+                    <a href=""><i class="ico fas fa-edit"></i></a> |    
+                    <a href="pag_admin/eliminarusuarios.php?id=<?php echo $mostrar['documento'];?>"><i class="ico fas fa-trash"></i></a>               
                     </td>
                 </tr>
                 
