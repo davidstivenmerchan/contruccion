@@ -47,6 +47,14 @@
                 <span> <button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
             </div>
         </div>
+        <div class="card">
+        <h3>Detalles de formacion</h3>
+
+            <div class="botones">
+                <span> <button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> </span>
+                <span> <button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
+            </div>
+        </div>
     </section>
 
     
@@ -151,6 +159,47 @@
 
 
     </div>
+    <div class="form1 form2">
+
+    <table class="tabla">
+            <tr class="titulo">
+                <td>Id</td>
+                <td>Ficha</td>
+                <td>Formacion</td>
+                <td>Nave</td>
+
+                
+            </tr>
+
+            <?php
+                $sql="SELECT * from detalle_formacion inner join formacion using (id_formacion) inner join ambiente using(id_ambiente) inner join nave using(id_nave)
+                ";
+                $result=mysqli_query($mysqli,$sql);
+
+                while($mostrar=mysqli_fetch_array($result)){
+
+                
+            ?>
+
+
+            <tr class="datos">
+                <td><?php echo $mostrar['id_detalle_formacion'] ?></td>
+                <td><?php echo $mostrar['num_ficha'] ?></td>
+                <td><?php echo $mostrar['nom_formacion'] ?></td>
+                <td><?php echo $mostrar['nom_nave'] ?></td>
+
+            </tr>
+            
+                <?php
+                }
+                ?>
+        
+        </table>
+
+
+
+
+    </div>
     <div class="form form1 form2 form3">
     <p type="title">Crear Nave</p>
     <div class="linea"></div>
@@ -233,6 +282,65 @@
 
 
     </div>
+    <div class="form form1 form2 form3 form4 form5 form6 form7">
+    <p type="title">Crear Fichas</p>
+    <div class="linea"></div>
+    <form action="insertarusuarios.php" method="POST">
+        
+        <p type="nom">
+            <label style="position:absolute; left:50%; margin:auto;">Numero de ficha<br>
+            <br>
+            <input style="" type="text" name="nom_usu" id="nom_usu">
+        </p>
+        <p>
+            <br>
+            <br>
+           <br>
+           <br>
+           <label style="position:absolute; left:50%;">Selecciona el programa de formacion<br>
+           <br>
+           
+           <select  name="" id="" class="" style="position:absolute;left:50%;">
+                        <?php 
+                        $tipdoc = mysqli_query($mysqli, "SELECT * from formacion");
+                        while($tipdocu = mysqli_fetch_row($tipdoc)){
+
+                        ?>
+                        <option value="<?php echo $tipdocu[0]?>"><?php echo $tipdocu[1]?></option>
+                        <?php } ?>
+
+                    </select>
+
+                    <br>
+                    <br>
+            <label style="">Selecciona la nave<br>
+           <br>
+           
+           <select  name="" id="" class="" style="position:absolute;left:50%;">
+                        <?php 
+                        $tipdoc = mysqli_query($mysqli, "SELECT * from nave");
+                        while($tipdocu = mysqli_fetch_row($tipdoc)){
+
+                        ?>
+                        <option value="<?php echo $tipdocu[0]?>"><?php echo $tipdocu[1]?></option>
+                        <?php } ?>
+
+                    </select>
+
+
+        <center>
+
+        <input style="margin-top:8rem; margin-left:380px;" type="submit" value="Guardar" name="enviar3">
+
+        </center>
+        
+           
+        </p>
+    </form>
+
+
+    </div>
+
 
 </body>
 </html>
