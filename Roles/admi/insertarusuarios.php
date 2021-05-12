@@ -35,12 +35,11 @@ if(isset($_POST['enviar1'])){
 
 if(isset($_POST['enviar2'])){
 
-    $iddoc = $_POST['id_doc'];
     $nomdoc= $_POST['nom_doc'];
    
   
 
-    $consul2 = "INSERT INTO tipo_documento (id_tipo_documento,nom_documento) values ($iddoc,'$nomdoc')";
+    $consul2 = "INSERT INTO tipo_documento (nom_documento) values ('$nomdoc')";
 
     $resultados2 = mysqli_query($mysqli,$consul2);
     
@@ -53,12 +52,12 @@ if(isset($_POST['enviar2'])){
 }
 if(isset($_POST['enviar3'])){
 
-    $idusu = $_POST['id_usu'];
+    
     $nomusu= $_POST['nom_usu'];
    
   
 
-    $consul3 = "INSERT INTO tipo_usuario (id_tipo_usuario,nom_tipo_usuario) values ($idusu,'$nomusu')";
+    $consul3 = "INSERT INTO tipo_usuario (nom_tipo_usuario) values ('$nomusu')";
 
     $resultados3 = mysqli_query($mysqli,$consul3);
     
