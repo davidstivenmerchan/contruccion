@@ -31,7 +31,9 @@ body{
    
     /* margin:70px auto; */
 }
-
+.alert{
+    display: none;
+}
 .navigation{
     grid-area: banner;
 }

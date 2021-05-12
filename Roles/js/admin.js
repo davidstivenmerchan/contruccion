@@ -115,5 +115,6 @@ document.addEventListener('click' , e => {
         const $formAlert = document.querySelector('#alert form');
         setTimeout(() => $alerta.classList.remove('ver'), 1000);
         $formAlert.classList.add('desplazar');
+        // $alerta.style.display="none";
     }
 });
