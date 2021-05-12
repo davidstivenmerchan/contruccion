@@ -108,4 +108,12 @@ document.addEventListener('click' , e => {
             editEstadodisponibilidad($id);
         }        
     }
+
+
+    if(e.target.matches('.cerrarmodal')){
+        const $alerta = document.getElementById('alert');
+        const $formAlert = document.querySelector('#alert form');
+        setTimeout(() => $alerta.classList.remove('ver'), 1000);
+        $formAlert.classList.add('desplazar');
+    }
 });
