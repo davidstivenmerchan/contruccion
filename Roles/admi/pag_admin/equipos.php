@@ -65,7 +65,7 @@
 
             <table class="tabla">
                 <tr class="titulo">
-                    <tr class="header">
+                    <tr class="header" style="text-align: center;">
                         <td>Id Tipo Dispositivo</td>
                         <td>Nombre Tipo Dispositivo</td>
                         <td class="acciones"> Accciones </td>
@@ -82,7 +82,7 @@
                 ?>
 
 
-                <tr class="datos">
+                <tr class="datos" style="text-align: center;">
                     <td><?php echo $mostrar['id_tipo_dispositivo'] ?></td>
                     <td><?php echo $mostrar['nom_tipo_dispositivo'] ?></td>
                     <td class="imgs">
