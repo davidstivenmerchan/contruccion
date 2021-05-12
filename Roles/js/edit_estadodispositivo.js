@@ -8,6 +8,7 @@ export const editEstadoDispositivo = ( id ) =>{
         $alert.classList.add('ver');
         $alert.innerHTML = `
         <form class="formmodal"id="estado_dispo" >
+        <div class="cerrarmodal">X</div>
         <input type="hidden" name="id" value="${data[0].id}">
         <label for="esta_dispo"> ID </label>
         <input type="text" name="iddisable" id="esta_dispo" placeholder="${data[0].id}" disabled>
@@ -17,7 +18,8 @@ export const editEstadoDispositivo = ( id ) =>{
         <input type="submit" value="actualizar"/>
         </form>
         `;
-        console.log(data);
+        const $formModal = document.querySelector('.formmodal');
+        $formModal.classList.remove('desplazar');
     })
     .catch( err => console.error(err) );
 
