@@ -47,6 +47,14 @@
                 <span> <button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
             </div>
         </div>
+        <div class="card">
+        <h3>Detalles de formacion</h3>
+
+            <div class="botones">
+                <span> <button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> </span>
+                <span> <button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
+            </div>
+        </div>
     </section>
 
     
@@ -139,6 +147,47 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_formacion'] ?></td>
                 <td><?php echo $mostrar['nom_formacion'] ?></td>
+            </tr>
+            
+                <?php
+                }
+                ?>
+        
+        </table>
+
+
+
+
+    </div>
+    <div class="form1 form2">
+
+    <table class="tabla">
+            <tr class="titulo">
+                <td>Id</td>
+                <td>Ficha</td>
+                <td>Formacion</td>
+                <td>Nave</td>
+
+                
+            </tr>
+
+            <?php
+                $sql="SELECT * from detalle_formacion inner join formacion using (id_formacion) inner join ambiente using(id_ambiente) inner join nave using(id_nave)
+                ";
+                $result=mysqli_query($mysqli,$sql);
+
+                while($mostrar=mysqli_fetch_array($result)){
+
+                
+            ?>
+
+
+            <tr class="datos">
+                <td><?php echo $mostrar['id_detalle_formacion'] ?></td>
+                <td><?php echo $mostrar['num_ficha'] ?></td>
+                <td><?php echo $mostrar['nom_formacion'] ?></td>
+                <td><?php echo $mostrar['nom_nave'] ?></td>
+
             </tr>
             
                 <?php
