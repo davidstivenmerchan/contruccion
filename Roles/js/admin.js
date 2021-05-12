@@ -4,6 +4,7 @@ import { editMarca } from './edit_marcaequipos.js';
 import { editEstadoDispositivo } from './edit_estadodispositivo.js';
 import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
+import { editdispoelectronico } from './edit_dispositivoelectronic.js';
 const $main = document.querySelector("main");
 
 const getHTML = ({ url , success , error }) => {
@@ -79,12 +80,10 @@ document.addEventListener('click' , e => {
     if(e.target.matches('.cerrar')){
         callDesaparecer();
     }
-    if(e.target.matches('.aparecerequipos')){
-        debugger;
+    if(e.target.matches('.aparecerequipos')){       
         callAparecer(formula);
     }
-    if(e.target.matches('.cerrarequipos')){
-        debugger;
+    if(e.target.matches('.cerrarequipos')){    
         callDesaparecer();
     }
 
@@ -108,7 +107,11 @@ document.addEventListener('click' , e => {
         if(e.target.matches(".disponibi")){
             const $id = e.target.getAttribute('data-estadodisponi');
             editEstadodisponibilidad($id);
-        }        
+        }
+        if(e.target.matches(".dispositivo")){
+            const $id = e.target.getAttribute('data-dispositivo');
+            editdispoelectronico($id);
+        }   
     }
 
 
