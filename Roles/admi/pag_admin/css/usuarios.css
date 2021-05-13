@@ -38,6 +38,9 @@ main{
     height:2rem;
     border: none;
     outline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cards .card .botones .aparecer{
     background-color: #ff6b00;
@@ -48,6 +51,9 @@ main{
 }
 .cards .card .botones .fa{
     font-size: 40px;
+    margin-top: 30px;
+    color: white;
+    background: transparent;
 }
 .cards .card .botones .cerrar{
     background-color: red;
