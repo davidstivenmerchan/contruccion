@@ -89,7 +89,12 @@
     <div class="sele2"> 
         <label>Fecha de Nacimiento: </label>
         <input type="date" name="date" id="">
-        <input class="foto"type="file" name="imagen" id="imagen">
+
+        <label for="">Fecha de Matricula</label>
+        <input type="date" name="date_matricula" id="date_matricula">
+
+        
+        
 
     </div>   
         
@@ -108,7 +113,7 @@
                     ?>
         </select>
 
-        <input type="number" name="n_ficha" id="n_ficha" placeholder="Ingrese el Numero de Ficha">
+        
 
         <select name="nave" id="nave" required>
                     <option value="">Seleccione la nave</option>
@@ -119,6 +124,8 @@
                         endforeach;
                     ?>
         </select>
+
+        <input type="number" name="n_ficha" id="n_ficha" placeholder="Ingrese el Numero de Ficha">
     
     </div>
     <div class="sele5">
@@ -134,9 +141,15 @@
 
         <input type="number" name="n_number_ambiente" id="n_number_ambiente" placeholder="numero de ambiente">
 
-        <input type="date" name="date_matricula" id="date_matricula">
-
+        
     </div>
+
+  
+    <div class="sele1">
+    <label for="">Seleccione una foto 4x4 para su perfil</label>
+        <input class="foto"type="file" name="imagen" id="imagen">
+    </div>
+    
         
     
     <div class="sele4">
