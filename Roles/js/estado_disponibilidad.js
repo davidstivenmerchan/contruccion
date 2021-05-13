@@ -1,3 +1,5 @@
+import ajax from "./ajax.js";
+import { getHTML } from "./admin.js";
 
 export const editEstadodisponibilidad = ( id ) =>{
     const tabla = 'estado_disponibilidad';
@@ -9,7 +11,7 @@ export const editEstadodisponibilidad = ( id ) =>{
         $alert.innerHTML = `
         <form class="formmodal"id="estado_disponibilidad" >
         <div class="cerrarmodal">X</div>
-        <input type="hidden" name="id" value="${data[0].id}">
+        <input type="hidden" name="idestado_disponibilidad" value="${data[0].id}">
         <label for="esta_disponibilidad"> ID </label>
         <input type="text" name="iddisable" id="esta_disponibilidad" placeholder="${data[0].id}" disabled>
     
@@ -23,4 +25,38 @@ export const editEstadodisponibilidad = ( id ) =>{
     })
     .catch( err => console.error(err) );
 
+    document.addEventListener('submit' , async (e) => {
+        document.querySelector('.formmodal').classList.add('desplazar');
+        setTimeout( ()=> document.querySelector('.alert').classList.remove('ver'), 1000 );
+        e.preventDefault();
+        if(e.target.matches('#estado_disponibilidad')){
+            ajax({
+                url: './acciones.php',
+                method: 'PUT',
+                cbSuccess: ( async (data) =>{
+                    await setTimeout(() => {
+                        Swal.fire({
+                            title: 'exito',
+                            text: data.statusText,
+                            icon: 'success',
+                            confirmButtonText: 'ok'
+                        });
+                    }, 1200);
+                    const $main = document.querySelector('main');
+                    
+                    getHTML({
+                        url: 'pag_admin/equipos.php',
+                        success: (html) => $main.innerHTML = html,
+                        error: (error) => $main.innerHTML = `<h1>${error}</h1>`,
+                    });
+
+                }),
+                data:{
+                    tabla:'estado_disponibilidad',
+                    id: e.target.idestado_disponibilidad.value,
+                    nameEstadoDisponibilidad: e.target.nameesta_disponibilidad.value
+                },
+            });
+        }
+    });
 }
