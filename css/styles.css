@@ -437,4 +437,11 @@ footer {
   opacity: 0;
 }
 
+.mapa{
+  position: absolute;
+  top:1800px;
+  left: 200px;
+  border: #f38200 solid 1px;
+}
+
 /*# sourceMappingURL=styles.css.map */
