@@ -36,6 +36,9 @@ while(mysqli_stmt_fetch($query)){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="sweetalert2.all.min.js"></script>
+    Optional: include a polyfill for ES6 Promises for IE11
+    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script> -->
     <title>Admin</title>
     <link rel="stylesheet" href="./../../css/admin.css">
 </head>
@@ -75,5 +78,6 @@ while(mysqli_stmt_fetch($query)){
         }
     </script>
     <script src="./../js/admin.js" type="module"></script>
+    <script src="./../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>

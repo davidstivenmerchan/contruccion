@@ -5,10 +5,11 @@ import { editEstadoDispositivo } from './edit_estadodispositivo.js';
 import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 import { editdispoelectronico } from './edit_dispositivoelectronic.js';
+// import Swal from 'sweetalert2';
+
 const $main = document.querySelector("main");
 
 const getHTML = ({ url , success , error }) => {
-
     const xhr = new XMLHttpRequest(); 
     xhr.addEventListener('readystatechange' , e => {
         if(xhr.readyState !== 4) return ;
@@ -121,6 +122,7 @@ document.addEventListener('click' , e => {
         const $formAlert = document.querySelector('#alert form');
         setTimeout(() => $alerta.classList.remove('ver'), 1000);
         $formAlert.classList.add('desplazar');
+        // Swal.
         // $alerta.style.display="none";
     }
 });

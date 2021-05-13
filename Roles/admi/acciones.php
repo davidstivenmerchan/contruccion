@@ -1,5 +1,6 @@
 <?php
 require_once './../../includes/conexion.php';
+header('Content-Type: application/json');
 if($_SERVER['REQUEST_METHOD'] === 'GET'){
     $id = $_GET['id'];
     $tabla = $_GET['tabla'];
@@ -55,4 +56,22 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         );
         echo json_encode($res);
         }
+}elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+    $_PUT = json_decode(file_get_contents('php://input'), true);
+    $tabla = $_PUT['tabla'];
+    if($_PUT['tabla'] ===  'tipo_dispositivo'){
+        $sql = "UPDATE $tabla set nom_tipo_dispositivo = ? where id_tipo_dispositivo = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['nameTipoDispo'] , $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'tipo de dispositivo actualizado correactamente'
+        );
+        echo json_encode($res);
+    }
+}elseif($_SERVER['REQUEST_METHOD'] === 'DELETE'){
+
 }
