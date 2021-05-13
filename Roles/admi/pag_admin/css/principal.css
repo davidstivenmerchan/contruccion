@@ -5,25 +5,40 @@
     margin:1rem 2rem;
 }
 
-/* .card{
-    background-color: var(--second--color);
-    color: var(--main-color);
-    transition: all 0.3s ease-out;
-} */
+.cardBox .card .tarjet .fa{
+    font-size: 80px;
+    margin-top: 20px;
+    color: gray;
+}
+.cardBox .card .tarjet .titulo{
+    font-size: 25px;
+    color: gray;
+    text-align: center;
+}
+.cardBox .card .tarjet .descripcion{
+    text-align: center;
+}
+.cardBox .card .tarjet button{
+    width: 150px;
+    color: white;
+    background-color: #ff7402;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 20px;
+}
+.cardBox .card .tarjet button:hover{
+    background-color: gray;
+}
 .card{
-    background-color: #ffffff;
+    background-color: white;
     display: flex;
     justify-content: center;
     text-align: center;
-}
-.card p {
-    color: #000000;
+    box-shadow: 2px 2px 2px gray;
+    height: 300px;
 }
 
-.card div img{
-    width:100%;
-    height: auto;
-}
 .cardBox2{
     width: 100%;
     display: flex;
