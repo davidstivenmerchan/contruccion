@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceptacion</title>
+    <link rel="stylesheet" href="pag_admin/css/aceptacion.css">
+</head>
+<body>
+
+
+
+
 <?php
 
 include('../../includes/conexion.php');
@@ -18,37 +32,20 @@ AND aceptacion_usuarios.documento = usuarios.documento
 AND aceptacion_usuarios.id_estado_aprobacion= estado_aprobacion.id_estado_aprobacion
 AND tipo_usuario.id_tipo_usuario =  2
 AND estado_aprobacion.id_estado_aprobacion = 2";
-$ejecu = mysqli_query($mysqli,$consulta1);
+
 
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aceptacion</title>
-    <link rel="stylesheet" href="pag_admin/css/aceptacion.css">
-</head>
-<body>
+
 
 
     
 
-<form action="">
+<form action="procesaraceptar.php" method="POST">
 
 <table>
 
-
-
-<?php
-
-while($i = mysqli_fetch_array($ejecu)){
-
-
-?>
 <tr>
     <th>°N Matricula</th>
     <th>Fecha de Matricula</th>
@@ -63,8 +60,18 @@ while($i = mysqli_fetch_array($ejecu)){
     <th>ACEPTAR</th>
 </tr>
 
+<?php
+
+$ejecu = mysqli_query($mysqli,$consulta1);
+while($i = mysqli_fetch_array($ejecu)){
+
+
+?>
+
+
 
 <tr>
+<input type="hidden" name="<?php echo $i['documento']?>" value="<?php echo $i['documento']?>">
 <td><?php echo $i['id_matricula'] ?></td>
 <td><?php echo $i['fecha_matricula'] ?></td>
 <td><?php echo $i['num_ficha'] ?></td>
@@ -75,17 +82,17 @@ while($i = mysqli_fetch_array($ejecu)){
 <td><?php echo $i['documento'] ?></td>
 <td><?php echo $i['Nombres'] ?></td>
 <td><?php echo $i['Apellidos'] ?></td>
-<td><input type="checkbox" name="aceptar" id=""></td>
+<td><input type="checkbox" name="<?php echo $i['id_matricula']?>" id=""></td>
 
 </tr>
 
-</table>
+
 
 <?php
 }
 ?>
-
-<input type="submit" value="ACEPTAR">
+</table>
+<input type="submit" value="ACEPTAR" name="enviar">
 
 </form>
 
