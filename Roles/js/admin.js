@@ -9,7 +9,7 @@ import { editdispoelectronico } from './edit_dispositivoelectronic.js';
 
 const $main = document.querySelector("main");
 
-const getHTML = ({ url , success , error }) => {
+export const getHTML = ({ url , success , error }) => {
     const xhr = new XMLHttpRequest(); 
     xhr.addEventListener('readystatechange' , e => {
         if(xhr.readyState !== 4) return ;

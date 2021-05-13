@@ -1,3 +1,4 @@
+import { getHTML } from "./admin.js";
 import ajax from "./ajax.js";
 
 export const editTipoDispo = ( id ) =>{
@@ -25,15 +26,14 @@ export const editTipoDispo = ( id ) =>{
     .catch( err => console.error(err) );
     document.addEventListener('submit' , async (e) => {
         document.querySelector('.formmodal').classList.add('desplazar');
-        setTimeout( ()=> document.querySelector('.alert').style.display ="none", 1000 );
+        setTimeout( ()=> document.querySelector('.alert').classList.remove('ver'), 1000 );
         e.preventDefault();
         if(e.target.matches('#tipodispositivo')){
             ajax({
                 url: './acciones.php',
                 method: 'PUT',
-                cbSuccess: ((data) =>{
-                    console.log('actualizado esto');
-                    setTimeout(() => {
+                cbSuccess: ( async (data) =>{
+                    await setTimeout(() => {
                         Swal.fire({
                             title: 'exito',
                             text: data.statusText,
@@ -41,8 +41,14 @@ export const editTipoDispo = ( id ) =>{
                             confirmButtonText: 'ok'
                         });
                     }, 1200);
-                    // location.reload();
+                    const $main = document.querySelector('main');
                     
+                    getHTML({
+                        url: 'pag_admin/equipos.php',
+                        success: (html) => $main.innerHTML = html,
+                        error: (error) => $main.innerHTML = `<h1>${error}</h1>`,
+                    });
+
                 }),
                 data:{
                     tabla:'tipo_dispositivo',
