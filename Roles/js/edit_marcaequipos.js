@@ -1,3 +1,4 @@
+// import ajax from "./ajax";
 
 export const editMarca = ( id ) =>{
     const tabla = 'marca';
@@ -20,7 +21,25 @@ export const editMarca = ( id ) =>{
         `;
         const $formModal = document.querySelector('.formmodal');
         $formModal.classList.remove('desplazar');
+
     })
     .catch( err => console.error(err) );
+
+    document.addEventListener('submit' , (e) => {
+        e.preventDefault();
+        
+        if(e.target.matches('#marcas')){
+            console.log('me estoy enviando ñero que emocion tan hpta');
+            ajax({
+                url: './acciones.php',
+                method: 'PUT',
+                cbSuccess: ( data =>{
+
+                }),
+                // data
+            });
+        }
+    });
+
 
 }

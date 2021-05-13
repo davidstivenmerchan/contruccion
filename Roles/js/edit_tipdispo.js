@@ -1,4 +1,4 @@
-
+import ajax from "./ajax.js";
 
 export const editTipoDispo = ( id ) =>{
     const tabla = 'tipo_dispositivo';
@@ -10,7 +10,7 @@ export const editTipoDispo = ( id ) =>{
         $alert.innerHTML = `
         <form class="formmodal desplazar"id="tipodispositivo" >
         <div class="cerrarmodal">X</div>
-        <input type="hidden" name="id" value="${data[0].id}">
+        <input type="hidden" name="idtipdispo" value="${data[0].id}">
         <label for="tipodispo"> ID </label>
         <input type="text" name="iddisable" id="tipodispo" placeholder="${data[0].id}" disabled>
     
@@ -23,5 +23,34 @@ export const editTipoDispo = ( id ) =>{
         $formModal.classList.remove('desplazar');
     })
     .catch( err => console.error(err) );
+    document.addEventListener('submit' , async (e) => {
+        document.querySelector('.formmodal').classList.add('desplazar');
+        setTimeout( ()=> document.querySelector('.alert').style.display ="none", 1000 );
+        e.preventDefault();
+        if(e.target.matches('#tipodispositivo')){
+            ajax({
+                url: './acciones.php',
+                method: 'PUT',
+                cbSuccess: ((data) =>{
+                    console.log('actualizado esto');
+                    setTimeout(() => {
+                        Swal.fire({
+                            title: 'exito',
+                            text: data.statusText,
+                            icon: 'success',
+                            confirmButtonText: 'ok'
+                        });
+                    }, 1200);
+                    // location.reload();
+                    
+                }),
+                data:{
+                    tabla:'tipo_dispositivo',
+                    id: e.target.idtipdispo.value,
+                    nameTipoDispo: e.target.nametip_dispo.value
+                },
+            });
+        }
+    });
 
 }
