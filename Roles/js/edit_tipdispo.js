@@ -35,7 +35,7 @@ export const editTipoDispo = ( id ) =>{
                 cbSuccess: ( async (data) =>{
                     await setTimeout(() => {
                         Swal.fire({
-                            title: 'exito',
+                            title: 'Cambio Exitoso',
                             text: data.statusText,
                             icon: 'success',
                             confirmButtonText: 'ok'
