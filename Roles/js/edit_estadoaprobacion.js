@@ -1,3 +1,5 @@
+import ajax from "./ajax.js";
+import { getHTML } from "./admin.js";
 
 export const editEstadoAprobacion = ( id ) =>{
     const tabla = 'estado_aprobacion';
@@ -9,7 +11,7 @@ export const editEstadoAprobacion = ( id ) =>{
         $alert.innerHTML = `
         <form class="formmodal"id="estado_aprobacion" >
         <div class="cerrarmodal">X</div>
-        <input type="hidden" name="id" value="${data[0].id}">
+        <input type="hidden" name="idestadoaprobacion" value="${data[0].id}">
         <label for="esta_aprobacion"> ID </label>
         <input type="text" name="iddisable" id="esta_aprobacion" placeholder="${data[0].id}" disabled>
     
@@ -22,5 +24,38 @@ export const editEstadoAprobacion = ( id ) =>{
         $formModal.classList.remove('desplazar');
     })
     .catch( err => console.error(err) );
+    document.addEventListener('submit' , async (e) => {
+        document.querySelector('.formmodal').classList.add('desplazar');
+        setTimeout( ()=> document.querySelector('.alert').classList.remove('ver'), 1000 );
+        e.preventDefault();
+        if(e.target.matches('#estado_aprobacion')){
+            ajax({
+                url: './acciones.php',
+                method: 'PUT',
+                cbSuccess: ( async (data) =>{
+                    await setTimeout(() => {
+                        Swal.fire({
+                            title: 'exito',
+                            text: data.statusText,
+                            icon: 'success',
+                            confirmButtonText: 'ok'
+                        });
+                    }, 1200);
+                    const $main = document.querySelector('main');
+                    
+                    getHTML({
+                        url: 'pag_admin/equipos.php',
+                        success: (html) => $main.innerHTML = html,
+                        error: (error) => $main.innerHTML = `<h1>${error}</h1>`,
+                    });
 
+                }),
+                data:{
+                    tabla:'estado_aprobacion',
+                    id: e.target.idestadoaprobacion.value,
+                    nameEstadoAprobacion: e.target.nameesta_aprobacion.value
+                },
+            });
+        }
+    });
 }

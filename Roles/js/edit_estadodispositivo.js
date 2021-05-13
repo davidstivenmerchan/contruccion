@@ -1,3 +1,6 @@
+import ajax from "./ajax.js";
+import { getHTML } from "./admin.js";
+
 
 export const editEstadoDispositivo = ( id ) =>{
     const tabla = 'estado_dispositivo';
@@ -9,7 +12,7 @@ export const editEstadoDispositivo = ( id ) =>{
         $alert.innerHTML = `
         <form class="formmodal"id="estado_dispo" >
         <div class="cerrarmodal">X</div>
-        <input type="hidden" name="id" value="${data[0].id}">
+        <input type="hidden" name="idestadodispositivo" value="${data[0].id}">
         <label for="esta_dispo"> ID </label>
         <input type="text" name="iddisable" id="esta_dispo" placeholder="${data[0].id}" disabled>
     
@@ -22,5 +25,38 @@ export const editEstadoDispositivo = ( id ) =>{
         $formModal.classList.remove('desplazar');
     })
     .catch( err => console.error(err) );
+    document.addEventListener('submit' , async (e) => {
+        document.querySelector('.formmodal').classList.add('desplazar');
+        setTimeout( ()=> document.querySelector('.alert').classList.remove('ver'), 1000 );
+        e.preventDefault();
+        if(e.target.matches('#estado_dispo')){
+            ajax({
+                url: './acciones.php',
+                method: 'PUT',
+                cbSuccess: ( async (data) =>{
+                    await setTimeout(() => {
+                        Swal.fire({
+                            title: 'exito',
+                            text: data.statusText,
+                            icon: 'success',
+                            confirmButtonText: 'ok'
+                        });
+                    }, 1200);
+                    const $main = document.querySelector('main');
+                    
+                    getHTML({
+                        url: 'pag_admin/equipos.php',
+                        success: (html) => $main.innerHTML = html,
+                        error: (error) => $main.innerHTML = `<h1>${error}</h1>`,
+                    });
 
+                }),
+                data:{
+                    tabla:'estado_dispositivo',
+                    id: e.target.idestadodispositivo.value,
+                    estadoDispositivo: e.target.nameesta_dispo.value
+                },
+            });
+        }
+    });
 }
