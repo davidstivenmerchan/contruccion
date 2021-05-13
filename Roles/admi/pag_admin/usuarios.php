@@ -33,24 +33,24 @@
             <h3>Usuarios</h3>
 
             <div class="botones">
-                <span><button class="aparecer formu1" data-form="form"><i class="fa fa-file-alt" title="Mostrar Datos de Usuarios"></i></button></span>
-                <span><button class="aparecer formu4" data-form="form3"><i class="fa fa-keyboard" title="Registrar datos de Usuarios"></i></button></span>
+                <button class="aparecer formu1" data-form="form"><i class="aparecer formu1 fa fa-file-alt"  title="Mostrar Datos de Usuarios" data-form="form" ></i></button>
+                <button class="aparecer formu4" data-form="form3"><i class="aparecer formu4 fa fa-keyboard"   title="Registrar datos de Usuarios" data-form="form3"></i></button>
             </div>
         </div>
         <div class="card">
         <h3>Tipo de documento</h3>
 
             <div class="botones">
-                <span><button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt" title="Mostrar Datos de tipo documento"></i></button></span>
-                <span><button class="aparecer formu5" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de tipo documento"></i></button></span>
+                <span><button class="aparecer fomu2" data-form="form1"><i class="aparecer fomu2 fa fa-file-alt" data-form="form1" title="Mostrar Datos de tipo documento"></i></button></span>
+                <span><button class="aparecer formu5" data-form="form4"><i class="aparecer formu5 fa fa-keyboard" data-form="form4" title="Registrar datos de tipo documento"></i></button></span>
             </div>
         </div>
         <div class="card">
         <h3>Tipo de usuario</h3>
 
             <div class="botones">
-                <span><button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de tipo usuario"></i></button></span>
-                <span><button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de tipo usuario"></i></button></span>
+                <span><button class="aparecer formu3" data-form="form2"><i class="aparecer formu3 fa fa-file-alt" data-form="form2" title="Mostrar Datos de tipo usuario"></i></button></span>
+                <span><button class="aparecer formu6" data-form="form5"><i class="aparecer formu6 fa fa-keyboard" data-form="form5" title="Registrar datos de tipo usuario"></i></button></span>
             </div>
         </div>
     </section>
