@@ -92,7 +92,7 @@ while($i = mysqli_fetch_array($ejecu)){
 }
 ?>
 </table>
-<input type="submit" value="ACEPTAR" name="enviar">
+<input type="submit" value="ACEPTAR" name="enviar" class="boto">
 
 </form>
 

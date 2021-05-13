@@ -2,29 +2,48 @@
     margin: 0px;
 }
 body{
-    
+    font-family: Arial, Helvetica, sans-serif;
 }
  table{
-     padding: 10px;
-     border: black solid 1px;
- }
+    padding: 10px;
+    Border-spacing:0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
  table tr th{
 
     width: 100px;
     margin: 10px;
     padding: 10px;
-    border: black solid 1px;
+    
+    background: #ff6b00;
+    color: white;
+ 
 
 
 
- }
+}
 
 table tr td{
 
     width: 100px;
     margin: 10px;
     padding: 20px;
-    border: black solid 1px;
+    
 
+
+}
+.boto{
+    margin-top: 20px;
+    width: 150px;
+    color: white;
+    background: #ff6b00;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    margin-left: 600px;
+}
+.boto:hover{
+    background: black;
+    
 
 }
