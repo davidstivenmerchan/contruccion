@@ -5,6 +5,7 @@ import { editEstadoDispositivo } from './edit_estadodispositivo.js';
 import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 import { editdispoelectronico } from './edit_dispositivoelectronic.js';
+import { handleDelete } from './handle_delete.js';
 // import Swal from 'sweetalert2';
 
 const $main = document.querySelector("main");
@@ -124,5 +125,27 @@ document.addEventListener('click' , e => {
         $formAlert.classList.add('desplazar');
         // Swal.
         // $alerta.style.display="none";
+    }
+
+    if(e.target.matches('.remove')){
+
+        const getdelete = ( dataAtribute, tabla ) => {
+            const id = e.target.getAttribute(dataAtribute);
+            handleDelete({ id, tabla});
+        }
+
+        if(e.target.matches('.tipdispo')){
+            getdelete('data-tipdispo' ,'tipo_dispositivo' );
+        }else if( e.target.matches('.marca')){
+            getdelete('data-marca', 'marca');
+        }else if(e.target.matches('.estado')){
+            getdelete('data-estado', 'estado_dispositivo');
+        }else if(e.target.matches('.aprobacion')){
+            getdelete('data-estadoapro', 'estado_aprobacion');
+        }else if(e.target.matches('.disponibi')){
+            getdelete('data-estadodisponi', 'estado_disponibilidad');
+        }else if(e.target.matches('dispositivo')){
+            getdelete('data-dispositivo', 'dispositivo_electronico');
+        }
     }
 });
