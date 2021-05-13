@@ -24,6 +24,7 @@ if(isset($_POST['enviar'])){
     $jornada = $_POST['jornada'];
     $n_number_ambiente = $_POST['n_number_ambiente'];
     $date_matricula = $_POST['date_matricula'];
+    $id_estado_aprobacion = 2;
 
 
     $consulta1 = "INSERT INTO usuarios(documento,id_tipo_documento,id_tipo_usuario,Cod_Carnet,Nombres,Apellidos,
@@ -55,6 +56,11 @@ if(isset($_POST['enviar'])){
     $consulta5 = "INSERT INTO matricula(id_detalle_formacion,documento,fecha_matricula,id_jornada)
     values($id_detalle_formacion,$cedula,'$date_matricula',$jornada)";
     $ejecu5 = mysqli_query($mysqli,$consulta5);
+
+    $consulta6 = "INSERT INTO aceptacion_usuarios(documento,id_estado_aprobacion) 
+    values ($cedula,$id_estado_aprobacion)";
+    $ejecu6 = mysqli_query($mysqli,$consulta6);
+
  
     
 
@@ -67,7 +73,15 @@ if(isset($_POST['enviar'])){
                 if($ejecu4){
 
                     if($ejecu5){
-                        echo "<script> alert('TODO FUNCIONO'); </script>";
+
+                            if($ejecu6){
+                                echo "<script> alert('registro exitoso!');
+                                window.location= '../index.html';
+                                </script>";
+                            }else{
+                                echo "<script> alert('NO Funciono el registro 6'); </script>";
+                            }
+                        
                     }else{
                         echo "<script> alert('NO Funciono el registro 5'); </script>";
                     }
