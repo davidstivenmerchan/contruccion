@@ -43,26 +43,31 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     }
     else{
         $resultados = [];
-        $sql = "SELECT serial,placa_sena, nom_tipo_dispositivo, nom_dispositivo,nom_estado_disponibilidad,nom_estado_dispositivo,nom_marca 
-                from $tabla,estado_disponibilidad,estado_dispositivo,marca,tipo_dispositivo 
-                where serial = ? 
-                AND dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo 
-                AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
-                AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
-                AND dispositivo_electronico.id_marca = marca.id_marca
+            $sql = "SELECT serial,placa_sena,tipo_dispositivo.id_tipo_dispositivo, nom_tipo_dispositivo, nom_dispositivo,estado_disponibilidad.id_estado_disponibilidad,nom_estado_disponibilidad,estado_dispositivo.id_estado_dispositivo,nom_estado_dispositivo, marca.id_marca,nom_marca 
+                    from dispositivo_electronico,estado_disponibilidad,estado_dispositivo,marca,tipo_dispositivo 
+                    where serial = ?
+                    AND dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo 
+                    AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
+                    AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
+                    AND dispositivo_electronico.id_marca = marca.id_marca
                 ";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 's', $id);
         $ok = mysqli_stmt_execute($query);
-        $ok = mysqli_stmt_bind_result($query, $serial , $placa_sena, $nom_tipo_dispositivo,$nom_dispositivo ,$nom_estado_disponibilidad ,$nom_estado_dispositivo ,$nom_marca );
+        $ok = mysqli_stmt_bind_result($query, $serial , $placa_sena,$idTipoDispositivo, $nom_tipo_dispositivo,$nom_dispositivo ,
+        $idEstadoDisponibilidad ,$nom_estado_disponibilidad , $idEstadoDispositivo,$nom_estado_dispositivo ,$idMarca, $nom_marca );
         while(mysqli_stmt_fetch($query)){
             array_push($resultados, [
                 'serial' => $serial ,
                 'placa_sena'=> $placa_sena,
+                'idTipoDispositivo' => $idTipoDispositivo ,
                 'nom_tipo_dispositivo'=> $nom_tipo_dispositivo,
                 'nom_dispositivo'=> $nom_dispositivo,
+                'idEstadoDisponibilidad' => $idEstadoDisponibilidad,
                 'nom_estado_disponibilidad'=> $nom_estado_disponibilidad,
+                'idEstadoDispositivo' => $idEstadoDispositivo,
                 'nom_estado_dispositivo'=> $nom_estado_dispositivo,
+                'idMarca' => $idMarca,
                 'nom_marca'=> $nom_marca,
                 ]);
         }
