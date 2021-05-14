@@ -1,5 +1,5 @@
 
-const ajax = ({ url, method, cbSuccess, data}) => {
+export const ajax = ({ url, method, cbSuccess, data}) => {
 
     fetch(url,{
         method,
@@ -13,7 +13,8 @@ const ajax = ({ url, method, cbSuccess, data}) => {
       .catch( error => {
         let message = error.statusText || 'ocurrio un error';
         alert( message);
+        console.error(error);
       });
 }
 
-export default ajax;
+// export default ajax;
