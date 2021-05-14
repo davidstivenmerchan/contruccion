@@ -1,4 +1,4 @@
-import ajax from "./ajax.js";
+import { ajax } from "./ajax.js";
 import { getHTML } from "./admin.js";
 
 export const handleDelete = ({id, tabla }) =>{

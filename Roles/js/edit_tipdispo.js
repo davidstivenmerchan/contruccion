@@ -1,5 +1,5 @@
 import { getHTML } from "./admin.js";
-import ajax from "./ajax.js";
+import { ajax } from "./ajax.js";
 
 export const editTipoDispo = ( id ) =>{
     const tabla = 'tipo_dispositivo';
