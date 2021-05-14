@@ -124,7 +124,7 @@
                 <td><?php echo $mostrar['nom_jornada'] ?></td>
                 <td class="imgss">
                     <i class="ico fas fa-edit"></i> |    
-                    <a href="" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    <a href="pag_admin/eliminarjornada.php?id=<?php echo $mostrar['id_jornada'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
             </tr>
             
@@ -160,7 +160,7 @@
                 <td><?php echo $mostrar['nom_formacion'] ?></td>
                 <td class="imgss">
                     <i class="ico fas fa-edit"></i> |    
-                    <a href="" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    <a href="pag_admin/eliminarformacion.php?id=<?php echo $mostrar['id_formacion'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
             </tr>
             
@@ -205,7 +205,7 @@
                 <td><?php echo $mostrar['nom_nave'] ?></td>
                 <td class="imgss">
                     <i class="ico fas fa-edit"></i> |    
-                    <a href="" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    <a href="pag_admin/eliminarficha.php?id=<?php echo $mostrar['id_detalle_formacion'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
 
             </tr>
