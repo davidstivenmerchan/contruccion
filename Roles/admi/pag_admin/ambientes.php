@@ -203,12 +203,12 @@
     <div class="form form1 form2 form3">
     <p type="title">Crear Nave</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
+    <form action="" method="POST" id="crearnave">
         
         <p type="nom">
             <label style="position:absolute; left:55%;" for="nom">Numero de la nave<br>
             <br>
-            <input style="position:absolute; left:-82px;" type="text" name="nom_usu" id="nom_usu">
+            <input style="position:absolute; left:-82px;" type="text" name="num_nave" id="nom_usu">
         </p>
         <p>
             <br>
@@ -217,7 +217,7 @@
             <br>
         <center>
 
-        <input style="margin-left:70%;" type="submit" value="Crear" name="enviar3">
+        <input style="margin-left:70%;" type="submit" value="Crear" name="enviar3" id="crearnav">
 
         </center>
         
@@ -225,6 +225,26 @@
         </p>
     </form>
     </div>
+    <!--Codigo para hacer la insercion en la base de datos-->
+      <!--inicio enviando los datos con ajax del paciente para que no se recarge la pagina-->
+      <script type="text/javascript">
+              $("#crearnav").on('click', function() {
+                 var url = "crearnave.php";
+              $.ajax({
+                   type: 'POST',
+                   url: url,
+                   data: $("#crearnave").serialize(),
+                  success: function(data) {
+                       alert(data);
+                    }
+
+                 });
+                 return false;
+        
+            });
+        </script>
+
+    
 
     <div class="form form1 form2 form3 form4">
     <p type="title">Crear Jornada</p>
