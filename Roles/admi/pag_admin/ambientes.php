@@ -81,7 +81,7 @@
                     <td><?php echo $mostrar['nom_nave'] ?></td>
                     <td class="imgss">
                     <i class="ico fas fa-edit"></i> |    
-                    <a href="" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    <a href="pag_admin/eliminarnave.php?id=<?php echo $mostrar['id_nave'];?>" class="clickborrar" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
                 
                 </tr>
