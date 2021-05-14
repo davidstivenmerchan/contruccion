@@ -265,12 +265,12 @@
     <div class="form form1 form2 form3 form4 form5">
     <p type="title">Crear Formacion</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
+    <form action="pag_admin/crearformacion.php" method="POST">
         
         <p type="nom">
             <label style="position:absolute; left:50%;" for="nom">Nombre del programa de formacion<br>
             <br>
-            <input style="position:absolute;" type="text" name="nom_usu" id="nom_usu">
+            <input style="position:absolute;" type="text" name="formacion" id="nom_usu">
         </p>
         <p>
             <br>
