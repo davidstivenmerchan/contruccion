@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <link rel="stylesheet" href="./pag_admin/css/ambiente.css">
-    <link rel="stylesheet" href="../../css/tablas_ambiente.css">
+    <link rel="stylesheet" href="./pag_admin/css/tablas_ambiente.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -234,12 +234,12 @@
     <div class="form form1 form2 form3 form4">
     <p type="title">Crear Jornada</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
+    <form action="pag_admin/crearjornada.php" method="POST" id="crearjor">
         
         <p type="nom">
             <label style="position:absolute; left:58%;" for="nom">Jornada<br>
             <br>
-            <input style="position:absolute; left:-120px;" type="text" name="nom_usu" id="nom_usu">
+            <input style="position:absolute; left:-120px;" type="text" name="jornada" id="nom_usu">
         </p>
         <p>
             <br>
@@ -248,7 +248,7 @@
             <br>
         <center>
 
-        <input style="margin-left:75%;" type="submit" value="Guardar" name="enviar3">
+        <input style="margin-left:75%;" type="submit" value="Guardar" name="enviar3" id="crearjornada">
 
         </center>
         
@@ -259,23 +259,8 @@
 
 
     </div>
-    <!--inicio enviando los datos con ajax del paciente para que no se recarge la pagina-->
-    <script type="text/javascript">
-              $("#crearnav").on('click', function() {
-                 var url = "";
-              $.ajax({
-                   type: 'POST',
-                   url: url,
-                   data: $("#crearnave").serialize(),
-                  success: function(data) {
-                       alert(data);
-                    }
-
-                 });
-                 return false;
-        
-            });
-        </script>
+    
+    
 
     <div class="form form1 form2 form3 form4 form5">
     <p type="title">Crear Formacion</p>
