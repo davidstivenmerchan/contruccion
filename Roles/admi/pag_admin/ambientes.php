@@ -64,7 +64,7 @@
                 <tr class="titulo">
                     <td>Id</td>
                     <td>Nave</td>
-                    
+                    <td>Acciones</td>
 
                 <?php
                     $sql="SELECT * from nave";
@@ -79,6 +79,10 @@
                 <tr class="datos">
                     <td><?php echo $mostrar['id_nave'] ?></td>
                     <td><?php echo $mostrar['nom_nave'] ?></td>
+                    <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <a href="" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    </td>
                 
                 </tr>
                 
@@ -292,12 +296,12 @@
     <div class="form form1 form2 form3 form4 form5 form6 form7">
     <p type="title">Crear Fichas</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
+    <form action="pag_admin/creardetallformacion.php" method="POST">
         
         <p type="nom">
             <label style="position:absolute; left:50%; margin:auto;">Numero de ficha<br>
             <br>
-            <input style="" type="text" name="nom_usu" id="nom_usu">
+            <input style="" type="text" name="numficha" id="nom_usu">
         </p>
         <p>
             <br>
@@ -307,7 +311,7 @@
            <label style="position:absolute; left:50%;">Selecciona el programa de formacion<br>
            <br>
            
-           <select  name="" id="" class="" style="position:absolute;left:50%;">
+           <select  name="programa" id="" class="" style="position:absolute;left:50%;">
                         <?php 
                         $tipdoc = mysqli_query($mysqli, "SELECT * from formacion");
                         while($tipdocu = mysqli_fetch_row($tipdoc)){
@@ -323,7 +327,7 @@
             <label style="">Selecciona la nave<br>
            <br>
            
-           <select  name="" id="" class="" style="position:absolute;left:50%;">
+           <select  name="nave" id="" class="" style="position:absolute;left:50%;">
                         <?php 
                         $tipdoc = mysqli_query($mysqli, "SELECT * from nave");
                         while($tipdocu = mysqli_fetch_row($tipdoc)){
