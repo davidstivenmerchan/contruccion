@@ -106,6 +106,7 @@
                 
                 <td>Id</td>
                 <td>Jornada</td>
+                <td>Acciones</td>
             </tr>
 
             <?php
@@ -121,6 +122,10 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_jornada'] ?></td>
                 <td><?php echo $mostrar['nom_jornada'] ?></td>
+                <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <a href="" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    </td>
             </tr>
             
                 <?php
@@ -137,6 +142,7 @@
             <tr class="titulo">
                 <td>Id</td>
                 <td>Formacion</td>
+                <td>Acciones</td>
             </tr>
 
             <?php
@@ -152,6 +158,10 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_formacion'] ?></td>
                 <td><?php echo $mostrar['nom_formacion'] ?></td>
+                <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <a href="" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    </td>
             </tr>
             
                 <?php
@@ -172,6 +182,7 @@
                 <td>Ficha</td>
                 <td>Formacion</td>
                 <td>Nave</td>
+                <td>Acciones</td>
 
                 
             </tr>
@@ -192,6 +203,10 @@
                 <td><?php echo $mostrar['num_ficha'] ?></td>
                 <td><?php echo $mostrar['nom_formacion'] ?></td>
                 <td><?php echo $mostrar['nom_nave'] ?></td>
+                <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <a href="" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    </td>
 
             </tr>
             
