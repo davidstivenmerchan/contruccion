@@ -83,6 +83,8 @@ main{
 }
 .form form p{
     width:80%;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .form form label{
     display: block;
@@ -93,7 +95,12 @@ main{
     height: 2rem; 
     outline: 0;
 }
-.form form input[type="submit"]{
+.form form select{
+    width: 20rem;
+    height: 2rem;
+    outline: 0;
+}
+.form1 form input[type="submit"]{
     border: none;
     outline:0;
     margin:0 70%;
@@ -102,6 +109,7 @@ main{
     background-color: #e57816;
     color: #ffffff;
     cursor:pointer;
+    font-size: 20px;
 }
 
 .form1 {
@@ -126,11 +134,10 @@ main{
     height: 2rem;
 }
 
-.form1 form input[type="submit"]{
+.form2 form input[type="submit"]{
     border: none;
     outline:0;
     width: 10rem;
-    margin: 0 90%;
     background-color: #e57816;
     color: #ffffff;
     cursor:pointer;
