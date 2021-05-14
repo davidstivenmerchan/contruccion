@@ -52,13 +52,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="pag_admin/grupos.php">
-                        <span class="icon"><i class="fa fa-check-square" aria-hidden="true"></i></span>
-                        <span class="title">Aceptar</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="../../includes/salir.php" class="salir">
                         <span class="icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
                         <span class="title">Salir</span>
