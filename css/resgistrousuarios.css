@@ -11,7 +11,7 @@ body{
     
     margin: 0px;
     padding: 20px;
-    height: 617px;
+    height: 700px;
     
 }
 input{
@@ -52,11 +52,15 @@ select:focus{
 .sele2{
     margin-left: 50px;
 }
+.sele5{
+    margin-left: 100px;
+}
 .sele2 input{
     margin-left: 0px;
 }
 .foto{
     width: 350px;
+    margin: 10px;
 }
 .sele3 select{
     width: 190px;
@@ -82,7 +86,7 @@ select:focus{
 .ico{
     position: absolute;
     top:20px;
-    left: 1080px;
+    left: 1070px;
 }
 .icono{
     font-size: 50px;
