@@ -17,8 +17,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
-    <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
-    <link rel="stylesheet" href="../../css/mostrar_tablas.css">
+    <link rel="stylesheet" href="./pag_admin/css/ambiente.css">
+    <link rel="stylesheet" href="../../css/tablas_ambiente.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
@@ -28,7 +29,7 @@
 
             <div class="botones">
                 <span><button class="aparecer formu1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i> </button></span>
-                <span><button class="aparecer formu4" data-form="form3"> <i class="fa fa-keyboard" title="Registrar datos de Naves"></i> </button></span>
+                <span><button class="aparecer formu5" data-form="form3"> <i class="fa fa-keyboard" title="Registrar datos de Naves"></i> </button></span>
             </div>
         </div>
         <div class="card">
@@ -36,7 +37,7 @@
 
             <div class="botones">
                 <span> <button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt" title="Mostrar Datos de Jornadas"></i></button> </span>
-                <span> <button class="aparecer formu5" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de Jornadas"></i></button> </span>
+                <span> <button class="aparecer formu6" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de Jornadas"></i></button> </span>
             </div>
         </div>
         <div class="card">
@@ -44,15 +45,15 @@
 
             <div class="botones">
                 <span> <button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> </span>
-                <span> <button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
+                <span> <button class="aparecer formu7" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
             </div>
         </div>
         <div class="card">
         <h3>Detalles de formacion</h3>
 
             <div class="botones">
-                <span> <button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> </span>
-                <span> <button class="aparecer formu6" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
+                <span> <button class="aparecer formu4" data-form="form"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> </span>
+                <span> <button class="aparecer formu8" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
             </div>
         </div>
     </section>
@@ -203,12 +204,12 @@
     <div class="form form1 form2 form3">
     <p type="title">Crear Nave</p>
     <div class="linea"></div>
-    <form action="" method="POST" id="crearnave">
+    <form action="pag_admin/crearnave.php" method="POST" id="crearnave">
         
         <p type="nom">
             <label style="position:absolute; left:55%;" for="nom">Numero de la nave<br>
             <br>
-            <input style="position:absolute; left:-82px;" type="text" name="num_nave" id="nom_usu">
+            <input style="position:absolute; left:-82px;" type="text" name="numero">
         </p>
         <p>
             <br>
@@ -217,33 +218,17 @@
             <br>
         <center>
 
-        <input style="margin-left:70%;" type="submit" value="Crear" name="enviar3" id="crearnav">
+        <input style="margin-left:70%;" type="submit" value="Crear"  id="crearnav" name="crearnave">
 
         </center>
         
         
         </p>
     </form>
+   
     </div>
-    <!--Codigo para hacer la insercion en la base de datos-->
-      <!--inicio enviando los datos con ajax del paciente para que no se recarge la pagina-->
-      <script type="text/javascript">
-              $("#crearnav").on('click', function() {
-                 var url = "crearnave.php";
-              $.ajax({
-                   type: 'POST',
-                   url: url,
-                   data: $("#crearnave").serialize(),
-                  success: function(data) {
-                       alert(data);
-                    }
-
-                 });
-                 return false;
-        
-            });
-        </script>
-
+    
+     
     
 
     <div class="form form1 form2 form3 form4">
@@ -274,6 +259,23 @@
 
 
     </div>
+    <!--inicio enviando los datos con ajax del paciente para que no se recarge la pagina-->
+    <script type="text/javascript">
+              $("#crearnav").on('click', function() {
+                 var url = "";
+              $.ajax({
+                   type: 'POST',
+                   url: url,
+                   data: $("#crearnave").serialize(),
+                  success: function(data) {
+                       alert(data);
+                    }
+
+                 });
+                 return false;
+        
+            });
+        </script>
 
     <div class="form form1 form2 form3 form4 form5">
     <p type="title">Crear Formacion</p>
@@ -360,6 +362,7 @@
 
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 </body>
