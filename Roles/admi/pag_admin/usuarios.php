@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
     <link rel="stylesheet" href="../../css/mostrar_tablas.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <script src="../../js/confirmacioneliminar.js"></script>
    
@@ -56,7 +57,7 @@
     </section>
 
     
-    <div class="form">
+    <div class="form tablas">
     <table class="tablausu">
                 <tr class="titulo">
                     <td>Documento</td>
@@ -69,7 +70,7 @@
                     <td>Genero</td>
                     <td>Correo SENA</td>
                     <td>Telefono</td>
-                    <td>Acciones</td>
+                    <td class="acciones">Acciones</td>
                 </tr>
 
                 <?php
@@ -100,9 +101,9 @@
                     <td><?php echo $mostrar['nom_genero'] ?></td>
                     <td><?php echo $mostrar['correo_sena'] ?></td>
                     <td><?php echo $mostrar['telefono'] ?></td>
-                    <td class="imgss">
-                    <a href=""><i class="ico fas fa-edit"></i></a> |    
-                    <a href="pag_admin/eliminarusuarios.php?id=<?php echo $mostrar['documento'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>               
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit usuario"  data-usuario="<?php echo $eh['documento']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove usuario"  data-usuario="<?php echo $eh['documento']; ?>">               
                     </td>
                 </tr>
                 
@@ -143,9 +144,9 @@
                 <td><?php echo $mostrar['id_tipo_documento'] ?></td>
                 <td><?php echo $mostrar['nom_documento'] ?></td>
                 <td class="imgss">
-                    <i class="ico fas fa-edit"></i> |    
-                    <a href="pag_admin/eliminar_tipousuario.php?id=<?php echo $mostrar['id_tipo_documento'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
-                    </td>
+                    <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipoDocu" data-tipoDocu="<?php echo $eh['id_tipo_documento']; ?>">
+                    <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tipoDocu" data-tipoDocu="<?php echo $eh['id_tipo_documento']; ?>">              
+                </td>
             </tr>
             
                 <?php
@@ -179,9 +180,9 @@
                 <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
                 <td class="imgss">
-                    <i class="ico fas fa-edit"></i> |    
-                    <a href="pag_admin/elimi_tipdocu.php?id=<?php echo $mostrar['id_tipo_usuario'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>             
-                    </td>
+                    <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipoUsu" data-tipoUsu="<?php echo $eh['id_tipo_usuario']; ?>">
+                    <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tipoUsu" data-tipoUsu="<?php echo $eh['id_tipo_usuario']; ?>">               
+                </td>
             </tr>
             
                 <?php
