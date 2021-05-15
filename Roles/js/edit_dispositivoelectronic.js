@@ -1,4 +1,5 @@
 import { ajax } from "./ajax.js";
+import { getHTML } from "./admin.js";
 
 export const editdispoelectronico = ( id ) =>{
     const tabla = 'dispositivo_electronico';
@@ -14,55 +15,64 @@ export const editdispoelectronico = ( id ) =>{
         <label for="dispositivo_electronico"> Serial </label>
         <input type="text" name="idserial" id="dispositivo_electronico" value="${data[0].serial}">
 
-        <label for="namedispositivo_electronico"> Placa Sena </label>
-        <input type="text" name="namedispositivo_electronico" id="namedispositivo_electronico" class="dispositivo_electros" id="dispositivo_electros" value="${data[0].placa_sena}">
+        <label for="placa_sena"> Placa Sena </label>
+        <input type="text" name="placa_sena" id="placa_sena" class="placa_sena" id="placa_sena" value="${data[0].placa_sena}">
 
         
 
         <label for="select_tipo_dispo"> Tipo Dispositivo </label>
-        <select name="select_tipo_dispo" id="select_tipo_dispo"  >
+        <select name="select_tipo_dispo" id="select_tipo_dispo">
+            <option value="${data[0].idTipoDispositivo}">${data[0].nom_tipo_dispositivo}</option>
             ${ajax({
                 url: "./acciones.php?tabla=tipo_dispositivo",
-                cbSuccess: ( { data } ) => {
+                cbSuccess: ( { data: datos } ) => {
                     const $select = document.getElementById('select_tipo_dispo');
                     let $html ;
-                    data.forEach( el => {
-                        $html += `<option value="${el.id}"> ${el.nameTipo} </option>`;
+                    datos.forEach( el => {
+                        ( el.id !== data[0].idTipoDispositivo )
+                         ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                         : null;
                     });
-                    $select.innerHTML = $html;
+                    $select.innerHTML += $html;
                 }
             })}
         </select> 
 
         <label for="namedispositivo_electronico"> Nombre Dispositivo  </label>
-        <input type="text" name="namedispositivo_electronico" id="namedispositivo_electronico" class="dispositivo_electros" id="dispositivo_electros" value="${data[0].nom_dispositivo}">
+        <input type="text" name="namedispositivo_electronico" id="namedispositivo_electronico" class="namedispositivo_electronico" value="${data[0].nom_dispositivo}">
 
         <label for="select_estado_disponibilidad"> Estado Disponibilidad  </label>
         <select name="select_estado_disponibilidad" id="select_estado_disponibilidad" >
+            <option value="${data[0].idEstadoDisponibilidad}"> ${data[0].nom_estado_disponibilidad} </option>
             ${ajax({
                 url: "./acciones.php?tabla=estado_disponibilidad",
-                cbSuccess: ( { data } ) => {
+                cbSuccess: ( { data: datos } ) => {
                     const $select = document.getElementById('select_estado_disponibilidad');
                     let $html ;
-                    data.forEach( el => {
-                        $html += `<option value="${el.id}"> ${el.nameTipo} </option>`;
+                    datos.forEach( el => {
+                        ( el.id !== data[0].idEstadoDisponibilidad )
+                          ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                          : null;
                     });
-                    $select.innerHTML = $html;
+                    $select.innerHTML += $html;
                 }
             })}
         </select>
 
         <label for="select_estado_dispositivo"> Estado Dispositivo  </label>
         <select name="select_estado_dispositivo" id="select_estado_dispositivo" >
+            <option value="${data[0].idEstadoDispositivo}">${data[0].nom_estado_dispositivo}</option>
             ${ajax({
                 url: "./acciones.php?tabla=estado_dispositivo",
-                cbSuccess: ( { data } ) => {
+                cbSuccess: ( { data: datos } ) => {
                     const $select = document.getElementById('select_estado_dispositivo');
                     let $html ;
-                    data.forEach( el => {
-                        $html += `<option value="${el.id}"> ${el.nameTipo} </option>`;
+                    datos.forEach( el => {
+                        ( el.id !== data[0].idEstadoDispositivo )
+                          ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                          : null;
                     });
-                    $select.innerHTML = $html;
+                    $select.innerHTML += $html;
                 }
             })}
         </select>
@@ -122,9 +132,15 @@ export const editdispoelectronico = ( id ) =>{
                 },
                 data: {
                     tabla: 'dispositivo_electronico',
-                    serialAntiguo: e.target.serialantiguo,
-                    serial: e.target.serial,
-                    
+                    serialAntiguo:parseInt(e.target.serialantiguo.value),
+                    serial: parseInt(e.target.idserial.value),
+                    placaSena: parseInt(e.target.placa_sena.value),
+                    TipoDispo: parseInt(e.target.select_tipo_dispo.value),
+                    nameDispositivoElectronico: e.target.namedispositivo_electronico.value,
+                    EstadoDisponibilidad: parseInt(e.target.select_estado_disponibilidad.value),
+                    EstadoDispositivo: parseInt(e.target.select_estado_dispositivo.value), 
+                    marca: parseInt(e.target.select_marca.value),
+
                 }
             });
         }
