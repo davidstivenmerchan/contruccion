@@ -20,7 +20,7 @@ export const editdispoelectronico = ( id ) =>{
         
 
         <label for="select_tipo_dispo"> Tipo Dispositivo </label>
-        <select name="select_tipo_dispo" id="select_tipo_dispo" >
+        <select name="select_tipo_dispo" id="select_tipo_dispo"  >
             ${ajax({
                 url: "./acciones.php?tabla=tipo_dispositivo",
                 cbSuccess: ( { data } ) => {
@@ -38,7 +38,7 @@ export const editdispoelectronico = ( id ) =>{
         <input type="text" name="namedispositivo_electronico" id="namedispositivo_electronico" class="dispositivo_electros" id="dispositivo_electros" value="${data[0].nom_dispositivo}">
 
         <label for="select_estado_disponibilidad"> Estado Disponibilidad  </label>
-        <select name="select_estado_disponibilidad" id="select_estado_disponibilidad">
+        <select name="select_estado_disponibilidad" id="select_estado_disponibilidad" >
             ${ajax({
                 url: "./acciones.php?tabla=estado_disponibilidad",
                 cbSuccess: ( { data } ) => {
@@ -53,7 +53,7 @@ export const editdispoelectronico = ( id ) =>{
         </select>
 
         <label for="select_estado_dispositivo"> Estado Dispositivo  </label>
-        <select name="select_estado_dispositivo" id="select_estado_dispositivo">
+        <select name="select_estado_dispositivo" id="select_estado_dispositivo" >
             ${ajax({
                 url: "./acciones.php?tabla=estado_dispositivo",
                 cbSuccess: ( { data } ) => {
@@ -68,16 +68,19 @@ export const editdispoelectronico = ( id ) =>{
         </select>
 
         <label for="select_marca"> Marca  </label>
-        <select name="select_marca" id="select_marca">
+    <select name="select_marca" id="select_marca">
+        <option value="${data[0].idMarca}"> ${data[0].nom_marca} </option>
         ${ajax({
             url: "./acciones.php?tabla=marca",
-            cbSuccess: ( { data } ) => {
+            cbSuccess: ( { data: datos } ) => {
                 const $select = document.getElementById('select_marca');
                 let $html ;
-                data.forEach( el => {
-                    $html += `<option value="${el.id}"> ${el.nameTipo} </option>`;
+                datos.forEach( el => {
+                    ( el.id !== data[0].idMarca ) 
+                      ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                      : null;
                 });
-                $select.innerHTML = $html;
+                $select.innerHTML += $html;
             }
         })}
     </select>

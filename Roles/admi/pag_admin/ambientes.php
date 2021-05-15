@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <link rel="stylesheet" href="./pag_admin/css/ambiente.css">
-    <link rel="stylesheet" href="../../css/tablas_ambiente.css">
+    <link rel="stylesheet" href="./pag_admin/css/tablas_ambiente.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -64,7 +64,7 @@
                 <tr class="titulo">
                     <td>Id</td>
                     <td>Nave</td>
-                    
+                    <td>Acciones</td>
 
                 <?php
                     $sql="SELECT * from nave";
@@ -79,6 +79,10 @@
                 <tr class="datos">
                     <td><?php echo $mostrar['id_nave'] ?></td>
                     <td><?php echo $mostrar['nom_nave'] ?></td>
+                    <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <a href="pag_admin/eliminarnave.php?id=<?php echo $mostrar['id_nave'];?>" class="clickborrar" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    </td>
                 
                 </tr>
                 
@@ -102,6 +106,7 @@
                 
                 <td>Id</td>
                 <td>Jornada</td>
+                <td>Acciones</td>
             </tr>
 
             <?php
@@ -117,6 +122,10 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_jornada'] ?></td>
                 <td><?php echo $mostrar['nom_jornada'] ?></td>
+                <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <a href="pag_admin/eliminarjornada.php?id=<?php echo $mostrar['id_jornada'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    </td>
             </tr>
             
                 <?php
@@ -133,6 +142,7 @@
             <tr class="titulo">
                 <td>Id</td>
                 <td>Formacion</td>
+                <td>Acciones</td>
             </tr>
 
             <?php
@@ -148,6 +158,10 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_formacion'] ?></td>
                 <td><?php echo $mostrar['nom_formacion'] ?></td>
+                <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <a href="pag_admin/eliminarformacion.php?id=<?php echo $mostrar['id_formacion'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    </td>
             </tr>
             
                 <?php
@@ -168,6 +182,7 @@
                 <td>Ficha</td>
                 <td>Formacion</td>
                 <td>Nave</td>
+                <td>Acciones</td>
 
                 
             </tr>
@@ -188,6 +203,10 @@
                 <td><?php echo $mostrar['num_ficha'] ?></td>
                 <td><?php echo $mostrar['nom_formacion'] ?></td>
                 <td><?php echo $mostrar['nom_nave'] ?></td>
+                <td class="imgss">
+                    <i class="ico fas fa-edit"></i> |    
+                    <a href="pag_admin/eliminarficha.php?id=<?php echo $mostrar['id_detalle_formacion'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
+                    </td>
 
             </tr>
             
@@ -234,12 +253,12 @@
     <div class="form form1 form2 form3 form4">
     <p type="title">Crear Jornada</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
+    <form action="pag_admin/crearjornada.php" method="POST" id="crearjor">
         
         <p type="nom">
             <label style="position:absolute; left:58%;" for="nom">Jornada<br>
             <br>
-            <input style="position:absolute; left:-120px;" type="text" name="nom_usu" id="nom_usu">
+            <input style="position:absolute; left:-120px;" type="text" name="jornada" id="nom_usu">
         </p>
         <p>
             <br>
@@ -248,7 +267,7 @@
             <br>
         <center>
 
-        <input style="margin-left:75%;" type="submit" value="Guardar" name="enviar3">
+        <input style="margin-left:75%;" type="submit" value="Guardar" name="enviar3" id="crearjornada">
 
         </center>
         
@@ -259,33 +278,18 @@
 
 
     </div>
-    <!--inicio enviando los datos con ajax del paciente para que no se recarge la pagina-->
-    <script type="text/javascript">
-              $("#crearnav").on('click', function() {
-                 var url = "";
-              $.ajax({
-                   type: 'POST',
-                   url: url,
-                   data: $("#crearnave").serialize(),
-                  success: function(data) {
-                       alert(data);
-                    }
-
-                 });
-                 return false;
-        
-            });
-        </script>
+    
+    
 
     <div class="form form1 form2 form3 form4 form5">
     <p type="title">Crear Formacion</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
+    <form action="pag_admin/crearformacion.php" method="POST">
         
         <p type="nom">
             <label style="position:absolute; left:50%;" for="nom">Nombre del programa de formacion<br>
             <br>
-            <input style="position:absolute;" type="text" name="nom_usu" id="nom_usu">
+            <input style="position:absolute;" type="text" name="formacion" id="nom_usu">
         </p>
         <p>
             <br>
@@ -307,12 +311,12 @@
     <div class="form form1 form2 form3 form4 form5 form6 form7">
     <p type="title">Crear Fichas</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
+    <form action="pag_admin/creardetallformacion.php" method="POST">
         
         <p type="nom">
             <label style="position:absolute; left:50%; margin:auto;">Numero de ficha<br>
             <br>
-            <input style="" type="text" name="nom_usu" id="nom_usu">
+            <input style="" type="text" name="numficha" id="nom_usu">
         </p>
         <p>
             <br>
@@ -322,7 +326,7 @@
            <label style="position:absolute; left:50%;">Selecciona el programa de formacion<br>
            <br>
            
-           <select  name="" id="" class="" style="position:absolute;left:50%;">
+           <select  name="programa" id="" class="" style="position:absolute;left:50%;">
                         <?php 
                         $tipdoc = mysqli_query($mysqli, "SELECT * from formacion");
                         while($tipdocu = mysqli_fetch_row($tipdoc)){
@@ -338,7 +342,7 @@
             <label style="">Selecciona la nave<br>
            <br>
            
-           <select  name="" id="" class="" style="position:absolute;left:50%;">
+           <select  name="nave" id="" class="" style="position:absolute;left:50%;">
                         <?php 
                         $tipdoc = mysqli_query($mysqli, "SELECT * from nave");
                         while($tipdocu = mysqli_fetch_row($tipdoc)){
