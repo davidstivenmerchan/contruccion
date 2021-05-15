@@ -128,8 +128,11 @@ document.addEventListener('click' , e => {
     }
 
     if(e.target.matches('.remove')){
-
-        const getdelete = ( dataAtribute, tabla ) => {
+        /*** la funcion getDelete es una funcion que se hizo con la finalidad de ahorrar code
+         *  recibe dos parametros un dataatributo con el cual va a buscar el id del elemento
+         * y recibe la tabla que va a afectar.
+         */
+        const getdelete = ( dataAtribute, tabla ) => { 
             const id = e.target.getAttribute(dataAtribute);
             handleDelete({ id, tabla});
         }
@@ -144,7 +147,7 @@ document.addEventListener('click' , e => {
             getdelete('data-estadoapro', 'estado_aprobacion');
         }else if(e.target.matches('.disponibi')){
             getdelete('data-estadodisponi', 'estado_disponibilidad');
-        }else if(e.target.matches('dispositivo')){
+        }else if(e.target.matches('.dispositivo')){
             getdelete('data-dispositivo', 'dispositivo_electronico');
         }
     }

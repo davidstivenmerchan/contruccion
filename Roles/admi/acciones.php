@@ -147,6 +147,22 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         );
         echo json_encode($res);
     }
+    if($_PUT['tabla'] === 'dispositivo_electronico'){
+        $sql = "UPDATE $tabla set serial =? , placa_sena =?, id_tipo_dispositivo =? , nom_dispositivo = ?,
+        id_estado_disponibilidad = ?, id_estado_dispositivo = ?, id_marca = ? where serial = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'iiisiiii',$_PUT['serial'], $_PUT['placaSena'], $_PUT['TipoDispo'], $_PUT['nameDispositivoElectronico'],
+                                      $_PUT['EstadoDisponibilidad'], $_PUT['EstadoDispositivo'], $_PUT['marca'], $_PUT['serialAntiguo'] );
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array(
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Dispositivo electronico actualizado con exito',
+        );   
+
+        echo json_encode($res);   
+    }
 }elseif($_SERVER['REQUEST_METHOD'] === 'DELETE'){
     $_DELETE = json_decode(file_get_contents('php://input'), true);
     $tabla = $_DELETE['tabla'];
@@ -155,6 +171,19 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         $sql = "DELETE from $tabla where id_$tabla = ?";
         $query = mysqli_prepare($mysqli , $sql);
         $ok = mysqli_stmt_bind_param($query, 's' , $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Registro borrado con exito',
+        );
+        echo json_encode($res);
+    }
+    if($tabla === 'dispositivo_electronico' ){
+        $sql = "DELETE from $tabla where serial = ? ";
+        $query = mysqli_prepare($mysqli , $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i' , $id);
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
         $res = array (
