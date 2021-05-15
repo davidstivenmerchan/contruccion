@@ -3,13 +3,13 @@ import { getHTML } from "./admin.js";
 
 export const handleDelete = ({id, tabla }) =>{
     Swal.fire({
-        title: 'estas seguro?',
-        text: 'estas seguro de borrar este registro',
-        icon: 'warning',
+        title: 'Estas seguro?',
+        text: 'Estas seguro de borrar este registro',
+        icon: 'Warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'si, acepto'
+        confirmButtonText: 'Si, Acepto'
     })
      .then( result => {
             if( result.isConfirmed){
@@ -36,8 +36,8 @@ export const handleDelete = ({id, tabla }) =>{
                 });
             }else{
                 Swal.fire(
-                    'cancelado!',
-                    'tu archivo no se modifico',
+                    'Cancelado!',
+                    'Tu Registro no se elimino',
                     'error'
                 );
             }
