@@ -1,15 +1,15 @@
 <?php
 
-include('../../includes/conexion.php');
+include '../../includes/conexion.php';
 
-if(isset($_POST['registrar'])){
-
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $_POST = json_decode( file_get_contents('php://input'), true );
     $serial = $_POST['serial'];
-    $placa_sena = $_POST['placa_sena'];
-    $nom_dispositivo = $_POST['nom_dispositivo'];
-    $id_tipo_dis = $_POST['id_tipo_dis'];
-    $estado_disponi = $_POST['estado_disponi'];
-    $estado_disposi = $_POST['estado_disposi'];
+    $placa_sena = $_POST['placaSena'];
+    $nom_dispositivo = $_POST['nomDispositivo'];
+    $id_tipo_dis = $_POST['idTipoDis'];
+    $estado_disponi = $_POST['estadoDisponi'];
+    $estado_disposi = $_POST['estadoDisposi'];
     $marca = $_POST['marca'];
     
     $consulta = "INSERT INTO dispositivo_electronico(serial, placa_sena,id_tipo_dispositivo,
@@ -19,9 +19,19 @@ if(isset($_POST['registrar'])){
     $query =  mysqli_query($mysqli,$consulta);
 
     if($query){
-        echo "<script> alert('Funciono el registro'); </script>";
+        echo json_encode([
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'usuario creado con exito',
+        ]);
+        // echo json_encode(1);
     }else{
-        echo "<script> alert('NOOOO Funciono el registro'); </script>";
+        echo json_encode([
+            'err' => true,
+            'status' => http_response_code(500),
+            'statusText' => 'no se puede crear el usuario',
+        ]);
+        // echo json_encode(2);
     }
 
 

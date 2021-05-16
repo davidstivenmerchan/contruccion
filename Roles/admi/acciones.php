@@ -79,6 +79,43 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         );
         echo json_encode($res);
         }
+}elseif( $_SERVER['REQUEST_METHOD'] === 'POST' ){
+    $_POST = json_decode( file_get_contents('php://input'), true);
+    $tabla = $_POST['tabla'];
+    function insertTable ( $mysqli, $tabla, $nametipo , $valueNameTipo ){
+        $sql = "INSERT into $tabla (id_$tabla, $nametipo) values ( null , ?)";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 's' , $valueNameTipo);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = [];
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'registro insertado con exito',
+            );
+            echo json_encode($res);
+        }else{
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'no se puede insertar el registro',
+            );
+        }
+    }
+    if( $tabla === 'tipo_dispositivo' ){
+        insertTable($mysqli, $tabla, 'nom_tipo_dispositivo', $_POST['nameTipo']);
+    }else if( $tabla === 'marca' ){
+        insertTable($mysqli, $tabla, 'nom_marca', $_POST['nameTipo']);
+    } else if( $tabla === 'estado_dispositivo'  ){
+        insertTable($mysqli, $tabla , 'nom_estado_dispositivo', $_POST['nameTipo']);
+    } else if( $tabla === 'estado_aprobacion' ){
+        insertTable( $mysqli, $tabla, 'nom_aprobacion', $_POST['nameTipo']);
+    } else if( $tabla === 'estado_disponibilidad' ){
+        insertTable($mysqli , $tabla , 'nom_estado_disponibilidad', $_POST['nameTipo']);
+    }
+
 }elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $_PUT = json_decode(file_get_contents('php://input'), true);
     $tabla = $_PUT['tabla'];
