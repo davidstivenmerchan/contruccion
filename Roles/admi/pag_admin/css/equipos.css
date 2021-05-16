@@ -56,9 +56,36 @@ table .acciones {
     align-items: center;
 }
 .form1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     display: none;
-    margin:auto;
+    /* margin:auto; */
     width: 40%;
+}
+.form1 .formulario{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 0;
+}
+.form1 .formulario input{
+    height: 2rem;
+    margin: 1vh 0;
+    width: 100%;
+}
+.form1 .formulario input[type="submit"]{
+    background-color: #ffffff;
+    border: thin solid #FF6719;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.form1 .formulario input[type="submit"]:hover{
+    background: #FF6719;
+    border: none;
+    color: #ffffff;
 }
 
 .alert{
@@ -79,19 +106,26 @@ table .acciones {
 .formmodal{
     background-color: #ffffff;
     width: 50%;
-    height: 70vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: all 0.9s linear;
 }
+
 .formmodal.desplazar{
-    transform: translateY(-100vh);
+    transform: translateY(-100vh); 
 }
 .formmodal input{
     width: 60%;
     height: 2rem;
+    margin: 2vh 0;
+}
+.formmodal select {
+    width: 60%;
+    height: 2rem;
+    margin:0.5vh 0;
 }
 .formmodal .cerrarmodal{
     border: none;
@@ -106,6 +140,10 @@ table .acciones {
     width: 3rem;
     height: 3rem;
     transform: translate(1.5vw, -21vh);
+}
+.formmodal .dispocerrar{
+    align-self: flex-end;
+    transform: translate(1vw, -2vh);
 }
 .formmodal input[type="submit"]{
     border: none;
@@ -187,5 +225,62 @@ table .acciones {
 }
 
 .visible{
-    display: block;
+    /* display: block; */
+    display: flex;
+    flex-direction: column;
+    /*flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+.formu11{
+    width: 80%;
+    height:auto;
+    margin: 0 0 5rem 0;
+    padding: auto;
+    /* margin: 0; */
+}
+.formu11 h2{
+    margin: 3vh 0 3vh 10%;
+    width: 100%;
+}
+.formu11 label{
+    margin: 0 0 0 10%;
+}
+.formu11 input{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 2rem;
+    margin: 2vh auto;
+} 
+.formu11 input[type="number"]{
+    width: 80%;
+    height: 2rem;
+    /* align-self: center; */
+    margin: 2vh auto;
+}
+.formu11 select{
+    display: flex;
+    flex-direction: column;
+    height: 2rem;
+    margin: 2vh auto;
+    width: 80%;
+}
+
+.formu11 input[type="submit"]{
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #FF6719;
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: all 0.2s ease-in;
+    width: 40%;
+}
+.formu11 input[type="submit"]:hover{
+    background-color: #FF6719;
+    border: none;
+    color: #ffffff;
 }

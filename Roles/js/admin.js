@@ -6,6 +6,7 @@ import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 import { editdispoelectronico } from './edit_dispositivoelectronic.js';
 import { handleDelete } from './handle_delete.js';
+import handleAdd from './handle_add.js';
 // import Swal from 'sweetalert2';
 
 const $main = document.querySelector("main");
@@ -150,5 +151,52 @@ document.addEventListener('click' , e => {
         }else if(e.target.matches('.dispositivo')){
             getdelete('data-dispositivo', 'dispositivo_electronico');
         }
+    }
+});
+
+document.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    let data;
+    if(e.target.matches('#formuDispositivo')){
+        data = {
+            serial: e.target.serial.value,
+            placaSena: e.target.placa_sena.value,
+            nomDispositivo: e.target.nom_dispositivo.value,
+            idTipoDis: e.target.id_tipo_dis.value,
+            estadoDisponi: e.target.estado_disponi.value,
+            estadoDisposi: e.target.estado_disposi.value,
+            marca: e.target.marca.value,
+        }
+        handleAdd(e, 'registro_dispositivo_e.php' , data);
+    }else if( e.target.matches('#tipoDispo')){
+        data = {
+            tabla: 'tipo_dispositivo',
+            nameTipo: e.target.nom_dis.value,
+        }
+        handleAdd(e , 'acciones.php', data);
+    }else if( e.target.matches('#marcaEquipos')){
+        data = {
+            tabla: 'marca',
+            nameTipo: e.target.nom_marca.value,
+        }   
+        handleAdd(e , 'acciones.php', data);
+    }else if( e.target.matches('#estadoDispo') ){
+        data = {
+            tabla: 'estado_dispositivo',
+            nameTipo: e.target.nom_estado.value,
+        }
+        handleAdd(e, 'acciones.php' , data);
+    }else if( e.target.matches('#estadoApro') ){
+        data = {
+            tabla: 'estado_aprobacion',
+            nameTipo: e.target.nom_estado.value,
+        }
+        handleAdd(e , 'acciones.php' , data);
+    }else if( e.target.matches('#estadoDisponibilidad') ){
+        data = {
+            tabla: 'estado_disponibilidad',
+            nameTipo: e.target.nom_estado.value,
+        }
+        handleAdd(e , 'acciones.php' , data);
     }
 });

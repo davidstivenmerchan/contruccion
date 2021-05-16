@@ -9,8 +9,8 @@ export const editdispoelectronico = ( id ) =>{
         const $alert = document.getElementById('alert');
         $alert.classList.add('ver');
         $alert.innerHTML = `
-        <form class="formmodal"id="dispositivo_electro" >
-        <div class="cerrarmodal">X</div>
+        <form class="formmodal formmodaldispo"id="dispositivo_electro" >
+        <div class="cerrarmodal dispocerrar">X</div>
         <input type="hidden" name="serialantiguo" value="${data[0].serial}">
         <label for="dispositivo_electronico"> Serial </label>
         <input type="text" name="idserial" id="dispositivo_electronico" value="${data[0].serial}">
