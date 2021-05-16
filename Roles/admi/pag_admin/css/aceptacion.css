@@ -47,3 +47,22 @@ table tr td{
     
 
 }
+.atras{
+    font-size: 30px;
+    margin: 30px;
+    color: black;
+    cursor: pointer;
+}
+.atras:hover{
+    color: #ff6b00;
+}
+.head{
+    display: flex;
+    margin-top: 10px;
+
+}
+.head h2{
+    margin-left: 400px;
+    margin-top: 20px;
+    
+}
