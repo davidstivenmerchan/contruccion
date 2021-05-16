@@ -140,7 +140,6 @@ export const editdispoelectronico = ( id ) =>{
                     EstadoDisponibilidad: parseInt(e.target.select_estado_disponibilidad.value),
                     EstadoDispositivo: parseInt(e.target.select_estado_dispositivo.value), 
                     marca: parseInt(e.target.select_marca.value),
-
                 }
             });
         }
