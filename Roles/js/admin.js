@@ -62,6 +62,7 @@ document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
     const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9', 'formu10', 'formu11'];
+    const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7'];
 
     const callAparecer = ( array ) =>{
         const [ , primera ] = e.target.classList;
@@ -71,25 +72,18 @@ document.addEventListener('click' , e => {
         aparecer( elemento );
     }
     
-    const callDesaparecer = () =>{
-        const [ , primera ] = e.target.classList;
-        const elemento = document.querySelector(`.${primera}`).getAttribute('data-form');
-        desaparecer( [ elemento ] );
-    }
+    
     // const aparecerEquipo = document.querySelectorAll
     if(e.target.matches('.aparecer')){
         callAparecer(formularios);
     }
-    if(e.target.matches('.cerrar')){
-        callDesaparecer();
-    }
-
     if(e.target.matches('.aparecerequipos') || e.target.matches('.aparecerequipos *')){
         callAparecer(formula);
     }
-    if(e.target.matches('.cerrarequipos')){    
-        callDesaparecer();
+    if(e.target.matches('.aparecerambientes') || e.target.matches('.aparecerambientes *')){    
+        callAparecer(formuambientes);
     }
+    
 
     if(e.target.matches(".edit")){
         if(e.target.matches('.tipdispo')){
@@ -124,8 +118,6 @@ document.addEventListener('click' , e => {
         const $formAlert = document.querySelector('#alert form');
         setTimeout(() => $alerta.classList.remove('ver'), 1000);
         $formAlert.classList.add('desplazar');
-        // Swal.
-        // $alerta.style.display="none";
     }
 
     if(e.target.matches('.remove')){
@@ -140,14 +132,19 @@ document.addEventListener('click' , e => {
 
         if(e.target.matches('.tipdispo')){
             getdelete('data-tipdispo' ,'tipo_dispositivo' );
+
         }else if( e.target.matches('.marca')){
             getdelete('data-marca', 'marca');
+
         }else if(e.target.matches('.estado')){
             getdelete('data-estado', 'estado_dispositivo');
+
         }else if(e.target.matches('.aprobacion')){
             getdelete('data-estadoapro', 'estado_aprobacion');
+
         }else if(e.target.matches('.disponibi')){
             getdelete('data-estadodisponi', 'estado_disponibilidad');
+
         }else if(e.target.matches('.dispositivo')){
             getdelete('data-dispositivo', 'dispositivo_electronico');
         }
@@ -167,36 +164,36 @@ document.addEventListener('submit', (e)=>{
             estadoDisposi: e.target.estado_disposi.value,
             marca: e.target.marca.value,
         }
-        handleAdd(e, 'registro_dispositivo_e.php' , data);
+        handleAdd(e, 'registro_dispositivo_e.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#tipoDispo')){
         data = {
             tabla: 'tipo_dispositivo',
             nameTipo: e.target.nom_dis.value,
         }
-        handleAdd(e , 'acciones.php', data);
+        handleAdd(e , 'acciones.php', data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#marcaEquipos')){
         data = {
             tabla: 'marca',
             nameTipo: e.target.nom_marca.value,
         }   
-        handleAdd(e , 'acciones.php', data);
+        handleAdd(e , 'acciones.php', data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#estadoDispo') ){
         data = {
             tabla: 'estado_dispositivo',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e, 'acciones.php' , data);
+        handleAdd(e, 'acciones.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#estadoApro') ){
         data = {
             tabla: 'estado_aprobacion',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e , 'acciones.php' , data);
+        handleAdd(e , 'acciones.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#estadoDisponibilidad') ){
         data = {
             tabla: 'estado_disponibilidad',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e , 'acciones.php' , data);
+        handleAdd(e , 'acciones.php' , data , 'pag_admin/equipos.php');
     }
 });
