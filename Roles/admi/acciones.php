@@ -114,7 +114,35 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         insertTable( $mysqli, $tabla, 'nom_aprobacion', $_POST['nameTipo']);
     } else if( $tabla === 'estado_disponibilidad' ){
         insertTable($mysqli , $tabla , 'nom_estado_disponibilidad', $_POST['nameTipo']);
+    } else if ($tabla === 'nave'){
+        insertTable($mysqli, $tabla , 'nom_nave', $_POST['nameTipo']);
+    } else if ($tabla === 'jornada'){
+        insertTable($mysqli, $tabla , 'nom_jornada', $_POST['nameTipo']);
+    } else if ($tabla === 'formacion'){
+        insertTable($mysqli, $tabla , 'nom_formacion', $_POST['nameTipo']);
+    } else if ($tabla === 'detalle_formacion'){
+        $sql = "INSERT INTO detalle_formacion (id_detalle_formacion, id_formacion, num_ficha, id_ambiente) VALUES (NULL, ?, ?, ? )";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'iii', $_POST['formacion'],$_POST['num_ficha'], $_POST['ambiente'] );
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = [];
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Registro insertado con exito',
+            );
+            echo json_encode($res);
+        }else{
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'No se puede insertar el registro',
+            );
+        }
     }
+    
 
 }elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $_PUT = json_decode(file_get_contents('php://input'), true);
@@ -189,7 +217,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         id_estado_disponibilidad = ?, id_estado_dispositivo = ?, id_marca = ? where serial = ?";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iiisiiii',$_PUT['serial'], $_PUT['placaSena'], $_PUT['TipoDispo'], $_PUT['nameDispositivoElectronico'],
-                                      $_PUT['EstadoDisponibilidad'], $_PUT['EstadoDispositivo'], $_PUT['marca'], $_PUT['serialAntiguo'] );
+                                    $_PUT['EstadoDisponibilidad'], $_PUT['EstadoDispositivo'], $_PUT['marca'], $_PUT['serialAntiguo'] );
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
         $res = array(

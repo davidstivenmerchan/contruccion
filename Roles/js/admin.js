@@ -125,28 +125,40 @@ document.addEventListener('click' , e => {
          *  recibe dos parametros un dataatributo con el cual va a buscar el id del elemento
          * y recibe la tabla que va a afectar.
          */
-        const getdelete = ( dataAtribute, tabla ) => { 
+        const getdelete = ( dataAtribute, tabla, urlSuccess ) => { 
             const id = e.target.getAttribute(dataAtribute);
-            handleDelete({ id, tabla});
+            handleDelete({ id, tabla, urlSuccess});
         }
 
         if(e.target.matches('.tipdispo')){
-            getdelete('data-tipdispo' ,'tipo_dispositivo' );
+            getdelete('data-tipdispo' ,'tipo_dispositivo','pag_admin/equipos.php' );
 
         }else if( e.target.matches('.marca')){
             getdelete('data-marca', 'marca');
 
         }else if(e.target.matches('.estado')){
-            getdelete('data-estado', 'estado_dispositivo');
+            getdelete('data-estado', 'estado_dispositivo', 'pag_admin/equipos.php');
 
         }else if(e.target.matches('.aprobacion')){
-            getdelete('data-estadoapro', 'estado_aprobacion');
+            getdelete('data-estadoapro', 'estado_aprobacion','pag_admin/equipos.php');
 
         }else if(e.target.matches('.disponibi')){
-            getdelete('data-estadodisponi', 'estado_disponibilidad');
+            getdelete('data-estadodisponi', 'estado_disponibilidad','pag_admin/equipos.php');
 
         }else if(e.target.matches('.dispositivo')){
-            getdelete('data-dispositivo', 'dispositivo_electronico');
+            getdelete('data-dispositivo', 'dispositivo_electronico','pag_admin/equipos.php');
+
+        }else if(e.target.matches('.nave')){
+            getdelete('data-nave', 'nave','pag_admin/ambientes.php');
+
+        }else if(e.target.matches('.jornada')){
+            getdelete('data-jornada', 'jornada','pag_admin/ambientes.php');
+
+        }else if(e.target.matches('.formacion')){
+            getdelete('data-formacion', 'formacion','pag_admin/ambientes.php');
+
+        }else if(e.target.matches('.detalle_formacion')){
+            getdelete('data-detalleformacion', 'detalle_formacion','pag_admin/ambientes.php');
         }
     }
 });
@@ -195,5 +207,31 @@ document.addEventListener('submit', (e)=>{
             nameTipo: e.target.nom_estado.value,
         }
         handleAdd(e , 'acciones.php' , data , 'pag_admin/equipos.php');
+    }else if( e.target.matches('#nave')){
+        data = {
+            tabla: 'nave',
+            nameTipo: e.target.nom_nave.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#jornada')){
+        data = {
+            tabla: 'jornada',
+            nameTipo: e.target.nom_jornada.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#formacion')){
+        data = {
+            tabla: 'formacion',
+            nameTipo: e.target.nom_formacion.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#detalle_formacion')){
+        data = {
+            tabla: 'detalle_formacion',
+            formacion : e.target.formacion.value,
+            num_ficha : e.target.num_ficha.value,
+            ambiente : e.target.ambiente.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
     }
 });
