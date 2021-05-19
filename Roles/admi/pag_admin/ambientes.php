@@ -209,10 +209,7 @@
             <p type="title">Crear Naves</p>
             <div class="linea"></div>
             <form id="nave" class="formulario">
-    
-                <label for="nom">Nombre de la Nave</label><br>
-                <input type="text" name="nom_nave" id="nom_nave">
-
+                <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave">
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -221,9 +218,7 @@
             <p type="title">Crear Jornada</p>
             <div class="linea"></div>
             <form class="formulario" id="jornada">
-                    <!--  -->
-                    <label for="nom">Nombre de la Jornada</label><br>
-                    <input type="text" name="nom_jornada" id="nom_jornada">
+                    <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada">
                     <input type="submit" value="Guardar">
             </form>
         </div>
@@ -232,8 +227,7 @@
             <p type="title">Crear Formacion</p>
             <div class="linea"></div>
             <form class="formulario" id="formacion">
-                <label for="nom">Nombre de la Formacion</label><br>
-                <input type="text" name="nom_formacion" id="nom_formacion">
+                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion">
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -254,8 +248,7 @@
                 ?>
                 </select>
 
-                <label for="nom">Numero de ficha</label><br>
-                <input type="text" name="num_ficha" id="num_ficha">
+                <input type="text" name="num_ficha" id="num_ficha" placeholder="Escriba el numero de ficha">
 
                 <select name="ambiente" id="ambiente" required>
                 <option value="">Seleccione un Ambiente</option>
