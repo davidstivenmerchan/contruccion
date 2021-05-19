@@ -99,8 +99,8 @@
                     <td><?php echo $mostrar['id_nave'] ?></td>
                     <td><?php echo $mostrar['nom_nave'] ?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" class="edit tipdispo" title="editar" data-tipdispo="<?php echo $mostrar['id_tipo_dispositivo'];?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" class="remove tipdispo" title="eliminar" data-tipdispo="<?php echo $mostrar['id_tipo_dispositivo'];?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" class="edit nave" title="editar" data-nave="<?php echo $mostrar['id_nave'];?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" class="remove nave" title="eliminar" data-nave="<?php echo $mostrar['id_nave'];?>">                  
                     </td>
                 </tr>
                 
@@ -128,8 +128,8 @@
                     <td><?php echo $eh['id_jornada']?></td>
                     <td><?php echo $eh['nom_jornada']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit marca" data-marca="<?php echo $eh['id_marca']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove marca" data-marca="<?php echo $eh['id_marca']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit jornada" data-jornada="<?php echo $eh['id_jornada']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove jornada" data-jornada="<?php echo $eh['id_jornada']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -158,8 +158,8 @@
                     <td><?php echo $eh['id_formacion']?></td>
                     <td><?php echo $eh['nom_formacion']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" class="edit estado" alt="editar" title="editar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">
-                        <img src="./../../assets/trash-solid.svg" class="remove estado" alt="eliminar" title="eliminar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" class="edit formacion" alt="editar" title="editar" data-formacion ="<?php echo $eh['id_formacion']; ?>">
+                        <img src="./../../assets/trash-solid.svg" class="remove formacion" alt="eliminar" title="eliminar" data-formacion ="<?php echo $eh['id_formacion']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -195,8 +195,8 @@
                     <td><?php echo $eh['num_ficha']?></td>
                     <td><?php echo $eh['nom_ambiente']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit aprobacion" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove aprobacion" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit detalle_formacion" data-detalleformacion="<?php echo $eh['id_detalle_formacion']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove detalle_formacion" data-detalleformacion="<?php echo $eh['id_detalle_formacion']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -227,7 +227,7 @@
             <p type="title">Crear Formacion</p>
             <div class="linea"></div>
             <form class="formulario" id="formacion">
-                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion">
+                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" autocomplete="off">
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -238,7 +238,7 @@
             <div class="linea"></div>
             <form class="formulario" id="detalle_formacion">
 
-                <select name="detalle" id="detalle" required>
+                <select name="formacion" id="detalle" required>
                 <option value="">Selecione una Formacion</option>
                 <?php
                     foreach ($query3 as $i) :  ?>
