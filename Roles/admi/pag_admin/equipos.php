@@ -243,8 +243,6 @@
         <div class="formu5 tablas">
             
                 <h2>Dispositivos Electronicos</h2>
-
-
         <table class="tablamarca" border=1 cellspacing="0">
             <tr class="header">
                 <td>serial</td>

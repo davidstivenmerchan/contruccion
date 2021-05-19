@@ -93,14 +93,14 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
             $res = array (
                 'err' => false,
                 'status' => http_response_code(200),
-                'statusText' => 'registro insertado con exito',
+                'statusText' => 'Registro insertado con exito',
             );
             echo json_encode($res);
         }else{
             $res = array (
                 'err' => true,
                 'status' => http_response_code(500),
-                'statusText' => 'no se puede insertar el registro',
+                'statusText' => 'No se puede insertar el registro',
             );
         }
     }
