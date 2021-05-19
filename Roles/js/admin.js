@@ -1,13 +1,20 @@
 import { aparecer, desaparecer } from './toogle_admin.js';
 import { editTipoDispo } from './edit_tipdispo.js';
 import { editMarca } from './edit_marcaequipos.js';
+import { editAmbiente } from './edit_ambiente.js';
 import { editNave } from './edit_nave.js';
+import { editjornada } from './edit_jornada.js';
+import { editFormacion } from './edit_formacion.js';
 import { editEstadoDispositivo } from './edit_estadodispositivo.js';
 import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 import { editdispoelectronico } from './edit_dispositivoelectronic.js';
 import { handleDelete } from './handle_delete.js';
 import handleAdd from './handle_add.js';
+import { editDetalleformacion } from './edit_detalleforma.js';
+
+
+
 
 // import Swal from 'sweetalert2';
 
@@ -64,7 +71,7 @@ document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
     const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9', 'formu10', 'formu11'];
-    const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7'];
+    const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7', 'formu8', 'formu9'];
 
     const callAparecer = ( array ) =>{
         const [ , primera ] = e.target.classList;
@@ -111,11 +118,27 @@ document.addEventListener('click' , e => {
         if(e.target.matches(".dispositivo")){
             const $id = e.target.getAttribute('data-dispositivo');
             editdispoelectronico($id);
-        }  
+        }
+        if(e.target.matches(".ambiente")){
+            const $id = e.target.getAttribute('data-ambiente');
+            editAmbiente($id);
+        }   
         if(e.target.matches(".nave")){
             const $id = e.target.getAttribute('data-nave');
             editNave($id);
-        }   
+        }
+        if(e.target.matches(".jornada")){
+            const $id = e.target.getAttribute('data-jornada');
+            editjornada($id);
+        }
+        if(e.target.matches(".formacion")){
+            const $id = e.target.getAttribute('data-formacion');
+            editFormacion($id);
+        }
+        if(e.target.matches(".detalle_formacion")){
+            const $id = e.target.getAttribute('data-detalleformacion');
+            editDetalleformacion($id);
+        }      
     }
 
 
