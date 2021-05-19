@@ -1,12 +1,14 @@
 import { aparecer, desaparecer } from './toogle_admin.js';
 import { editTipoDispo } from './edit_tipdispo.js';
 import { editMarca } from './edit_marcaequipos.js';
+import { editNave } from './edit_nave.js';
 import { editEstadoDispositivo } from './edit_estadodispositivo.js';
 import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 import { editdispoelectronico } from './edit_dispositivoelectronic.js';
 import { handleDelete } from './handle_delete.js';
 import handleAdd from './handle_add.js';
+
 // import Swal from 'sweetalert2';
 
 const $main = document.querySelector("main");
@@ -109,6 +111,10 @@ document.addEventListener('click' , e => {
         if(e.target.matches(".dispositivo")){
             const $id = e.target.getAttribute('data-dispositivo');
             editdispoelectronico($id);
+        }  
+        if(e.target.matches(".nave")){
+            const $id = e.target.getAttribute('data-nave');
+            editNave($id);
         }   
     }
 
