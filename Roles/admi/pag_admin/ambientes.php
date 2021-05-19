@@ -38,41 +38,114 @@
 
     <section class="cards">
         <div class="card">
-            <h3>Crear Naves</h3>
+                <h3>Crear Ambiente</h3>
+                <div class="botones">
+                    <button class="aparecerambientes formuambientes5" data-form="formu8"> <i class="aparecerambientes formuambientes5 fa fa-file-alt" title="Mostrar Ambientes" data-form="formu8"></i>  </button>
+                    <button class="aparecerambientes formuambientes11" data-form="formu9"> <i class="aparecerambientes formuambientes11 fa fa-keyboard" title="Registrar Ambiente" data-form="formu9"></i> </button>
+                </div>
+            </div>
 
+        <div class="card">
+            <h3>Crear Naves</h3>
             <div class="botones">
-                <button class="aparecerambientes formuambientes1" data-form="form"> <i class="aparecerambientes formuambientes1 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form"></i> </button>
-                <button class="aparecerambientes formuambientes7" data-form="formu4"> <i class="aparecerambientes formuambientes7 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu6"></i> </button>
+                <button class="aparecerambientes formuambientes1" data-form="form"> <i class="aparecerambientes formuambientes1 fa fa-file-alt" title="Mostrar Naves" data-form="form"></i> </button>
+                <button class="aparecerambientes formuambientes7" data-form="formu4"> <i class="aparecerambientes formuambientes7 fa fa-keyboard" title="Registrar Nave" data-form="formu4"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear Jornada </h3>
         
             <div class="botones">
-                <button class="aparecerambientes formuambientes2" data-form="formu1"> <i class="aparecerambientes formuambientes2 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu1"></i></button>
-                <button class="aparecerambientes formuambientes8" data-form="formu5"> <i class="aparecerambientes formuambientes8 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="formu7"></i> </button>
+                <button class="aparecerambientes formuambientes2" data-form="formu1"> <i class="aparecerambientes formuambientes2 fa fa-file-alt" title="Mostrar Jornadas" data-form="formu1"></i></button>
+                <button class="aparecerambientes formuambientes8" data-form="formu5"> <i class="aparecerambientes formuambientes8 fa fa-keyboard" title="Registrar Jornada" data-form="formu5"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear Formacion </h3>
 
             <div class="botones">
-                <button class="aparecerambientes formuambientes3" data-form="formu2"> <i class="aparecerambientes formuambientes3 fa fa-file-alt" title="Mostrar Datos estados dispositivos" data-form="formu2"></i></button>
-                <button class="aparecerambientes formuambientes9" data-form="formu6"> <i class="aparecerambientes formuambientes9 fa fa-keyboard" title="Registrar dato estado dispositivo" data-form="formu8"></i> </button>
+                <button class="aparecerambientes formuambientes3" data-form="formu2"> <i class="aparecerambientes formuambientes3 fa fa-file-alt" title="Mostrar Formaciones" data-form="formu2"></i></button>
+                <button class="aparecerambientes formuambientes9" data-form="formu6"> <i class="aparecerambientes formuambientes9 fa fa-keyboard" title="Registrar Formacion" data-form="formu6"></i> </button>
             </div>
         </div>
         <div class="card">
             <h3>Crear Detalle Formacion</h3>
 
             <div class="botones">
-                <button class="aparecerambientes formuambientes4" data-form="formu3"> <i class="aparecerambientes formuambientes4 fa fa-file-alt" title="Mostrar Datos de estados de aprobacion" data-form="formu3"></i>  </button>
-                <button class="aparecerambientes formuambientes10" data-form="formu7"> <i class="aparecerambientes formuambientes10 fa fa-keyboard" title="Registrar dato estado de aprobacion" data-form="formu9"></i> </button>
+                <button class="aparecerambientes formuambientes4" data-form="formu3"> <i class="aparecerambientes formuambientes4 fa fa-file-alt" title="Mostrar Detalle de formaciones" data-form="formu3"></i>  </button>
+                <button class="aparecerambientes formuambientes10" data-form="formu7"> <i class="aparecerambientes formuambientes10 fa fa-keyboard" title="Registrar Detalle Formacion" data-form="formu7"></i> </button>
             </div>
         </div>
     </section>
 
 
     <div class="forms">
+
+    <div class="formu8 tablas">
+            <h2>Ambientes</h2>
+
+            <table class="tablanave">
+                <tr class="titulo">
+                    <tr class="header" style="text-align: center;">
+                        <td>Id</td>
+                        <td>Nombre Ambiente</td>
+                        <td>Nombre Nave</td>
+                        <td class="acciones"> Accciones </td>
+                    </tr>
+                </tr>
+
+                <?php
+                    $sql="SELECT id_ambiente,nom_ambiente,nom_nave 
+                        FROM ambiente,nave 
+                        WHERE ambiente.id_nave = nave.id_nave";
+                    $result=mysqli_query($mysqli,$sql);
+
+                    while($mostrar=mysqli_fetch_array($result)){
+
+                    
+                ?>
+
+
+                <tr class="datos" style="text-align: center;">
+                    <td><?php echo $mostrar['id_ambiente'] ?></td>
+                    <td><?php echo $mostrar['nom_ambiente'] ?></td>
+                    <td><?php echo $mostrar['nom_nave'] ?></td>
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" class="edit ambiente" title="editar" data-ambiente="<?php echo $mostrar['id_ambiente'];?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" class="remove ambiente" title="eliminar" data-ambiente="<?php echo $mostrar['id_ambiente'];?>">                  
+                    </td>
+                </tr>
+                
+                    <?php
+                    }
+                    ?>
+            
+            </table>
+        </div>
+
+        <div class="form1 formu9">
+            <p type="title">Crear Ambiente</p>
+            <div class="linea"></div>
+            <form class="formulario" id="ambientes">
+
+
+                <input type="text" name="num_ambiente" id="num_ambiente" placeholder="Escriba el Nombre del Ambiente">
+
+                <select name="ambiente" id="ambiente" required>
+                <option value="">Seleccione una Nave</option>
+                <?php
+                    foreach ($query1 as $i) :  ?>
+                    <option value="<?php echo $i['id_nave']?>"><?php echo $i['nom_nave']?></option>
+                <?php
+                    endforeach;
+                ?>
+                </select>
+                <input type="submit" value="Guardar">
+            </form>
+        </div>
+
+
+
         <div class="form">
             <h2>Naves</h2>
 
@@ -110,6 +183,7 @@
             
             </table>
         </div>
+
         <div class="formu1 tablas">
             <h2>Jornadas</h2>
             <table class="tabla" border=1 cellspacing="0">

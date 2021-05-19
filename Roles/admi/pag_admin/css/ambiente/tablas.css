@@ -7,7 +7,17 @@
     text-align:center;
 }
 
+.tablaambiente{
+    width: 35%;
+    text-align:center;
+}
+
+.tablaambiente .header td{
+    text-align: center;
+}
+
 .header{
+    
     background-color:#FF6719;
     color: white;
 }

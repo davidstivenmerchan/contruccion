@@ -242,6 +242,34 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
         echo json_encode($res);   
     }
+    if($_PUT['tabla'] === 'jornada'){
+        $sql = "UPDATE $tabla set nom_jornada =?  where id_jornada = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'ss',$_PUT['nom_jornada'], $_PUT['id'] );
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array(
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Jornada Actualizada correctamente',
+        );   
+
+        echo json_encode($res);   
+    }
+    if($_PUT['tabla'] === 'formacion'){
+        $sql = "UPDATE $tabla set nom_formacion =?  where id_formacion = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'ss',$_PUT['nom_formacion'], $_PUT['id'] );
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array(
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Formacion Actualizada correctamente',
+        );   
+
+        echo json_encode($res);   
+    }
 
 
 }elseif($_SERVER['REQUEST_METHOD'] === 'DELETE'){
