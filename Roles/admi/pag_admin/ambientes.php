@@ -26,34 +26,33 @@
     <section class="cards">
         <div class="card">
             <h3>Naves</h3>
-
             <div class="botones">
-                <span><button class="aparecer formu1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i> </button></span>
-                <span><button class="aparecer formu5" data-form="form3"> <i class="fa fa-keyboard" title="Registrar datos de Naves"></i> </button></span>
+                <button class="aparecer formu1" data-form="form"> <i class="fa fa-file-alt" title="Mostrar Datos de Nave"></i> </button>
+                <button class="aparecer formu5" data-form="form3"> <i class="fa fa-keyboard" title="Registrar datos de Naves"></i> </button>
             </div>
         </div>
+
         <div class="card">
         <h3>Jornada</h3>
-
             <div class="botones">
-                <span> <button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt" title="Mostrar Datos de Jornadas"></i></button> </span>
-                <span> <button class="aparecer formu6" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de Jornadas"></i></button> </span>
+                <button class="aparecer fomu2" data-form="form1"><i class="fa fa-file-alt" title="Mostrar Datos de Jornadas"></i></button> 
+                <button class="aparecer formu6" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de Jornadas"></i></button> 
             </div>
         </div>
+
         <div class="card">
         <h3>Formacion</h3>
-
             <div class="botones">
-                <span> <button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> </span>
-                <span> <button class="aparecer formu7" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
+                <button class="aparecer formu3" data-form="form2"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> 
+                <button class="aparecer formu7" data-form="form5"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> 
             </div>
         </div>
+
         <div class="card">
         <h3>Detalles de formacion</h3>
-
             <div class="botones">
-                <span> <button class="aparecer formu4" data-form="form"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> </span>
-                <span> <button class="aparecer formu8" data-form="form4"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> </span>
+                <button class="aparecer formu4" data-form="form3"><i class="fa fa-file-alt" title="Mostrar Datos de Formacion"></i></button> 
+                <button class="aparecer formu8" data-form="form6"><i class="fa fa-keyboard" title="Registrar datos de Formaciones"></i></button> 
             </div>
         </div>
     </section>
@@ -79,7 +78,7 @@
                 <tr class="datos">
                     <td><?php echo $mostrar['id_nave'] ?></td>
                     <td><?php echo $mostrar['nom_nave'] ?></td>
-                    <td class="imgss">
+                    <td class="imgs">
                     <i class="ico fas fa-edit"></i> |    
                     <a href="pag_admin/eliminarnave.php?id=<?php echo $mostrar['id_nave'];?>" class="clickborrar" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
@@ -122,7 +121,7 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_jornada'] ?></td>
                 <td><?php echo $mostrar['nom_jornada'] ?></td>
-                <td class="imgss">
+                <td class="imgs">
                     <i class="ico fas fa-edit"></i> |    
                     <a href="pag_admin/eliminarjornada.php?id=<?php echo $mostrar['id_jornada'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
@@ -158,7 +157,7 @@
             <tr class="datos">
                 <td><?php echo $mostrar['id_formacion'] ?></td>
                 <td><?php echo $mostrar['nom_formacion'] ?></td>
-                <td class="imgss">
+                <td class="imgs">
                     <i class="ico fas fa-edit"></i> |    
                     <a href="pag_admin/eliminarformacion.php?id=<?php echo $mostrar['id_formacion'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
@@ -203,7 +202,7 @@
                 <td><?php echo $mostrar['num_ficha'] ?></td>
                 <td><?php echo $mostrar['nom_formacion'] ?></td>
                 <td><?php echo $mostrar['nom_nave'] ?></td>
-                <td class="imgss">
+                <td class="imgs">
                     <i class="ico fas fa-edit"></i> |    
                     <a href="pag_admin/eliminarficha.php?id=<?php echo $mostrar['id_detalle_formacion'];?>" class="clickborrar"><i class="ico fas fa-trash"></i></a>              
                     </td>
@@ -235,11 +234,11 @@
             <br>
             <br>
             <br>
-        <center>
+        
 
         <input style="margin-left:70%;" type="submit" value="Crear"  id="crearnav" name="crearnave">
 
-        </center>
+        
         
         
         </p>
@@ -265,11 +264,11 @@
             <br>
             <br>
             <br>
-        <center>
+        
 
         <input style="margin-left:75%;" type="submit" value="Guardar" name="enviar3" id="crearjornada">
 
-        </center>
+        
         
 
         </p>
@@ -292,15 +291,10 @@
             <input style="position:absolute;" type="text" name="formacion" id="nom_usu">
         </p>
         <p>
-            <br>
-            <br>
-            <br>
-            <br>
-        <center>
 
         <input style="margin-left:75%;" type="submit" value="Guardar" name="enviar3">
 
-        </center>
+        
         
         
         </p>
@@ -308,7 +302,7 @@
 
 
     </div>
-    <div class="form form1 form2 form3 form4 form5 form6 form7">
+    <div class="form form1 form2 form3 form4 form5 form6">
     <p type="title">Crear Fichas</p>
     <div class="linea"></div>
     <form action="pag_admin/creardetallformacion.php" method="POST">
@@ -319,48 +313,40 @@
             <input style="" type="text" name="numficha" id="nom_usu">
         </p>
         <p>
-            <br>
-            <br>
-           <br>
-           <br>
-           <label style="position:absolute; left:50%;">Selecciona el programa de formacion<br>
-           <br>
-           
-           <select  name="programa" id="" class="" style="position:absolute;left:50%;">
-                        <?php 
-                        $tipdoc = mysqli_query($mysqli, "SELECT * from formacion");
-                        while($tipdocu = mysqli_fetch_row($tipdoc)){
+        
+        <label style="position:absolute; left:50%;">Selecciona el programa de formacion<br>
+        
+        <select  name="programa" id="" class="" style="position:absolute;left:50%;">
+            <?php 
+            $tipdoc = mysqli_query($mysqli, "SELECT * from formacion");
+            while($tipdocu = mysqli_fetch_row($tipdoc)){
 
-                        ?>
-                        <option value="<?php echo $tipdocu[0]?>"><?php echo $tipdocu[1]?></option>
-                        <?php } ?>
+            ?>
+            <option value="<?php echo $tipdocu[0]?>"><?php echo $tipdocu[1]?></option>
+            <?php } ?>
 
-                    </select>
+        </select>
 
                     <br>
                     <br>
             <label style="">Selecciona la nave<br>
-           <br>
-           
-           <select  name="nave" id="" class="" style="position:absolute;left:50%;">
-                        <?php 
-                        $tipdoc = mysqli_query($mysqli, "SELECT * from nave");
-                        while($tipdocu = mysqli_fetch_row($tipdoc)){
+        <br>
+        
+        <select  name="nave" id="" class="" style="position:absolute;left:50%;">
+            <?php 
+            $tipdoc = mysqli_query($mysqli, "SELECT * from nave");
+            while($tipdocu = mysqli_fetch_row($tipdoc)){
 
-                        ?>
-                        <option value="<?php echo $tipdocu[0]?>"><?php echo $tipdocu[1]?></option>
-                        <?php } ?>
+            ?>
+            <option value="<?php echo $tipdocu[0]?>"><?php echo $tipdocu[1]?></option>
+            <?php } ?>
 
-                    </select>
+        </select>
 
 
-        <center>
+        
 
         <input style="margin-top:8rem; margin-left:380px;" type="submit" value="Guardar" name="enviar3">
-
-        </center>
-        
-           
         </p>
     </form>
 

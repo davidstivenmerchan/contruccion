@@ -39,7 +39,7 @@
                 </li>
 
                 <li>
-                    <a href="pag_admin/ambientes.php">
+                    <a href="pag_admin/ambientes_luis.php">
                         <span class="icon"><i class="fa fa-building" aria-hidden="true"></i></span>
                         <span class="title">Ambientes</span>
                     </a>

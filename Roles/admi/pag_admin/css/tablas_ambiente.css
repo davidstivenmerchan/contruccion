@@ -104,10 +104,10 @@
 .ico:hover{
     color: #FF6719;
 }
-.imgss{
+.imgs{
     display: flex;
     
 }
-.imgss *{
+.imgs *{
     margin: 5px;
 }
