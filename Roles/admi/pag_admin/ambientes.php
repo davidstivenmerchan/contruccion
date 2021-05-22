@@ -280,7 +280,7 @@
         </div>
 
         <div class="form1 formu4">
-            <p type="title">Crear Naves</p>
+            <p type="title">NAVE</p>
             <div class="linea"></div>
             <form id="nave" class="formulario">
                 <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave">
@@ -289,7 +289,7 @@
         </div>
 
         <div class="form1 formu5">
-            <p type="title">Crear Jornada</p>
+            <p type="title">JORNADA</p>
             <div class="linea"></div>
             <form class="formulario" id="jornada">
                     <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada">
@@ -298,7 +298,7 @@
         </div>
 
         <div class="form1 formu6">
-            <p type="title">Crear Formacion</p>
+            <p type="title">FORMACION</p>
             <div class="linea"></div>
             <form class="formulario" id="formacion">
                 <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" autocomplete="off">
@@ -308,7 +308,7 @@
 
 
         <div class="form1 formu7">
-            <p type="title">Crear Detalle Formacion</p>
+            <p type="title">DETALLE FORMACION</p>
             <div class="linea"></div>
             <form class="formulario" id="detalle_formacion">
 
