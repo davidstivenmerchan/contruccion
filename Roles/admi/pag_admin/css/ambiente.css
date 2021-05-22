@@ -1,39 +1,52 @@
 main{
-    grid-area: main;
+    /* grid-area: main; */
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
-.cards{
-    display:grid;
+.cardss{
+    overflow: hidden ;
+   /*  display:grid;
     gap:1rem;
     grid-template-columns: repeat(auto-fit , minmax(250px, 1fr));
     padding: auto;
-    margin: 2rem 1rem;
-    width: 95%;
+    margin: 2rem 1rem; */
+    display: flex;
+    width: 90%;
+    padding: 10px;
+    margin-top: -40px;
+    background: chocolate;
+    margin: 30px;
+    
 }
-.cards .card{
+.cardss .card{
     border-radius: 10px;
     box-shadow: 2px 2px 2px gray;
     background-color:#ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 12rem;
+    height: 14rem;
     padding: 0 1rem;
+    width: 500px ;
+    margin:10px;
+    
+   
 }
-.cards .card h3{
+.cardss .card h3{
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: gray;
 }
-.cards .card .botones{
+.cardss .card .botones{
     display: flex;
     justify-content: space-evenly;
     margin-top: -50px;
+    
 }
-.cards .card .botones button{
+.cardss .card .botones button{
     cursor: pointer;
     height:2rem;
     border: none;
@@ -42,20 +55,20 @@ main{
     justify-content: center;
     align-items: center;
 }
-.cards .card .botones .aparecer{
+.cardss .card .botones .aparecer{
     background-color: #ff6b00;
     width: 70px;
     height: 70px;
     border-radius: 50%;
     color: white;
 }
-.cards .card .botones .fa{
+.cardss .card .botones .fa{
     font-size: 40px;
     margin-top: 30px;
     color: white;
     background: transparent;
 }
-.cards .card .botones .cerrar{
+.cardss .card .botones .cerrar{
     background-color: red;
     color:#ffffff;
 }

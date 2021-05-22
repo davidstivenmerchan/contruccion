@@ -23,7 +23,8 @@
 
 </head>
 <body>
-    <section class="cards">
+    
+    <section class="cardss">
         <div class="card">
             <h3>Naves</h3>
 
@@ -57,6 +58,8 @@
             </div>
         </div>
     </section>
+   
+    
 
     
     <div class="form">
