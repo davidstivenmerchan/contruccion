@@ -1,6 +1,7 @@
 .navigation.active{
     width: 60px;
     padding: 0;
+    height: 100%;
 }
 .navigation.active ul{
     display: flex;

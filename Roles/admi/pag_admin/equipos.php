@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="card">
-            <h3>Crear marca de equipos </h3>
+            <h3>Crear marca de equipos</h3>
         
             <div class="botones">
                 <button class="aparecerequipos formula2" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu1"></i></button>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="card">
-            <h3>Crear estado dispositivo </h3>
+            <h3>Crear estado dispositivo</h3>
 
             <div class="botones">
                 <button class="aparecerequipos formula3" data-form="formu2"> <i class="aparecerequipos formula3 fa fa-file-alt" title="Mostrar Datos estados dispositivos" data-form="formu2"></i></button>
@@ -243,8 +243,6 @@
         <div class="formu5 tablas">
             
                 <h2>Dispositivos Electronicos</h2>
-
-
         <table class="tablamarca" border=1 cellspacing="0">
             <tr class="header">
                 <td>serial</td>
@@ -289,54 +287,33 @@
         <div class="form1 formu6">
             <p type="title">Crear tipos de Dispositivos</p>
             <div class="linea"></div>
-            <form action="">
-                <p>
-                <label for="id">ID</label><br>
-                <input type="number" name="id_dis" id="id_dis">
-                </p>
-                <p type="nom">
-                    <label for="nom">Nombre del Tipo de Dispositivo</label><br>
-                    <input type="text" name="nom_dis" id="nom_dis">
-                </p>
-                <p>
-                    <button>Guardar</button>
-                </p>
+            <form id="tipoDispo" class="formulario">
+    
+                <label for="nom">Nombre del Tipo de Dispositivo</label><br>
+                <input type="text" name="nom_dis" id="nom_dis">
+
+                <input type="submit" value="Guardar">
             </form>
         </div>
 
         <div class="form1 formu7">
             <p type="title">Crear la Marca de los Equipos</p>
             <div class="linea"></div>
-            <form action="">
-                <p>
-                    <label for="id">ID</label><br>
-                    <input type="number" name="id_marca" id="id_marca">
-                </p>
-                <p type="nom">
+            <form class="formulario" id="marcaEquipos">
+                    <!--  -->
                     <label for="nom">Nombre de la Marca</label><br>
                     <input type="text" name="nom_marca" id="nom_marca">
-                </p>
-                <p>
-                    <button>Guardar</button>
-                </p>
+                    <input type="submit" value="Guardar">
             </form>
         </div>
 
         <div class="form1 formu8">
             <p type="title">Crear Estado del Dispositivo</p>
             <div class="linea"></div>
-            <form action="">
-                <p>
-                <label for="id">ID</label><br>
-                <input type="number" name="id_estado" id="id_estado">
-                </p>
-                <p type="nom">
-                    <label for="nom">Nombre del Estado del Dispositivo</label><br>
-                    <input type="text" name="nom_estado" id="nom_estado">
-                </p>
-                <p>
-                    <button>Guardar</button>
-                </p>
+            <form class="formulario" id="estadoDispo">
+                <label for="nom">Nombre del Estado del Dispositivo</label><br>
+                <input type="text" name="nom_estado" id="nom_estado">
+                <input type="submit" value="Guardar">
             </form>
         </div>
 
@@ -344,55 +321,40 @@
         <div class="form1 formu9">
             <p type="title">Crear Estado de Aprobacion</p>
             <div class="linea"></div>
-            <form action="">
-                <p>
-                <label for="id">ID</label><br>
-                <input type="number" name="id_estado" id="id_estado">
-                </p>
-                <p type="nom">
-                    <label for="nom">Nombre del Estado de Aprobacion</label><br>
-                    <input type="text" name="nom_estado" id="nom_estado">
-                </p>
-                <p>
-                    <button>Guardar</button>
-                </p>
+            <form class="formulario" id="estadoApro">
+
+                <label for="nom">Nombre del Estado de Aprobacion</label><br>
+                <input type="text" name="nom_estado" id="nom_estado">
+                
+                <input type="submit" value="Guardar">
             </form>
         </div>
 
         <div class="form1 formu10">
             <p type="title">Crear Estado de Disponibilidad</p>
             <div class="linea"></div>
-            <form action="">
-                <p>
-                <label for="id">ID</label><br>
-                <input type="number" name="id_estado" id="id_estado">
-                </p>
-                <p type="nom">
-                    <label for="nom">Nombre del Estado de Disponibilidad</label><br>
-                    <input type="text" name="nom_estado" id="nom_estado">
-                </p>
-                <p>
-                    <button>Guardar</button>
-                </p>
+            <form class="formulario" id="estadoDisponibilidad">
+                
+                <label for="nom">Nombre del Estado de Disponibilidad</label><br>
+                <input type="text" name="nom_estado" id="nom_estado">
+                <input type="submit" value="Guardar">
+                    
             </form>
         </div>
         <div class="form1 formu11">
-            <h1>Registro de Dispositivos Electronicos </h1>
+            <h2>Registro de Dispositivos Electronicos </h2>
 
-            <form action="registro_dispositivo_e.php" method="POST" class="fommu">
+            <form id="formuDispositivo"class="fommu">
 
-            <p>
                 <label for="serial">Serial</label>
                 <input type="number" name="serial" id="serial" >
-            </p>
-            <p>
+
                 <label for="placa_sena">Placa Sena</label>
                 <input type="text" name="placa_sena" id="placa_sena" autocomplete="off">
-            </p>
-            <p>
+
                 <label for="nom_dispositivo">Nombre Dispositivo</label>
                 <input type="text" name="nom_dispositivo" id="nom_dispositivo" autocomplete="off">
-            </p>
+
             <!-- selectores  -->
             <select name="id_tipo_dis" id="id_tipo_dis" required>
             <option value="">Seleccione el Tipo de Dispositivo</option>
@@ -406,12 +368,12 @@
             <!-- selectores  2 -->
             <select name="estado_disponi" id="estado_disponi" required>
             <option value="">Seleccione el Tipo de Disponibilidad</option>
-            <?php
-                foreach ($query2 as $i) :  ?>
-                <option value="<?php echo $i['id_estado_disponibilidad']?>"><?php echo $i['nom_estado_disponibilidad']?></option>
-            <?php
-                endforeach;
-            ?>
+                <?php
+                    foreach ($query2 as $i) :  ?>
+                    <option value="<?php echo $i['id_estado_disponibilidad']?>"><?php echo $i['nom_estado_disponibilidad']?></option>
+                <?php
+                    endforeach;
+                ?>
             </select>
             <!-- selectores  3 -->
             <select name="estado_disposi" id="estado_disposi" required>

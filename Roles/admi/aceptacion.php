@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aceptacion</title>
     <link rel="stylesheet" href="pag_admin/css/aceptacion.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
 </head>
 <body>
 
@@ -38,6 +40,12 @@ AND estado_aprobacion.id_estado_aprobacion = 2";
 
 ?>
 
+<div class="head">
+
+<a href="admin.php"><i class="atras fas fa-arrow-left"></i></a>
+
+<h2>ACEPTACIÓN DE APRENDICES</h2>
+</div>
 
 
     

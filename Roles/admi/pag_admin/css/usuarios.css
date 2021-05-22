@@ -150,3 +150,38 @@ main{
 .invisible{
     display: none;
 }
+
+.tablas table td .acciones,
+table .acciones {
+    width: 7rem;
+}
+
+.tablausu .acciones{
+    width: 1rem;
+    
+}
+
+
+
+.datos td img{
+    cursor: pointer;
+    width: 4vh;
+    height: 4vh;
+    max-height: 4vh;
+    max-width: 4vh;
+
+}
+
+.tablausu .datos td img{
+    cursor: pointer;
+    width: 85px;
+    height: 85px;
+}
+
+.datos .imgs{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
