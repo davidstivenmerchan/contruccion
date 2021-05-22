@@ -290,7 +290,7 @@
         <p type="nom">
             <label style="position:absolute; left:50%; margin:auto;">Numero de ficha<br>
             <br>
-            <input style="" type="text" name="nom_usu" id="nom_usu">
+            <input type="text" name="nom_usu" id="nom_usu">
         </p>
         <p>
             <br>
@@ -313,7 +313,7 @@
 
                     <br>
                     <br>
-            <label style="">Selecciona la nave<br>
+            <label>Selecciona la nave<br>
            <br>
            
            <select  name="" id="" class="" style="position:absolute;left:50%;">
