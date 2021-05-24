@@ -5,13 +5,14 @@ import { editAmbiente } from './edit_ambiente.js';
 import { editNave } from './edit_nave.js';
 import { editjornada } from './edit_jornada.js';
 import { editFormacion } from './edit_formacion.js';
+import { editDetalleformacion } from './edit_detalleforma.js';
 import { editEstadoDispositivo } from './edit_estadodispositivo.js';
 import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 import { editdispoelectronico } from './edit_dispositivoelectronic.js';
 import { handleDelete } from './handle_delete.js';
 import handleAdd from './handle_add.js';
-import { editDetalleformacion } from './edit_detalleforma.js';
+
 
 
 
@@ -138,7 +139,7 @@ document.addEventListener('click' , e => {
         if(e.target.matches(".detalle_formacion")){
             const $id = e.target.getAttribute('data-detalleformacion');
             editDetalleformacion($id);
-        }      
+        }     
     }
 
 
@@ -260,6 +261,14 @@ document.addEventListener('submit', (e)=>{
             formacion : e.target.formacion.value,
             num_ficha : e.target.num_ficha.value,
             ambiente : e.target.ambiente.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#ambientes')){
+        data = {
+            tabla: 'ambiente',
+            id_ambiente : e.target.id_ambiente.value,
+            nom_ambiente : e.target.nom_ambiente.value,
+            nave : e.target.nave.value,
         }
         handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
     }

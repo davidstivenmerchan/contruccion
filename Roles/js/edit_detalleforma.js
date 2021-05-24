@@ -2,34 +2,32 @@ import { ajax } from "./ajax.js";
 import { getHTML } from "./admin.js";
 
 export const editDetalleformacion = ( id ) =>{
-    const tabla = 'detalle_formacionnico';
+    const tabla = 'detalle_formacion';
     fetch(`./acciones.php?id=${id}&tabla=${tabla}`)
      .then( res => res.ok ? res.json() : Promise.reject(res) )
      .then(({ data }) => {
+         console.log(data)
         const $alert = document.getElementById('alert');
         $alert.classList.add('ver');
         $alert.innerHTML = `
+        
         <form class="formmodal formmodaldispo"id="detalle_formacion" >
         <div class="cerrarmodal dispocerrar">X</div>
-        <input type="hidden" name="serialantiguo" value="${data[0].serial}">
-        <label for="detalle_formacionnico"> Serial </label>
-        <input type="text" name="idserial" id="detalle_formacionnico" value="${data[0].serial}">
-
-        <label for="id_formacion"> Formacion </label>
-        <input type="text" name="id_formacion" id="id_formacion" class="id_formacion" id="id_formacion" value="${data[0].id_formacion}">
+        <input type="hidden" name="id_detalle_formacion" value="${data[0].id_detalle_formacion}">
+        <label for="id_deta_formacion"> Id Detalle Formacion </label>
+        <input type="text" name="idserial" id="id_deta_formacion" disabled value="${data[0].id_detalle_formacion}">
 
         
-
-        <label for="select_tipo_dispo"> Tipo Dispositivo </label>
-        <select name="select_tipo_dispo" id="select_tipo_dispo">
-            <option value="${data[0].idTipoDispositivo}">${data[0].nom_tipo_dispositivo}</option>
+        <label for="formacion"> Formacion </label>
+        <select name="formacion" id="formacion">
+            <option value="${data[0].id_formacion}">${data[0].nom_formacion}</option>
             ${ajax({
-                url: "./acciones.php?tabla=tipo_dispositivo",
+                url: "./acciones.php?tabla=formacion",
                 cbSuccess: ( { data: datos } ) => {
-                    const $select = document.getElementById('select_tipo_dispo');
+                    const $select = document.getElementById('formacion');
                     let $html ;
                     datos.forEach( el => {
-                        ( el.id !== data[0].idTipoDispositivo )
+                        ( el.id !== data[0].id_formacion)
                          ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
                          : null;
                     });
@@ -38,20 +36,21 @@ export const editDetalleformacion = ( id ) =>{
             })}
         </select> 
 
-        <label for="namedetalle_formacionnico"> Nombre Dispositivo  </label>
-        <input type="text" name="namedetalle_formacionnico" id="namedetalle_formacionnico" class="namedetalle_formacionnico" value="${data[0].nom_dispositivo}">
+        <label for="numero_ficha"> Numero de Ficha  </label>
+        <input type="text" name="numero_ficha" id="numero_ficha" class="numero_ficha" value="${data[0].num_ficha}">
 
-        <label for="select_estado_disponibilidad"> Estado Disponibilidad  </label>
-        <select name="select_estado_disponibilidad" id="select_estado_disponibilidad" >
-            <option value="${data[0].idEstadoDisponibilidad}"> ${data[0].nom_estado_disponibilidad} </option>
+        <label for="select_ambiente"> Ambiente  </label>
+        <select name="select_ambiente" id="select_ambiente" >
+            <option value="${data[0].id_ambiente}"> ${data[0].nom_ambiente} </option>
             ${ajax({
-                url: "./acciones.php?tabla=estado_disponibilidad",
+                url: "./acciones.php?tabla=ambiente",
                 cbSuccess: ( { data: datos } ) => {
-                    const $select = document.getElementById('select_estado_disponibilidad');
+                    const $select = document.getElementById('select_ambiente');
+                    console.log(datos)
                     let $html ;
                     datos.forEach( el => {
-                        ( el.id !== data[0].idEstadoDisponibilidad )
-                          ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                        ( el.id !== data[0].id_ambiente)
+                          ? $html += `<option value="${el.id}"> ${el.nameAmbiente} </option>`
                           : null;
                     });
                     $select.innerHTML += $html;
@@ -59,41 +58,8 @@ export const editDetalleformacion = ( id ) =>{
             })}
         </select>
 
-        <label for="select_estado_dispositivo"> Estado Dispositivo  </label>
-        <select name="select_estado_dispositivo" id="select_estado_dispositivo" >
-            <option value="${data[0].idEstadoDispositivo}">${data[0].nom_estado_dispositivo}</option>
-            ${ajax({
-                url: "./acciones.php?tabla=estado_dispositivo",
-                cbSuccess: ( { data: datos } ) => {
-                    const $select = document.getElementById('select_estado_dispositivo');
-                    let $html ;
-                    datos.forEach( el => {
-                        ( el.id !== data[0].idEstadoDispositivo )
-                          ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
-                          : null;
-                    });
-                    $select.innerHTML += $html;
-                }
-            })}
-        </select>
+        
 
-        <label for="select_marca"> Marca  </label>
-    <select name="select_marca" id="select_marca">
-        <option value="${data[0].idMarca}"> ${data[0].nom_marca} </option>
-        ${ajax({
-            url: "./acciones.php?tabla=marca",
-            cbSuccess: ( { data: datos } ) => {
-                const $select = document.getElementById('select_marca');
-                let $html ;
-                datos.forEach( el => {
-                    ( el.id !== data[0].idMarca ) 
-                      ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
-                      : null;
-                });
-                $select.innerHTML += $html;
-            }
-        })}
-    </select>
 
         <input type="submit" value="actualizar"/>
         </form>
@@ -125,21 +91,17 @@ export const editDetalleformacion = ( id ) =>{
                     const $main = document.querySelector('main');
 
                     getHTML({
-                        url: 'pag_admin/equipos.php',
+                        url: 'pag_admin/ambientes.php',
                         success: (html) => $main.innerHTML = html,
                         error: (error) => $main.innerHTML = `<h1>${error}</h1>`,
                     });
                 },
                 data: {
-                    tabla: 'detalle_formacionnico',
-                    serialAntiguo:parseInt(e.target.serialantiguo.value),
-                    serial: parseInt(e.target.idserial.value),
-                    id_formacion: parseInt(e.target.id_formacion.value),
-                    TipoDispo: parseInt(e.target.select_tipo_dispo.value),
-                    nameDispositivoElectronico: e.target.namedetalle_formacionnico.value,
-                    EstadoDisponibilidad: parseInt(e.target.select_estado_disponibilidad.value),
-                    EstadoDispositivo: parseInt(e.target.select_estado_dispositivo.value), 
-                    marca: parseInt(e.target.select_marca.value),
+                    tabla: 'detalle_formacion',
+                    id_detalle_formacion : e.target.id_detalle_formacion.value,
+                    formacion : e.target.formacion.value,
+                    numero_ficha: e.target.numero_ficha.value,
+                    select_ambiente: parseInt(e.target.select_ambiente.value),
                 }
             });
         }

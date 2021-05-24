@@ -128,10 +128,10 @@
             <div class="linea"></div>
             <form class="formulario" id="ambientes">
 
+                <input type="text" name="id_ambiente" id="id_ambiente" placeholder="Escriba el numero de Id">
+                <input type="text" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Nombre del Ambiente">
 
-                <input type="text" name="num_ambiente" id="num_ambiente" placeholder="Escriba el Nombre del Ambiente">
-
-                <select name="ambiente" id="ambiente" required>
+                <select name="nave" id="nave" required>
                 <option value="">Seleccione una Nave</option>
                 <?php
                     foreach ($query1 as $i) :  ?>
