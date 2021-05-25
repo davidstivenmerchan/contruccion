@@ -12,6 +12,8 @@ import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 import { editdispoelectronico } from './edit_dispositivoelectronic.js';
 import { handleDelete } from './handle_delete.js';
 import handleAdd from './handle_add.js';
+import { editTipDocu } from './edit_tip_docu.js';
+import { editTipUsu } from './edit_tipusu.js';
 
 
 
@@ -139,7 +141,15 @@ document.addEventListener('click' , e => {
         if(e.target.matches(".detalle_formacion")){
             const $id = e.target.getAttribute('data-detalleformacion');
             editDetalleformacion($id);
-        }     
+        }   
+        if(e.target.matches('.tipoDocu')){
+            const $id = e.target.getAttribute('data-tipoDocu');
+            editTipDocu($id);
+        }
+        if(e.target.matches('.tipoUsu')){
+            const $id = e.target.getAttribute('data-tipoUsu');
+            editTipUsu( $id );
+        }  
     }
 
 
@@ -189,6 +199,10 @@ document.addEventListener('click' , e => {
 
         }else if(e.target.matches('.detalle_formacion')){
             getdelete('data-detalleformacion', 'detalle_formacion','pag_admin/ambientes.php');
+        }else if(e.target.matches('.tipoDocu')){
+            getdelete('data-tipoDocu', 'tipo_documento', 'pag_admin/usuarios.php');
+        }else if(e.target.matches('.tipoUsu')){
+            getdelete('data-tipoUsu', 'tipo_usuario', 'pag_admin/usuarios.php') ;
         }
     }
 });
@@ -271,5 +285,17 @@ document.addEventListener('submit', (e)=>{
             nave : e.target.nave.value,
         }
         handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#creartipodocu') ){
+        data = {
+            tabla: 'tipo_documento',
+            nom_doc: e.target.nom_doc.value,
+        }
+        handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
+    }else if(e.target.matches('#creartipusu')){
+        data = {
+            tabla: 'tipo_usuario',
+            nom_usu: e.target.nom_usu.value,
+        }   
+        handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
     }
 });

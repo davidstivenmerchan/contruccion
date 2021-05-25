@@ -400,6 +400,32 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         }
         
     }
+    if($tabla === 'tipo_documento'){
+        $sql = "UPDATE $tabla set nom_documento = ? where id_tipo_documento = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['tipDocu'] , $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'tipo de documento modificado correctamente'
+        );
+        echo json_encode($res);
+    }
+    if($tabla === 'tipo_usuario'){
+        $sql = "UPDATE $tabla set nom_tipo_usuario = ? where id_tipo_usuario = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['tipUsua'] , $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'tipo de usuario modificado correctamente'
+        );
+        echo json_encode($res);
+    }
 
 
 }elseif($_SERVER['REQUEST_METHOD'] === 'DELETE'){
