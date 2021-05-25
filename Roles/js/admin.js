@@ -199,10 +199,15 @@ document.addEventListener('click' , e => {
 
         }else if(e.target.matches('.detalle_formacion')){
             getdelete('data-detalleformacion', 'detalle_formacion','pag_admin/ambientes.php');
+
         }else if(e.target.matches('.tipoDocu')){
             getdelete('data-tipoDocu', 'tipo_documento', 'pag_admin/usuarios.php');
+
         }else if(e.target.matches('.tipoUsu')){
             getdelete('data-tipoUsu', 'tipo_usuario', 'pag_admin/usuarios.php') ;
+
+        }else if(e.target.matches('.ambiente')){
+            getdelete('data-ambiente', 'ambiente', 'pag_admin/ambientes.php') ;
         }
     }
 });
