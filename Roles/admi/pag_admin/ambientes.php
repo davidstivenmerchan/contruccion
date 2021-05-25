@@ -128,7 +128,7 @@
             <div class="linea"></div>
             <form class="formulario" id="ambientes">
 
-                <input type="text" name="id_ambiente" id="id_ambiente" placeholder="Escriba el numero de Id">
+                <input type="number" name="id_ambiente" id="id_ambiente" placeholder="Escriba el numero de Id">
                 <input type="text" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Nombre del Ambiente">
 
                 <select name="nave" id="nave" required>

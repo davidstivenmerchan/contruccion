@@ -102,8 +102,8 @@
                     <td><?php echo $mostrar['correo_sena'] ?></td>
                     <td><?php echo $mostrar['telefono'] ?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit usuario"  data-usuario="<?php echo $eh['documento']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove usuario"  data-usuario="<?php echo $eh['documento']; ?>">               
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit usuario"  data-usuario="<?php echo $mostrar['documento']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove usuario"  data-usuario="<?php echo $mostrar['documento']; ?>">               
                     </td>
                 </tr>
                 
@@ -144,8 +144,8 @@
                 <td><?php echo $mostrar['id_tipo_documento'] ?></td>
                 <td><?php echo $mostrar['nom_documento'] ?></td>
                 <td class="imgss">
-                    <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipoDocu" data-tipoDocu="<?php echo $eh['id_tipo_documento']; ?>">
-                    <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tipoDocu" data-tipoDocu="<?php echo $eh['id_tipo_documento']; ?>">              
+                    <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipoDocu" data-tipoDocu="<?php echo $mostrar['id_tipo_documento']; ?>">
+                    <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tipoDocu" data-tipoDocu="<?php echo $mostrar['id_tipo_documento']; ?>">              
                 </td>
             </tr>
             
@@ -180,8 +180,8 @@
                 <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
                 <td class="imgss">
-                    <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipoUsu" data-tipoUsu="<?php echo $eh['id_tipo_usuario']; ?>">
-                    <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tipoUsu" data-tipoUsu="<?php echo $eh['id_tipo_usuario']; ?>">               
+                    <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipoUsu" data-tipoUsu="<?php echo $mostrar['id_tipo_usuario']; ?>">
+                    <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tipoUsu" data-tipoUsu="<?php echo $mostrar['id_tipo_usuario']; ?>">               
                 </td>
             </tr>
             
@@ -201,11 +201,8 @@
         <img src="../../assets/Group_45.jpg" alt="holi">
         <div class="wrapper">
             <form action="insertarusuarios.php" method="POST">
-                <p>
                     <label for="doc">Documento</label>
-                    <input type="number" name="doc">
-                </p>
-                <p>
+                    <input type="number" name="doc" autocomplete="off" >
                     <label for="tipo_doc">Tipo de Documento</label>
                     <select name="tip_doc" id="tip_doc" required>
                     <option value="">Seleccione el Tipo de Documento</option>
@@ -216,8 +213,7 @@
                         endforeach;
                     ?>
                     </select>
-                </p>
-                <p>
+        
                     <label for="tipo_usu">Tipo de Usuario</label>
                     <select name="tip_usu" id="tip_usu" required>
                     <option value="">Seleccione el Tipo de Usuario</option>
@@ -228,47 +224,25 @@
                         endforeach;
                     ?>
                     </select>
-                </p>
-                <p>
                     <label for="codigo">Codigo del Carnet</label>
-                    <input type="number" name="codigo" id="codigo">
-                </p>
-                <p>
+                    <input type="number" name="codigo" id="codigo" autocomplete="off">
                     <label for="nom">Nombre</label>
-                    <input type="text" name="nom" id="nom">
-                </p>
-                <p>
+                    <input type="text" name="nom" id="nom" autocomplete="off">
                     <label for="ape">Apellido</label>
-                    <input type="text" name="ape" id="ape">
-                </p>
-                <p>
+                    <input type="text" name="ape" id="ape" autocomplete="off">
                     <label for="fecha">Fecha de Nacimiento</label>
-                    <input type="date" name="fecha" id="fecha">
-                </p>
-                <p> 
+                    <input type="date" name="fecha" id="fecha" autocomplete="off">
                     <label for="genero">Genero</label>
-                    <input type="text" name="genero" id="genero">
-                </p>
-                <p>
+                    <input type="text" name="genero" id="genero" autocomplete="off">
                     <label for="email_per">E-mail Personal</label> 
-                    <input type="email" name="email_per" id="email per">
-                </p>
-                <p>
+                    <input type="email" name="email_per" id="email per" autocomplete="off">
                     <label for="email_sena">E-mail Sena</label>
-                    <input type="email" name="email_sena" id="email_sena">
-                </p>
-                <p>
+                    <input type="email" name="email_sena" id="email_sena" autocomplete="off" >
                     <label for="clave">Contraseña</label>
-                    <input type="password" name="clave" id="clave">
-                </p>
-                <p>
+                    <input type="password" name="clave" id="clave" autocomplete="off">
                     <label for="imagen">Foto del Usuario</label>
-                    <input type="file" name="imagen" id="imagen">
-                </p>
-                <p>
+                    <input type="file" name="imagen" id="imagen" autocomplete="off">
                     <input type="submit" value="Registrar" name="enviar1">
-                  
-                </p>
             </form>
         </div>
     </div>
@@ -276,14 +250,11 @@
     <div class="form form1 form2 form3 form4">
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
-        <p type="nom">
+    <form id="creartipodocu"> <!-- action="insertarusuarios.php" method-->
             <label for="nom">Nombre del Tipo de Documento</label><br>
-            <input type="text" name="nom_doc" id="nom_doc">
-        </p>
-        <p>
-        <input type="submit" value="Guardar" name="enviar2">
-        </p>
+            <input type="text" name="nom_doc" id="nom_doc" autocomplete="off">
+            <input type="submit" value="Guardar" name="enviar2">
+        
     </form>
 
 
@@ -292,14 +263,11 @@
     <div class="form form1 form2 form3 form4 form5">
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
-    <form action="insertarusuarios.php" method="POST">
-        <p type="nom">
+    <form id="creartipusu"> <!-- action="insertarusuarios.php" method="POST" -->
             <label for="nom">Nombre del Tipo de Usuario</label><br>
             <input type="text" name="nom_usu" id="nom_usu">
-        </p>
-        <p>
-        <input type="submit" value="Guardar" name="enviar3">
-        </p>
+            <input type="submit" value="Guardar" name="enviar3">
+    
     </form>
 
 

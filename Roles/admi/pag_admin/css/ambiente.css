@@ -116,7 +116,7 @@ main{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     margin: 2rem 0;
     display:none;
@@ -124,11 +124,9 @@ main{
 
 .form1 form{
     /* background-color: #ffffff; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 20vh;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0 4rem;
 } 
 
 .form1 form input{
@@ -143,116 +141,12 @@ main{
     background-color: #e57816;
     color: #ffffff;
     cursor:pointer;
-    margin: 0;
 }
 .visible{
     /* display: block; */
     display: flex;
-    /* justify-self: center; */
+    justify-content: center;
 }
 .invisible{
     display: none;
-}
-
-.tablas table td .acciones,
-table .acciones {
-    width: 7rem;
-}
-
-.tablausu .acciones{
-    width: 1rem;
-    
-}
-
-
-
-.datos td img{
-    cursor: pointer;
-    width: 4vh;
-    height: 4vh;
-    max-height: 4vh;
-    max-width: 4vh;
-
-}
-
-.tablausu .datos td img{
-    cursor: pointer;
-    width: 85px;
-    height: 85px;
-}
-
-.datos .imgs{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    
-}
-
-.alert{
-    background-color: rgba(0, 0, 0, .4);
-    width: 100vw;
-    height: 100%;
-    position:fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 100000;
-    display: none;
-}
-.alert.ver{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.formmodal{
-    background-color: #ffffff;
-    width: 50%;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.9s linear;
-}
-
-.formmodal.desplazar{
-    transform: translateY(-100vh); 
-}
-.formmodal input{
-    width: 60%;
-    height: 2rem;
-    margin: 2vh 0;
-}
-.formmodal select {
-    width: 60%;
-    height: 2rem;
-    margin:0.5vh 0;
-}
-.formmodal .cerrarmodal{
-    border: none;
-    background-color: red;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    cursor: pointer;
-    align-self: flex-end;
-    width: 3rem;
-    height: 3rem;
-    transform: translate(1.5vw, -21vh);
-}
-.formmodal .dispocerrar{
-    align-self: flex-end;
-    transform: translate(1vw, -2vh);
-}
-.formmodal input[type="submit"]{
-    border: none;
-    background-color: #224aa0;
-    color: #ffffff;
-    cursor: pointer;
-    margin: 1rem 0;
-    outline: 0;
-    width: 30%;
-
 }
