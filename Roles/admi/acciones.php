@@ -378,7 +378,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         $sql = "UPDATE ambiente set  nom_ambiente= ? , id_nave = ? 
                 where id_ambiente = ?";
         $query = mysqli_prepare($mysqli, $sql);
-        $ok = mysqli_stmt_bind_param($query, 'sii', $_PUT['nom_ambiente'], $_PUT['select_nave'] , $_PUT['id_ambiente']);
+        $ok = mysqli_stmt_bind_param($query, 'sii', $_PUT['nom_ambiente'], $_PUT['select_nave'] , $_PUT['numero_ambiente']);
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
         if($ok){

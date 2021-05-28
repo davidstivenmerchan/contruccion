@@ -13,7 +13,7 @@ export const editAmbiente = ( id ) =>{
         
         <form class="formmodal formmodaldispo"id="ambiente" >
         <div class="cerrarmodal dispocerrar">X</div>
-        <input type="hidden" name="id_ambiente" value="${data[0].id}">
+        <input type="hidden" name="numero_ambiente" value="${data[0].id}">
         <label for="id_ambiente"> Id ambiente </label>
         <input type="text" name="idserial" id="id_ambiente" disabled value="${data[0].id}">
 
@@ -57,6 +57,7 @@ export const editAmbiente = ( id ) =>{
         setTimeout( ()=> document.querySelector('.alert').classList.remove('ver'), 1000 );
         e.preventDefault();
         if(e.target.matches('#ambiente')){
+        
             ajax({
                 url: './acciones.php',
                 method: 'PUT',
@@ -80,11 +81,12 @@ export const editAmbiente = ( id ) =>{
                 },
                 data: {
                     tabla: 'ambiente',
-                    id_ambiente : e.target.id_ambiente.value,
+                    numero_ambiente : parseInt(e.target.numero_ambiente.value),
                     nom_ambiente : e.target.nom_ambiente.value,
                     select_nave: parseInt(e.target.select_nave.value),
                 }
+                
             });
-        }
+        }       
     });
 }
