@@ -7,11 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/instructor.css">
     <link rel="stylesheet" href="../../css/instru.css">
     <title>Instructor</title>
 </head>
 <body>
-    <div class="menu">
+    <?php
+        include './navbar.php';
+    ?>
+    <!-- <div class="menu">
         <img src="../img/logo.sena.png" alt="">
         <h1>INSTRUCTOR</h1>
         <P>Menu</P>
@@ -37,22 +41,22 @@
                 <td>Estado</td>
             </tr>
             <?php
-            $sql="SELECT nombre_completo, asignacion.serial, feho_ini, feho_fin, nom_estado FROM asignacion, usuarios,estado,equipos WHERE usuarios.documento = asignacion.documento AND estado.id_estado = equipos.id_estado";
-            $resul=mysqli_query($mysqli,$sql);
+           // $sql="SELECT nombre_completo, asignacion.serial, feho_ini, feho_fin, nom_estado FROM asignacion, usuarios,estado,equipos WHERE usuarios.documento = asignacion.documento AND estado.id_estado = equipos.id_estado";
+            //$resul=mysqli_query($mysqli,$sql);
 
-            while($mostrar=mysqli_fetch_array($resul)){
+            //while($mostrar=mysqli_fetch_array($resul)){
             ?>
                 <tr>
-                    <td><?php echo $mostrar['nombre_completo']?></td>
-                    <td><?php echo $mostrar['serial']?></td>
-                    <td><?php echo $mostrar['feho_ini']?></td>
-                    <td><?php echo $mostrar['feho_fin']?></td>
-                    <td><?php echo $mostrar['nom_estado']?></td>
+                    <td><?php //echo $mostrar['nombre_completo']?></td>
+                    <td><?php //echo $mostrar['serial']?></td>
+                    <td><?php //echo $mostrar['feho_ini']?></td>
+                    <td><?php //echo $mostrar['feho_fin']?></td>
+                    <td><?php //echo $mostrar['nom_estado']?></td>
                 </tr>
             <?php
-                }
+                // }
             ?>
         </table>
-    </div>
+    </div> -->
 </body>
 </html>

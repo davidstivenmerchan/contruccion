@@ -263,11 +263,10 @@
                 </p>
                 <p>
                     <label for="imagen">Foto del Usuario</label>
-                    <input type="file" name="imagen" id="imagen">
+                    <input enctype="multipart/form-data" type="file" name="imagen" id="imagen">
                 </p>
                 <p>
                     <input type="submit" value="Registrar" name="enviar1">
-                  
                 </p>
             </form>
         </div>
