@@ -241,8 +241,16 @@
                     <label for="clave">Contraseña</label>
                     <input type="password" name="clave" id="clave" autocomplete="off">
                     <label for="imagen">Foto del Usuario</label>
+<<<<<<< HEAD
+                    <input enctype="multipart/form-data" type="file" name="imagen" id="imagen">
+                </p>
+                <p>
+                    <input type="submit" value="Registrar" name="enviar1">
+                </p>
+=======
                     <input type="file" name="imagen" id="imagen" autocomplete="off">
                     <input type="submit" value="Registrar" name="enviar1">
+>>>>>>> 92a8c64b8f8113a358dcba09558c8041fa6acfbc
             </form>
         </div>
     </div>
