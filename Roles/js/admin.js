@@ -1,12 +1,24 @@
 import { aparecer, desaparecer } from './toogle_admin.js';
 import { editTipoDispo } from './edit_tipdispo.js';
 import { editMarca } from './edit_marcaequipos.js';
+import { editAmbiente } from './edit_ambiente.js';
+import { editNave } from './edit_nave.js';
+import { editjornada } from './edit_jornada.js';
+import { editFormacion } from './edit_formacion.js';
+import { editDetalleformacion } from './edit_detalleforma.js';
 import { editEstadoDispositivo } from './edit_estadodispositivo.js';
 import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
 import { editdispoelectronico } from './edit_dispositivoelectronic.js';
 import { handleDelete } from './handle_delete.js';
 import handleAdd from './handle_add.js';
+import { editTipDocu } from './edit_tip_docu.js';
+import { editTipUsu } from './edit_tipusu.js';
+
+
+
+
+
 // import Swal from 'sweetalert2';
 
 const $main = document.querySelector("main");
@@ -62,6 +74,7 @@ document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
     const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9', 'formu10', 'formu11'];
+    const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7', 'formu8', 'formu9'];
 
     const callAparecer = ( array ) =>{
         const [ , primera ] = e.target.classList;
@@ -71,25 +84,18 @@ document.addEventListener('click' , e => {
         aparecer( elemento );
     }
     
-    const callDesaparecer = () =>{
-        const [ , primera ] = e.target.classList;
-        const elemento = document.querySelector(`.${primera}`).getAttribute('data-form');
-        desaparecer( [ elemento ] );
-    }
+    
     // const aparecerEquipo = document.querySelectorAll
     if(e.target.matches('.aparecer')){
         callAparecer(formularios);
     }
-    if(e.target.matches('.cerrar')){
-        callDesaparecer();
-    }
-
     if(e.target.matches('.aparecerequipos') || e.target.matches('.aparecerequipos *')){
         callAparecer(formula);
     }
-    if(e.target.matches('.cerrarequipos')){    
-        callDesaparecer();
+    if(e.target.matches('.aparecerambientes') || e.target.matches('.aparecerambientes *')){    
+        callAparecer(formuambientes);
     }
+    
 
     if(e.target.matches(".edit")){
         if(e.target.matches('.tipdispo')){
@@ -115,7 +121,35 @@ document.addEventListener('click' , e => {
         if(e.target.matches(".dispositivo")){
             const $id = e.target.getAttribute('data-dispositivo');
             editdispoelectronico($id);
+        }
+        if(e.target.matches(".ambiente")){
+            const $id = e.target.getAttribute('data-ambiente');
+            editAmbiente($id);
         }   
+        if(e.target.matches(".nave")){
+            const $id = e.target.getAttribute('data-nave');
+            editNave($id);
+        }
+        if(e.target.matches(".jornada")){
+            const $id = e.target.getAttribute('data-jornada');
+            editjornada($id);
+        }
+        if(e.target.matches(".formacion")){
+            const $id = e.target.getAttribute('data-formacion');
+            editFormacion($id);
+        }
+        if(e.target.matches(".detalle_formacion")){
+            const $id = e.target.getAttribute('data-detalleformacion');
+            editDetalleformacion($id);
+        }   
+        if(e.target.matches('.tipoDocu')){
+            const $id = e.target.getAttribute('data-tipoDocu');
+            editTipDocu($id);
+        }
+        if(e.target.matches('.tipoUsu')){
+            const $id = e.target.getAttribute('data-tipoUsu');
+            editTipUsu( $id );
+        }  
     }
 
 
@@ -124,8 +158,6 @@ document.addEventListener('click' , e => {
         const $formAlert = document.querySelector('#alert form');
         setTimeout(() => $alerta.classList.remove('ver'), 1000);
         $formAlert.classList.add('desplazar');
-        // Swal.
-        // $alerta.style.display="none";
     }
 
     if(e.target.matches('.remove')){
@@ -133,23 +165,49 @@ document.addEventListener('click' , e => {
          *  recibe dos parametros un dataatributo con el cual va a buscar el id del elemento
          * y recibe la tabla que va a afectar.
          */
-        const getdelete = ( dataAtribute, tabla ) => { 
+        const getdelete = ( dataAtribute, tabla, urlSuccess ) => { 
             const id = e.target.getAttribute(dataAtribute);
-            handleDelete({ id, tabla});
+            handleDelete({ id, tabla, urlSuccess});
         }
 
         if(e.target.matches('.tipdispo')){
-            getdelete('data-tipdispo' ,'tipo_dispositivo' );
+            getdelete('data-tipdispo' ,'tipo_dispositivo','pag_admin/equipos.php' );
+
         }else if( e.target.matches('.marca')){
             getdelete('data-marca', 'marca');
+
         }else if(e.target.matches('.estado')){
-            getdelete('data-estado', 'estado_dispositivo');
+            getdelete('data-estado', 'estado_dispositivo', 'pag_admin/equipos.php');
+
         }else if(e.target.matches('.aprobacion')){
-            getdelete('data-estadoapro', 'estado_aprobacion');
+            getdelete('data-estadoapro', 'estado_aprobacion','pag_admin/equipos.php');
+
         }else if(e.target.matches('.disponibi')){
-            getdelete('data-estadodisponi', 'estado_disponibilidad');
+            getdelete('data-estadodisponi', 'estado_disponibilidad','pag_admin/equipos.php');
+
         }else if(e.target.matches('.dispositivo')){
-            getdelete('data-dispositivo', 'dispositivo_electronico');
+            getdelete('data-dispositivo', 'dispositivo_electronico','pag_admin/equipos.php');
+
+        }else if(e.target.matches('.nave')){
+            getdelete('data-nave', 'nave','pag_admin/ambientes.php');
+
+        }else if(e.target.matches('.jornada')){
+            getdelete('data-jornada', 'jornada','pag_admin/ambientes.php');
+
+        }else if(e.target.matches('.formacion')){
+            getdelete('data-formacion', 'formacion','pag_admin/ambientes.php');
+
+        }else if(e.target.matches('.detalle_formacion')){
+            getdelete('data-detalleformacion', 'detalle_formacion','pag_admin/ambientes.php');
+
+        }else if(e.target.matches('.tipoDocu')){
+            getdelete('data-tipoDocu', 'tipo_documento', 'pag_admin/usuarios.php');
+
+        }else if(e.target.matches('.tipoUsu')){
+            getdelete('data-tipoUsu', 'tipo_usuario', 'pag_admin/usuarios.php') ;
+
+        }else if(e.target.matches('.ambiente')){
+            getdelete('data-ambiente', 'ambiente', 'pag_admin/ambientes.php') ;
         }
     }
 });
@@ -167,36 +225,82 @@ document.addEventListener('submit', (e)=>{
             estadoDisposi: e.target.estado_disposi.value,
             marca: e.target.marca.value,
         }
-        handleAdd(e, 'registro_dispositivo_e.php' , data);
+        handleAdd(e, 'registro_dispositivo_e.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#tipoDispo')){
         data = {
             tabla: 'tipo_dispositivo',
             nameTipo: e.target.nom_dis.value,
         }
-        handleAdd(e , 'acciones.php', data);
+        handleAdd(e , 'acciones.php', data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#marcaEquipos')){
         data = {
             tabla: 'marca',
             nameTipo: e.target.nom_marca.value,
         }   
-        handleAdd(e , 'acciones.php', data);
+        handleAdd(e , 'acciones.php', data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#estadoDispo') ){
         data = {
             tabla: 'estado_dispositivo',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e, 'acciones.php' , data);
+        handleAdd(e, 'acciones.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#estadoApro') ){
         data = {
             tabla: 'estado_aprobacion',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e , 'acciones.php' , data);
+        handleAdd(e , 'acciones.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#estadoDisponibilidad') ){
         data = {
             tabla: 'estado_disponibilidad',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e , 'acciones.php' , data);
+        handleAdd(e , 'acciones.php' , data , 'pag_admin/equipos.php');
+    }else if( e.target.matches('#nave')){
+        data = {
+            tabla: 'nave',
+            nameTipo: e.target.nom_nave.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#jornada')){
+        data = {
+            tabla: 'jornada',
+            nameTipo: e.target.nom_jornada.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#formacion')){
+        data = {
+            tabla: 'formacion',
+            nameTipo: e.target.nom_formacion.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#detalle_formacion')){
+        data = {
+            tabla: 'detalle_formacion',
+            formacion : e.target.formacion.value,
+            num_ficha : e.target.num_ficha.value,
+            ambiente : e.target.ambiente.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#ambientes')){
+        data = {
+            tabla: 'ambiente',
+            id_ambiente : e.target.id_ambiente.value,
+            nom_ambiente : e.target.nom_ambiente.value,
+            nave : e.target.nave.value,
+        }
+        handleAdd(e, 'acciones.php', data , 'pag_admin/ambientes.php');
+    }else if( e.target.matches('#creartipodocu') ){
+        data = {
+            tabla: 'tipo_documento',
+            nom_doc: e.target.nom_doc.value,
+        }
+        handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
+    }else if(e.target.matches('#creartipusu')){
+        data = {
+            tabla: 'tipo_usuario',
+            nom_usu: e.target.nom_usu.value,
+        }   
+        handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
     }
 });

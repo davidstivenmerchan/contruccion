@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="card">
-            <h3>Crear marca de equipos </h3>
+            <h3>Crear marca de equipos</h3>
         
             <div class="botones">
                 <button class="aparecerequipos formula2" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu1"></i></button>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="card">
-            <h3>Crear estado dispositivo </h3>
+            <h3>Crear estado dispositivo</h3>
 
             <div class="botones">
                 <button class="aparecerequipos formula3" data-form="formu2"> <i class="aparecerequipos formula3 fa fa-file-alt" title="Mostrar Datos estados dispositivos" data-form="formu2"></i></button>
@@ -243,8 +243,6 @@
         <div class="formu5 tablas">
             
                 <h2>Dispositivos Electronicos</h2>
-
-
         <table class="tablamarca" border=1 cellspacing="0">
             <tr class="header">
                 <td>serial</td>

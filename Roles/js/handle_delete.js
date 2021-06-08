@@ -1,11 +1,11 @@
 import { ajax } from "./ajax.js";
 import { getHTML } from "./admin.js";
 
-export const handleDelete = ({id, tabla }) =>{
+export const handleDelete = ({id, tabla, urlSuccess }) =>{
     Swal.fire({
         title: 'Estas seguro?',
         text: 'Estas seguro de borrar este registro',
-        icon: 'Warning',
+        icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -24,7 +24,7 @@ export const handleDelete = ({id, tabla }) =>{
                         );
                         const $main = document.querySelector('main');
                         getHTML({
-                            url: 'pag_admin/equipos.php',
+                            url: urlSuccess,
                             success: (html) => $main.innerHTML = html,
                             error: (error) => $main.innerHTML = `<h1> ${error} </h1>`,
                         });
@@ -42,6 +42,4 @@ export const handleDelete = ({id, tabla }) =>{
                 );
             }
      })
-    
-
 }

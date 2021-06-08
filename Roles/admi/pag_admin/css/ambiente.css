@@ -145,7 +145,7 @@ main{
 .visible{
     /* display: block; */
     display: flex;
-    justify-self: center;
+    justify-content: center;
 }
 .invisible{
     display: none;
