@@ -1,0 +1,17 @@
+html{
+    font-size: 16px;
+    font-family: Helvetica;
+    box-sizing: border-box;
+}
+
+*, 
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}

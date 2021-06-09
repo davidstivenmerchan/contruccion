@@ -25,30 +25,28 @@ if (isset($_POST['ingresar'])){
         $_SESSION['nombre'] = $datos['Nombres'];
         $_SESSION['apellido'] = $datos['Apellidos'];
         $_SESSION['fecha'] = $datos['fecha_nacimiento'];
-        $_SESSION['genero'] = $datos['genero'];
+        $_SESSION['genero'] = $datos['id_genero'];
         $_SESSION['correo_p'] = $datos['correo_personal'];
         $_SESSION['correo_s'] = $datos['correo_sena'];
         $_SESSION['tel'] = $datos['telefono'];
         $_SESSION['clave'] = $datos['password'];
         
     
-       
-        
-
-        
-        if($_SESSION['tipo_usu']==1){
-            header("location: ../Roles/admi/admin.php");
-            exit();
+        switch($_SESSION['tipo_usu']){
+            case 1:
+                header("location: ../Roles/admi/admin.php");
+                exit();
+            case 2:
+                header("location: ../Roles/instru/instructor.php");
+                exit();
+            default:
+                header("location: ../error.html");
+                exit();
+                
         }
-        if($_SESSION['tipo_usu']==2){
-            header("location: ../Roles/instru/instructor.php");
-            exit();
-        }
-        else{
-            header("location: error.html");
-            exit();
-        }
-
+    }else{
+        header('location: ../error.html');
+        exit();
     }
 
 }else {

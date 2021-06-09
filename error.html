@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>CONSTRUCCION SENA</title>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <figure class="logo">
+                <img src="./assets/pie de pagina.png" alt="icono sena" title="icono sena">
+            </figure>
+            <nav>
+                <a href="#"> Inicio </a>
+                <a href="#servicios"> Servicios </a>
+                <a href="#nosotros"> Nosotros </a>
+                <a href="#contactenos"> Contactenos </a>
+            </nav>
+            <div class="opciones">
+                <a href="registro.php"><button class="registrate"> Registrate </button></a>
+                <button class="iniciosesion" id="iniciosesion"> Iniciar sesion</button>
+            </div>
+        </header>
+        <figure class="banner">
+            <img src="./assets/unnamed.png" alt="industria y construccion" title="industria y construccion">
+        </figure>
+        <h3>SISTEMA DE ENTRADA Y SALIDA DE APRENDICES SENA</h3>
+        <div class="login-box" id="login">
+            <img src="assets/logo_solo.png" class="avatar" alt="avatar image">
+            <h1>ERROR DE LOGIN VUELVE A INTENTARLO</h1>
+            <form method= "post" name="form1" id="form1" action="includes/login.php" autocomplete="off"> 
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario"> 
+            <label for="password">Contraseña</label>
+            <input type="password" name="clave" id="password" placeholder="Ingrese su contraseña">
+            <input type="submit" name="ingresar" id="inicio" value="Ingresar">
+            <a href="includes/recuperar_clave.html">Recordar Contraseña</a><br>
+            <img src="assets/marca-x.png" alt="cerrar" class="cerrar" width="20px" height="20px" onclick="desaparecer()">
+            </form>
+        </div>
+
+
+        <section class="servicios">
+            <a name="servicios"></a>
+            <h2 >SERVICIOS</h2>
+            <hr>
+            <div class="cards">
+                <figure class="card">
+                    <img src="./assets/Docu.png" alt="">
+                    <p align="justify">
+                        Este sistema es muy eficaz y eficiente para llevar un control adecuado de entrada y salida, 
+                        de aprendices a la nave de construccion , y de control para el estado de los equipos de computo
+                    </p>
+                    <button> Leer mas </button>
+                </figure>
+                <figure class="card">
+                    <img src="./assets/computador.png" alt="">
+                    <p align="justify">
+                        En este sistema nos basamos en la asignacion de equipos de computo a los aprendices, con el fin de que no se presenten
+                        molestias, ni perdida de tiempo a la hora de trabajar de los aprendices  
+                    </p>
+                    <button> Leer mas </button>
+                </figure>
+                <figure class="card">
+                    <img src="./assets/cable.png" alt="">
+                    <p align="justify">
+                        Este sistema busca ahorrar tiempo a la hora de iniciar las clases y de automatizar procesos tan
+                        sencillos como lo es la entrada y salida de los aprendices y la asignacion de equipos, teniendo un
+                        reporte del uso de estos.
+                    </p>
+                    <button> Leer mas </button>
+                </figure>
+            </div>
+        </section>
+        <section class="nosotros">
+            <a name="nosotros"></a>
+            <h2>NOSOTROS</h2>
+            <div class="nosotrosconte">
+                <p align="justify">
+                    Somos un grupo de aprendices que busca dar soluciones a problemas sencillos de nuestra institucion,
+                    esperamos innovar en procesos que hacemos rutinariamente cuando ingresamos al ambiente de formacion;
+                    con esta aplicacion buscamos facilitar funciones del instructor como del aprendiz, estamos comprometidos
+                    con ayudar y aprender del SENA para seguir formandonos como buenas personas para la productividad
+                    de nuestros estudios.
+                </p>
+                <figure>
+                    <img src="./assets/descarga (8).jpg" alt="img nosotros" alt="img nosotros">
+                </figure>
+            </div>
+        </section>
+        <div class="mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.0482318205077!2d-75.15193238573704!3d4.402078245401426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38daac36ef33ef%3A0xc4167c4b60b14a15!2sSENA%20Centro%20de%20Industria%20y%20Construcci%C3%B3n!5e0!3m2!1ses!2sco!4v1620941149799!5m2!1ses!2sco" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+       
+        <section class="contactenos">
+            <a name="contactenos"></a>
+            <h4>CONTACTENOS</h4>
+            
+            <div class="cont">
+                <article  align="justify">
+                    <p>
+                        Para cualquier queja o inquietud respecto a la aplicacion dejenos un mensaje, intentaremos
+                        darle solucion lo mas pronto posible.
+                        Si necesita ayuda sobre el manejo de la aplicacion dirijase al manual de usuario
+                        o haga clic aqui.
+                        Si quiere saber mas informacion llame a la linea 00000000 o dirijase a la oficina principal.
+                    </p>
+                </article>
+                <form action="#" class="conctactenos" id="conctactenos">
+                    <h2>¡Envienos sus datos!</h2>
+                    <label for="nombre">Nombre </label>
+                    <input type="text" id="nombre" class="nombre" name="nombre" placeholder="escribe tu nombre...">
+                    <label for="telefono"> Telefono </label>
+                    <input type="text" id="telefono" class="telefono" name="telefono" placeholder="escribe tu telefono...">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="email" placeholder="anino79@misena.edu.co">
+                    <label for="mensaje">Deje su mensaje</label>
+                    <textarea name="nensaje" id="mensaje" cols="30" rows="10"></textarea>
+
+                    <a href="#"> Politica de privacidad </a>
+                    <div class="terminos">
+                        <input type="checkbox" name="termino" id="terminos">
+                        <label for="terminos" > He leido y acepto la politica de privacidad </label>
+                    </div>
+
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+            
+        </section>
+        <section class="organizaciones">
+            <div class="content">
+                <figure>
+                    <img src="./assets/pie de pagina.png" alt="logo sena" title="logo sena">
+                </figure>
+                <figure class="facebook">
+                    <img src="./assets/icono.facebook.jpg" alt="facebook" title="facebook">
+                </figure>
+                <figure>
+                    <img src="./assets/icono.youtube.png" alt="yootube" title="yootube">
+                </figure>
+                <figure>
+                    <img src="./assets/icono.twitter.png" alt="twiter" title="icono twiter">
+                </figure>
+                <figure>
+                    <img src="./assets/instagram-icon.png" alt="instagram" title="icono instagram">
+                </figure>
+            </div>
+        </section>
+        <button class="scroll-top-btn hidden" id="botonscroll">&#11014</button>
+        <footer>
+            SERVICIO NACIONAL DE APRENDIZAJE SENA - REGIONAL TOLIMA
+        </footer>
+    </div>
+</body>
+<script src="Roles/js/index.js" type="module"></script>
+</html>
