@@ -1,0 +1,7 @@
+header{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    height: 4rem;
+    flex: 0 1 100%;
+}

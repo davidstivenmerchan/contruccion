@@ -199,30 +199,30 @@
     <p>Crear usuarios</p>
         <div class="linea"></div>
         <img src="../../assets/Group_45.jpg" alt="holi">
-        <div class="wrapper">
-            <form action="insertarusuarios.php" method="POST">
+    
+            <form class="crearusuario" action="insertarusuarios.php" id="crearusuario">
                     <label for="doc">Documento</label>
                     <input type="number" name="doc" autocomplete="off" >
                     <label for="tipo_doc">Tipo de Documento</label>
                     <select name="tip_doc" id="tip_doc" required>
-                    <option value="">Seleccione el Tipo de Documento</option>
-                    <?php
-                        foreach ($query as $tipo_doc) :  ?>
-                        <option value="<?php echo $tipo_doc['id_tipo_documento']?>"><?php echo $tipo_doc['nom_documento']?></option>
-                    <?php
-                        endforeach;
-                    ?>
+                        <option value="">Seleccione el Tipo de Documento</option>
+                        <?php
+                            foreach ($query as $tipo_doc) :  ?>
+                            <option value="<?php echo $tipo_doc['id_tipo_documento']?>"><?php echo $tipo_doc['nom_documento']?></option>
+                        <?php
+                            endforeach;
+                        ?>
                     </select>
         
                     <label for="tipo_usu">Tipo de Usuario</label>
                     <select name="tip_usu" id="tip_usu" required>
-                    <option value="">Seleccione el Tipo de Usuario</option>
-                    <?php
-                        foreach ($query1 as $tipo_usu) :  ?>
-                        <option value="<?php echo $tipo_usu['id_tipo_usuario']?>"><?php echo $tipo_usu['nom_tipo_usuario']?></option>
-                    <?php
-                        endforeach;
-                    ?>
+                        <option value="">Seleccione el Tipo de Usuario</option>
+                        <?php
+                            foreach ($query1 as $tipo_usu) :  ?>
+                            <option value="<?php echo $tipo_usu['id_tipo_usuario']?>"><?php echo $tipo_usu['nom_tipo_usuario']?></option>
+                        <?php
+                            endforeach;
+                        ?>
                     </select>
                     <label for="codigo">Codigo del Carnet</label>
                     <input type="number" name="codigo" id="codigo" autocomplete="off">
@@ -241,18 +241,9 @@
                     <label for="clave">Contraseña</label>
                     <input type="password" name="clave" id="clave" autocomplete="off">
                     <label for="imagen">Foto del Usuario</label>
-<<<<<<< HEAD
-                    <input enctype="multipart/form-data" type="file" name="imagen" id="imagen">
-                </p>
-                <p>
+                    <input enctype="multipart/form-data" type="file" name="imagen" id="imagen"> 
                     <input type="submit" value="Registrar" name="enviar1">
-                </p>
-=======
-                    <input type="file" name="imagen" id="imagen" autocomplete="off">
-                    <input type="submit" value="Registrar" name="enviar1">
->>>>>>> 92a8c64b8f8113a358dcba09558c8041fa6acfbc
             </form>
-        </div>
     </div>
 
     <div class="form form1 form2 form3 form4">
@@ -264,7 +255,6 @@
             <input type="submit" value="Guardar" name="enviar2">
         
     </form>
-
 
     </div>
 

@@ -37,6 +37,9 @@ if (isset($_POST['ingresar'])){
                 header("location: ../Roles/admi/admin.php");
                 exit();
             case 2:
+                header("location: ../Roles/aprendiz/aprendiz.php");
+                exit();
+            case 3:
                 header("location: ../Roles/instru/instructor.php");
                 exit();
             default:
