@@ -77,12 +77,15 @@ header .opciones .registrate {
 }
 .container h3{
   font-family: Arial, Helvetica, sans-serif;
-  margin-left: 50px;
-  font-size: 60px;
-  margin-top: -450px;
-  width: 71vw;
+  margin-left: 110px;
+  font-size: 230px;
+  margin-top: -500px;
+  width: 80vw;
   color: white;
 }
+
+
+
 /* login */
 .login-box{
   width: 320px;
