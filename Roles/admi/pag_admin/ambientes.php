@@ -1,24 +1,11 @@
 <?php
     require_once './../../../includes/conexion.php';
-    $consulta1 = "SELECT * FROM nave";
-    $query1= mysqli_query($mysqli,$consulta1);
-    $respu1= mysqli_fetch_assoc($query1); 
-
-    $consulta2 = "SELECT * FROM jornada";
-    $query2= mysqli_query($mysqli,$consulta2);
-    $respu2= mysqli_fetch_assoc($query2); 
-
-    $consulta3 = "SELECT * FROM formacion";
-    $query3= mysqli_query($mysqli,$consulta3);
-    $respu3= mysqli_fetch_assoc($query3); 
-
-    $consulta4 = "SELECT * FROM detalle_formacion";
-    $query4= mysqli_query($mysqli,$consulta4);
-    $respu4= mysqli_fetch_assoc($query4);
-
-    $consulta5 = "SELECT * FROM ambiente";
-    $query5= mysqli_query($mysqli,$consulta5);
-    $respu5= mysqli_fetch_assoc($query5);
+    
+    function consultar( $consulta, $mysqli ){
+        $query1 = mysqli_query($mysqli, $consulta);
+        return mysqli_fetch_assoc($query1); 
+    } 
+    
 ?>
 
 <!DOCTYPE html>
