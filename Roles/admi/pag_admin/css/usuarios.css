@@ -255,4 +255,14 @@ table .acciones {
     outline: 0;
     width: 30%;
 
+} 
+.crearusuario{
+    background-color: red;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90vw;
+    height: 50vh;
+}
+.crearusuario input {
+    width: 50%;
 }

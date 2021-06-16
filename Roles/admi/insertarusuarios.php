@@ -6,15 +6,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $_POST = json_decode( file_get_contents('php://input'), true );
     $tabla = $_POST['tabla'];
     if( $tabla === 'usuarios' ){
-        $cc = $_POST['doc'];
-        $tipdoc= $_POST['tipDoc'];
-        $tipusu= $_POST['tipUsua'];
-        $cod= $_POST['codigo'];
-        $nombre= $_POST['nom'];
-        $ape= $_POST['ape'];
-        $fecha= $_POST['fecha'];
+        // $name = $_FILES['file']['name'];
+        $cc = $_POST['documento'];
+        $tipdoc= $_POST['tipDocumento'];
+        $tipusu= $_POST['tipUsuario'];
+        $cod= $_POST['codigoCarnet'];
+        $nombre= $_POST['nombre'];
+        $ape= $_POST['apellido'];
+        $fecha= $_POST['fechaNacimiento'];
         $genero= $_POST['genero'];
-        $emailp= $_POST['emailPer'];
+        $emailp= $_POST['emailPersonal'];
         $emails= $_POST['emailSena'];
         $clave= $_POST['clave'];
         $img= $_POST['imagen'];
@@ -26,19 +27,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $resultados = mysqli_query($mysqli,$consul);
     
 
-        if($resultados){
-            echo json_encode([
-                'err' => false,
-                'status' => http_response_code(200),
-                'statusText' => 'usuario insertado con exito',
-            ]);
-        }else{
-            echo json_encode([
-                'err' => true,
-                'status' => http_response_code(500),
-                'statusText' => 'no se puede crear el usuario',
-            ]);
-        }
+        // if($resultados){
+        //     echo json_encode([
+        //         $name
+        //     ]);
+        // }else{
+        //     echo json_encode();
+        // }
+        echo json_encode($_FILES);
     }elseif( $tabla == 'tipo_documento' ){
         $nomdoc= $_POST['nom_doc'];
         $consul2 = "INSERT INTO tipo_documento (nom_documento) values ('$nomdoc')";

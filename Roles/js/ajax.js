@@ -4,7 +4,8 @@ export const ajax = ({ url, method, cbSuccess, data}) => {
     fetch(url,{
         method,
         headers: {
-            'Content-type': 'aplication/json'
+            'Content-type': 'aplication/json',
+            'enc-type': 'multipart/form-data',
         },
         body: JSON.stringify(data),
     })

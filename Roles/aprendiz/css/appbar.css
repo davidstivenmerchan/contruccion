@@ -1,0 +1,31 @@
+header{
+    background-color: #dedede;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 1 100%;
+    height: 4rem;
+}
+
+header figure{
+    width: 4rem;
+    height: 4rem;
+}
+
+header figure img{
+    max-width: 100%;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+    flex: 0 1 30%;
+}
+header article{
+    align-items: center;
+    display:flex;
+    justify-content: space-around;
+    flex:0 1 10%;
+} 
+@media screen and (min-width:480px ){
+
+}

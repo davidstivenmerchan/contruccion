@@ -302,5 +302,22 @@ document.addEventListener('submit', (e)=>{
             nom_usu: e.target.nom_usu.value,
         }   
         handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
+    }else if(e.target.matches('#crearusuario')){
+        data = {
+            tabla: 'usuarios',
+            documento: e.target.doc.value,
+            tipDocumento: e.target.tip_doc.value,
+            tipUsuario: e.target.tip_usu.value,
+            codigoCarnet: e.target.codigo.value,
+            nombre: e.target.nom.value,
+            apellido: e.target.ape.value,
+            fechaNacimiento: e.target.fecha.value,
+            genero: e.target.genero.value,
+            emailPersonal: e.target.email_per.value,
+            emailSena: e.target.email_sena.value,
+            clave: e.target.clave.value,
+            imagen: e.target.imagen.value,
+        }
+        handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
     }
 });
