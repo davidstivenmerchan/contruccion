@@ -8,13 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/instructor.css">
-    <link rel="stylesheet" href="../../css/instru.css">
+    
     <title>Instructor</title>
 </head>
 <body>
-    <?php
-        include './navbar.php';
-    ?>
+   <h1>Instructor</h1>
+   <nav>
+        <ul>
+            <li><a href="asignacion_equipos.php">Asignación de Computadores</a></li>
+            <li>Aprendices del Ambiente</li>
+            <li>Equipos de Computo</li>
+            <li>mmsss</li>
+        </ul>
+   </nav>
+   
     <!-- <div class="menu">
         <img src="../img/logo.sena.png" alt="">
         <h1>INSTRUCTOR</h1>
