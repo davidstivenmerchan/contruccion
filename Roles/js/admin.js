@@ -87,7 +87,7 @@ document.addEventListener('click' , e => {
     
     // const aparecerEquipo = document.querySelectorAll
     if(e.target.matches('.aparecer')){
-        callAparecer(formularios);
+        callAparecer(formularios); //aprecer pertenece a usuarios
     }
     if(e.target.matches('.aparecerequipos') || e.target.matches('.aparecerequipos *')){
         callAparecer(formula);
