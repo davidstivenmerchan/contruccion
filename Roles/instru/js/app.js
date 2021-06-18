@@ -29,16 +29,16 @@ $(document).ready(function(){
                             ${buscar.fecha}
                         </td>
                         <td>
-                            ${buscar.hora_inicial}
-                        </td>
-                        <td>
                             ${buscar.descripcion_inicial}
                         </td>
                         <td>
-                            ${buscar.hora_final}
+                            ${buscar.hora_inicial}
                         </td>
                         <td>
                             ${buscar.descripcion_final}
+                        </td>
+                        <td>
+                            ${buscar.hora_final}
                         </td>
                     </tr>
                     `
