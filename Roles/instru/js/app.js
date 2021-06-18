@@ -52,4 +52,22 @@ $(document).ready(function(){
     }
     });
 
+    $('#insertar_asignacion').submit(function (e) {
+        const agregar_asignacion ={
+            cedula: $('#ce').val(),
+            fecha: $('#fecha').val(),
+            hora: $('#hora').val()
+        }
+        $.post('js/agregar_asignacion.php',agregar_asignacion, function(response){
+            console.log(response);
+
+            $('#insertar_asignacion').trigger('reset');
+        });
+        e.preventDefault();
+    });
+
+        
+   
+    
+
 });

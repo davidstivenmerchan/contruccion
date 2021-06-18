@@ -1,5 +1,6 @@
 <?php
-
+$fechaHoy = date("Y-m-d");
+$horaHoy = date("H:i:s");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +18,11 @@
     <form action="">
             <label for="buscar_con_cedula">Ingrese la Cedula del Aprendiz para Buscar</label>
             <input type="number" name="" id="buscar_con_cedula">
-            <input type="submit" value="BUSCAR">
+
+            
     </form>
+    
+    
     <table id="buscar_asignacion_equipos">
         <thead>
             <tr>
@@ -34,8 +38,19 @@
         <tbody id="tabla_asignacion_equipos">
             
         </tbody>
-   
    </table>
+   <br>
+    <br>
+
+   <form action=""  id="insertar_asignacion">
+            <label for="ce">Por favor Ingrese la Cedula del Aprendiz</label>
+            <input type="number" name="" id="ce">
+            <input type="hidden" id="fecha" value="<?php echo $fechaHoy ?>">
+            <input type="hidden" id="hora" value="<?php echo $horaHoy ?>">
+            <button>
+            asignar equipo
+            </button>
+        </form>
     
    <table>
         <thead>
@@ -53,11 +68,7 @@
    
    </table>
 
-   <form action="">
-            <label for="ce">Por favor Ingrese la Cedula del Aprendiz</label>
-            <input type="number" name="" id="ce">
-            <input type="submit" value="ASIGNAR EQUIPO">
-    </form>
+  
 
 
     <script
