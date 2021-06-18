@@ -293,7 +293,7 @@
                 <input type="text" name="nom_dis" id="nom_dis">
 
                 <input type="submit" value="Guardar">
-            </form>
+            </form>  
         </div>
 
         <div class="form1 formu7">
