@@ -2,6 +2,7 @@
 $(document).ready(function(){
 
     console.log('trabajando bien');
+    obtenerasiganciones();
 
     $('#buscar_asignacion_equipos').hide();
  
@@ -60,11 +61,55 @@ $(document).ready(function(){
         }
         $.post('js/agregar_asignacion.php',agregar_asignacion, function(response){
             console.log(response);
+            obtenerasiganciones();
 
             $('#insertar_asignacion').trigger('reset');
         });
         e.preventDefault();
     });
+
+
+    function obtenerasiganciones(){
+        $.ajax({
+            url: 'js/mostrar_asignacion.php',
+            type: 'GET',
+            success: function(response){
+                let busqueda = JSON.parse(response);
+                let template = '';
+    
+                busqueda.forEach( buscar => {
+                    template += `
+                    <tr>
+                        <td>
+                            ${buscar.documento}
+                        </td>
+                        <td>
+                            ${buscar.serial}
+                        </td>
+                        <td>
+                            ${buscar.fecha}
+                        </td>
+                        <td>
+                            ${buscar.descripcion_inicial}
+                        </td>
+                        <td>
+                            ${buscar.hora_inicial}
+                        </td>
+                        <td>
+                            ${buscar.descripcion_final}
+                        </td>
+                        <td>
+                            ${buscar.hora_final}
+                        </td>
+                    </tr>
+                    `
+                });
+                
+                $('#tabla_asignacion_equipos_toda').html(template);
+            
+            }
+        });
+    }
 
         
    
