@@ -16,11 +16,12 @@
    <nav>
         <ul>
             <li><a href="asignacion_equipos.php">Asignación de Computadores</a></li>
-            <li>Aprendices del Ambiente</li>
+            <li>Asistencia de Aprendices</li>
             <li>Equipos de Computo</li>
             <li>mmsss</li>
         </ul>
    </nav>
+
    
     <!-- <div class="menu">
         <img src="../img/logo.sena.png" alt="">
