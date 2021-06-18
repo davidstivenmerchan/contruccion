@@ -1,6 +1,6 @@
 <?php
 $fechaHoy = date("Y-m-d");
-$horaHoy = date("H:i:s");
+$horaHoy = date("H:i:s"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +64,9 @@ $horaHoy = date("H:i:s");
                 <td>Hora Final</td>
             </tr>
         </thead>
-        <tbody id="tabla_asignacion_equipos"></tbody>
+        <tbody id="tabla_asignacion_equipos_toda">
+            
+        </tbody>
    
    </table>
 
