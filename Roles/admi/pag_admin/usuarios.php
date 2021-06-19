@@ -2,6 +2,11 @@
      require_once '../../../includes/conexion.php';
 ?>
 <?php
+
+    function consultar($consulta, $mysqli):mysqli_result
+    {
+        return mysqli_query($mysqli, $consulta);    
+    }
      $consul= "SELECT * FROM tipo_documento";
      $query= mysqli_query($mysqli,$consul);
      $respu= mysqli_fetch_assoc($query); 
@@ -157,7 +162,7 @@
     </div>
 
 
-    <div class="form1 form2">
+    <div class="form2">
 
     <table class="tabla">
             <tr class="titulo">
@@ -195,58 +200,89 @@
 
    
     </div>
-    <div class="form form1 form2 form3">
+    <div class="form3">
     <p>Crear usuarios</p>
         <div class="linea"></div>
         <img src="../../assets/Group_45.jpg" alt="holi">
     
             <form class="crearusuario" action="insertarusuarios.php" id="crearusuario">
-                    <label for="doc">Documento</label>
-                    <input type="number" name="doc" autocomplete="off" >
+                    <div class="doc">
+                        <label for="doc">Documento</label>
+                        <input type="number" name="doc" autocomplete="off" >
+                    </div>
+                    <div class="tip_doc">
                     <label for="tipo_doc">Tipo de Documento</label>
-                    <select name="tip_doc" id="tip_doc" required>
-                        <option value="">Seleccione el Tipo de Documento</option>
-                        <?php
-                            foreach ($query as $tipo_doc) :  ?>
-                            <option value="<?php echo $tipo_doc['id_tipo_documento']?>"><?php echo $tipo_doc['nom_documento']?></option>
-                        <?php
-                            endforeach;
-                        ?>
-                    </select>
-        
+                        <select name="tip_doc" id="tip_doc" required>
+                            <option value="">Seleccione el Tipo de Documento</option>
+                            <?php
+                                foreach ($q as $tipo_doc) :  ?>
+                                <option value="<?php echo $tipo_doc['id_tipo_documento']?>"><?php echo $tipo_doc['nom_documento']?></option>
+                            <?php
+                                endforeach;
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="tip_usua">
                     <label for="tipo_usu">Tipo de Usuario</label>
-                    <select name="tip_usu" id="tip_usu" required>
-                        <option value="">Seleccione el Tipo de Usuario</option>
-                        <?php
-                            foreach ($query1 as $tipo_usu) :  ?>
-                            <option value="<?php echo $tipo_usu['id_tipo_usuario']?>"><?php echo $tipo_usu['nom_tipo_usuario']?></option>
-                        <?php
-                            endforeach;
-                        ?>
-                    </select>
-                    <label for="codigo">Codigo del Carnet</label>
-                    <input type="number" name="codigo" id="codigo" autocomplete="off">
-                    <label for="nom">Nombre</label>
-                    <input type="text" name="nom" id="nom" autocomplete="off">
-                    <label for="ape">Apellido</label>
-                    <input type="text" name="ape" id="ape" autocomplete="off">
-                    <label for="fecha">Fecha de Nacimiento</label>
-                    <input type="date" name="fecha" id="fecha" autocomplete="off">
+                        <select name="tip_usu" id="tip_usu" required>
+                            <option value="">Seleccione el Tipo de Usuario</option>
+                            <?php
+                                foreach (consultar("SELECT * FROM tipo_usuario", $mysqli) as $tipo_usu) :  ?>
+                                <option value="<?php echo $tipo_usu['id_tipo_usuario']?>"><?php echo $tipo_usu['nom_tipo_usuario']?></option>
+                            <?php
+                                endforeach;
+                            ?>
+                        </select>
+                    </div>
+                    <div class="cod_carnet">
+                        <label for="codigo">Codigo del Carnet</label>
+                        <input type="number" name="codigo" id="codigo" autocomplete="off">
+                    </div>
+                    <div class="nombre">
+                        <label for="nom">Nombre</label>
+                        <input type="text" name="nom" id="nom" autocomplete="off">
+                    </div>
+                    <div class="apellido">
+                        <label for="ape">Apellido</label>
+                        <input type="text" name="ape" id="ape" autocomplete="off">
+                    </div>
+                    <div class="fecha_nacimiento">
+                        <label for="fecha">Fecha de Nacimiento</label>
+                        <input type="date" name="fecha" id="fecha" autocomplete="off">
+                    </div>
+                    <div class="genero">
                     <label for="genero">Genero</label>
-                    <input type="text" name="genero" id="genero" autocomplete="off">
-                    <label for="email_per">E-mail Personal</label> 
-                    <input type="email" name="email_per" id="email per" autocomplete="off">
-                    <label for="email_sena">E-mail Sena</label>
-                    <input type="email" name="email_sena" id="email_sena" autocomplete="off" >
-                    <label for="clave">Contraseña</label>
-                    <input type="password" name="clave" id="clave" autocomplete="off">
-                    <label for="imagen">Foto del Usuario</label>
-                    <input enctype="multipart/form-data" type="file" name="imagen" id="imagen"> 
+                        <select name="genero" id="genero">
+                            <option value="">Selecciona el genero</option>
+                            <?php
+                                foreach(consultar("SELECT * FROM genero", $mysqli) as $genero) :
+                            ?>
+                            <option value="<?php echo $genero["id_genero"]?>"> <?php echo $genero["nom_genero"] ?> </option>
+                            <?php endforeach; ?>       
+                        </select>
+                    </div>
+                    <div class="emailPersonal">
+                        <label for="email_per">E-mail Personal</label> 
+                        <input type="email" name="email_per" id="email per" autocomplete="off">
+                    </div>
+                    <div class="emailsena">
+                        <label for="email_sena">E-mail Sena</label>
+                        <input type="email" name="email_sena" id="email_sena" autocomplete="off" >
+                    </div>
+                    <div class="password">
+                        <label for="clave">Contraseña</label>
+                        <input type="password" name="clave" id="clave" autocomplete="off">
+                    </div>
+                    <div class="foto">
+                        <label for="imagen">Foto del Usuario</label>
+                        <input enctype="multipart/form-data" type="file" name="imagen" id="imagen"> 
+                    </div>
                     <input type="submit" value="Registrar" name="enviar1">
             </form>
     </div>
 
-    <div class="form form1 form2 form3 form4">
+    <div class="form4">
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
     <form id="creartipodocu"> <!-- action="insertarusuarios.php" method-->
@@ -258,7 +294,7 @@
 
     </div>
 
-    <div class="form form1 form2 form3 form4 form5">
+    <div class="form5">
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
     <form id="creartipusu"> <!-- action="insertarusuarios.php" method="POST" -->

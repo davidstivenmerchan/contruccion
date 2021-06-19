@@ -15,3 +15,92 @@ body{
     padding: 0;
     overflow-x: hidden;
 }
+h1{
+    text-align: center;
+}
+.buscar_asignacion{
+    margin: 30px 20px;
+}
+.buscar_asignacion input{
+    
+    border-top: none;
+    border-left: none ;
+    border-right: none;
+    transition: .5s;
+
+}
+
+.inputbuscarasignacion:focus{
+    border: #ff6b00 solid 2px ;
+    border-top: none;
+    border-left: none ;
+    border-right: none;
+    outline:  none;
+}
+.tabla_busqueda{
+    margin:10px 200px;
+    padding: 10px;
+    Border-spacing:0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    width: 1000px;
+}
+.tabla_busqueda tr th{
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    background: #ff6b00;
+    color: white;
+}
+.tabla_busqueda tr td{
+    width: 250px;
+    margin: 10px;
+    padding: 20px;
+
+}
+.enviarasignacion{
+    margin-left: 5px;
+    background: #ff6b00;
+    color: white;
+    border: none;
+    transition: .5s;
+    width: 150px;
+    height: 30px;
+
+}
+.enviarasignacion:hover{
+    background: black;
+    cursor: pointer;
+}
+.grande{
+    width: 1200px ;
+    margin-left: 100px;
+}
+.eliminar{
+    margin-left: 5px;
+    background: red;
+    color: white;
+    border: none;
+    transition: .5s;
+    width: 150px;
+    height: 30px;
+}
+.eliminar:hover{
+    background: black;
+    cursor: pointer;
+}
+.buscar{
+    position: absolute;
+    top:129px;
+    left: 520px;
+}
+.atras{
+    position: absolute;
+    font-size: 30px;
+    top:5px;
+    margin: 30px;
+    color: black;
+    cursor: pointer;
+}
+.atras:hover{
+    color: #ff6b00;
+}

@@ -1,6 +1,6 @@
 <?php
 $fechaHoy = date("Y-m-d");
-$horaHoy = date("H:i:s");
+$horaHoy = date("H:i:s"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,29 +10,32 @@ $horaHoy = date("H:i:s");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignacion Equipos</title>
     <link rel="stylesheet" href="./css/instructor.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
 </head>
 <body>
     <h1>ASIGNACIÓN DE EQUIPOS DE COMPUTO</h1>
-    
-    
-    <form action="">
-            <label for="buscar_con_cedula">Ingrese la Cedula del Aprendiz para Buscar</label>
-            <input type="number" name="" id="buscar_con_cedula">
 
-            
+    <i class="buscar fas fa-search"></i>
+    <i class="atras fas fa-arrow-left"></i>
+     <br>
+    
+    <form action="" class="buscar_asignacion">
+            <label for="buscar_con_cedula"><strong> Ingrese la Cedula del Aprendiz para Buscar :</strong></label>
+            <input type="number" name="" id="buscar_con_cedula" class="inputbuscarasignacion">     
     </form>
     
     
-    <table id="buscar_asignacion_equipos">
+    <table id="buscar_asignacion_equipos" class="tabla_busqueda">
         <thead>
             <tr>
-                <td>Documento</td>
-                <td>Equipo por Serial</td>
-                <td>fecha</td>
-                <td>Descripcion Inicial</td>
-                <td>Hora Inicial</td>
-                <td>Descripcion Final</td>
-                <td>Hora Final</td>
+                <th>Documento</th>
+                <th>Equipo por Serial</th>
+                <th>fecha</th>
+                <th>Descripcion Inicial</th>
+                <th>Hora Inicial</th>
+                <th>Descripcion Final</th>
+                <th>Hora Final</th>
             </tr>
         </thead>
         <tbody id="tabla_asignacion_equipos">
@@ -42,29 +45,31 @@ $horaHoy = date("H:i:s");
    <br>
     <br>
 
-   <form action=""  id="insertar_asignacion">
-            <label for="ce">Por favor Ingrese la Cedula del Aprendiz</label>
-            <input type="number" name="" id="ce">
+   <form action=""  id="insertar_asignacion" class="buscar_asignacion">
+            <label for="ce"><strong>Por favor Ingrese la Cedula del Aprendiz: </strong></label>
+            <input type="number" name="" id="ce" class="inputbuscarasignacion">
             <input type="hidden" id="fecha" value="<?php echo $fechaHoy ?>">
             <input type="hidden" id="hora" value="<?php echo $horaHoy ?>">
-            <button>
+            <button class="enviarasignacion">
             asignar equipo
             </button>
         </form>
     
-   <table>
+   <table class="tabla_busqueda grande">
         <thead>
             <tr>
-                <td>Documento</td>
-                <td>Equipo por Serial</td>
-                <td>fecha</td>
-                <td>Descripcion Inicial</td>
-                <td>Hora Inicial</td>
-                <td>Descripcion Final</td>
-                <td>Hora Final</td>
+                <th>Documento</th>
+                <th>Equipo por Serial</th>
+                <th>fecha</th>
+                <th>Descripcion Inicial</th>
+                <th>Hora Inicial</th>
+                <th>Descripcion Final</th>
+                <th>Hora Final</th>
             </tr>
         </thead>
-        <tbody id="tabla_asignacion_equipos"></tbody>
+        <tbody id="tabla_asignacion_equipos_toda">
+            
+        </tbody>
    
    </table>
 
