@@ -17,7 +17,7 @@ $horaHoy = date("H:i:s");
     <h1>ASIGNACIÓN DE EQUIPOS DE COMPUTO</h1>
 
     <i class="buscar fas fa-search"></i>
-    <i class="atras fas fa-arrow-left"></i>
+    <a href="instructor.php"> <i class="atras fas fa-arrow-left"></i></a> 
      <br>
     
     <form action="" class="buscar_asignacion">
@@ -25,6 +25,7 @@ $horaHoy = date("H:i:s");
             <input type="number" name="" id="buscar_con_cedula" class="inputbuscarasignacion">     
     </form>
     
+    <h2 id="mensajenegativo">NO EXISTEN VALORES CON ESE DOCUMENTO!</h2>
     
     <table id="buscar_asignacion_equipos" class="tabla_busqueda">
         <thead>
