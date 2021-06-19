@@ -1,11 +1,12 @@
 <?php
     require_once './../../../includes/conexion.php';
     
+    // Funcion para obtener los datos en los select 
+    // de crear ambiente y detalle de formacion
     function consultar( $consulta, $mysqli ){
-        $query1 = mysqli_query($mysqli, $consulta);
-        return mysqli_fetch_assoc($query1); 
+        return mysqli_query($mysqli, $consulta);
     } 
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,6 @@
         </div>
         <div class="card">
             <h3>Crear Jornada </h3>
-        
             <div class="botones">
                 <button class="aparecerambientes formuambientes2" data-form="formu1"> <i class="aparecerambientes formuambientes2 fa fa-file-alt" title="Mostrar Jornadas" data-form="formu1"></i></button>
                 <button class="aparecerambientes formuambientes8" data-form="formu5"> <i class="aparecerambientes formuambientes8 fa fa-keyboard" title="Registrar Jornada" data-form="formu5"></i> </button>
@@ -121,7 +121,8 @@
                 <select name="nave" id="nave" required>
                 <option value="">Seleccione una Nave</option>
                 <?php
-                    foreach ($query1 as $i) :  ?>
+                    
+                    foreach (consultar("SELECT * FROM nave", $mysqli) as $i) : ?>
                     <option value="<?php echo $i['id_nave']?>"><?php echo $i['nom_nave']?></option>
                 <?php
                     endforeach;
@@ -302,7 +303,7 @@
                 <select name="formacion" id="detalle" required>
                 <option value="">Selecione una Formacion</option>
                 <?php
-                    foreach ($query3 as $i) :  ?>
+                    foreach (consultar("SELECT * FROM formacion", $mysqli) as $i) :  ?>
                     <option value="<?php echo $i['id_formacion']?>"><?php echo $i['nom_formacion']?></option>
                 <?php
                     endforeach;
@@ -314,7 +315,7 @@
                 <select name="ambiente" id="ambiente" required>
                 <option value="">Seleccione un Ambiente</option>
                 <?php
-                    foreach ($query5 as $i) :  ?>
+                    foreach (consultar("SELECT * FROM ambiente", $mysqli) as $i) :  ?>
                     <option value="<?php echo $i['id_ambiente']?>"><?php echo $i['nom_ambiente']?></option>
                 <?php
                     endforeach;

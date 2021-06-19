@@ -13,20 +13,22 @@
         $resul = mysqli_query($mysqli,$query);
         if(!$resul){
             die('query error'. mysqli_error($mysqli));
+        }else{ 
+            $json = array();
+            while($row = mysqli_fetch_array($resul)){
+                $json[] = array(
+                    'documento' => $row['documento'],
+                    'serial' => $row['serial'],
+                    'fecha' => $row['fecha'],
+                    'hora_inicial' => $row['hora_inicial'],
+                    'descripcion_inicial' => $row['descripcion_inicial'],
+                    'hora_final' => $row['hora_final'],
+                    'descripcion_final' => $row['descripcion_final']
+                );
+            }
+            $jsonstring = json_encode($json);
+            echo $jsonstring;
         }
-        $json = array();
-        while($row = mysqli_fetch_array($resul)){
-            $json[] = array(
-                'documento' => $row['documento'],
-                'serial' => $row['serial'],
-                'fecha' => $row['fecha'],
-                'hora_inicial' => $row['hora_inicial'],
-                'descripcion_inicial' => $row['descripcion_inicial'],
-                'hora_final' => $row['hora_final'],
-                'descripcion_final' => $row['descripcion_final']
-            );
-        }
-        $jsonstring = json_encode($json);
-        echo $jsonstring; 
+       
     }
 ?>
