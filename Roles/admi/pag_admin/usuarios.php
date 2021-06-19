@@ -6,14 +6,7 @@
     function consultar($consulta, $mysqli):mysqli_result
     {
         return mysqli_query($mysqli, $consulta);    
-    }
-     $consul= "SELECT * FROM tipo_documento";
-     $query= mysqli_query($mysqli,$consul);
-     $respu= mysqli_fetch_assoc($query); 
-
-     $consul= "SELECT * FROM tipo_usuario";
-     $query1= mysqli_query($mysqli,$consul);
-     $respu= mysqli_fetch_assoc($query1); 
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -215,7 +208,7 @@
                         <select name="tip_doc" id="tip_doc" required>
                             <option value="">Seleccione el Tipo de Documento</option>
                             <?php
-                                foreach ($q as $tipo_doc) :  ?>
+                                foreach (consultar("SELECT * FROM tipo_documento", $mysqli) as $tipo_doc) :  ?>
                                 <option value="<?php echo $tipo_doc['id_tipo_documento']?>"><?php echo $tipo_doc['nom_documento']?></option>
                             <?php
                                 endforeach;
