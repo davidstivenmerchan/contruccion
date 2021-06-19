@@ -79,7 +79,7 @@ $(document).ready(function(){
     
                 busqueda.forEach( buscar => {
                     template += `
-                    <tr>
+                    <tr eliminarr="${buscar.documento}">
                         <td>
                             ${buscar.documento}
                         </td>
@@ -101,6 +101,11 @@ $(document).ready(function(){
                         <td>
                             ${buscar.hora_final}
                         </td>
+                        <td>
+                            <button class="eliminar">
+                                Eliminar
+                            </button>
+                        </td>
                     </tr>
                     `
                 });
@@ -111,6 +116,17 @@ $(document).ready(function(){
         });
     }
 
+    $(document).on('click', '.eliminar', function(){
+        if(confirm('estas seguro de querer eliminar esta asignacion?')){
+            let element = $(this)[0].parentElement.parentElement;
+            let id = $(element).attr('eliminarr');
+            $.post('js/borrar_asignacion.php', {id}, function(response){
+            console.log(response);
+            obtenerasiganciones();
+
+        })
+        }
+    });
         
    
     

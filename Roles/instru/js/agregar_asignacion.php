@@ -29,6 +29,7 @@
      $mostrar3 = mysqli_fetch_array($ejecutar3);
      if($mostrar3){
         $id_equipo = $mostrar3['id_equipo'];
+        $serial = $mostrar3['serial'];
      }else{
         echo "no hay dispositivos disponibles";
      }
@@ -37,7 +38,12 @@
      values('$id_entrada_aprendiz','$id_equipo', '$hora')";
      $ejecutar4 = mysqli_query($mysqli,$consulta4);
 
-     if(!$ejecutar and !$ejecutar2 and !$ejecutar3 and !$ejecutar4){
+     $consulta5 = "UPDATE dispositivo_electronico SET id_estado_disponibilidad = 2 where serial='$serial'";
+     $ejecutar5 = mysqli_query($mysqli, $consulta5);
+
+
+
+     if(!$ejecutar and !$ejecutar2 and !$ejecutar3 and !$ejecutar4 and !$ejecutar5){
          die('Query Failed.');
      }
      echo 'se agrego exitosamente';
