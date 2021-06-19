@@ -16,7 +16,7 @@
    <nav>
         <ul>
             <li><a href="asignacion_equipos.php">Asignación de Computadores</a></li>
-            <li>Asistencia de Aprendices</li>
+            <li><a href="asistencia_aprendices.php">Asistencia de Aprendices</a></li>
             <li><a href="registrar_equipos.php">Equipos de Computo</a></li>
             <li>mmsss</li>
         </ul>
