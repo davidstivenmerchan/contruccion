@@ -3,8 +3,9 @@ require_once './../../includes/conexion.php';
 header('Content-Type: application/json');
 if($_SERVER['REQUEST_METHOD'] === 'GET'){
     $id = (isset($_GET['id'])) ? $_GET['id'] : null ;
+    $tipDispo = (isset($_GET['tipDispo'])) ? $_GET['tipDispo'] : null;
     $tabla = trim($_GET['tabla']);
-    if( !$id ){
+    if( !$id && !$tipDispo){
         $resultados = [];
         if($tabla !=  'ambiente'){
             $sql = "SELECT * from $tabla";
@@ -43,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente'){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico'){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -145,6 +146,41 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
             );
             echo json_encode($res);
             return ;
+        }else if($tabla == "periferico"){
+            $resultados = [];
+            $sql = "SELECT * from periferico where id_tip_periferico = $tipDispo";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idPeriferico,$nombre,$idMarca, $idEstadoDisponibilidad, $idEstadoDispositivo, $idTipoPeriferico );
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, 
+                [
+                    'id' => $idPeriferico,
+                    'nomPeriferico' => $nombre,
+                    'idMarca' => $idMarca,
+                    'idEstadoDisponibilidad' => $idEstadoDisponibilidad,
+                    "idEstadoDispositivo" => $idEstadoDispositivo,
+                    "idTipoPeriferico" => $idTipoPeriferico
+                ]
+            );
+            }
+            $res;
+            if(count($resultados) > 0){
+                $res = array(
+                    "err" => false,
+                    "status" => http_response_code(200),
+                    "statusText" => "datos encontrados con exito",
+                    "data" => $resultados
+                );
+            }else{
+                $res = array(
+                    "err" => false,
+                    "status" => http_response_code(200),
+                    "statusText" => "no se encontraron datos",
+                    "data" => [],
+                );
+            }
+            echo json_encode($res);
         }
 
 

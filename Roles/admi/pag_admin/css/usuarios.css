@@ -261,7 +261,7 @@ table .acciones {
 } 
 
 .crearusuario{
-    background-color: red;
+    /* background-color: red; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 90%;
@@ -275,12 +275,18 @@ table .acciones {
 }
 
 .crearusuario div input,
-.crearusuario input[type="submit"]{
+.crearusuario input[type="submit"],
+.crearusuario div select{
     width:60%;
     height: 2rem;
 }
 .crearusuario input[type="submit"]{
-    margin:1vh auto;
-    /* grid-column-start: 1;
-    grid-column-end: 2;*/
+    background-color: #e57816;
+    border: none;
+    cursor:pointer;
+    color:#ffffff;
+    margin:10vh auto;
+    grid-column:1 / 3;
+    /* column-span: all; */
+    width: 25vw;
 } 
