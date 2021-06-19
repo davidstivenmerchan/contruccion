@@ -12,9 +12,25 @@ html {
 }
 
 body {
-  overflow-x: hidden;
-  padding: 0;
+  background-image: url(../assets/unnamed.png);
   margin: 0;
+  background-size: 100%;
+  width: 1500px;
+  height: 500px;
+  background-attachment: fixed;
+  display: flex;
+}
+
+body:before{
+  content: "";
+  width: 100%;
+  min-height: 105vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(white 25%,rgba(0, 0, 0, 0.1) 75%);
+  opacity: 1;
+  z-index: -5;
 }
 
 .container {
@@ -36,22 +52,24 @@ header {
   padding: 10vh 0 0 0;
 }
 header nav {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 3px solid black;
   color: #ffffff;
-  padding: 1rem 0;
+  padding: 15px;
   width: 40%;
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 }
 header nav a {
-  color: #ffffff;
+  color: black;
   text-decoration: none;
+  font-size: 25px;
 }
 header .logo img {
-  width: 230px;
-  height: 230px;
-  margin-top: -70px;
-  margin-left: 120px;
+  width: 280px;
+  height: 280px;
+  margin-top: -120px;
+  margin-left: 0px;
 }
 header .opciones {
   margin: 0 2vw 0 0;
@@ -71,19 +89,19 @@ header .opciones .iniciosesion {
   color: #ffffff;
 }
 header .opciones .registrate {
-  background-color: rgba(0, 0, 0, 0.5);
+
   color: #ff7402;
   border: 1px solid #ff7402;
 }
+
 .container h3{
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 110px;
   font-size: 230px;
-  margin-top: -500px;
+  margin-top: 150px;
   width: 80vw;
   color: white;
 }
-
 
 
 /* login */
@@ -92,8 +110,8 @@ header .opciones .registrate {
   height: 420px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  top: 57%;
-  left: 85%;
+  top: 60%;
+  left: 82%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -184,7 +202,7 @@ header .opciones .registrate {
   cursor: pointer;
 }
 
-.banner {
+/*.banner {
   grid-area: header/banner;
   padding: 0;
   margin: 0;
@@ -199,24 +217,27 @@ header .opciones .registrate {
   max-width: 100%;
   height: 90vh;
   z-index: -200;
-  filter: brightness(50%);
   padding: 0;
   margin: 0;
-}
+  background: linear-gradient(white 3%,rgba(0, 0, 0, 0.1) 90%);
+}*/
 
 .servicios {
   grid-area: servicios;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
   align-items: center;
   margin: auto;
   text-align: justify;
+  background-color: white;
+  margin-top: -150px;
+  padding: 400px 0px 80px 0px;
 }
 .servicios h2{
   margin-left: 0px;
   font-size: 50px;
-  margin-top: 50px;
+  margin-top: -300px;
   color: black;
 }
 .servicios p{
@@ -236,8 +257,9 @@ header .opciones .registrate {
   flex-direction: column;
 }
 .servicios .cards .card img {
-  width: 100%;
+  width: 50%;
   max-width: 100%;
+  margin-left: 25%;
 }
 .servicios .cards .card button {
   margin: auto;
@@ -257,7 +279,7 @@ header .opciones .registrate {
   flex-direction: column;
   align-items: center;
   grid-area: nosotros;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: lightgray;
   width: 100%;
   height: 800px;
 }
@@ -290,7 +312,7 @@ header .opciones .registrate {
 .contactenos {
   grid-area: conctacto;
   width: 100%;
-  background-image: url("../assets/cursos-virtuales-sena.jpg");
+  background-image: url("../assets/sena_c\ \(1\).jpeg");
   background-repeat: no-repeat;
   background-size: 100%;
   display: flex;
@@ -442,8 +464,8 @@ footer {
 
 .mapa{
   position: absolute;
-  top:1800px;
-  left: 200px;
+  top:1950px;
+  left: 250px;
   border: #f38200 solid 1px;
 }
 
