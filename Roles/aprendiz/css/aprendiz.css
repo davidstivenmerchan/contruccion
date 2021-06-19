@@ -15,3 +15,29 @@ body{
     padding: 0;
     margin: 0;
 }
+.formuu{
+    margin: 30px;
+    display: none;
+    background: red;
+}
+.aparecer{
+    display: block;
+}
+.botoninicial{
+    margin: 30px 150px 30px 150px;
+    width: 200px;
+    height: 170px;
+    background: #ff6b00;
+    border: none;
+    color: white;
+    font-size: 20px;
+    transition: .5s;
+}
+.botoninicial:hover{
+    cursor: pointer;
+    background: black;
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0px 38px 21px 2px rgba(0,0,0,0.52);
+-moz-box-shadow: 0px 38px 21px 2px rgba(0,0,0,0.52);
+box-shadow: 0px 38px 21px 2px rgba(0,0,0,0.52);
+}

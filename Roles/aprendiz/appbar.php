@@ -13,8 +13,8 @@
         </figure>
         <nav>
             <a href="./inicio.php">inicio</a>
-            <a href="./yonose.php"> yo no se</a>
-            <a href="./yotampco">yo tampoco se</a>
+            <a href="./micomputador.php">Mi Computador</a>
+            <a href="./yotampco">Mis Datos Personales</a>
         </nav>
         <article class="opciones">
             <a href="help.php">help</a>
