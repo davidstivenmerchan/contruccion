@@ -5,6 +5,7 @@ $(document).ready(function(){
     obtenerasiganciones();
 
     $('#buscar_asignacion_equipos').hide();
+    $('#mensajenegativo').hide();
  
     $('#buscar_con_cedula').keyup(function(e){
         if($('#buscar_con_cedula').val()){
@@ -14,9 +15,11 @@ $(document).ready(function(){
             type: 'POST',
             data: { buscar_con_cedula },
             success: function(response){
+                
                 let busqueda = JSON.parse(response);
                 let template = '';
-
+            
+                if(response.length!==0 && response!=="[]"){  
                 busqueda.forEach( buscar => {
                     template += `
                     <tr>
@@ -48,8 +51,15 @@ $(document).ready(function(){
                 $('#tabla_asignacion_equipos').html(template);
                 $('#buscar_asignacion_equipos').show();
                 
+                
+            }else{
+                $('#mensajenegativo').show();
             }
+        }
         })
+    }else{
+        $('#mensajenegativo').hide();
+        $('#buscar_asignacion_equipos').hide();
     }
     });
 
