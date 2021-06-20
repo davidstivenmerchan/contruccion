@@ -205,10 +205,13 @@ document.addEventListener('click' , e => {
             getdelete('data-tipoDocu', 'tipo_documento', 'pag_admin/usuarios.php');
 
         }else if(e.target.matches('.tipoUsu')){
-            getdelete('data-tipoUsu', 'tipo_usuario', 'pag_admin/usuarios.php') ;
+            getdelete('data-tipoUsu', 'tipo_usuario', 'pag_admin/usuarios.php');
 
         }else if(e.target.matches('.ambiente')){
-            getdelete('data-ambiente', 'ambiente', 'pag_admin/ambientes.php') ;
+            getdelete('data-ambiente', 'ambiente', 'pag_admin/ambientes.php');
+
+        }else if(e.target.matches('.usuario')){
+            getdelete('data-usuario', 'usuarios', 'pag_admin/usuarios.php');
         }
     }
 });

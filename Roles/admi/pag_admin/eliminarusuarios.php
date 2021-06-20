@@ -16,7 +16,4 @@
             window.location= '../admin.php';
             </script>";
     }
-
-
-   
 ?>

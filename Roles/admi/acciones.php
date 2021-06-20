@@ -473,7 +473,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     $_DELETE = json_decode(file_get_contents('php://input'), true);
     $tabla = $_DELETE['tabla'];
     $id = $_DELETE['id'];
-    if($tabla !== 'dispositivo_electronico'){
+    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios'){
         $sql = "DELETE from $tabla where id_$tabla = ?";
         $query = mysqli_prepare($mysqli , $sql);
         $ok = mysqli_stmt_bind_param($query, 's' , $id);
@@ -488,6 +488,19 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     }
     if($tabla === 'dispositivo_electronico' ){
         $sql = "DELETE from $tabla where serial = ? ";
+        $query = mysqli_prepare($mysqli , $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i' , $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Registro borrado con exito',
+        );
+        echo json_encode($res);
+    }
+    if($tabla === 'usuarios' ){
+        $sql = "DELETE from $tabla where documento = ? ";
         $query = mysqli_prepare($mysqli , $sql);
         $ok = mysqli_stmt_bind_param($query, 'i' , $id);
         $ok = mysqli_stmt_execute($query);
