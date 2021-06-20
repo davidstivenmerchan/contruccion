@@ -14,6 +14,7 @@ import { handleDelete } from './handle_delete.js';
 import handleAdd from './handle_add.js';
 import { editTipDocu } from './edit_tip_docu.js';
 import { editTipUsu } from './edit_tipusu.js';
+import addPeriferico from './add_periferico.js';
 
 
 
@@ -212,6 +213,13 @@ document.addEventListener('click' , e => {
         }else if(e.target.matches('.usuario')){
             getdelete('data-usuario', 'usuarios', 'pag_admin/usuarios.php');
         }
+    }
+});
+
+document.addEventListener('change' , (e) => {
+    if(e.target.matches("#id_tipo_dis")){
+        const value = e.target.value;
+        addPeriferico(value);
     }
 });
 
