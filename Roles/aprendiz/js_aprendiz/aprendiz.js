@@ -40,16 +40,16 @@ $(document).ready(function(){
        console.log(prueba);
        console.log(prueba2);
 
-       if(prueba=="" && prueba2==""){
+       if(prueba=="" && prueba2=="En Uso"){
         $('#bloqueo2').hide();
        }
 
-       if(prueba!="" && prueba2==""){
+       if(prueba!="" && prueba2=="En Uso"){
         $('#bloqueo').hide();
         $('#bloqueo2').show();
        }
 
-       if(prueba!="" && prueba2!=""){
+       if(prueba!="" && prueba2!="En Uso"){
         $('#bloqueo').show();
         $('#bloqueo2').show();
         $('#mensajefinalll').show();
