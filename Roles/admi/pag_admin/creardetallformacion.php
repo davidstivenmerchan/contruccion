@@ -16,12 +16,4 @@ require_once("../../../includes/conexion.php");
 else{
     echo"No lo hiciste";
 }
-
-
-
-
-
-
-  
-
 ?>

@@ -1,5 +1,5 @@
 <?php
-     require_once '../../../includes/conexion.php';
+    require_once '../../../includes/conexion.php';
 ?>
 <?php
 
@@ -16,7 +16,4 @@
             window.location= '../admin.php';
             </script>";
     }
-
-
-   
 ?>

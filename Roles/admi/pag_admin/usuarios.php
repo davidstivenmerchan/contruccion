@@ -120,11 +120,6 @@
     
     </div>
 
- 
-
-
-
-
     <div class="form1">
 
     <table class="tabla">
@@ -140,8 +135,7 @@
                 $result=mysqli_query($mysqli,$sql);
 
                 while($mostrar=mysqli_fetch_array($result)){
-
-                
+            
             ?>
 
 
@@ -161,7 +155,6 @@
         </table>
     </div>
 
-
     <div class="form2">
 
     <table class="tabla">
@@ -180,7 +173,6 @@
                 
             ?>
 
-
             <tr class="datos">
                 <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
                 <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
@@ -196,9 +188,6 @@
         
         </table>
 
-   
-
-   
     </div>
     <div class="form3">
     <p>Crear usuarios</p>
@@ -300,16 +289,8 @@
     <form id="creartipusu"> <!-- action="insertarusuarios.php" method="POST" -->
             <label for="nom">Nombre del Tipo de Usuario</label><br>
             <input type="text" name="nom_usu" id="nom_usu">
-            <input type="submit" value="Guardar" name="enviar3">
-    
+            <input type="submit" value="Guardar" name="enviar3">    
     </form>
-
-
     </div>
-
-
-
-
-    
 </body>
 </html>
