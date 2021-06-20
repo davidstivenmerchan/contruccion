@@ -148,21 +148,26 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
             return ;
         }else if($tabla == "periferico"){
             $resultados = [];
-            $sql = "SELECT * from periferico where id_tip_periferico = $tipDispo";
-            $query = mysqli_prepare($mysqli, $sql);
-            $ok = mysqli_stmt_execute($query);
-            $ok = mysqli_stmt_bind_result($query, $idPeriferico,$nombre,$idMarca, $idEstadoDisponibilidad, $idEstadoDispositivo, $idTipoPeriferico );
-            while(mysqli_stmt_fetch($query)){
-                array_push($resultados, 
-                [
-                    'id' => $idPeriferico,
-                    'nomPeriferico' => $nombre,
-                    'idMarca' => $idMarca,
-                    'idEstadoDisponibilidad' => $idEstadoDisponibilidad,
-                    "idEstadoDispositivo" => $idEstadoDispositivo,
-                    "idTipoPeriferico" => $idTipoPeriferico
-                ]
-            );
+            if($tipDispo == 1) {
+                $idDispositivos = [3];
+                $sql = "SELECT * from periferico where id_tip_periferico = ?";
+                $query = mysqli_prepare($mysqli, $sql);
+                $ok = mysqli_stmt_bind_param($query , 'i', $idDispositivos[0]);
+                $ok = mysqli_stmt_execute($query);
+                $ok = mysqli_stmt_bind_result($query, $idPeriferico, $idTipPeriferico,$nomTipPeriferico,$idMarca,$fechaAdd, $idEstadoDisponibilidad, $idEstadoDispositivo );
+                while(mysqli_stmt_fetch($query)){
+                    array_push($resultados, 
+                    [
+                        'id' => $idPeriferico,
+                        "idTipoPeriferico" => $idTipPeriferico,
+                        'nomPeriferico' => $nomTipPeriferico,
+                        'idMarca' => $idMarca,
+                        'fechaAdd' => $fechaAdd,
+                        'idEstadoDisponibilidad' => $idEstadoDisponibilidad,
+                        "idEstadoDispositivo" => $idEstadoDispositivo,
+                    ]
+                    );
+                }
             }
             $res;
             if(count($resultados) > 0){
