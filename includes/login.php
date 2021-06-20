@@ -48,7 +48,9 @@ if (isset($_POST['ingresar'])){
                 
         }
     }else{
-        header('location: ../error.html');
+        echo "<script> alert('VERIFIQUE SU CONTRASEÑA O DOCUMENTO. ERROR AL INGRESAR');
+            window.location= '../index.html';
+            </script>";
         exit();
     }
 

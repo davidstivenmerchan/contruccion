@@ -9,9 +9,104 @@ html{
 *::before{
     box-sizing: inherit;
 }
+h2{
+    text-align: center;
+}
 
 body{
     overflow-x: hidden;
     padding: 0;
     margin: 0;
+}
+.formuu{
+    margin: 30px;
+    display: none;
+    
+    
+}
+.formuu-aparecer{
+    display: block;
+}
+.botoninicial{
+    margin: 30px 150px 30px 150px;
+    width: 200px;
+    height: 170px;
+    background: #ff6b00;
+    border: none;
+    color: white;
+    font-size: 20px;
+    transition: .5s;
+}
+.botoninicial:hover{
+    cursor: pointer;
+    background: rgb(112,178,45);
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0px 38px 21px 2px rgba(0,0,0,0.52);
+-moz-box-shadow: 0px 38px 21px 2px rgba(0,0,0,0.52);
+box-shadow: 0px 38px 21px 2px rgba(0,0,0,0.52);
+}
+.padre{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.papa2{
+    display: flex;
+    justify-content: center;
+}
+.padre div{
+    justify-content: center;
+    border: rgb(112,178,45) solid 1px;
+    margin: 30px;
+}
+
+textarea{
+    min-height: 200px;
+    min-width: 450px;
+    max-width: 450px;
+    max-height: 200px;
+}
+button{
+    display: block;
+    margin: 10px 120px;
+    background: #ff6b00;
+    color: white;
+    width: 90px;
+    height: 50px;
+    font-size: 15px;
+    border: none;
+    transition: .5s;
+    
+}
+.cerrar{
+    display: none;
+    margin-left: 180px;
+    position: absolute;
+    top:703px;
+    left: 310px
+
+}
+.cerrar2{
+    display: none;
+    margin-left: 180px;
+    position: absolute;
+    top:703px;
+    left: 710px
+}
+.cerrar-aparecer{
+    display: block;
+}
+.cerrar2-aparecer{
+    display: block;
+}
+button:hover{
+    background: rgb(112,178,45);
+    cursor: pointer;
+}
+.mis_datos{
+    margin: 10px 50px;
+}
+.texto{
+    margin-left: 50px;
 }
