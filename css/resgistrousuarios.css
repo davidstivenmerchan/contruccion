@@ -5,10 +5,11 @@ body{
     background-image:url(../assets/sena.jpg);
     margin: 0px;
     padding: 0px;
+    
+    
 }
 .papadepapa{
-    background: rgba(252, 176, 15 ,.8) ;
-    
+    background:linear-gradient(rgba(112,178,45,.8)60% , rgba(255,255,255,0.5) ) ;
     margin: 0px;
     padding: 20px;
     height: 700px;
@@ -78,7 +79,7 @@ select:focus{
     
 }
 .sele4 input:hover{
-    background: orange;
+    background: rgb(112,178,45);
     color:white;
     
     cursor: pointer;
@@ -94,5 +95,5 @@ select:focus{
 
 }
 .icono:hover{
-    color: orange;
+    color: rgb(112,178,45);
 }
