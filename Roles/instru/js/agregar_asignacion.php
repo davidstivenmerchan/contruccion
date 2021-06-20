@@ -32,7 +32,7 @@
         $serial = $mostrar3['serial'];
      }else{
         echo "no hay dispositivos disponibles";
-     }
+     } 
 
      $consulta4 = "INSERT INTO asignacion_equipos(id_entrada_aprendiz, id_equipo, hora_inicial) 
      values('$id_entrada_aprendiz','$id_equipo', '$hora')";
