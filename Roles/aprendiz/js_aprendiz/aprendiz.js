@@ -1,6 +1,9 @@
 $(document).ready(function(){
+    $('#mensajefinalll').hide();
+    prueba34();
+    
 
-    $('#formularioinicio').submit(function (e) {
+   /*  $('#formularioinicio').submit(function (e) {
         const agregar_asignacion ={
             mensaje: $('#mensajeinicio').val(),
             id: $('#id_asignacion_inicio').val()
@@ -9,11 +12,55 @@ $(document).ready(function(){
         $.post('js_aprendiz/agregarmensaje.php',agregar_asignacion, function(response){
             console.log(response);
             
-    
+            $('#bloqueo').hide();
             $('#formularioinicio').trigger('reset');
         });
         e.preventDefault();
-    });
+    }); */
+
+    /* $('#formularioinicioo').submit(function (e) {
+        const agregar_asignacion ={
+            mensaje: $('#mensajefinal').val(),
+            id: $('#id_asignacion_inicioo').val()
+          
+        }
+        $.post('js_aprendiz/agregarfinal.php',agregar_asignacion, function(response){
+            console.log(response);
+            
+    
+            $('#formularioinicioo').trigger('reset');
+        });
+        e.preventDefault();
+    }); */
+
+    function prueba34() {
+       
+       const prueba = $('#prueba34').val();
+       const prueba2 = $('#prueba35').val();
+       console.log(prueba);
+       console.log(prueba2);
+
+       if(prueba=="" && prueba2==""){
+        $('#bloqueo2').hide();
+       }
+
+       if(prueba!="" && prueba2==""){
+        $('#bloqueo').hide();
+        $('#bloqueo2').show();
+       }
+
+       if(prueba!="" && prueba2!=""){
+        $('#bloqueo').show();
+        $('#bloqueo2').show();
+        $('#mensajefinalll').show();
+
+
+       }
+
+       
+    }
+
+
 
 
     
