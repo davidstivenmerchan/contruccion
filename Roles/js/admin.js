@@ -15,6 +15,7 @@ import handleAdd from './handle_add.js';
 import { editTipDocu } from './edit_tip_docu.js';
 import { editTipUsu } from './edit_tipusu.js';
 import addPeriferico from './add_periferico.js';
+import { editUsuario } from './edit_usu.js';
 
 
 
@@ -150,6 +151,10 @@ document.addEventListener('click' , e => {
         if(e.target.matches('.tipoUsu')){
             const $id = e.target.getAttribute('data-tipoUsu');
             editTipUsu( $id );
+        }
+        if(e.target.matches('.usuario')){
+            const $id = e.target.getAttribute('data-usuario');
+            editUsuario( $id );
         }  
     }
 

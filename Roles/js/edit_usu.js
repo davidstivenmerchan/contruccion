@@ -6,94 +6,74 @@ export const editUsuario = ( id ) =>{
     fetch(`./acciones.php?id=${id}&tabla=${tabla}`)
      .then( res => res.ok ? res.json() : Promise.reject(res) )
      .then(({ data }) => {
+        console.log(data);
         const $alert = document.getElementById('alert');
         $alert.classList.add('ver');
         $alert.innerHTML = `
         <form class="formmodal formmodaldispo"id="usuario" >
         <div class="cerrarmodal dispocerrar">X</div>
-        <input type="hidden" name="serialantiguo" value="${data[0].serial}">
-        <label for="usuarios"> Serial </label>
-        <input type="text" name="idserial" id="usuarios" value="${data[0].serial}">
+        <input type="hidden" name="documentoantiguo" value="${data[0].documento}">
+        <label for="usuarios"> documento </label>
+        <input type="text" name="documento" id="usuarios" value="${data[0].documento}">
 
-        <label for="placa_sena"> Placa Sena </label>
-        <input type="text" name="placa_sena" id="placa_sena" class="placa_sena" id="placa_sena" value="${data[0].placa_sena}">
-
-        
-
-        <label for="select_tipo_dispo"> Tipo Dispositivo </label>
-        <select name="select_tipo_dispo" id="select_tipo_dispo">
-            <option value="${data[0].idTipoDispositivo}">${data[0].nom_tipo_dispositivo}</option>
+        <label for="select_tipo_docu"> Tipo Documento </label>
+        <select name="select_tipo_docu" id="select_tipo_docu">
+            <option value="${data[0].id_tipo_documento}">${data[0].select_documento}</option>
             ${ajax({
-                url: "./acciones.php?tabla=tipo_dispositivo",
+                url: "./acciones.php?tabla=tipo_documento",
                 cbSuccess: ( { data: datos } ) => {
-                    const $select = document.getElementById('select_tipo_dispo');
+                    const $select = document.getElementById('select_tipo_docu');
                     let $html ;
                     datos.forEach( el => {
-                        ( el.id !== data[0].idTipoDispositivo )
+                        ( el.id !== data[0].id_tipo_documento )
                          ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
                          : null;
                     });
                     $select.innerHTML += $html;
                 }
             })}
-        </select> 
+        </select>
 
-        <label for="nameusuarios"> Nombre Dispositivo  </label>
-        <input type="text" name="nameusuarios" id="nameusuarios" class="nameusuarios" value="${data[0].nom_dispositivo}">
+        <label for="Cod_Carnet"> Cod Carnet </label>
+        <input type="number" name="cod_carnet" id="cod_carnet" class="cod_carnet" id="cod_carnet" value="${data[0].cod_carnet}">
 
-        <label for="select_estado_disponibilidad"> Estado Disponibilidad  </label>
-        <select name="select_estado_disponibilidad" id="select_estado_disponibilidad" >
-            <option value="${data[0].idEstadoDisponibilidad}"> ${data[0].nom_estado_disponibilidad} </option>
+        <label for="Nombres"> Nombres </label>
+        <input type="text" name="nombres" id="nombres" class="nombres" id="nombres" value="${data[0].nombres}">
+
+        <label for="Apellidos"> Apellidos </label>
+        <input type="text" name="apellidos" id="apellidos" class="apellidos" id="apellidos" value="${data[0].apellidos}">
+
+        <label for="Fecha_Nacimiento"> fecha Nacimiento </label>
+        <input type= "date" name="fecha_nacimiento" id="fecha_nacimiento" class="fecha_nacimiento" id="fecha_nacimiento" value="${data[0].fecha_nacimiento}">
+
+        <label for="correo_personal"> Correo Personal </label>
+        <input type="text" name="correo_personal" id="correo_personal" class="correo_personal" id="correo_personal" value="${data[0].correo_personal}">
+
+        <label for="correo_sena"> Correo Sena </label>
+        <input type="text" name="correo_sena" id="correo_sena" class="correo_sena" id="correo_sena" value="${data[0].correo_sena}">
+
+        <label for="telefono"> Telefono </label>
+        <input type="number" name="telefono" id="telefono" class="telefono" id="telefono" value="${data[0].telefono}">
+
+        <label for="select_tipo_genero"> Genero </label>
+        <select name="select_tipo_genero" id="select_tipo_genero">
+            <option value="${data[0].id_genero}">${data[0].select_genero}</option>
             ${ajax({
-                url: "./acciones.php?tabla=estado_disponibilidad",
+                url: "./acciones.php?tabla=genero",
                 cbSuccess: ( { data: datos } ) => {
-                    const $select = document.getElementById('select_estado_disponibilidad');
+                    const $select = document.getElementById('select_tipo_genero');
                     let $html ;
                     datos.forEach( el => {
-                        ( el.id !== data[0].idEstadoDisponibilidad )
-                          ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
-                          : null;
+                        ( el.id !== data[0].id_genero )
+                         ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                         : null;
                     });
                     $select.innerHTML += $html;
                 }
             })}
         </select>
 
-        <label for="select_estado_dispositivo"> Estado Dispositivo  </label>
-        <select name="select_estado_dispositivo" id="select_estado_dispositivo" >
-            <option value="${data[0].idEstadoDispositivo}">${data[0].nom_estado_dispositivo}</option>
-            ${ajax({
-                url: "./acciones.php?tabla=estado_dispositivo",
-                cbSuccess: ( { data: datos } ) => {
-                    const $select = document.getElementById('select_estado_dispositivo');
-                    let $html ;
-                    datos.forEach( el => {
-                        ( el.id !== data[0].idEstadoDispositivo )
-                          ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
-                          : null;
-                    });
-                    $select.innerHTML += $html;
-                }
-            })}
-        </select>
-
-        <label for="select_marca"> Marca  </label>
-    <select name="select_marca" id="select_marca">
-        <option value="${data[0].idMarca}"> ${data[0].nom_marca} </option>
-        ${ajax({
-            url: "./acciones.php?tabla=marca",
-            cbSuccess: ( { data: datos } ) => {
-                const $select = document.getElementById('select_marca');
-                let $html ;
-                datos.forEach( el => {
-                    ( el.id !== data[0].idMarca ) 
-                      ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
-                      : null;
-                });
-                $select.innerHTML += $html;
-            }
-        })}
-    </select>
+        
 
         <input type="submit" value="actualizar"/>
         </form>
@@ -108,7 +88,7 @@ export const editUsuario = ( id ) =>{
         document.querySelector('.formmodal').classList.add('desplazar');
         setTimeout( ()=> document.querySelector('.alert').classList.remove('ver'), 1000 );
         e.preventDefault();
-        if(e.target.matches('#dispositivo_electro')){
+        if(e.target.matches('#usuario')){
             ajax({
                 url: './acciones.php',
                 method: 'PUT',
@@ -125,21 +105,24 @@ export const editUsuario = ( id ) =>{
                     const $main = document.querySelector('main');
 
                     getHTML({
-                        url: 'pag_admin/equipos.php',
+                        url: 'pag_admin/usuarios.php',
                         success: (html) => $main.innerHTML = html,
                         error: (error) => $main.innerHTML = `<h1>${error}</h1>`,
                     });
                 },
                 data: {
                     tabla: 'usuarios',
-                    serialAntiguo:parseInt(e.target.serialantiguo.value),
-                    serial: parseInt(e.target.idserial.value),
-                    placaSena: parseInt(e.target.placa_sena.value),
-                    TipoDispo: parseInt(e.target.select_tipo_dispo.value),
-                    nameDispositivoElectronico: e.target.nameusuarios.value,
-                    EstadoDisponibilidad: parseInt(e.target.select_estado_disponibilidad.value),
-                    EstadoDispositivo: parseInt(e.target.select_estado_dispositivo.value), 
-                    marca: parseInt(e.target.select_marca.value),
+                    documentoAntiguo: e.target.documentoantiguo.value,
+                    documento: e.target.documento.value,
+                    select_tipo_docu: parseInt(e.target.select_tipo_docu.value),
+                    Cod_Carnet: e.target.cod_carnet.value,
+                    nombres: e.target.nombres.value,
+                    apellidos: e.target.apellidos.value,
+                    fecha_nacimiento: e.target.fecha_nacimiento.value,
+                    correo_personal: e.target.correo_personal.value,
+                    correo_sena: e.target.correo_sena.value,
+                    telefono: e.target.telefono.value,
+                    select_tipo_genero: parseInt(e.target.select_tipo_genero.value),
                 }
             });
         }
