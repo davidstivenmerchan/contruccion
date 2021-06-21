@@ -92,3 +92,29 @@ table tr td{
     cursor: pointer;
 
 }
+.editarr{
+    background: #ff6b00 ;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    width: 90px;
+    height: 60px;
+    transition: .5s;
+}
+.editarr:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+
+}
+.atras{
+    position: absolute;
+    font-size: 30px;
+    top:3px;
+    margin: 30px;
+    color: black;
+    cursor: pointer;
+}
+.atras:hover{
+    color: #ff6b00;
+}
