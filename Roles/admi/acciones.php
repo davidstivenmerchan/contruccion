@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico'){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' ){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -169,6 +169,55 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
                     );
                 }
             }
+            $res;
+            if(count($resultados) > 0){
+                $res = array(
+                    "err" => false,
+                    "status" => http_response_code(200),
+                    "statusText" => "datos encontrados con exito",
+                    "data" => $resultados
+                );
+            }else{
+                $res = array(
+                    "err" => false,
+                    "status" => http_response_code(200),
+                    "statusText" => "no se encontraron datos",
+                    "data" => [],
+                );
+            }
+            echo json_encode($res);
+        }else if($tabla == "usuarios"){
+            $resultados = []; 
+            $sql = "SELECT documento, tipo_documento.id_tipo_documento,tipo_documento.nom_documento,Cod_Carnet,Nombres,
+                    Apellidos,fecha_nacimiento,correo_personal,correo_sena,telefono,genero.id_genero,genero.nom_genero
+                    FROM usuarios,tipo_documento,tipo_usuario,genero
+                    WHERE usuarios.id_tipo_documento = tipo_documento.id_tipo_documento
+                    AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario
+                    AND usuarios.id_genero = genero.id_genero
+                    AND documento = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query , 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $documento,$id_tipo_documento, $select_documento, $cod_carnet, $nombres, $apellidos, $fecha_nacimiento, $correo_personal, $correo_sena, $telefono,$id_genero, $select_genero );
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, 
+                [
+                    'documento' => $documento,
+                    'select_documento' => $select_documento,
+                    'id_tipo_documento' => $id_tipo_documento,
+                    'cod_carnet' => $cod_carnet,
+                    'nombres' => $nombres,
+                    'apellidos' => $apellidos,
+                    'fecha_nacimiento' => $fecha_nacimiento,
+                    'correo_personal' => $correo_personal,
+                    'correo_sena' => $correo_sena,
+                    'telefono' => $telefono,
+                    'id_genero' => $id_genero,
+                    'select_genero' => $select_genero,
+                ]
+                );
+            }
+            
             $res;
             if(count($resultados) > 0){
                 $res = array(
@@ -464,6 +513,19 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
             'err' => false,
             'status' => http_response_code(200),
             'statusText' => 'tipo de usuario modificado correctamente'
+        );
+        echo json_encode($res);
+    }
+    if($tabla === 'usuarios'){
+        $sql = "UPDATE $tabla SET id_tipo_documento = ?, Cod_Carnet = ?, Nombres = ?, Apellidos = ?, fecha_nacimiento = ?, correo_personal = ?, correo_sena = ?, telefono = ?, id_genero = ? WHERE documento = ? ";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok= mysqli_stmt_bind_param($query , 'iisssssiii' , $_PUT['select_tipo_docu'] , $_PUT['Cod_Carnet'], $_PUT['nombres'], $_PUT['apellidos'], $_PUT['fecha_nacimiendo'], $_PUT['correo_personal'], $_PUT['correo_sena'], $_PUT['telefono'], $_PUT['select_tipo_genero'], $_PUT['documento']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Usuario modificado correctamente'
         );
         echo json_encode($res);
     }
