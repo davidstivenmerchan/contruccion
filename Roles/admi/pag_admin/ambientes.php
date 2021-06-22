@@ -115,8 +115,8 @@
             <div class="linea"></div>
             <form class="formulario" id="ambientes">
 
-                <input type="number" name="id_ambiente" id="id_ambiente" placeholder="Escriba el numero de Id">
-                <input type="text" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Nombre del Ambiente">
+                <input type="number" name="id_ambiente" id="id_ambiente" placeholder="Escriba el numero de Id" required>
+                <input type="text" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Nombre del Ambiente" required>
 
                 <select name="nave" id="nave" required>
                 <option value="">Seleccione una Nave</option>
@@ -271,7 +271,7 @@
             <p type="title">NAVE</p>
             <div class="linea"></div>
             <form id="nave" class="formulario">
-                <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave">
+                <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave" required>
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -280,7 +280,7 @@
             <p type="title">JORNADA</p>
             <div class="linea"></div>
             <form class="formulario" id="jornada">
-                    <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada">
+                    <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada" required>
                     <input type="submit" value="Guardar">
             </form>
         </div>
@@ -289,7 +289,7 @@
             <p type="title">FORMACION</p>
             <div class="linea"></div>
             <form class="formulario" id="formacion">
-                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" autocomplete="off">
+                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" autocomplete="off" required>
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -310,7 +310,7 @@
                 ?>
                 </select>
 
-                <input type="text" name="num_ficha" id="num_ficha" placeholder="Escriba el numero de ficha">
+                <input type="number" name="num_ficha" id="num_ficha" placeholder="Escriba el numero de ficha" required>
 
                 <select name="ambiente" id="ambiente" required>
                 <option value="">Seleccione un Ambiente</option>

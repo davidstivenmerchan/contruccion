@@ -294,7 +294,7 @@
             <form id="tipoDispo" class="formulario">
     
                 <label for="nom">Nombre del Tipo de Dispositivo</label><br>
-                <input type="text" name="nom_dis" id="nom_dis">
+                <input type="text" name="nom_dis" id="nom_dis" required>
 
                 <input type="submit" value="Guardar">
             </form>  
@@ -306,7 +306,7 @@
             <form class="formulario" id="marcaEquipos">
                     <!--  -->
                     <label for="nom">Nombre de la Marca</label><br>
-                    <input type="text" name="nom_marca" id="nom_marca">
+                    <input type="text" name="nom_marca" id="nom_marca" required>
                     <input type="submit" value="Guardar">
             </form>
         </div>
@@ -316,7 +316,7 @@
             <div class="linea"></div>
             <form class="formulario" id="estadoDispo">
                 <label for="nom">Nombre del Estado del Dispositivo</label><br>
-                <input type="text" name="nom_estado" id="nom_estado">
+                <input type="text" name="nom_estado" id="nom_estado" required>
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -328,7 +328,7 @@
             <form class="formulario" id="estadoApro">
 
                 <label for="nom">Nombre del Estado de Aprobacion</label><br>
-                <input type="text" name="nom_estado" id="nom_estado">
+                <input type="text" name="nom_estado" id="nom_estado" required>
                 
                 <input type="submit" value="Guardar">
             </form>
@@ -340,7 +340,7 @@
             <form class="formulario" id="estadoDisponibilidad">
                 
                 <label for="nom">Nombre del Estado de Disponibilidad</label><br>
-                <input type="text" name="nom_estado" id="nom_estado">
+                <input type="text" name="nom_estado" id="nom_estado" required>
                 <input type="submit" value="Guardar">
                     
             </form>
@@ -352,13 +352,13 @@
                 
                   
                 <label for="serial">Serial</label>
-                <input type="number" name="serial" id="serial" >
+                <input type="number" name="serial" id="serial" required>
 
                 <label for="placa_sena">Placa Sena</label>
-                <input type="text" name="placa_sena" id="placa_sena" autocomplete="off">
+                <input type="text" name="placa_sena" id="placa_sena" autocomplete="off" required>
 
                 <label for="nom_dispositivo">Nombre Dispositivo</label>
-                <input type="text" name="nom_dispositivo" id="nom_dispositivo" autocomplete="off">
+                <input type="text" name="nom_dispositivo" id="nom_dispositivo" autocomplete="off" required>
 
             <!-- selectores  -->
             <label for="id_tipo_dis">tipo de dispositivo</label>
@@ -409,7 +409,7 @@
                 <form action="" id="perifericoform">
                     <article class="serialperiferico">
                         <label for="serialperiferico">Serial</label>
-                        <input type="text" name="serialperiferico" id="serialperiferico" placeholder="serial del periferico" autocomplete="off">
+                        <input type="text" name="serialperiferico" id="serialperiferico" placeholder="serial del periferico" autocomplete="off" required>
                     </article>
                     <article class="tipPeriferico">
                         <label for="tipPeriferico"> tipo de periferico </label>
@@ -450,7 +450,7 @@
                     </article>
                     <article class="estadoDispositivo">
                             <label for="">estado Dispositivo</label>
-                            <select name="estadoDispositivo" id="EstadoDispositivo">
+                            <select name="estadoDispositivo" id="EstadoDispositivo" required>
                                 <option>Seleccione una opcion</option>
                                 <?php
                                     foreach(consultarEquipos($mysqli, "SELECT * from estado_dispositivo") as $estadoDispositivo): 
@@ -463,7 +463,7 @@
                     </article>
                     <article class="dispositivoElectronico">
                             <label for="dispoelectronico"> serial Dispositivo electronico Asociado</label>
-                            <input type="number" name="dispositivoElectronico" id="dispositivoelectronico" autocomplete="off">
+                            <input type="number" name="dispositivoElectronico" id="dispositivoelectronico" autocomplete="off" required>
                     </article>
                     <input type="submit" value="Registrar">
                 </form>
