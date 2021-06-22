@@ -22,10 +22,10 @@
     transition: 0.2s;
 }
 .navigation .img{
-    width: 100%;
-    height: auto;
+    width: 15rem;
+    height: 15rem;
     display: block;
-    margin: 0 0 10vh 0;
+    margin: 2vh 0 10vh 6vh;
 }
 .navigation .ip{
     margin: 3rem 0;

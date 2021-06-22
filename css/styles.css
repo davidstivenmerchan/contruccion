@@ -66,9 +66,9 @@ header nav a {
   font-size: 25px;
 }
 header .logo img {
-  width: 280px;
-  height: 280px;
-  margin-top: -120px;
+  width: 120px;
+  height: 120px;
+  margin-top: -50px;
   margin-left: 80px;
 }
 header .opciones {
