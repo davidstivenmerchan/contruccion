@@ -15,6 +15,7 @@ import handleAdd from './handle_add.js';
 import { editTipDocu } from './edit_tip_docu.js';
 import { editTipUsu } from './edit_tipusu.js';
 import addPeriferico from './add_periferico.js';
+import { ajax } from './ajax.js';
 import { editUsuario } from './edit_usu.js';
 
 
@@ -75,7 +76,7 @@ $elemento.forEach( el =>{
 document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
-    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9', 'formu10', 'formu11'];
+    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9', 'formu10', 'formu11','formu12', 'formu13'];
     const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7', 'formu8', 'formu9'];
 
     const callAparecer = ( array ) =>{
@@ -335,5 +336,27 @@ document.addEventListener('submit', (e)=>{
             imagen: e.target.imagen.value,
         }
         handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
+    }else if(e.target.matches('#perifericoform')){
+        data = {
+            tabla: 'periferico',
+            serialPeriferico: e.target.serialperiferico.value,
+            tipPeriferico: e.target.tipPeriferico.value,
+            nomPeriferico:e.target.nom_periferico.value,
+            nomPeriferico: e.target.nom_periferico.value,
+            marcaPeriferico: e.target.marcaperiferico.value,
+            estadoDisponibilidad: e.target.estadoDisponibilidad.value,
+            estadoDispositivo: e.target.estadoDispositivo.value,
+            dispositivoElectronico: e.target.dispositivoElectronico.value,
+        }
+        ajax({
+            url: `./acciones.php?tabla=dispositivo_electronico&id=${parseInt(data.dispositivoElectronico)}`,
+            cbSuccess : ( {data} ) => {
+                if(data.length === 0){
+                    alert('no se puede registrar por que no se puede asignar un dispositivo electronico que no existe');
+                }else{
+                    handleAdd(e, './acciones.php', data, './pag_admin/usuarios.php');
+                }
+            }
+        })
     }
 });

@@ -1,8 +1,17 @@
 <?php
 require_once './../../includes/conexion.php';
+/********** ACCIONES 
+ * este archivo se creo con la finalidad de centralizar la mayor logica posible en un solo archivo
+ * este archivo funciona como un api de tipo REST que recibe peticiones de los 4 verbos http basico
+ * el crud GET, PUT , POST , DELETE
+ * el verbo http GET sirve para leer
+ * el verbo http POST sirve para enviar
+ * el verbo http PUT sirve para actualizar
+ * el verbo http DELETE sirve para eliminar
+ */
 header('Content-Type: application/json');
-if($_SERVER['REQUEST_METHOD'] === 'GET'){
-    $id = (isset($_GET['id'])) ? $_GET['id'] : null ;
+if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peticion http vino por el metodo get
+    $id = (isset($_GET['id'])) ? $_GET['id'] : null ; /** aca extraigo el parametro id */
     $tipDispo = (isset($_GET['tipDispo'])) ? $_GET['tipDispo'] : null;
     $tabla = trim($_GET['tabla']);
     if( !$id && !$tipDispo){

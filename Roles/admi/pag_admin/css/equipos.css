@@ -232,34 +232,34 @@ table .acciones {
     justify-content: center;
     align-items: center; */
 }
-.formu11{
+.formu12{
     width: 80%;
     height:auto;
     margin: 0 0 5rem 0;
     padding: auto;
     /* margin: 0; */
 }
-.formu11 h2{
+.formu12 h2{
     margin: 3vh 0 3vh 10%;
     width: 100%;
 }
-.formu11 label{
+.formu12 label{
     margin: 0 0 0 10%;
 }
-.formu11 input{
+.formu12 input{
     display: flex;
     flex-direction: column;
     width: 80%;
     height: 2rem;
     margin: 2vh auto;
 } 
-.formu11 input[type="number"]{
+.formu12 input[type="number"]{
     width: 80%;
     height: 2rem;
     /* align-self: center; */
     margin: 2vh auto;
 }
-.formu11 select{
+.formu12 select{
     display: flex;
     flex-direction: column;
     height: 2rem;
@@ -267,7 +267,7 @@ table .acciones {
     width: 80%;
 }
 
-.formu11 input[type="submit"]{
+.formu12 input[type="submit"]{
     align-items: center;
     background-color: #ffffff;
     border: 1px solid #FF6719;
@@ -279,8 +279,27 @@ table .acciones {
     transition: all 0.2s ease-in;
     width: 40%;
 }
-.formu11 input[type="submit"]:hover{
+.formu12 input[type="submit"]:hover{
     background-color: #FF6719;
     border: none;
     color: #ffffff;
+}
+
+/*******formu 13***/
+.formu13{
+    /* display: flex; */
+    flex-direction: column;
+    flex: 0 1 60vw;
+    height: 80vh;
+}
+.formu13 form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    flex: 0 1 100%;
+}
+.formu13 form article{
+    display: flex;
+    flex-direction: column;
 }
