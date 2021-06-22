@@ -1,106 +1,178 @@
-html{
-    font-size: 16px;
-    font-family: Helvetica;
-    box-sizing: border-box;
+header{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 1 100%;
+    height: 5rem;
+}
+header figure{
+    width: 3rem;
+    height: 3rem;
+    margin-left: 6rem;
 }
 
-*, 
-*::after,
-*::before{
-    box-sizing: inherit;
+header figure img{
+    max-width: 100%;
 }
+header article{
+    align-items: center;
+    display:flex;
+    justify-content: space-around;
+    flex:0 1 12%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+} 
+@media screen and (min-width:480px ){
 
-body{
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
 }
-h1{
+header .user{
+    margin-right: 4rem;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.datos{
+    position: absolute;
+    width: 25rem;
+    height: 25rem;
+    background: rgba(255, 107, 0, 0.4);
+    color: white;
+    margin-top: -31rem;
+    margin-left: 10rem;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
-.buscar_asignacion{
-    margin: 30px 20px;
+.contenedor{
+    margin: auto;
+	display: table;
 }
-.buscar_asignacion input{
-    
-    border-top: none;
-    border-left: none ;
-    border-right: none;
-    transition: .5s;
-
+.contenedor img{
+    width: 100%;
+    height: 40rem;
 }
-
-.inputbuscarasignacion:focus{
-    border: #ff6b00 solid 2px ;
-    border-top: none;
-    border-left: none ;
-    border-right: none;
-    outline:  none;
-}
-.tabla_busqueda{
-    margin:10px 200px;
-    padding: 10px;
-    Border-spacing:0;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-    width: 1000px;
-}
-.tabla_busqueda tr th{
-    width: 250px;
-    margin: 10px;
-    padding: 10px;
+.contenedor h1{
+    position: relative; 
+	float: left;
+	color: #fff;
+	font-size: 6em;
+    margin-top: -38rem;
+    font-family: monospace; 
     background: #ff6b00;
-    color: white;
+    padding: 0 100px 0 110px;
+    justify-content: center;
 }
-.tabla_busqueda tr td{
-    width: 250px;
-    margin: 10px;
-    padding: 20px;
-
-}
-.enviarasignacion{
-    margin-left: 5px;
+.contenedor span{
+    position:absolute;
+    right:0;
+    width:0;
+    border-left: 1px solid #000;
     background: #ff6b00;
-    color: white;
-    border: none;
-    transition: .5s;
-    width: 150px;
-    height: 30px;
+    animation: borrar 3s steps(13) infinite alternate;
+}
+@keyframes borrar {
+    from { width: 100% }
+    to { width:0 }
+}
+nav .uno{
+    width: 80vh;
+    height: 35vh;
+    text-decoration: none;
+    margin-top: 10vh;
+    margin-left: 20vh;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+nav .dos{
+    width: 80vh;
+    height: 35vh;
+    margin-top: -5vh;
+    margin-left: 102vh;
+    background-color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+nav .tres{
+    width: 80vh;
+    height: 35vh;
+    margin-left: 20vh;
+    margin-top: -5vh;
+    background-color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
 
+.enlaces{
+    width: 80vh;
+    height: 25vh;
+    border: 2px solid;
+    margin-left: 102vh;
+    margin-top: -95vh;
+    display: flex;
+    justify-content: center;
+    background: #ff6b00;
 }
-.enviarasignacion:hover{
-    background: black;
-    cursor: pointer;
+.enlaces img{
+    width: 50px;
+    height: 50px;
 }
-.grande{
-    width: 1200px ;
-    margin-left: 100px;
+.enlaces p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-decoration: none;
 }
-.eliminar{
-    margin-left: 5px;
-    background: red;
+.enlaces h2{
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 6em;
+    margin-top: 0px;
     color: white;
-    border: none;
-    transition: .5s;
-    width: 150px;
-    height: 30px;
 }
-.eliminar:hover{
-    background: black;
+.enlaces .uno{
+    margin-left: -350px;
+    margin-top: 60px;
+}
+.enlaces .dos{
+    margin-left: 50px;
+    margin-top: 60px;
+}
+.enlaces .tres{
+    margin-top: 60px;
+    margin-left: 50px;
+}
+.enlaces .cuatro{
+    margin-top: 60px;
+    margin-left: 50px;
+}
+.enlaces a{
+    text-align: center;
+}
+.grupos {
+    width: 80vh;
+    height: 18vh;
+    border: 2px solid;
+    background: #ff6b00;
+    justify-content: center;
+    margin-top: 12vh;
+    margin-left: 20vh;
     cursor: pointer;
 }
-.buscar{
-    position: absolute;
-    top:129px;
-    left: 520px;
+.grupos h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    color: white;
+    margin-left: 3rem;
+    margin-top: 2rem;
 }
-.atras{
-    position: absolute;
-    font-size: 30px;
-    top:5px;
-    margin: 30px;
-    color: black;
-    cursor: pointer;
+.grupos img{
+    width: 120px;
+    height: 120px;
 }
-.atras:hover{
-    color: #ff6b00;
+.grupos .grup{
+    position: absolute;
+    margin-left: 350px;
+    margin-top: -10rem;
 }
