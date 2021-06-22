@@ -290,16 +290,32 @@ table .acciones {
     /* display: flex; */
     flex-direction: column;
     flex: 0 1 60vw;
-    height: 80vh;
+    height: 100%;
 }
 .formu13 form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    flex: 0 1 100%;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    
+    width: 80%;
 }
 .formu13 form article{
     display: flex;
     flex-direction: column;
+}
+.formu13 form article input,
+.formu13 form article select,
+.formu13 input[type="number"]{
+    width:100%;
+    height:2rem;
+}
+.formu13 input[type="submit"]{
+    background-color: #FF6719;
+    border: none;
+    outline: 0;
+    color:#ffffff;
+    margin: 0 auto;
+    height: 2rem;
+    width: 80%;
+
 }

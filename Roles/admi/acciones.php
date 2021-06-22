@@ -331,6 +331,32 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             );
             echo json_encode($res);
         }
+    }elseif($tabla === 'periferico'){
+        try{
+            $sql = "INSERT INTO periferico(id_periferico, id_tip_periferico,nom_periferico, id_marca, estado_disponibilidad,estado_dispositivo, dispositivo_electronico) values(?,?,?,?,?,?,?)";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'sisiiii',$_POST['serialPeriferico'], $_POST['tipPeriferico'], $_POST['nomPeriferico'], $_POST['marcaPeriferico'], $_POST['estadoDisponibilidad'], $_POST['estadoDispositivo'], $_POST['dispositivoElectronico']);
+            $ok = mysqli_stmt_execute($query);
+            mysqli_stmt_close($query);
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(201),
+                    'statusText' => 'periferico agregado con exito',
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'no se pudo agregar el periferico'
+                );
+            }
+            echo json_encode($res);
+        }catch(Exception $ex){
+            echo json_encode($ex);
+        }
+
     }
 
 }elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {

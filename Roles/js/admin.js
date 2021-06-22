@@ -340,21 +340,20 @@ document.addEventListener('submit', (e)=>{
         data = {
             tabla: 'periferico',
             serialPeriferico: e.target.serialperiferico.value,
-            tipPeriferico: e.target.tipPeriferico.value,
-            nomPeriferico:e.target.nom_periferico.value,
+            tipPeriferico: parseInt(e.target.tipPeriferico.value),
             nomPeriferico: e.target.nom_periferico.value,
-            marcaPeriferico: e.target.marcaperiferico.value,
-            estadoDisponibilidad: e.target.estadoDisponibilidad.value,
-            estadoDispositivo: e.target.estadoDispositivo.value,
-            dispositivoElectronico: e.target.dispositivoElectronico.value,
+            marcaPeriferico: parseInt(e.target.marcaperiferico.value),
+            estadoDisponibilidad: parseInt( e.target.estadoDisponibilidad.value),
+            estadoDispositivo: parseInt(e.target.estadoDispositivo.value),
+            dispositivoElectronico: parseInt(e.target.dispositivoElectronico.value),
         }
         ajax({
             url: `./acciones.php?tabla=dispositivo_electronico&id=${parseInt(data.dispositivoElectronico)}`,
-            cbSuccess : ( {data} ) => {
-                if(data.length === 0){
+            cbSuccess : ( {data:datos} ) => {
+                if(datos.length === 0){
                     alert('no se puede registrar por que no se puede asignar un dispositivo electronico que no existe');
                 }else{
-                    handleAdd(e, './acciones.php', data, './pag_admin/usuarios.php');
+                    handleAdd(e, './acciones.php', data, './pag_admin/equipos.php');
                 }
             }
         })
