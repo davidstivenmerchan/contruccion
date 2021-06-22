@@ -190,7 +190,7 @@
             <form class="crearusuario" action="insertarusuarios.php" id="crearusuario">
                     <div class="doc">
                         <label for="doc">Documento</label>
-                        <input type="number" name="doc" autocomplete="off" >
+                        <input type="number" name="doc" autocomplete="off" required >
                     </div>
                     <div class="tip_doc">
                     <label for="tipo_doc">Tipo de Documento</label>
@@ -219,23 +219,23 @@
                     </div>
                     <div class="cod_carnet">
                         <label for="codigo">Codigo del Carnet</label>
-                        <input type="number" name="codigo" id="codigo" autocomplete="off">
+                        <input type="number" name="codigo" id="codigo" autocomplete="off" required>
                     </div>
                     <div class="nombre">
                         <label for="nom">Nombre</label>
-                        <input type="text" name="nom" id="nom" autocomplete="off">
+                        <input type="text" name="nom" id="nom" autocomplete="off" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                     </div>
                     <div class="apellido">
                         <label for="ape">Apellido</label>
-                        <input type="text" name="ape" id="ape" autocomplete="off">
+                        <input type="text" name="ape" id="ape" autocomplete="off" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                     </div>
                     <div class="fecha_nacimiento">
                         <label for="fecha">Fecha de Nacimiento</label>
-                        <input type="date" name="fecha" id="fecha" autocomplete="off">
+                        <input type="date" name="fecha" id="fecha" autocomplete="off" required>
                     </div>
                     <div class="genero">
                     <label for="genero">Genero</label>
-                        <select name="genero" id="genero">
+                        <select name="genero" id="genero" required>
                             <option value="">Selecciona el genero</option>
                             <?php
                                 foreach(consultar("SELECT * FROM genero", $mysqli) as $genero) :
@@ -246,15 +246,15 @@
                     </div>
                     <div class="emailPersonal">
                         <label for="email_per">E-mail Personal</label> 
-                        <input type="email" name="email_per" id="email per" autocomplete="off">
+                        <input type="email" name="email_per" id="email per" autocomplete="off" required>
                     </div>
                     <div class="emailsena">
                         <label for="email_sena">E-mail Sena</label>
-                        <input type="email" name="email_sena" id="email_sena" autocomplete="off" >
+                        <input type="email" name="email_sena" id="email_sena" autocomplete="off" required >
                     </div>
                     <div class="password">
                         <label for="clave">Contraseña</label>
-                        <input type="password" name="clave" id="clave" autocomplete="off">
+                        <input type="password" name="clave" id="clave" autocomplete="off" required>
                     </div>
                     <div class="foto">
                         <label for="imagen">Foto del Usuario</label>
@@ -269,7 +269,7 @@
     <div class="linea"></div>
     <form id="creartipodocu"> <!-- action="insertarusuarios.php" method-->
             <label for="nom">Nombre del Tipo de Documento</label><br>
-            <input type="text" name="nom_doc" id="nom_doc" autocomplete="off">
+            <input type="text" name="nom_doc" id="nom_doc" autocomplete="off" required>
             <input type="submit" value="Guardar" name="enviar2">
         
     </form>
@@ -281,7 +281,7 @@
     <div class="linea"></div>
     <form id="creartipusu"> <!-- action="insertarusuarios.php" method="POST" -->
             <label for="nom">Nombre del Tipo de Usuario</label><br>
-            <input type="text" name="nom_usu" id="nom_usu">
+            <input type="text" name="nom_usu" id="nom_usu" required>
             <input type="submit" value="Guardar" name="enviar3">    
     </form>
     </div>
