@@ -36,6 +36,36 @@
         $id_asignacion = $mostrar2['id_asignacion_equipos'];
     }
 
+    $consulta3 = "SELECT  matricula.id_matricula, matricula.fecha_matricula, detalle_formacion.num_ficha, formacion.nom_formacion, 
+    ambiente.nom_ambiente, nave.nom_nave, jornada.nom_jornada FROM matricula, detalle_formacion, formacion, ambiente, nave, jornada
+    where detalle_formacion.id_detalle_formacion=matricula.id_detalle_formacion 
+    AND jornada.id_jornada=matricula.id_jornada
+    AND formacion.id_formacion=detalle_formacion.id_formacion
+    AND ambiente.id_ambiente=detalle_formacion.id_ambiente
+    AND nave.id_nave=ambiente.id_nave
+    AND matricula.documento='$documento'";
+    $ejecucion3=mysqli_query($mysqli,$consulta3);
+    $mostrar3=mysqli_fetch_array($ejecucion3);
+    if($mostrar3){
+        $id_matricula = $mostrar3['id_matricula'];
+        $fecha_matricula = $mostrar3['fecha_matricula'];
+        $num_ficha = $mostrar3['num_ficha'];
+        $nom_formacion = $mostrar3['nom_formacion'];
+        $nom_ambiente = $mostrar3['nom_ambiente'];
+        $nom_nave = $mostrar3['nom_nave'];
+        $nom_jornada = $mostrar3['nom_jornada'];
+    }
+
+    $consulta4="SELECT asignacion_equipos.descripcion_inicial, asignacion_equipos.descripcion_final, entrada_aprendiz.documento
+    FROM asignacion_equipos, entrada_aprendiz where asignacion_equipos.id_entrada_aprendiz=entrada_aprendiz.id_entrada_aprendiz
+    AND entrada_aprendiz.documento='$documento'";
+    $ejecucion4=mysqli_query($mysqli,$consulta4);
+    $mostrar4=mysqli_fetch_array($ejecucion4);
+    if($mostrar4){
+        $m_inicial = $mostrar4['descripcion_inicial'];
+        $m_final = $mostrar4['descripcion_final'];
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -50,14 +80,17 @@
     <title>Aprendiz</title>
 </head>
 <body>
+    <form action="">
+        <input type="hidden" value="<?php echo $m_inicial ?>" id="prueba34">
+        <input type="hidden" value="<?php echo $m_final ?>" id="prueba35">
+    </form>
 <header class="header">
         <figure>
             <img src="../../assets/logo_solo.png" alt="logo construccion" title="logo software">
         </figure>
         <nav>
-        <a href="#">Mis Datos</a>
+            <a href="#">Mis Datos</a>
             <a href="#">Mi Computador</a>
-            
         </nav>
         <article class="opciones">
             <a href="../../includes/cerrar.php"><i class="fas fa-door-open"></i></a>
@@ -79,33 +112,31 @@
         </div>
         <div class="mis_datos">
             <h3>DATOS DE MI MATRICULA</h3>
-            <p>Documento: <?php echo  $documento ?></p>
-            <p>Cod Carnet: <?php echo  $cod_carnet ?></p>
-            <p>Nombres: <?php echo  $nombre ?></p>
-            <p>Apellidos: <?php echo  $apellido ?></p>
-            <p>Fecha de Nacimiento: <?php echo  $fecha ?></p>
-            <p>Correo Personal: <?php echo  $correo_p ?> </p>
-            <p>Correo misena: <?php echo  $correo_s ?></p>
-            <p>Telefono: <?php echo  $tel ?></p>
-
+            <p>N° Matricula: <?php echo  $id_matricula ?></p>
+            <p>Fecha Matricula: <?php echo  $fecha_matricula ?></p>
+            <p>N° de Ficha: <?php echo  $num_ficha ?></p>
+            <p>Formacion: <?php echo  $nom_formacion ?></p>
+            <p>Ambiente: <?php echo  $nom_ambiente ?></p>
+            <p>N° Nave: <?php echo  $nom_nave ?> </p>
+            <p>Jornada: <?php echo  $nom_jornada ?></p>
         </div>
-
-
     </div>
 <hr>
     <h2>MI COMPUTADOR</h2>
 
     <p class="texto">Mi Equipo de Computo Asignado es: <?php echo $serial ?> </p> 
+    <div class="bloqueo" id="bloqueo"><p>Estado Final</p></div>
+    <div class="bloqueo2" id="bloqueo2"><p>Estado Inicial</p></div>
 <div class="padre">
 
     <div>
         <button id="botoninicial"  class="botoninicial" onclick="alerta()">
             Estado Inicial
         </button>
-        <form action="" id="formularioinicio" class="formuu">
-            <textarea name="" id="mensajeinicio" cols="30" rows="10" max=30 min=30 placeholder="Describa en que Estado Encontro su Equipo de Computo"></textarea>
-            <input type="hidden" value="<?php echo $id_asignacion ?>" id="id_asignacion_inicio">
-            <button id="enviarinicial">
+        <form action="js_aprendiz/agregarmensaje.php" id="formularioinicio" class="formuu" method="POST">
+            <textarea name="mensajeinicio" id="mensajeinicio" cols="30" rows="10" max=30 min=30 placeholder="Describa en que Estado Encontro su Equipo de Computo"></textarea>
+            <input type="hidden" value="<?php echo $id_asignacion ?>" id="id_asignacion_inicio" name="id_asignacion_inicio">
+            <button id="enviarinicial" name="enviarinicial">
                 Enviar Estado de Equipo
             </button>
             
@@ -115,12 +146,13 @@
             </button>
     </div>
     <div>
-        <button  class="botoninicial" onclick="alerta2()">
+        <button class="botoninicial boton2" onclick="alerta2()">
             Estado Final
         </button>
-        <form action="" id="formularioinicioo" class="formuu">
-            <textarea name="" id="" cols="30" rows="10" max=30 min=30 placeholder="Describa en que Estado Dejo su Equipo de Computo"></textarea>
-            <button>
+        <form action="js_aprendiz/agregarfinal.php" id="formularioinicioo" class="formuu" method="POST">
+            <textarea name="mensajefinal" id="mensajefinal" cols="30" rows="10" max=30 min=30 placeholder="Describa en que Estado Dejo su Equipo de Computo"></textarea>
+            <input type="hidden" value="<?php echo $id_asignacion ?>" id="id_asignacion_inicioo" name="id_asignacion_inicioo">
+            <button name="enviarfinal">
                 Enviar Estado de Equipo
             </button>
             
@@ -128,10 +160,11 @@
             <button class="cerrar2" id="cerrarr" onclick="cerrarr()">
                 Cerrar Este Formulario
             </button>
-
     </div>
 </div>
-   
+
+    <p id="mensajefinalll" >USTED HA ENVIADO CORRECTAMENTE LOS DOS ESTADOS DE SU EQUIPO DE COMPUTO</p>
+    
    
 <br>
 <br>

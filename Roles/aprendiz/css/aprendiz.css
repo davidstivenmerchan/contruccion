@@ -21,6 +21,7 @@ body{
 .formuu{
     margin: 30px;
     display: none;
+    transition: .10s;
     
     
 }
@@ -79,11 +80,14 @@ button{
     transition: .5s;
     
 }
+.boton2:disabled{
+    background: black;
+}
 .cerrar{
     display: none;
     margin-left: 180px;
     position: absolute;
-    top:703px;
+    top:1060px;
     left: 310px
 
 }
@@ -91,8 +95,8 @@ button{
     display: none;
     margin-left: 180px;
     position: absolute;
-    top:703px;
-    left: 710px
+    top:1060px;
+    left: 870px
 }
 .cerrar-aparecer{
     display: block;
@@ -109,4 +113,37 @@ button:hover{
 }
 .texto{
     margin-left: 50px;
+}
+.bloqueo{
+   background: black;
+   width: 206px;
+   height: 170px;
+   position: absolute;
+   left: 930px;
+   top: 657px;
+   color: white;
+   text-align: center;
+   font-size: 20px;
+}
+.bloqueo2{
+    background: black;
+    width: 206px;
+    height: 170px;
+    position: absolute;
+    left: 365px;
+    top: 657px;
+    color: white;
+    text-align: center;
+    font-size: 20px; 
+}
+.bloqueo2 p{
+    margin-top: 70px;
+}
+.bloqueo p{
+    margin-top: 70px;
+}
+#mensajefinalll{
+    text-align: center;
+    color: rgb(112,178,45);
+    font-size: 23px;
 }

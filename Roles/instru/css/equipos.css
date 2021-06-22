@@ -1,0 +1,120 @@
+html{
+    font-size: 16px;
+    font-family: Helvetica;
+    box-sizing: border-box;
+}
+
+*, 
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+h1{
+    text-align: center;
+}
+nav{
+    background:rgb(112,178,45) ;
+
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+nav ul li{
+    text-decoration: none;
+    list-style: none;
+    margin: auto;
+    border-radius: 10px;
+    padding: 15px;
+    transition: .5s;
+}
+nav ul li:hover{
+    background: #ff6b00  ;
+    cursor: pointer;
+}
+h2{
+    margin: 20px 30px;
+}
+
+table{
+    margin:40px 200px;
+    padding: 10px;
+    Border-spacing:0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    width: 1000px;
+}
+table tr th{
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    background: rgb(112,178,45) ;
+    color: white;
+}
+table tr td{
+    width: 250px;
+    margin: 10px;
+    padding: 20px;
+
+}
+.eliminar{
+    background: #ff6b00 ;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    width: 90px;
+    height: 60px;
+    transition: .5s;
+}
+.eliminar:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+
+}
+.editar{
+    background: #ff6b00 ;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    width: 90px;
+    height: 60px;
+    transition: .5s;
+}
+.editar:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+
+}
+.editarr{
+    background: #ff6b00 ;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    width: 90px;
+    height: 60px;
+    transition: .5s;
+}
+.editarr:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+
+}
+.atras{
+    position: absolute;
+    font-size: 30px;
+    top:3px;
+    margin: 30px;
+    color: black;
+    cursor: pointer;
+}
+.atras:hover{
+    color: #ff6b00;
+}

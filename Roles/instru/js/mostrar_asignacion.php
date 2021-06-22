@@ -8,7 +8,7 @@
     asignacion_equipos.descripcion_final FROM asignacion_equipos, entrada_aprendiz, equipos 
     where entrada_aprendiz.id_entrada_aprendiz=asignacion_equipos.id_entrada_aprendiz and
     equipos.id_equipo=asignacion_equipos.id_equipo";
-    $ejecutar1 = mysqli_query($mysqli, $consulta1);
+    $ejecutar1 = mysqli_query($mysqli, $consulta1); 
 
     if(!$ejecutar1){
         die ('error');
