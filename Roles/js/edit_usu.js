@@ -10,11 +10,11 @@ export const editUsuario = ( id ) =>{
         const $alert = document.getElementById('alert');
         $alert.classList.add('ver');
         $alert.innerHTML = `
-        <form class="formmodal formmodaldispo"id="usuario" >
+        <form class="formmodal formmodaldispo "id="usuario" style="padding: -50px"; >
         <div class="cerrarmodal dispocerrar">X</div>
-        <input type="hidden" name="documentoantiguo" value="${data[0].documento}">
+        <input type="hidden" name="documentoantiguo" value="${data[0].documento}"  disabled>
         <label for="usuarios"> documento </label>
-        <input type="text" name="documento" id="usuarios" value="${data[0].documento}">
+        <input type="text" name="documento" id="usuarios" value="${data[0].documento}" disabled>
 
         <label for="select_tipo_docu"> Tipo Documento </label>
         <select name="select_tipo_docu" id="select_tipo_docu">
@@ -44,7 +44,7 @@ export const editUsuario = ( id ) =>{
         <input type="text" name="apellidos" id="apellidos" class="apellidos" id="apellidos" value="${data[0].apellidos}">
 
         <label for="Fecha_Nacimiento"> fecha Nacimiento </label>
-        <input type= "date" name="fecha_nacimiento" id="fecha_nacimiento" class="fecha_nacimiento" id="fecha_nacimiento" value="${data[0].fecha_nacimiento}">
+        <input type= "text" name="fecha_nacimiento" id="fecha_nacimiento" class="fecha_nacimiento" id="fecha_nacimiento" value="${data[0].fecha_nacimiento}">
 
         <label for="correo_personal"> Correo Personal </label>
         <input type="text" name="correo_personal" id="correo_personal" class="correo_personal" id="correo_personal" value="${data[0].correo_personal}">

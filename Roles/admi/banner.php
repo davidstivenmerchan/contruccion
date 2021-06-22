@@ -14,7 +14,7 @@
 <div class="navigation">
             <ul>
                 <li class="ip">
-                    <img src="../../assets/logo_sin_fondo_5.png" alt="" class="img"> 
+                    <img src="../../assets/logo_sin_fondo_6.png" alt="" class="img"> 
                 </li>
 
                 <li>
