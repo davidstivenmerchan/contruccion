@@ -176,3 +176,12 @@ nav .tres{
     margin-left: 350px;
     margin-top: -10rem;
 }
+.fas{
+    font-size: 30px;
+    color:#ff6b00;
+    transition: .5s;
+    margin: 10px;
+}
+.fas:hover{
+   color: rgb(112,178,45) ;
+}

@@ -55,7 +55,7 @@ if (isset($_POST['ingresar'])){
     }
 
 }else {
-    echo "ñero aca hay nada";
+    echo "error";
 }
 
 

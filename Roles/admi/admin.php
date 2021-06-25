@@ -60,7 +60,7 @@ while(mysqli_stmt_fetch($query)){
                 <?php echo $user[0]['nombres']; ?>
                 <br>
                 <?php echo $rol[0]['nom_tipo_usuario']; ?>
-                <img  src="../../assets/senaf.jpg" height="70px" alt="">
+                
             </div>
         </div>
         <main> 
