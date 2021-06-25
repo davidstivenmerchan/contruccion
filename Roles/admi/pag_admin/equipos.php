@@ -306,7 +306,7 @@
             <form class="formulario" id="marcaEquipos">
                     <!--  -->
                     <label for="nom">Nombre de la Marca</label><br>
-                    <input type="text" name="nom_marca" id="nom_marca" required>
+                    <input type="text" name="nom_marca" id="nom_marca" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras" >
                     <input type="submit" value="Guardar">
             </form>
         </div>
@@ -316,7 +316,7 @@
             <div class="linea"></div>
             <form class="formulario" id="estadoDispo">
                 <label for="nom">Nombre del Estado del Dispositivo</label><br>
-                <input type="text" name="nom_estado" id="nom_estado" required>
+                <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -328,7 +328,7 @@
             <form class="formulario" id="estadoApro">
 
                 <label for="nom">Nombre del Estado de Aprobacion</label><br>
-                <input type="text" name="nom_estado" id="nom_estado" required>
+                <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                 
                 <input type="submit" value="Guardar">
             </form>
@@ -340,7 +340,7 @@
             <form class="formulario" id="estadoDisponibilidad">
                 
                 <label for="nom">Nombre del Estado de Disponibilidad</label><br>
-                <input type="text" name="nom_estado" id="nom_estado" required>
+                <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                 <input type="submit" value="Guardar">
                     
             </form>
@@ -352,7 +352,7 @@
                 
                   
                 <label for="serial">Serial</label>
-                <input type="number" name="serial" id="serial" required>
+                <input type="text" name="serial" id="serial" required>
 
                 <label for="placa_sena">Placa Sena</label>
                 <input type="text" name="placa_sena" id="placa_sena" autocomplete="off" required>
