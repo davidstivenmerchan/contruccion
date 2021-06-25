@@ -9,7 +9,7 @@ export const editEstadodisponibilidad = ( id ) =>{
         const $alert = document.getElementById('alert');
         $alert.classList.add('ver');
         $alert.innerHTML = `
-        <form class="formmodal"id="estado_disponibilidad" >
+        <form class="formmodal formmodaltipos"id="estado_disponibilidad" >
         <div class="cerrarmodal">X</div>
         <input type="hidden" name="idestado_disponibilidad" value="${data[0].id}">
         <label for="esta_disponibilidad"> ID </label>

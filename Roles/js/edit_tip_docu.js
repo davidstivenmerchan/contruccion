@@ -9,7 +9,7 @@ export const editTipDocu = ( id )=> {
             const $alert = document.getElementById('alert');
             $alert.classList.add('ver');
             $alert.innerHTML= `
-                <form class="formmodal" id="tip_docu">
+                <form class="formmodal formmodaltipos" id="tip_docu">
                     <div class="cerrarmodal">X</div>
                     <input type="hidden" name="idtipdocu" value="${data[0].id}">
                     <label for="marca"> ID </label>

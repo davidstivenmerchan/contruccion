@@ -132,8 +132,8 @@ export const editdispoelectronico = ( id ) =>{
                 },
                 data: {
                     tabla: 'dispositivo_electronico',
-                    serialAntiguo:parseInt(e.target.serialantiguo.value),
-                    serial: parseInt(e.target.idserial.value),
+                    serialAntiguo:e.target.serialantiguo.value,
+                    serial: e.target.idserial.value,
                     placaSena: parseInt(e.target.placa_sena.value),
                     TipoDispo: parseInt(e.target.select_tipo_dispo.value),
                     nameDispositivoElectronico: e.target.namedispositivo_electronico.value,

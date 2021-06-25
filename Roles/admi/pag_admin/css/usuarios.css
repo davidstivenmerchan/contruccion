@@ -59,6 +59,170 @@ main{
     background-color: red;
     color:#ffffff;
 }
+
+
+/*prueba css*/
+.form4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    /* margin:auto; */
+    width: 40%;
+}
+
+.form4 .formulario{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 0;
+}
+.form4 .formulario input{
+    height: 2rem;
+    margin: 1vh 0;
+    width: 100%;
+}
+.form4 .formulario input[type="submit"]{
+    background-color: #ffffff;
+    border: thin solid #FF6719;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.form4 .formulario input[type="submit"]:hover{
+    background: #FF6719;
+    border: none;
+    color: #ffffff;
+}
+
+
+.form4{
+    width: 400px;
+    height: 200px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.form4 p{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    width: 100px;
+    padding: 5px 30px;
+}
+.form4 p[type='title']{
+    width: 100%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    padding: 10px;
+}
+.form4 .linea{
+    width: 100%;
+    border: 1px lightgray solid;
+    margin-top: -20px;
+}
+.form4 input[type='number']{
+    width: 30px;
+    height: 20px;
+}
+.form4 input{
+    margin-left: 0px;
+    width: 250px;
+    height: 20px;
+}
+.form4 p[type='nom']{
+    width: 200px;
+    margin-left: 70px;
+    margin-top: -70px;
+}
+
+
+
+
+
+
+.form5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    /* margin:auto; */
+    width: 40%;
+}
+
+.form5 .formulario{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 0;
+}
+.form5 .formulario input{
+    height: 2rem;
+    margin: 1vh 0;
+    width: 100%;
+}
+.form5 .formulario input[type="submit"]{
+    background-color: #ffffff;
+    border: thin solid #FF6719;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.form5 .formulario input[type="submit"]:hover{
+    background: #FF6719;
+    border: none;
+    color: #ffffff;
+}
+
+
+.form5{
+    width: 400px;
+    height: 200px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.form5 p{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    width: 100px;
+    padding: 5px 30px;
+}
+.form5 p[type='title']{
+    width: 100%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    padding: 10px;
+}
+.form5 .linea{
+    width: 100%;
+    border: 1px lightgray solid;
+    margin-top: -20px;
+}
+.form5 input[type='number']{
+    width: 30px;
+    height: 20px;
+}
+.form5 input{
+    margin-left: 0px;
+    width: 250px;
+    height: 20px;
+}
+.form5 p[type='nom']{
+    width: 200px;
+    margin-left: 70px;
+    margin-top: -70px;
+}
+
+
+
+
+
 .form{
     width:100%;
     margin:0;
@@ -115,13 +279,13 @@ main{
     font-size: 20px;
 }
 
-.form1, .form2, .form3 , .form4, .form5 {
-    width: 100%;
+.form1, .form2, .form3, .form4, .form5{
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
+    margin: 2rem 10rem 15rem 25rem;
     display:none;
 }
 
@@ -290,3 +454,5 @@ table .acciones {
     /* column-span: all; */
     width: 25vw;
 } 
+
+
