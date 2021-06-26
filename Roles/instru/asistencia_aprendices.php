@@ -22,12 +22,13 @@
                 <th>Apellido</th>
                 <th>Nombre</th>
                 <th>Fecha</th>
-                <th>Hora</th>
+                <th>Hora Entrada</th>
+                <th>Hora Salida</th>
             </tr>
         </thead>
         <?php
             $sql="SELECT  usuarios.documento, usuarios.Apellidos, usuarios.Nombres,
-            fecha, hora FROM usuarios, entrada_aprendiz WHERE usuarios.documento = entrada_aprendiz.documento ";
+            fecha, hora, hora_salida FROM usuarios, entrada_aprendiz WHERE usuarios.documento = entrada_aprendiz.documento ";
             $resul=mysqli_query($mysqli,$sql);
 
             while($mostrar=mysqli_fetch_array($resul)){
@@ -38,6 +39,7 @@
                     <td><?php echo $mostrar['Nombres']?></td>
                     <td><?php echo $mostrar['fecha']?></td>
                     <td><?php echo $mostrar['hora']?></td>
+                    <td><?php echo $mostrar['hora_salida']?></td>
                 </tr>
             <?php
                 }
