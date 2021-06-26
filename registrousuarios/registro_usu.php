@@ -34,12 +34,19 @@ if(isset($_POST['enviar'])){
 
 
 
-    $consulta2 = "INSERT INTO ambiente(id_ambiente,id_nave) values($n_number_ambiente,$nave)";
+    $consulta2 = "INSERT INTO ambiente(n_ambiente,id_nave) values($n_number_ambiente,$nave)";
     $ejecu2=mysqli_query($mysqli,$consulta2);
+
+    $consulta21 ="SELECT id_ambiente FROM ambiente WHERE n_ambiente = '$n_number_ambiente' ";
+    $ejecucion21 = mysqli_query($mysqli, $consulta21);
+    $mostrar21=mysqli_fetch_array($ejecucion21);
+    if($mostrar21){
+        $id_ambiente = $mostrar21['id_ambiente'];
+    }
  
 
     $consulta3 = "INSERT INTO detalle_formacion(id_formacion,num_ficha,id_ambiente) 
-    values($formacion,$n_ficha,$n_number_ambiente)";
+    values($formacion,$n_ficha,$id_ambiente)";
     $ejecu3 = mysqli_query($mysqli,$consulta3);
 
 
