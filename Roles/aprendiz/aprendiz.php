@@ -37,7 +37,7 @@
     }
 
     $consulta3 = "SELECT  matricula.id_matricula, matricula.fecha_matricula, detalle_formacion.num_ficha, formacion.nom_formacion, 
-    ambiente.nom_ambiente, nave.nom_nave, jornada.nom_jornada FROM matricula, detalle_formacion, formacion, ambiente, nave, jornada
+    ambiente.n_ambiente, nave.nom_nave, jornada.nom_jornada FROM matricula, detalle_formacion, formacion, ambiente, nave, jornada
     where detalle_formacion.id_detalle_formacion=matricula.id_detalle_formacion 
     AND jornada.id_jornada=matricula.id_jornada
     AND formacion.id_formacion=detalle_formacion.id_formacion
@@ -51,7 +51,7 @@
         $fecha_matricula = $mostrar3['fecha_matricula'];
         $num_ficha = $mostrar3['num_ficha'];
         $nom_formacion = $mostrar3['nom_formacion'];
-        $nom_ambiente = $mostrar3['nom_ambiente'];
+        $nom_ambiente = $mostrar3['n_ambiente'];
         $nom_nave = $mostrar3['nom_nave'];
         $nom_jornada = $mostrar3['nom_jornada'];
     }
@@ -178,6 +178,7 @@
         <form action="js_aprendiz/agregarfinal.php" id="formularioinicioo" class="formuu" method="POST">
             <textarea name="mensajefinal" id="mensajefinal" cols="30" rows="10" max=30 min=30 placeholder="Describa en que Estado Dejo su Equipo de Computo"></textarea>
             <input type="hidden" value="<?php echo $id_asignacion ?>" id="id_asignacion_inicioo" name="id_asignacion_inicioo">
+            <input type="hidden" value="<?php echo $documento ?>" name="cedu">
             <button name="enviarfinal">
                 Enviar Estado de Equipo
             </button>
