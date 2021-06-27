@@ -10,17 +10,10 @@
      $query1= mysqli_query($mysqli,$consul1);
      $respu1= mysqli_fetch_assoc($query1); 
 
-     $consul2= "SELECT * FROM formacion";
+     $consul2= "SELECT * FROM fichas ";
      $query2= mysqli_query($mysqli,$consul2);
      $respu2= mysqli_fetch_assoc($query2); 
 
-     $consul3= "SELECT * FROM nave";
-     $query3= mysqli_query($mysqli,$consul3);
-     $respu3= mysqli_fetch_assoc($query3); 
-
-     $consul4= "SELECT * FROM jornada";
-     $query4= mysqli_query($mysqli,$consul4);
-     $respu4= mysqli_fetch_assoc($query4); 
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +22,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuarios</title>
+    <title>Registro de APRENDICES</title>
     <link rel="stylesheet" href="css/resgistrousuarios.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
@@ -40,7 +33,7 @@
 
 
 <div class="papa">
-    <h1>REGISTRO DE USUARIOS</h1>
+    <h1>REGISTRO DE APRENDICES</h1>
     <form action="registrousuarios/registro_usu.php" method="POST">
     <div>
         <input type="number" name="cc" id="" placeholder="Ingrese numero de documento">
@@ -92,66 +85,20 @@
 
         <label for="">Fecha de Matricula</label>
         <input type="date" name="date_matricula" id="date_matricula">
-
-        
-        
-
     </div>   
         
-        
-    
-        
-    <div class="sele3">
-
-        <select name="formacion" id="formacion" required>
-                    <option value="">Seleccione la formacion</option>
-                    <?php
-                        foreach ($query2 as $tipo_usu) :  ?>
-                        <option value="<?php echo $tipo_usu['id_formacion']?>"><?php echo $tipo_usu['nom_formacion']?></option>
-                    <?php
-                        endforeach;
-                    ?>
-        </select>
-
-        
-
-        <select name="nave" id="nave" required>
-                    <option value="">Seleccione la nave</option>
-                    <?php
-                        foreach ($query3 as $tipo_usu) :  ?>
-                        <option value="<?php echo $tipo_usu['id_nave']?>"><?php echo $tipo_usu['nom_nave']?></option>
-                    <?php
-                        endforeach;
-                    ?>
-        </select>
-
-        <input type="number" name="n_ficha" id="n_ficha" placeholder="Ingrese el Numero de Ficha">
-    
-    </div>
+   
     <div class="sele5">
-        <select name="jornada" id="jornada" required>
-                    <option value="">Seleccione la jornada</option>
+        <select name="ficha" id="ficha" required>
+                    <option value="">Seleccione Su Ficha</option>
                     <?php
-                        foreach ($query4 as $tipo_usu) :  ?>
-                        <option value="<?php echo $tipo_usu['id_jornada']?>"><?php echo $tipo_usu['nom_jornada']?></option>
+                        foreach ($query2 as $ficha) :  ?>
+                        <option value="<?php echo $ficha['ficha']?>"><?php echo $ficha['ficha']?></option>
                     <?php
                         endforeach;
                     ?>
         </select>
-
-        <input type="number" name="n_number_ambiente" id="n_number_ambiente" placeholder="numero de ambiente">
-
-        
     </div>
-
-  
-    <div class="sele1">
-    <label for="">Seleccione una foto 4x4 para su perfil</label>
-        <input class="foto"type="file" name="imagen" id="imagen">
-    </div>
-    
-        
-    
     <div class="sele4">
         <input type="submit" value="REGISTRAR" name="enviar">
     </div>
