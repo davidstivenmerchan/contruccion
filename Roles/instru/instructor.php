@@ -104,6 +104,9 @@ while(mysqli_stmt_fetch($query)){
         </a>
    </div>
 
+
+   <a href="aceptarinstru.php">aceptar aprendices</a>
+
    
     <!-- <div class="menu">
         <img src="../img/logo.sena.png" alt="">
