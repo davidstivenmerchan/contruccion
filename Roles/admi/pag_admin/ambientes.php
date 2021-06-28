@@ -270,7 +270,7 @@
         <div class="form1 formu4">
             <p type="title">NAVE</p>
             <div class="linea"></div>
-            <form id="nave" class="formulario">
+            <form id="nave" class="formulario" autocomplete="off">
                 <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave" required>
                 <input type="submit" value="Guardar">
             </form>
@@ -279,7 +279,7 @@
         <div class="form1 formu5">
             <p type="title">JORNADA</p>
             <div class="linea"></div>
-            <form class="formulario" id="jornada">
+            <form class="formulario" id="jornada" autocomplete="off">
                     <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada" required>
                     <input type="submit" value="Guardar">
             </form>
@@ -288,7 +288,7 @@
         <div class="form1 formu6">
             <p type="title">FORMACION</p>
             <div class="linea"></div>
-            <form class="formulario" id="formacion">
+            <form class="formulario" id="formacion" autocomplete="off">
                 <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" autocomplete="off" required>
                 <input type="submit" value="Guardar">
             </form>
@@ -298,7 +298,7 @@
         <div class="form1 formu7">
             <p type="title">DETALLE FORMACION</p>
             <div class="linea"></div>
-            <form class="formulario" id="detalle_formacion">
+            <form class="formulario" id="detalle_formacion" autocomplete="off">
 
                 <select name="formacion" id="detalle" required>
                 <option value="">Selecione una Formacion</option>

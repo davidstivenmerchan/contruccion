@@ -9,7 +9,7 @@ export const editjornada = ( id )=> {
             const $alert = document.getElementById('alert');
             $alert.classList.add('ver');
             $alert.innerHTML= `
-                <form class="formmodal" id="edit_jornada">
+                <form class="formmodal formmodaltipos" id="edit_jornada">
                     <div class="cerrarmodal">X</div>
                     <input type="hidden" name="id_jornada" value="${data[0].id}">
                     <label for="jornada"> ID </label>

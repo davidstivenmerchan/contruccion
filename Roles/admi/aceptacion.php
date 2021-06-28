@@ -11,32 +11,20 @@
 </head>
 <body>
 
-
-
-
 <?php
 
 include('../../includes/conexion.php');
 
-
-$consulta1 = "SELECT id_matricula,fecha_matricula,num_ficha,nom_formacion,ambiente.id_ambiente,nave.nom_nave,
-jornada.nom_jornada,tipo_usuario.nom_tipo_usuario,matricula.documento,nom_documento,Nombres,Apellidos,nom_aprobacion
-FROM matricula,detalle_formacion,formacion,usuarios,tipo_documento,nave,ambiente,jornada,tipo_usuario,aceptacion_usuarios,estado_aprobacion
-WHERE matricula.documento = usuarios.documento 
-AND matricula.id_detalle_formacion = detalle_formacion.id_detalle_formacion 
-AND detalle_formacion.id_formacion = formacion.id_formacion 
-AND ambiente.id_nave = nave.id_nave 
-AND detalle_formacion.id_ambiente = ambiente.id_ambiente
-AND matricula.id_jornada = jornada.id_jornada
-AND usuarios.id_tipo_documento = tipo_documento.id_tipo_documento
-AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario
-AND aceptacion_usuarios.documento = usuarios.documento
-AND aceptacion_usuarios.id_estado_aprobacion= estado_aprobacion.id_estado_aprobacion
-AND tipo_usuario.id_tipo_usuario =  2
-AND estado_aprobacion.id_estado_aprobacion = 2";
-
-
-
+    $consulta1 = "SELECT usuarios.documento, usuarios.Nombres, usuarios.Apellidos, fichas.ficha,formacion.nom_formacion, jornada.nom_jornada, nave.nom_nave, ambiente.n_ambiente,matricula.fecha_matricula, fichas.instructor, aceptacion_usuarios.id_estado_aprobacion,id_matricula
+    FROM usuarios, fichas, formacion, jornada, nave, ambiente, matricula, aceptacion_usuarios
+    WHERE usuarios.documento=matricula.aprendiz 
+    AND fichas.ficha=matricula.ficha 
+    AND formacion.id_formacion=fichas.id_formacion
+    AND jornada.id_jornada=fichas.id_jornada
+    AND nave.id_nave=ambiente.id_nave
+    AND ambiente.id_ambiente=fichas.id_ambiente
+    AND usuarios.documento=aceptacion_usuarios.documento
+    AND id_estado_aprobacion=2";
 
 ?>
 
@@ -47,24 +35,21 @@ AND estado_aprobacion.id_estado_aprobacion = 2";
 <h2>ACEPTACIÓN DE APRENDICES</h2>
 </div>
 
-
-    
-
 <form action="procesaraceptar.php" method="POST">
 
 <table>
 
 <tr>
-    <th>°N Matricula</th>
-    <th>Fecha de Matricula</th>
-    <th>°N de Ficha</th>
+    <th>Aprendiz</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Ficha</th>
     <th>Formacion</th>
-    <th>°N Ambiente</th>
-    <th>Nave</th>
     <th>Jornada</th>
-    <th>Documento</th>
-    <th>Nombres</th>
-    <th>Apellidos</th>
+    <th>Nave</th>
+    <th>Ambiente</th>
+    <th>Fecha Matricula</th>
+    <th>Instructor</th>
     <th>ACEPTAR</th>
 </tr>
 
@@ -73,25 +58,20 @@ AND estado_aprobacion.id_estado_aprobacion = 2";
 $ejecu = mysqli_query($mysqli,$consulta1);
 while($i = mysqli_fetch_array($ejecu)){
 
-
 ?>
-
-
-
 <tr>
-<input type="hidden" name="<?php echo $i['documento']?>" value="<?php echo $i['documento']?>">
-<td><?php echo $i['id_matricula'] ?></td>
-<td><?php echo $i['fecha_matricula'] ?></td>
-<td><?php echo $i['num_ficha'] ?></td>
-<td><?php echo $i['nom_formacion'] ?></td>
-<td><?php echo $i['id_ambiente'] ?></td>
-<td><?php echo $i['nom_nave'] ?></td>
-<td><?php echo $i['nom_jornada'] ?></td>
-<td><?php echo $i['documento'] ?></td>
-<td><?php echo $i['Nombres'] ?></td>
-<td><?php echo $i['Apellidos'] ?></td>
-<td><input type="checkbox" name="<?php echo $i['id_matricula']?>" id=""></td>
-
+    <input type="hidden" name="<?php echo $i['documento']?>" value="<?php echo $i['documento']?>">
+    <td><?php echo $i['documento'] ?></td>
+    <td><?php echo $i['Nombres'] ?></td>
+    <td><?php echo $i['Apellidos'] ?></td>
+    <td><?php echo $i['ficha'] ?></td>
+    <td><?php echo $i['nom_formacion'] ?></td>
+    <td><?php echo $i['nom_jornada'] ?></td>
+    <td><?php echo $i['nom_nave'] ?></td>
+    <td><?php echo $i['n_ambiente'] ?></td>
+    <td><?php echo $i['fecha_matricula'] ?></td>
+    <td><?php echo $i['instructor'] ?></td>
+    <td><input type="checkbox" name="<?php echo $i['id_matricula']?>" id=""></td>
 </tr>
 
 

@@ -9,7 +9,7 @@ export const editEstadoAprobacion = ( id ) =>{
         const $alert = document.getElementById('alert');
         $alert.classList.add('ver');
         $alert.innerHTML = `
-        <form class="formmodal"id="estado_aprobacion" >
+        <form class="formmodal formmodaltipos" id="estado_aprobacion" >
         <div class="cerrarmodal">X</div>
         <input type="hidden" name="idestadoaprobacion" value="${data[0].id}">
         <label for="esta_aprobacion"> ID </label>

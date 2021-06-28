@@ -47,8 +47,9 @@ while(mysqli_stmt_fetch($query)){
 <body>
     <header>
         <figure>
-            <img src="../../assets/logo_sin_fondo_6.png" alt="">
+            <img src="../../assets/logo_sl.png" alt="">
         </figure>
+        <h1>AECES</h1>
         <div class="user">
             <a href="../../includes/cerrar.php"><i class="fas fa-door-open" title="Cerrar Sesion"></i></a>
             <?php echo $user[0]['nombres']; ?>
@@ -59,94 +60,75 @@ while(mysqli_stmt_fetch($query)){
         <h1>Instructor...<span>&#160;</span></h1>
     </div>
     <div class="datos">
-        <h3>MIS DATOS PERSONALES</h3>
-        <p>Documento: <?php echo  $documento ?></p>
-        <p>Cod Carnet: <?php echo  $cod_carnet ?></p>
-        <p>Nombres: <?php echo  $nombre ?></p>
-        <p>Apellidos: <?php echo  $apellido ?></p>
-        <p>Fecha de Nacimiento: <?php echo  $fecha ?></p>
-        <p>Correo Personal: <?php echo  $correo_p ?> </p>
-        <p>Correo misena: <?php echo  $correo_s ?></p>
-        <p>Telefono: <?php echo  $tel ?></p>
+        <h3>DATOS PERSONALES</h3>
+        <p>DOCUMENTO: <?php echo  $documento ?></p>
+        <p>COD CARNET: <?php echo  $cod_carnet ?></p>
+        <p>NOMBRE: <?php echo  $nombre ?></p>
+        <p>APELLIDOS: <?php echo  $apellido ?></p>
+        <p>FECHA DE NACIMIENTO: <?php echo  $fecha ?></p>
+        <p>CORREO PERSONAL: <?php echo  $correo_p ?> </p>
+        <p>CORREO MISENA: <?php echo  $correo_s ?></p>
+        <p>TELEFONO: <?php echo  $tel ?></p>
     </div>
 
    <nav>
-       <button class="uno"><a href="asignacion_equipos.php">Asignación de Computadores</a></button><STYLE>A {text-decoration: none;} </STYLE><br>
-       <button class="dos"><a href="asistencia_aprendices.php">Asistencia de Aprendices</a></button><br>
-       <button class="tres"><a href="registrar_equipos.php">Equipos de Computo</a></button><br>
+       <button class="uno"><a href="asignacion_equipos.php?var= <?php echo $documento?>" class="pueeba">Asignación de Computadores</a></button><STYLE>A {text-decoration: none;} </STYLE><br>
+       <button class="dos"><a href="asistencia_aprendices.php?var= <?php echo $documento?>"class="pueeba">Asistencia de Aprendices</a></button><br>
+       <button class="tres"><a href="registrar_equipos.php?var= <?php echo $documento?>" class="pueeba">Equipos de Computo</a></button><br>
    </nav>
    <div class="enlaces">
         <h2>INFORMES</h2>
         <a href="" class="uno">
             <span class="icon"><img src="../../assets/documento.png" alt=""></span>
-            <span class="title"><p>Asistencia</p></span>
+            <p class="pueba">Asistencia</p>
         </a>
 
         <a href="" class="dos">
             <span class="icon"><img src="../../assets/tablero.png" alt=""></span>
-            <span class="title"><p>Asignacion</p></span>
+            <p class="pueba" >Asignacion</p>
         </a>
 
         <a href="" class="tres">
             <span class="icon"><img src="../../assets/sitio-web.png" alt=""></span>
-            <span class="title"><p>Equipos</p></span>
+            <p class="pueba" >Equipos</p>
         </a>
 
         <a href="" class="cuatro">
             <span class="icon"><img src="../../assets/vigilancia.png" alt=""></span>
-            <span class="title"><p>Buscar Informe</p></span>
+            <p class="pueba" >Buscar Informe</p>
         </a>
    </div>
    <div class="grupos">
-       <h3>Grupos</h3>
+       <h3>GRUPOS</h3>
         <a href="" class="grup">
             <span class="icon"><img src="../../assets/grupo.png" alt=""></span>
         </a>
    </div>
 
+    <div class="aceptar">
+        <h3>ACEPTAR REGISTRO DE APRENDICES</h3>
+        <a href="aceptarinstru.php?var= <?php echo $documento?>" class="acep">
+            <span class="icon"><img src="../../assets/check.png" alt=""></span>
+        </a>
+    </div>
    
-    <!-- <div class="menu">
-        <img src="../img/logo.sena.png" alt="">
-        <h1>INSTRUCTOR</h1>
-        <P>Menu</P>
-        <input type="button" value="Aprendices">
-        <input type="button" value="Equipos">
-        <a href="../index.html"><input type="button" value="Cerrar Sesion"></a>
 
+    <footer class="pie">
+    <img  height="90px" width="85px" src="../../assets/pie de pagina.png" alt="">
+    <div class="info">
+      <p>&copy; Servicio Nacional de Aprendizaje SENA-Dirección General </p>
+      <p>Calle 57 No. 8 - 69 Bogotá D.C. (Cundinamarca), Colombia</p>
+     
+       <p>Conmutador Nacional (57 1) 5461500 - Extensiones</p>
+       <p>Correo notificaciones judiciales: servicioalciudadano@sena.edu.co </p>
     </div>
-    <div class="asignar">
-        <form action="../includes/asignar.php" method="POST" autocomplete="off">
-            <label for="doc">Documento</label>
-            <input type="number" name="doc" placeholder="Digite el numero de documento del aprendiz">
-            <button name="boton">Consultar</button>
-        </form>
-    </div>
-    <div class="tabla" id="tabla"> 
-        <table>
-            <tr>
-                <td>Nombre</td>
-                <td>Equipo</td>
-                <td>Inicio</td>
-                <td>Finalizo</td>
-                <td>Estado</td>
-            </tr>
-            <?php
-           // $sql="SELECT nombre_completo, asignacion.serial, feho_ini, feho_fin, nom_estado FROM asignacion, usuarios,estado,equipos WHERE usuarios.documento = asignacion.documento AND estado.id_estado = equipos.id_estado";
-            //$resul=mysqli_query($mysqli,$sql);
-
-            //while($mostrar=mysqli_fetch_array($resul)){
-            ?>
-                <tr>
-                    <td><?php //echo $mostrar['nombre_completo']?></td>
-                    <td><?php //echo $mostrar['serial']?></td>
-                    <td><?php //echo $mostrar['feho_ini']?></td>
-                    <td><?php //echo $mostrar['feho_fin']?></td>
-                    <td><?php //echo $mostrar['nom_estado']?></td>
-                </tr>
-            <?php
-                // }
-            ?>
-        </table>
-    </div> -->
+    <nav class="icons">
+   <a href="https://www.facebook.com/SENA/" target=_blank> <img  height="30px" width="20px" src="../../assets/icono.facebook.jpg" alt=""></a>
+   <a href="https://www.instagram.com/senacomunica/" target=_blank> <img  height="30px" width="30px" src="../../assets/instagram-icon.png" alt=""></a>
+   <a href="https://twitter.com/SENAComunica" target=_blank><img  height="30px" width="30px" src="../../assets/icono.twitter.png" alt=""></a>
+   <a href="https://www.youtube.com/user/SENATV" target=_blank><img  height="35px" width="35px" src="../../assets/icono.youtube.png" alt=""></a>
+   <a href="https://www.sena.edu.co/es-co/Paginas/default.aspx" target=_blank><img  height="35px" width="35px" src="../../assets/icono.spotify-.png" alt=""></a>
+   <a href="https://soundcloud.com/senacolombia/" target=_blank><img  height="35px" width="50px" src="../../assets/icono.soundcloud.png" alt=""></a>
+    </footer>
 </body>
 </html>

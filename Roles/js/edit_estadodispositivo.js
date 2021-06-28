@@ -10,7 +10,7 @@ export const editEstadoDispositivo = ( id ) =>{
         const $alert = document.getElementById('alert');
         $alert.classList.add('ver');
         $alert.innerHTML = `
-        <form class="formmodal"id="estado_dispo" >
+        <form class="formmodal formmodaltipos" id="estado_dispo" >
         <div class="cerrarmodal">X</div>
         <input type="hidden" name="idestadodispositivo" value="${data[0].id}">
         <label for="esta_dispo"> ID </label>

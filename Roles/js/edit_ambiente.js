@@ -11,7 +11,7 @@ export const editAmbiente = ( id ) =>{
         $alert.classList.add('ver');
         $alert.innerHTML = `
         
-        <form class="formmodal formmodaldispo"id="ambiente" >
+        <form class="formmodal formmodaltipos"id="ambiente" >
         <div class="cerrarmodal dispocerrar">X</div>
         <input type="hidden" name="numero_ambiente" value="${data[0].id}">
         <label for="id_ambiente"> Id ambiente </label>

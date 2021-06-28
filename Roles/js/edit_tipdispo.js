@@ -9,7 +9,7 @@ export const editTipoDispo = ( id ) =>{
         const $alert = document.getElementById('alert');
         $alert.classList.add('ver');
         $alert.innerHTML = `
-        <form class="formmodal desplazar"id="tipodispositivo" >
+        <form class="formmodal formmodaltipos" id="tipodispositivo" >
         <div class="cerrarmodal">X</div>
         <input type="hidden" name="idtipdispo" value="${data[0].id}">
         <label for="tipodispo"> ID </label>

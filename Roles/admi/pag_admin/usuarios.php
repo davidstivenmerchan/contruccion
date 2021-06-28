@@ -117,8 +117,6 @@
 
     <table class="tabla">
             <tr class="titulo">
-                
-                <td>Id Tipo Documento</td>
                 <td>Nombre Tipo Documento</td>
                 <td>Acciones</td>
             </tr>
@@ -133,7 +131,6 @@
 
 
             <tr class="datos">
-                <td><?php echo $mostrar['id_tipo_documento'] ?></td>
                 <td><?php echo $mostrar['nom_documento'] ?></td>
                 <td class="imgss">
                     <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipoDocu" data-tipoDocu="<?php echo $mostrar['id_tipo_documento']; ?>">
@@ -152,7 +149,6 @@
 
     <table class="tabla">
             <tr class="titulo">
-                <td>Id Tipo Usuario</td>
                 <td>Nombre Tipo Usuario</td>
                 <td>Acciones</td>
             </tr>
@@ -167,8 +163,7 @@
             ?>
 
             <tr class="datos">
-                <td><?php echo $mostrar['id_tipo_usuario'] ?></td>
-                <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
+                <td><?php echo $mostrar['nom_tipo_usuario'] ?></>
                 <td class="imgss">
                     <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipoUsu" data-tipoUsu="<?php echo $mostrar['id_tipo_usuario']; ?>">
                     <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tipoUsu" data-tipoUsu="<?php echo $mostrar['id_tipo_usuario']; ?>">               
@@ -187,7 +182,7 @@
         <div class="linea"></div>
         <img src="../../assets/Group_45.jpg" alt="holi">
     
-            <form class="crearusuario" action="insertarusuarios.php" id="crearusuario">
+            <form class="crearusuario" action="insertarusuarios.php" id="crearusuario" autocomplete="off">
                     <div class="doc">
                         <label for="doc">Documento</label>
                         <input type="number" name="doc" autocomplete="off" required >
@@ -267,19 +262,19 @@
     <div class="form4">
     <p type="title">Crear tipos de Documento</p>
     <div class="linea"></div>
-    <form id="creartipodocu"> <!-- action="insertarusuarios.php" method-->
+    <form class="formulario"  id="creartipodocu" autocomplete="off"> <!-- action="insertarusuarios.php" method-->
             <label for="nom">Nombre del Tipo de Documento</label><br>
             <input type="text" name="nom_doc" id="nom_doc" autocomplete="off" required>
             <input type="submit" value="Guardar" name="enviar2">
         
     </form>
-
     </div>
+
 
     <div class="form5">
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
-    <form id="creartipusu"> <!-- action="insertarusuarios.php" method="POST" -->
+    <form class="formulario" id="creartipusu" autocomplete="off"> <!-- action="insertarusuarios.php" method="POST" -->
             <label for="nom">Nombre del Tipo de Usuario</label><br>
             <input type="text" name="nom_usu" id="nom_usu" required>
             <input type="submit" value="Guardar" name="enviar3">    

@@ -12,7 +12,7 @@
     $correo_p =$_SESSION['correo_p'];
     $correo_s=$_SESSION['correo_s'];
     $tel=$_SESSION['tel'];
-    $_SESSION['clave'];
+    
 
     $consulta1 = "SELECT entrada_aprendiz.documento, asignacion_equipos.id_equipo, equipos.serial 
     FROM entrada_aprendiz, asignacion_equipos, equipos  
@@ -37,7 +37,7 @@
     }
 
     $consulta3 = "SELECT  matricula.id_matricula, matricula.fecha_matricula, detalle_formacion.num_ficha, formacion.nom_formacion, 
-    ambiente.nom_ambiente, nave.nom_nave, jornada.nom_jornada FROM matricula, detalle_formacion, formacion, ambiente, nave, jornada
+    ambiente.n_ambiente, nave.nom_nave, jornada.nom_jornada FROM matricula, detalle_formacion, formacion, ambiente, nave, jornada
     where detalle_formacion.id_detalle_formacion=matricula.id_detalle_formacion 
     AND jornada.id_jornada=matricula.id_jornada
     AND formacion.id_formacion=detalle_formacion.id_formacion
@@ -51,7 +51,7 @@
         $fecha_matricula = $mostrar3['fecha_matricula'];
         $num_ficha = $mostrar3['num_ficha'];
         $nom_formacion = $mostrar3['nom_formacion'];
-        $nom_ambiente = $mostrar3['nom_ambiente'];
+        $nom_ambiente = $mostrar3['n_ambiente'];
         $nom_nave = $mostrar3['nom_nave'];
         $nom_jornada = $mostrar3['nom_jornada'];
     }
@@ -64,6 +64,23 @@
     if($mostrar4){
         $m_inicial = $mostrar4['descripcion_inicial'];
         $m_final = $mostrar4['descripcion_final'];
+    }
+
+    $consulta5 = "SELECT dispositivo_electronico.serial, dispositivo_electronico.placa_sena, 
+    dispositivo_electronico.nom_dispositivo, marca.nom_marca, tipo_dispositivo.nom_tipo_dispositivo
+    FROM dispositivo_electronico, marca, tipo_dispositivo
+    WHERE marca.id_marca=dispositivo_electronico.id_marca 
+    and tipo_dispositivo.id_tipo_dispositivo=dispositivo_electronico.id_tipo_dispositivo
+    and serial ='$serial'";
+    $ejecucion5 = mysqli_query($mysqli, $consulta5);
+    $mostrar5 = mysqli_fetch_array($ejecucion5);
+    if($mostrar5){
+        $idserial = $mostrar5['serial'];
+        $placa = $mostrar5['placa_sena'];
+        $nom_dispositivo = $mostrar5['nom_dispositivo'];
+        $marca = $mostrar5['nom_marca'];
+        $tipodis = $mostrar5['nom_tipo_dispositivo'];
+
     }
 
 ?>
@@ -100,7 +117,7 @@
     <h2>MIS DATOS</h2>
     <div class="papa2">
         <div class="mis_datos">
-            <h3>MIS DATOS PERSONALES</h3>
+            <h3>PERSONALES</h3>
             <p>Documento: <?php echo  $documento ?></p>
             <p>Cod Carnet: <?php echo  $cod_carnet ?></p>
             <p>Nombres: <?php echo  $nombre ?></p>
@@ -111,7 +128,7 @@
             <p>Telefono: <?php echo  $tel ?></p>
         </div>
         <div class="mis_datos">
-            <h3>DATOS DE MI MATRICULA</h3>
+            <h3>MI MATRICULA</h3>
             <p>N° Matricula: <?php echo  $id_matricula ?></p>
             <p>Fecha Matricula: <?php echo  $fecha_matricula ?></p>
             <p>N° de Ficha: <?php echo  $num_ficha ?></p>
@@ -119,6 +136,15 @@
             <p>Ambiente: <?php echo  $nom_ambiente ?></p>
             <p>N° Nave: <?php echo  $nom_nave ?> </p>
             <p>Jornada: <?php echo  $nom_jornada ?></p>
+        </div>
+        <div class="mis_datos">
+            <h3>MI COMPUTADOR</h3>
+            <p>Serial: <?php echo  $idserial ?></p>
+            <p>Placa Sena: <?php echo  $placa ?></p>
+            <p>Dispositivo: <?php echo  $nom_dispositivo ?></p>
+            <p>Marca: <?php echo  $marca ?></p>
+            <p>Tipo de Dispositivo: <?php echo  $tipodis ?></p>
+
         </div>
     </div>
 <hr>
@@ -152,6 +178,7 @@
         <form action="js_aprendiz/agregarfinal.php" id="formularioinicioo" class="formuu" method="POST">
             <textarea name="mensajefinal" id="mensajefinal" cols="30" rows="10" max=30 min=30 placeholder="Describa en que Estado Dejo su Equipo de Computo"></textarea>
             <input type="hidden" value="<?php echo $id_asignacion ?>" id="id_asignacion_inicioo" name="id_asignacion_inicioo">
+            <input type="hidden" value="<?php echo $documento ?>" name="cedu">
             <button name="enviarfinal">
                 Enviar Estado de Equipo
             </button>
