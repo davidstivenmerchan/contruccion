@@ -32,13 +32,13 @@
 }
 .navigation{
     background-color: #70b22d !important;
-    width:20vw;
     max-width: 20vw;
     padding: 10vh 0 0 0;
     display: flex;
     justify-content: flex-start;
     transition: 0.5s;
     overflow: hidden;
+    /* width: 10vw; */
 }
 
 .navigation ul {
@@ -47,6 +47,7 @@
     width: 100%;
     list-style: none;
     height: 100vh;
+    width: 100%;
 }   
 
 .navigation ul li{
@@ -54,15 +55,16 @@
     width: 100%;
     height: 5rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
 .navigation ul li a{
     height: 100%;
-    width: 100%;
+    width: 20vw;
     display: flex;
-    justify-content: left;
     align-items: center;
+    justify-content: center;    
     text-decoration: none;
 }
 .navigation ul li a .fa{
@@ -81,5 +83,41 @@
     background: transparent;
 }
 
+.navigation img{
+    max-width: 100%;
+}
 
-
+@media screen and (max-width: 1122px){
+    .navigation {
+        width: 60px;
+        padding: 0;
+        height: 100%;
+    }
+    .navigation ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .navigation .ip{
+        margin: 0;
+    }
+    .navigation ul li a .title{
+        display:none;
+    }
+    .navigation ul li a .fa{
+        margin: 0 0 0 1vw;
+    }
+    .navigation .img{
+        visibility: hidden;
+        transition: 0.2s;
+    }
+    .navigation .img{
+        width: 15rem;
+        height: 15rem;
+        display: block;
+        margin: 2vh 0 10vh 6vh;
+    }
+    .navigation .ip{
+        margin: 3re
+    }
+}
