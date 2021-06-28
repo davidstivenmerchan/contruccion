@@ -291,7 +291,7 @@
         <div class="form1 formu7">
             <p type="title">Crear tipos de Dispositivos</p>
             <div class="linea"></div>
-            <form id="tipoDispo" class="formulario">
+            <form id="tipoDispo" class="formulario" autocomplete="off">
     
                 <label for="nom">Nombre del Tipo de Dispositivo</label><br>
                 <input type="text" name="nom_dis" id="nom_dis" required>
@@ -303,7 +303,7 @@
         <div class="form1 formu8">
             <p type="title">Crear la Marca de los Equipos</p>
             <div class="linea"></div>
-            <form class="formulario" id="marcaEquipos">
+            <form class="formulario" id="marcaEquipos" autocomplete="off">
                     <!--  -->
                     <label for="nom">Nombre de la Marca</label><br>
                     <input type="text" name="nom_marca" id="nom_marca" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras" >
@@ -314,7 +314,7 @@
         <div class="form1 formu9">
             <p type="title">Crear Estado del Dispositivo</p>
             <div class="linea"></div>
-            <form class="formulario" id="estadoDispo">
+            <form class="formulario" id="estadoDispo" autocomplete="off">
                 <label for="nom">Nombre del Estado del Dispositivo</label><br>
                 <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                 <input type="submit" value="Guardar">
@@ -325,7 +325,7 @@
         <div class="form1 formu10">
             <p type="title">Crear Estado de Aprobacion</p>
             <div class="linea"></div>
-            <form class="formulario" id="estadoApro">
+            <form class="formulario" id="estadoApro" autocomplete="off">
 
                 <label for="nom">Nombre del Estado de Aprobacion</label><br>
                 <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
@@ -337,7 +337,7 @@
         <div class="form1 formu11">
             <p type="title">Crear Estado de Disponibilidad</p>
             <div class="linea"></div>
-            <form class="formulario" id="estadoDisponibilidad">
+            <form class="formulario" id="estadoDisponibilidad" autocomplete="off">
                 
                 <label for="nom">Nombre del Estado de Disponibilidad</label><br>
                 <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
@@ -348,7 +348,7 @@
         <div class="form1 formu12">
             <h2>Registro de Dispositivos Electronicos </h2>
 
-            <form id="formuDispositivo"class="fommu">
+            <form id="formuDispositivo"class="fommu" autocomplete="off">
                 
                   
                 <label for="serial">Serial</label>
@@ -406,7 +406,7 @@
             </form>
         </div>
         <div class="form1 formu13">
-                <form action="" id="perifericoform">
+                <form action="" id="perifericoform" autocomplete="off">
                     <article class="serialperiferico">
                         <label for="serialperiferico">Serial</label>
                         <input type="text" name="serialperiferico" id="serialperiferico" placeholder="serial del periferico" autocomplete="off" required>
