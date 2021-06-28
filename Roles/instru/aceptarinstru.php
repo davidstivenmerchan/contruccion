@@ -1,6 +1,7 @@
 <?php
 
 require_once('../../includes/conexion.php');
+$ccc = $_GET['var'];
 
 $consulta1= "SELECT aceptacion_usuarios.id_aceptacion, usuarios.documento, usuarios.Nombres, usuarios.Apellidos, fichas.ficha, formacion.nom_formacion, jornada.nom_jornada, nave.nom_nave, ambiente.n_ambiente, matricula.fecha_matricula, aceptacion_usuarios.id_estado_aprobacion
 FROM usuarios, fichas, formacion, jornada, nave, ambiente, matricula, aceptacion_usuarios
@@ -11,9 +12,14 @@ AND jornada.id_jornada=fichas.id_jornada
 AND nave.id_nave=ambiente.id_nave
 AND ambiente.id_ambiente=fichas.id_ambiente
 AND usuarios.documento=aceptacion_usuarios.documento
-AND fichas.instructor=222
+AND fichas.instructor='$ccc'
 AND aceptacion_usuarios.id_estado_aprobacion=2";
 $ejecucion1=mysqli_query($mysqli, $consulta1);
+
+
+
+
+
 
 
 ?>
@@ -34,6 +40,7 @@ $ejecucion1=mysqli_query($mysqli, $consulta1);
 
 <a href="instructor.php"><i class="atras fas fa-arrow-left"></i></a>
 <h1>Aceptar Aprendices</h1>
+
 
 
 

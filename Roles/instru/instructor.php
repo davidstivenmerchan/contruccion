@@ -71,9 +71,9 @@ while(mysqli_stmt_fetch($query)){
     </div>
 
    <nav>
-       <button class="uno"><a href="asignacion_equipos.php">Asignación de Computadores</a></button><STYLE>A {text-decoration: none;} </STYLE><br>
-       <button class="dos"><a href="asistencia_aprendices.php">Asistencia de Aprendices</a></button><br>
-       <button class="tres"><a href="registrar_equipos.php">Equipos de Computo</a></button><br>
+       <button class="uno"><a href="asignacion_equipos.php?var= <?php echo $documento?>">Asignación de Computadores</a></button><STYLE>A {text-decoration: none;} </STYLE><br>
+       <button class="dos"><a href="asistencia_aprendices.php?var= <?php echo $documento?>">Asistencia de Aprendices</a></button><br>
+       <button class="tres"><a href="registrar_equipos.php?var= <?php echo $documento?>">Equipos de Computo</a></button><br>
    </nav>
    <div class="enlaces">
         <h2>INFORMES</h2>
@@ -105,7 +105,7 @@ while(mysqli_stmt_fetch($query)){
    </div>
 
 
-   <a href="aceptarinstru.php">aceptar aprendices</a>
+   <a href="aceptarinstru.php?var= <?php echo $documento?>">aceptar aprendices</a>
 
    
     <!-- <div class="menu">

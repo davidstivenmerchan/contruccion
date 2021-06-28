@@ -1,6 +1,13 @@
 <?php
 $fechaHoy = date("Y-m-d");
 $horaHoy = date("H:i:s"); 
+
+
+$ccc = $_GET['var'];
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,14 +53,16 @@ $horaHoy = date("H:i:s");
    <br>
     <br>
 
-   <form action=""  id="insertar_asignacion" class="buscar_asignacion">
+   <form action="js/agregar_asignacion.php" class="buscar_asignacion" method="POST">
             <label for="ce"><strong>Por favor Ingrese la Cedula del Aprendiz: </strong></label>
-            <input type="number" name="" id="ce" class="inputbuscarasignacion">
-            <input type="hidden" id="fecha" value="<?php echo $fechaHoy ?>">
-            <input type="hidden" id="hora" value="<?php echo $horaHoy ?>">
-            <button class="enviarasignacion">
+            <input type="number" name="cedula" id="ce" class="inputbuscarasignacion">
+            <input type="hidden" id="fecha" name="fecha" value="<?php echo $fechaHoy ?>">
+            <input type="hidden" id="hora" name="hora" value="<?php echo $horaHoy ?>">
+            <input type="hidden" id="docuinstru" name="docuinstru" value="<?php echo $ccc ?>">
+            <input type="submit" class="enviarasignacion" value="Asignar equipo" name="enviar">
+            <!-- <button class="enviarasignacion">
             asignar equipo
-            </button>
+            </button> -->
         </form>
     
    <table class="tabla_busqueda grande">

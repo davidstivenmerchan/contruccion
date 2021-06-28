@@ -1,13 +1,25 @@
 <?php
  require_once ('../../../includes/conexion.php');
 
- if(isset($_POST['cedula'])){
+ if(isset($_POST['enviar'])){
      $cedula = $_POST['cedula'];
      $fecha = $_POST['fecha'];
      $hora = $_POST['hora'];
+     $docuinstru = $_POST['docuinstru'];
 
+     $conu ="SELECT matricula.aprendiz, fichas.instructor FROM matricula, fichas WHERE fichas.ficha=matricula.ficha AND
+     fichas.instructor=$docuinstru and matricula.aprendiz='$cedula'";
+     $conueje = mysqli_query($mysqli, $conu);
+     $mos = mysqli_fetch_array($conueje);
+     if($mos){
+        $aprendiz = $mos['aprendiz'];
+     }
 
-     $consulta = "INSERT INTO entrada_aprendiz(fecha, hora, documento) values('$fecha', '$hora', '$cedula')";
+     if($aprendiz==''){
+         echo "El aprendiz no se encuentra en su grupo";
+     }else{
+
+        $consulta = "INSERT INTO entrada_aprendiz(fecha, hora, documento) values('$fecha', '$hora', '$cedula')";
      $ejecutar = mysqli_query($mysqli, $consulta);
 
      $consulta2 = "SELECT MAX(entrada_aprendiz.id_entrada_aprendiz) from entrada_aprendiz";
@@ -43,10 +55,16 @@
 
 
 
-     if(!$ejecutar and !$ejecutar2 and !$ejecutar3 and !$ejecutar4 and !$ejecutar5){
-         die('Query Failed.');
+     
+     echo "<script> alert('se agrego exitosamente el equipo');
+                             window.location= '../asignacion_equipos.php?var=$docuinstru';
+                         </script>";
+     
+
      }
-     echo 'se agrego exitosamente';
+
+ 
+
      
 
 
