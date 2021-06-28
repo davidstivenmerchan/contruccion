@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="card">
-            <h3>Crear Detalle Formacion</h3>
+            <h3>Crear Fichas</h3>
 
             <div class="botones">
                 <button class="aparecerambientes formuambientes4" data-form="formu3"> <i class="aparecerambientes formuambientes4 fa fa-file-alt" title="Mostrar Detalle de formaciones" data-form="formu3"></i>  </button>
@@ -174,20 +174,18 @@
 
         <div class="formu1 tablas">
             <h2>Jornadas</h2>
-            <table class="tabla" border=1 cellspacing="0">
-                <tr class="header">
-                    <td>Id</td>
+            <table class="tabla tablajornada" border=1 cellspacing="0">
+                <tr class="header">                  
                     <td>Nombre jornada</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
                 <?php 
-            $con = "SELECT * from jornada";
+            $con = "SELECT nom_jornada  from jornada";
             $m = mysqli_query($mysqli, $con);
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
-                <tr class="datos">
-                    <td><?php echo $eh['id_jornada']?></td>
+                <tr class="datos">                    
                     <td><?php echo $eh['nom_jornada']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit jornada" data-jornada="<?php echo $eh['id_jornada']; ?>">
@@ -205,19 +203,17 @@
 
 
             <table class="tabla" border=1 cellspacing="0">
-                <tr class="header">
-                    <td>Id</td>
+                <tr class="header">                   
                     <td>Nombre formacion</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
                 <?php 
-            $con = "SELECT * from formacion";
+            $con = "SELECT nom_formacion from formacion";
             $m = mysqli_query($mysqli, $con);
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_formacion']?></td>
                     <td><?php echo $eh['nom_formacion']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" class="edit formacion" alt="editar" title="editar" data-formacion ="<?php echo $eh['id_formacion']; ?>">
@@ -231,34 +227,45 @@
         </div>
 
         <div class="formu3 tablas">
-            <h2>Detalle de formacion</h2>
+            <h2>Fichas</h2>
 
 
-            <table class="tabla" border=1 cellspacing="0">
+            <table class="tabla" border=1 cellspacing="0" style="width: 60vw;">
                 <tr class="header">
-                    <td>Id</td>
-                    <td>Nombre Formacion</td>
-                    <td>Numero de ficha</td>
-                    <td>Nombre Ambiente</td>
+                    <td>ficha</td>
+                    <td>Jornada</td>
+                    <td>Ambiente</td>
+                    <td>Nave</td>
+                    <td>Formacion</td>
+                    <td>Documento Instructor</td>
+                    <td>Nombre Instructor</td>
+                    <td>Apellido Instructor</td>
                     <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
-            $con = "SELECT id_detalle_formacion, nom_formacion,num_ficha, ambiente.nom_ambiente 
-                    FROM detalle_formacion,formacion,ambiente 
-                    WHERE detalle_formacion.id_formacion = formacion.id_formacion
-                    AND detalle_formacion.id_ambiente = ambiente.id_ambiente";
+            $con = "SELECT ficha,nom_jornada,n_ambiente,nom_nave,nom_formacion,usuarios.documento,nombres,apellidos 
+                    FROM fichas,usuarios,jornada,ambiente,nave,formacion 
+                    WHERE fichas.id_jornada = jornada.id_jornada
+                    AND fichas.id_ambiente = ambiente.id_ambiente
+                    AND fichas.id_formacion = formacion.id_formacion
+                    AND fichas.instructor = usuarios.documento
+                    AND ambiente.id_nave = nave.id_nave";
             $m = mysqli_query($mysqli, $con);
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_detalle_formacion']?></td>
+                    <td><?php echo $eh['ficha']?></td>
+                    <td><?php echo $eh['nom_jornada']?></td>
+                    <td><?php echo $eh['n_ambiente']?></td>
+                    <td><?php echo $eh['nom_nave']?></td>
                     <td><?php echo $eh['nom_formacion']?></td>
-                    <td><?php echo $eh['num_ficha']?></td>
-                    <td><?php echo $eh['nom_ambiente']?></td>
+                    <td><?php echo $eh['documento']?></td>
+                    <td><?php echo $eh['nombres']?></td>
+                    <td><?php echo $eh['apellidos']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit detalle_formacion" data-detalleformacion="<?php echo $eh['id_detalle_formacion']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove detalle_formacion" data-detalleformacion="<?php echo $eh['id_detalle_formacion']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit fichas" data-fichas="<?php echo $eh['ficha']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove fichas" data-fichas="<?php echo $eh['ficha']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -296,9 +303,11 @@
 
 
         <div class="form1 formu7">
-            <p type="title">DETALLE FORMACION</p>
+            <p type="title">FICHAS</p>
             <div class="linea"></div>
             <form class="formulario" id="detalle_formacion">
+
+                <input type="number" name="num_ficha" id="num_ficha" placeholder="Escriba el numero de ficha" required>
 
                 <select name="formacion" id="detalle" required>
                 <option value="">Selecione una Formacion</option>
@@ -310,7 +319,7 @@
                 ?>
                 </select>
 
-                <input type="number" name="num_ficha" id="num_ficha" placeholder="Escriba el numero de ficha" required>
+                
 
                 <select name="ambiente" id="ambiente" required>
                 <option value="">Seleccione un Ambiente</option>
