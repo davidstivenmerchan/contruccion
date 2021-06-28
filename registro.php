@@ -80,7 +80,7 @@
         
     </div>
     <div class="sele2"> 
-        <label>Fecha de Nacimiento: </label>
+        <label>Fecha de Nacimiento </label>
         <input type="date" name="date" id="">
 
         <label for="">Fecha de Matricula</label>
