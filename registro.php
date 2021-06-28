@@ -34,7 +34,7 @@
 
 <div class="papa">
     <h1>REGISTRO DE APRENDICES</h1>
-    <form action="registrousuarios/registro_usu.php" method="POST">
+    <form action="registrousuarios/registro_usu.php" method="POST" autocomplete="off">
     <div>
         <input type="number" name="cc" id="" placeholder="Ingrese numero de documento">
         <select name="tip_doc" id="tip_doc" required>
