@@ -19,6 +19,17 @@
          echo "El aprendiz no se encuentra en su grupo";
      }else{
 
+    $consultaaceptacion= "SELECT aceptacion_usuarios.documento, aceptacion_usuarios.id_estado_aprobacion 
+    from aceptacion_usuarios where aceptacion_usuarios.id_estado_aprobacion=1";
+    $ejecutaraceptacion=mysqli_query($mysqli,$consultaaceptacion);
+    $mostraraceptacion=mysqli_fetch_array($ejecutaraceptacion);
+    if($mostraraceptacion){
+        $documentoaceptado=$mostraraceptacion['documentoaceptado'];
+    }
+
+    if($documentoaceptado==''){
+        echo "El aprendiz no esta aceptado";
+    }else{
         $consulta = "INSERT INTO entrada_aprendiz(fecha, hora, documento) values('$fecha', '$hora', '$cedula')";
      $ejecutar = mysqli_query($mysqli, $consulta);
 
@@ -59,6 +70,11 @@
      echo "<script> alert('se agrego exitosamente el equipo');
                              window.location= '../asignacion_equipos.php?var=$docuinstru';
                          </script>";
+
+    }
+
+
+     
      
 
      }
