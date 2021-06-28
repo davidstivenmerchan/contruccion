@@ -35,9 +35,6 @@ include('../../includes/conexion.php');
 <h2>ACEPTACIÓN DE APRENDICES</h2>
 </div>
 
-
-    
-
 <form action="procesaraceptar.php" method="POST">
 
 <table>
