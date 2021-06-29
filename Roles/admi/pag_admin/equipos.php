@@ -461,10 +461,6 @@
                                 ?>
                             </select>
                     </article>
-                    <article class="dispositivoElectronico">
-                            <label for="dispoelectronico"> serial Dispositivo electronico Asociado</label>
-                            <input type="number" name="dispositivoElectronico" id="dispositivoelectronico" autocomplete="off" required>
-                    </article>
                     <input type="submit" value="Registrar">
                 </form>
         </div>

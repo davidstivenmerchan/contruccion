@@ -16,7 +16,6 @@ const handleAdd = ( e, url, data, paginaCargar ) => {
     })
       .then( result => {
         if( result.isConfirmed ){
-            debugger;
             ajax({
                 url,
                 method: 'POST',
@@ -26,7 +25,7 @@ const handleAdd = ( e, url, data, paginaCargar ) => {
                         data.statusText,
                         'success',
                     );
-
+                    console.log(data);
                     const $main = document.querySelector('main');
                     getHTML({
                         url: paginaCargar,
