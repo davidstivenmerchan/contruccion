@@ -2,7 +2,7 @@
 
 include('../../includes/conexion.php');
 header('Content-Type: application/json');
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $_POST = json_decode( file_get_contents('php://input'), true );
     $tabla = $_POST['tabla'];
     if( $tabla === 'usuarios' ){
@@ -18,23 +18,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $emailp= $_POST['emailPersonal'];
         $emails= $_POST['emailSena'];
         $clave= $_POST['clave'];
-        $img= $_POST['imagen'];
+        // $img= $_POST['imagen'];
+        $telefono = $_POST['telefono'];
     
 
-        $consul = "INSERT INTO usuarios(documento,id_tipo_documento,id_tipo_usuario,Cod_Carnet,Nombres,Apellidos,fecha_nacimiento,genero,correo_personal,correo_sena,password,foto) 
-        values ($cc,$tipdoc,$tipusu,$cod,'$nombre','$ape','$fecha','$genero','$emailp','$emails','$clave','$img')";
+        $consul = "INSERT INTO usuarios(documento,id_tipo_documento,id_tipo_usuario,Cod_Carnet,Nombres,Apellidos,fecha_nacimiento,correo_personal,correo_sena,telefono,password, id_genero) 
+        values ($cc,$tipdoc,$tipusu,$cod,'$nombre','$ape','$fecha','$emailp','$emails',$telefono,'$clave', $genero)";
 
         $resultados = mysqli_query($mysqli,$consul);
     
+        $res;
+        if($resultados){
+            $res = array(
+                "err" => false,
+                "status" => http_response_code(200),
+                "statusText" => "Usario agregado con exito"
+            );
+        }else{
+            $res = array (
+                "err" => true,
+                "status" => http_response_code(500),
+                "statusText" => "no se puede agregar el usuario"
+            );
+        }
 
-        // if($resultados){
-        //     echo json_encode([
-        //         $name
-        //     ]);
-        // }else{
-        //     echo json_encode();
-        // }
-        echo json_encode($_FILES);
+         echo json_encode($res);
     }elseif( $tabla == 'tipo_documento' ){
         $nomdoc= $_POST['nom_doc'];
         $consul2 = "INSERT INTO tipo_documento (nom_documento) values ('$nomdoc')";

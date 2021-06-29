@@ -239,6 +239,10 @@
                             <?php endforeach; ?>       
                         </select>
                     </div>
+                    <div class="telefono">
+                        <label for="telefono">Telefono</label> 
+                        <input type="number" name="telefono" id="telefono" autocomplete="off" required>
+                    </div>
                     <div class="emailPersonal">
                         <label for="email_per">E-mail Personal</label> 
                         <input type="email" name="email_per" id="email per" autocomplete="off" required>
@@ -250,10 +254,6 @@
                     <div class="password">
                         <label for="clave">Contraseña</label>
                         <input type="password" name="clave" id="clave" autocomplete="off" required>
-                    </div>
-                    <div class="foto">
-                        <label for="imagen">Foto del Usuario</label>
-                        <input enctype="multipart/form-data" type="file" name="imagen" id="imagen"> 
                     </div>
                     <input type="submit" value="Registrar" name="enviar1">
             </form>
