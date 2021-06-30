@@ -14,7 +14,7 @@
      if($mos){
         $aprendiz = $mos['aprendiz'];
      }
-
+     
      if($aprendiz==''){
          echo "El aprendiz no se encuentra en su grupo";
      }else{
