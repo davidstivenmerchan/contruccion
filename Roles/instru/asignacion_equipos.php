@@ -91,6 +91,8 @@ $ccc = $_GET['var'];
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
   <script src="js/app.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 
 
 </body>
 </html>

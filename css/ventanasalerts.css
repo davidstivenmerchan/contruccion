@@ -1,0 +1,41 @@
+
+.boton{
+    background: #ff6b00 ;
+    width: 50%;
+    height: 80%;
+    color: wheat;
+    transition: .7s;
+    border: none;
+}
+.boton:hover{
+    background: rgb(112,178,45) ;
+    cursor: pointer;
+}
+.boton:focus{
+    border: none;
+}
+.popo{
+    background: #ff6b00 ;
+    color: white;
+    border-radius: 0;
+}
+.image{
+    position: absolute;
+    left:30px;
+}
+.cosas{
+    width: 200px;
+    height: 500px;
+}
+.ico{
+    top: 60px;
+}
+.texto{
+    position: absolute;
+    top: 300px;
+    left: 168px;
+}
+.titul{
+    position: absolute;
+    top: 60px;
+}
