@@ -656,17 +656,30 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         echo json_encode($res);
     }
     if($tabla === 'usuarios'){
-        $sql = "UPDATE $tabla SET id_tipo_documento = ?, Cod_Carnet = ?, Nombres = ?, Apellidos = ?, fecha_nacimiento = ?, correo_personal = ?, correo_sena = ?, telefono = ?, id_genero = ? WHERE documento = ? ";
-        $query = mysqli_prepare($mysqli, $sql);
-        $ok= mysqli_stmt_bind_param($query , 'iisssssiii' , $_PUT['select_tipo_docu'] , $_PUT['Cod_Carnet'], $_PUT['nombres'], $_PUT['apellidos'], $_PUT['fecha_nacimiendo'], $_PUT['correo_personal'], $_PUT['correo_sena'], $_PUT['telefono'], $_PUT['select_tipo_genero'], $_PUT['documento']);
-        $ok = mysqli_stmt_execute($query);
-        mysqli_stmt_close($query);
-        $res = array (
-            'err' => false,
-            'status' => http_response_code(200),
-            'statusText' => 'Usuario modificado correctamente'
-        );
-        echo json_encode($res);
+        try{
+            $sql = "UPDATE $tabla SET id_tipo_documento = ?, Cod_Carnet = ?, Nombres = ?, Apellidos = ?, fecha_nacimiento = ?, correo_personal = ?, correo_sena = ?, telefono = ?, id_genero = ? WHERE documento = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok= mysqli_stmt_bind_param($query , 'iisssssiii' , $_PUT['select_tipo_docu'] , $_PUT['Cod_Carnet'], $_PUT['nombres'], $_PUT['apellidos'], $_PUT['fecha_nacimiento'], $_PUT['correo_personal'], $_PUT['correo_sena'], $_PUT['telefono'], $_PUT['select_tipo_genero'], $_PUT['documentoAntiguo']);
+            $ok = mysqli_stmt_execute($query);
+            mysqli_stmt_close($query);
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'Usuario  modificado correctamente',
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'No se puede modificar correctamente'
+                );
+            }
+            echo json_encode($_PUT);
+        }catch(Exception $ex){
+            echo json_encode($ex);
+        }
     }
     if($tabla === 'fichas'){
         $sql = "UPDATE $tabla SET  id_jornada = ?, id_ambiente = ?, id_formacion = ?, instructor = ? WHERE ficha = ? ";

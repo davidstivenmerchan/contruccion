@@ -112,16 +112,16 @@ export const editUsuario = ( id ) =>{
                 },
                 data: {
                     tabla: 'usuarios',
-                    documentoAntiguo: e.target.documentoantiguo.value,
+                    documentoAntiguo: parseInt(e.target.documentoantiguo.value),
                     documento: e.target.documento.value,
                     select_tipo_docu: parseInt(e.target.select_tipo_docu.value),
-                    Cod_Carnet: e.target.cod_carnet.value,
+                    Cod_Carnet: parseInt(e.target.cod_carnet.value),
                     nombres: e.target.nombres.value,
                     apellidos: e.target.apellidos.value,
                     fecha_nacimiento: e.target.fecha_nacimiento.value,
                     correo_personal: e.target.correo_personal.value,
                     correo_sena: e.target.correo_sena.value,
-                    telefono: e.target.telefono.value,
+                    telefono: parseInt(e.target.telefono.value),
                     select_tipo_genero: parseInt(e.target.select_tipo_genero.value),
                 }
             });
