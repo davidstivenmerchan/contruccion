@@ -137,12 +137,6 @@ main{
     margin-left: 70px;
     margin-top: -70px;
 }
-
-
-
-
-
-
 .form5 {
     display: flex;
     flex-direction: column;
@@ -503,4 +497,15 @@ table .acciones {
     background:rgb(112,178,45) ;
     cursor: pointer;
 
+}
+
+.tablainstru{
+    display:none;
+}
+.is-active-usu{
+    display: flex;
+    margin:0 auto;
+}
+.is-noactive-usu{
+    display: none;
 }

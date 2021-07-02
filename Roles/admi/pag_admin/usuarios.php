@@ -68,13 +68,13 @@
   
 
     <nav class="secciones_usuario">
-        <ul>
-            <li onclick="aparecer_Aprendices()">Aprendices</li>
-            <li onclick="aparecer_instructores()">Instructores</li>
+        <ul class="seccUsua">
+            <li class="aprentabla">Aprendices</li>
+            <li class="instructorestabla">Instructores</li>
         </ul>
     </nav>
     <div id="tablainstru" class="tablainstru">
-    hola
+        hpta estoy brillando ajajajjajaja que loquera
     </div>
 
     <table class="tablausu" id="tablausu">

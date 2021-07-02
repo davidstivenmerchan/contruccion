@@ -86,8 +86,18 @@ document.addEventListener('click' , e => {
         desaparecer( nuevoArray )
         aparecer( elemento );
     }
-    
-    
+    if(e.target.matches('.seccUsua li')){
+       
+
+        if(e.target.matches('.aprentabla')){
+            document.getElementById('tablainstru').style.display = 'none';
+            document.getElementById('tablausu').style.display = 'block';
+            document.getElementById('tablausu').style.margin = "30px 8rem 0 0";
+        }else{
+            document.getElementById('tablausu').style.display = 'none';
+            document.getElementById('tablainstru').style.display = 'block';
+        }
+    }
     // const aparecerEquipo = document.querySelectorAll
     if(e.target.matches('.aparecer')){
         callAparecer(formularios); //aprecer pertenece a usuarios
@@ -104,60 +114,48 @@ document.addEventListener('click' , e => {
         if(e.target.matches('.tipdispo')){
             const $id = e.target.getAttribute('data-tipdispo');
             editTipoDispo($id);
-        }
-        if(e.target.matches(".marca")){
+        }else if(e.target.matches(".marca")){
             const $id = e.target.getAttribute('data-marca');
             editMarca($id);
-        }
-        if(e.target.matches(".estado")){
+        }else if(e.target.matches(".estado")){
             const $id = e.target.getAttribute('data-estado');
             editEstadoDispositivo($id);
         }
-        if(e.target.matches(".aprobacion")){
+        else if(e.target.matches(".aprobacion")){
             const $id = e.target.getAttribute('data-estadoapro');
             editEstadoAprobacion($id);
-        }
-        if(e.target.matches(".disponibi")){
+        }else if(e.target.matches(".disponibi")){
             const $id = e.target.getAttribute('data-estadodisponi');
             editEstadodisponibilidad($id);
-        }
-        if(e.target.matches(".dispositivo")){
+        }else if(e.target.matches(".dispositivo")){
             const $id = e.target.getAttribute('data-dispositivo');
             editdispoelectronico($id);
         }
-        if(e.target.matches(".ambiente")){
+        else if(e.target.matches(".ambiente")){
             const $id = e.target.getAttribute('data-ambiente');
             editAmbiente($id);
-        }   
-        if(e.target.matches(".nave")){
+        }else if(e.target.matches(".nave")){
             const $id = e.target.getAttribute('data-nave');
             editNave($id);
-        }
-        if(e.target.matches(".jornada")){
+        }else if(e.target.matches(".jornada")){
             const $id = e.target.getAttribute('data-jornada');
             editjornada($id);
-        }
-        if(e.target.matches(".formacion")){
+        }else if(e.target.matches(".formacion")){
             const $id = e.target.getAttribute('data-formacion');
             editFormacion($id);
-        }
-        if(e.target.matches(".detalle_formacion")){
+        }else if(e.target.matches(".detalle_formacion")){
             const $id = e.target.getAttribute('data-detalleformacion');
             editDetalleformacion($id);
-        }   
-        if(e.target.matches('.tipoDocu')){
+        }   else if(e.target.matches('.tipoDocu')){
             const $id = e.target.getAttribute('data-tipoDocu');
             editTipDocu($id);
-        }
-        if(e.target.matches('.tipoUsu')){
+        }else if(e.target.matches('.tipoUsu')){
             const $id = e.target.getAttribute('data-tipoUsu');
             editTipUsu( $id );
-        }
-        if(e.target.matches('.usuario')){
+        }else if(e.target.matches('.usuario')){
             const $id = e.target.getAttribute('data-usuario');
             editUsuario( $id );
-        
-        }if(e.target.matches('.fichas')){
+        }else if(e.target.matches('.fichas')){
             const $id = e.target.getAttribute('data-fichas');
             editFicha( $id );
         }
