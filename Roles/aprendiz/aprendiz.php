@@ -36,24 +36,25 @@
         $id_asignacion = $mostrar2['id_asignacion_equipos'];
     }
 
-    $consulta3 = "SELECT  matricula.id_matricula, matricula.fecha_matricula, detalle_formacion.num_ficha, formacion.nom_formacion, 
-    ambiente.n_ambiente, nave.nom_nave, jornada.nom_jornada FROM matricula, detalle_formacion, formacion, ambiente, nave, jornada
-    where detalle_formacion.id_detalle_formacion=matricula.id_detalle_formacion 
-    AND jornada.id_jornada=matricula.id_jornada
-    AND formacion.id_formacion=detalle_formacion.id_formacion
-    AND ambiente.id_ambiente=detalle_formacion.id_ambiente
-    AND nave.id_nave=ambiente.id_nave
-    AND matricula.documento='$documento'";
+    $consulta3 = "SELECT fichas.ficha, formacion.nom_formacion, jornada.nom_jornada, nave.nom_nave, 
+    ambiente.n_ambiente, fichas.instructor, matricula.fecha_matricula  
+    FROM fichas, formacion, jornada, nave, ambiente, matricula 
+    WHERE fichas.ficha=matricula.ficha 
+    and formacion.id_formacion=fichas.id_formacion 
+    and jornada.id_jornada=fichas.id_jornada 
+    and nave.id_nave=ambiente.id_nave 
+    and ambiente.id_ambiente=fichas.id_ambiente 
+    and matricula.aprendiz=$documento";
     $ejecucion3=mysqli_query($mysqli,$consulta3);
     $mostrar3=mysqli_fetch_array($ejecucion3);
     if($mostrar3){
-        $id_matricula = $mostrar3['id_matricula'];
-        $fecha_matricula = $mostrar3['fecha_matricula'];
-        $num_ficha = $mostrar3['num_ficha'];
+        $ficha = $mostrar3['ficha'];
         $nom_formacion = $mostrar3['nom_formacion'];
-        $nom_ambiente = $mostrar3['n_ambiente'];
-        $nom_nave = $mostrar3['nom_nave'];
         $nom_jornada = $mostrar3['nom_jornada'];
+        $nom_nave = $mostrar3['nom_nave'];
+        $n_ambiente = $mostrar3['n_ambiente'];
+        $instructor = $mostrar3['instructor'];
+        $fecha_ma = $mostrar3['fecha_matricula'];
     }
 
     $consulta4="SELECT asignacion_equipos.descripcion_inicial, asignacion_equipos.descripcion_final, entrada_aprendiz.documento
@@ -103,11 +104,12 @@
     </form>
 <header class="header">
         <figure>
-            <img src="../../assets/logo_solo.png" alt="logo construccion" title="logo software">
+            <img src="../../assets/logo_sl.png" alt="logo construccion" title="logo software">
         </figure>
         <nav>
-            <a href="#">Mis Datos</a>
-            <a href="#">Mi Computador</a>
+            <h1>
+                AECES
+            </h1>
         </nav>
         <article class="opciones">
             <a href="../../includes/cerrar.php"><i class="fas fa-door-open"></i></a>
@@ -129,13 +131,13 @@
         </div>
         <div class="mis_datos">
             <h3>MI MATRICULA</h3>
-            <p>N° Matricula: <?php echo  $id_matricula ?></p>
-            <p>Fecha Matricula: <?php echo  $fecha_matricula ?></p>
-            <p>N° de Ficha: <?php echo  $num_ficha ?></p>
+            <p>Ficha: <?php echo  $ficha ?></p>
             <p>Formacion: <?php echo  $nom_formacion ?></p>
-            <p>Ambiente: <?php echo  $nom_ambiente ?></p>
-            <p>N° Nave: <?php echo  $nom_nave ?> </p>
             <p>Jornada: <?php echo  $nom_jornada ?></p>
+            <p>Nave: <?php echo  $nom_nave ?></p>
+            <p>Ambiente: <?php echo  $n_ambiente ?></p>
+            <p>Instructor: <?php echo  $instructor ?> </p>
+            <p>Fecha Matricula: <?php echo  $fecha_ma ?></p>
         </div>
         <div class="mis_datos">
             <h3>MI COMPUTADOR</h3>
