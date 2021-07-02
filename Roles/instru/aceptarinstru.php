@@ -17,7 +17,7 @@ AND aceptacion_usuarios.id_estado_aprobacion=2";
 $ejecucion1=mysqli_query($mysqli, $consulta1);
 
 
-
+ 
 
 
 
@@ -68,6 +68,7 @@ $ejecucion1=mysqli_query($mysqli, $consulta1);
     <tbody>
         <tr>
             <input type="hidden" value="<?php echo $i['documento'] ?>" name="<?php echo $i['documento'] ?>">
+            <input type="hidden" value="<?php echo $ccc ?>" name="cedula_instru">
             <td><?php echo $i['documento'] ?></td>
             <td><?php echo $i['Nombres'] ?></td>
             <td><?php echo $i['Apellidos'] ?></td>
