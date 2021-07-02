@@ -25,7 +25,7 @@ const handleAdd = ( e, url, data, paginaCargar ) => {
                         data.statusText,
                         'success',
                     );
-
+                    console.log(data);
                     const $main = document.querySelector('main');
                     getHTML({
                         url: paginaCargar,

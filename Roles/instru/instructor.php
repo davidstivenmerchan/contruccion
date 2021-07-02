@@ -72,30 +72,30 @@ while(mysqli_stmt_fetch($query)){
     </div>
 
    <nav>
-       <button class="uno"><a href="asignacion_equipos.php">Asignación de Computadores</a></button><STYLE>A {text-decoration: none;} </STYLE><br>
-       <button class="dos"><a href="asistencia_aprendices.php">Asistencia de Aprendices</a></button><br>
-       <button class="tres"><a href="registrar_equipos.php">Equipos de Computo</a></button><br>
+       <button class="uno"><a href="asignacion_equipos.php?var= <?php echo $documento?>" class="pueeba">Asignación de Computadores</a></button><STYLE>A {text-decoration: none;} </STYLE><br>
+       <button class="dos"><a href="asistencia_aprendices.php?var= <?php echo $documento?>"class="pueeba">Asistencia de Aprendices</a></button><br>
+       <button class="tres"><a href="registrar_equipos.php?var= <?php echo $documento?>" class="pueeba">Equipos de Computo</a></button><br>
    </nav>
    <div class="enlaces">
         <h2>INFORMES</h2>
         <a href="" class="uno">
             <span class="icon"><img src="../../assets/documento.png" alt=""></span>
-            <span class="title"><p>Asistencia</p></span>
+            <p class="pueba">Asistencia</p>
         </a>
 
         <a href="" class="dos">
             <span class="icon"><img src="../../assets/tablero.png" alt=""></span>
-            <span class="title"><p>Asignacion</p></span>
+            <p class="pueba" >Asignacion</p>
         </a>
 
         <a href="" class="tres">
             <span class="icon"><img src="../../assets/sitio-web.png" alt=""></span>
-            <span class="title"><p>Equipos</p></span>
+            <p class="pueba" >Equipos</p>
         </a>
 
         <a href="" class="cuatro">
             <span class="icon"><img src="../../assets/vigilancia.png" alt=""></span>
-            <span class="title"><p>Buscar Informe</p></span>
+            <p class="pueba" >Buscar Informe</p>
         </a>
    </div>
    <div class="grupos">
@@ -107,7 +107,7 @@ while(mysqli_stmt_fetch($query)){
 
     <div class="aceptar">
         <h3>ACEPTAR REGISTRO DE APRENDICES</h3>
-        <a href="aceptarinstru.php" class="acep">
+        <a href="aceptarinstru.php?var= <?php echo $documento?>" class="acep">
             <span class="icon"><img src="../../assets/check.png" alt=""></span>
         </a>
     </div>

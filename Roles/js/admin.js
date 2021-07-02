@@ -330,19 +330,20 @@ document.addEventListener('submit', (e)=>{
     }else if(e.target.matches('#crearusuario')){
         data = {
             tabla: 'usuarios',
-            documento: e.target.doc.value,
-            tipDocumento: e.target.tip_doc.value,
-            tipUsuario: e.target.tip_usu.value,
-            codigoCarnet: e.target.codigo.value,
+            documento: parseInt(e.target.doc.value),
+            tipDocumento: parseInt(e.target.tip_doc.value),
+            tipUsuario: parseInt(e.target.tip_usu.value),
+            codigoCarnet: parseInt(e.target.codigo.value),
             nombre: e.target.nom.value,
             apellido: e.target.ape.value,
             fechaNacimiento: e.target.fecha.value,
-            genero: e.target.genero.value,
+            genero: parseInt(e.target.genero.value),
             emailPersonal: e.target.email_per.value,
             emailSena: e.target.email_sena.value,
             clave: e.target.clave.value,
-            imagen: e.target.imagen.value,
+            telefono: parseInt(e.target.telefono.value),
         }
+        debugger;
         handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
     }else if(e.target.matches('#perifericoform')){
         data = {

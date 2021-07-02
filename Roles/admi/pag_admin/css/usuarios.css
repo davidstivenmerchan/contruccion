@@ -236,6 +236,7 @@ main{
 }
 .form1, .form2, .form3, .form4, .form5{
     display: none;
+    margin:0;
 }
 .form img{
     border-radius: 50%;
@@ -285,10 +286,13 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem 10rem 15rem 25rem;
+    margin: 0 auto;
     display:none;
 }
 
+.form3 {
+    width: auto;
+}
 .form1 form{
     /* background-color: #ffffff; */
     display: flex;
@@ -477,5 +481,3 @@ table .acciones {
     /* column-span: all; */
     width: 25vw;
 } 
-
-

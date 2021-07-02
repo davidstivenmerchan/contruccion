@@ -20,7 +20,7 @@ $(document).ready(function(){
                 let template = '';
             
                 if(response.length!==0 && response!=="[]"){  
-                busqueda.forEach( buscar => {
+                busqueda.forEach( buscar => { 
                     template += `
                     <tr>
                         <td>
@@ -63,11 +63,12 @@ $(document).ready(function(){
     }
     });
 
-    $('#insertar_asignacion').submit(function (e) {
+/*     $('#insertar_asignacion').submit(function (e) {
         const agregar_asignacion ={
             cedula: $('#ce').val(),
             fecha: $('#fecha').val(),
-            hora: $('#hora').val()
+            hora: $('#hora').val(),
+            docuinstru: $('#$docuinstru')
         }
         $.post('js/agregar_asignacion.php',agregar_asignacion, function(response){
             console.log(response);
@@ -76,7 +77,7 @@ $(document).ready(function(){
             $('#insertar_asignacion').trigger('reset');
         });
         e.preventDefault();
-    });
+    }); */
 
 
     function obtenerasiganciones(){
