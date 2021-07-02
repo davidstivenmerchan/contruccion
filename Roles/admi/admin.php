@@ -41,6 +41,12 @@ while(mysqli_stmt_fetch($query)){
     <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script> -->
     <title>Admin</title>
     <link rel="stylesheet" href="./../../css/admin.css">
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+    <script src="../js/separarusuarios.js"></script>
 </head>
 <body>
     <div class="container">

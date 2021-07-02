@@ -481,3 +481,26 @@ table .acciones {
     /* column-span: all; */
     width: 25vw;
 } 
+.secciones_usuario{
+    background:#e57816;
+    width: 100%;
+}
+.secciones_usuario ul{
+    display: flex;
+    justify-content: center;
+}
+.secciones_usuario ul li{
+    margin: 10px 120px;
+    color: white;
+    list-style: none;
+    transition: .5s;
+    border-radius: 20px;
+    padding: 5px;
+
+    
+}
+.secciones_usuario ul li:hover{
+    background:rgb(112,178,45) ;
+    cursor: pointer;
+
+}

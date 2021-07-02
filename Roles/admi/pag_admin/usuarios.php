@@ -23,6 +23,12 @@
     
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <script src="../../js/confirmacioneliminar.js"></script>
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+    <script src="../../js/separarusuarios.js"></script>
    
 
 </head>
@@ -54,9 +60,24 @@
         </div>
     </section>
 
+
+
+
     
     <div class="form tablas">
-    <table class="tablausu">
+  
+
+    <nav class="secciones_usuario">
+        <ul>
+            <li onclick="aparecer_Aprendices()">Aprendices</li>
+            <li onclick="aparecer_instructores()">Instructores</li>
+        </ul>
+    </nav>
+    <div id="tablainstru" class="tablainstru">
+    hola
+    </div>
+
+    <table class="tablausu" id="tablausu">
                 <tr class="titulo">
                     <td>Documento</td>
                     <td>Tipo Documento</td>
@@ -281,4 +302,6 @@
     </form>
     </div>
 </body>
+
+
 </html>

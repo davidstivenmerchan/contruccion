@@ -10,7 +10,7 @@ function parte2() {
 }
 
 
-
+ 
 $(document).ready(function(){
 
     obtenerdisponibilidad();
