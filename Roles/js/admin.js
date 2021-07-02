@@ -5,7 +5,6 @@ import { editAmbiente } from './edit_ambiente.js';
 import { editNave } from './edit_nave.js';
 import { editjornada } from './edit_jornada.js';
 import { editFormacion } from './edit_formacion.js';
-import { editDetalleformacion } from './edit_detalleforma.js';
 import { editEstadoDispositivo } from './edit_estadodispositivo.js';
 import { editEstadoAprobacion } from './edit_estadoaprobacion.js';
 import { editEstadodisponibilidad } from './estado_disponibilidad.js';
