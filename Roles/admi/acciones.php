@@ -14,9 +14,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     $id = (isset($_GET['id'])) ? $_GET['id'] : null ; /** aca extraigo el parametro id */
     $tipDispo = (isset($_GET['tipDispo'])) ? $_GET['tipDispo'] : null;
     $tabla = trim($_GET['tabla']);
-    if( !$id && !$tipDispo){
+    if( !$id && !$tipDispo && $tabla != 'instructores'){
         $resultados = [];
-        if($tabla !=  'ambiente'){
+        if($tabla !=  'ambiente' && $tabla != 'instructores'){
             $sql = "SELECT * from $tabla";
             $query = mysqli_prepare($mysqli, $sql);
             $ok = mysqli_stmt_execute($query);
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' ){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' ){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -138,7 +138,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             echo json_encode($res);
         }else if ($tabla == 'ambiente'){
             $resultados= [];
-            $sql = "SELECT id_ambiente, nom_ambiente, ambiente.id_nave, nave.nom_nave from ambiente,nave where id_ambiente = ? AND ambiente.id_nave = nave.id_nave ";
+            $sql = "SELECT id_ambiente, n_ambiente, ambiente.id_nave, nave.nom_nave from ambiente,nave where id_ambiente = ? AND ambiente.id_nave = nave.id_nave ";
             $query = mysqli_prepare($mysqli, $sql);
             $ok = mysqli_stmt_bind_param($query, 'i', $id);
             $ok = mysqli_stmt_execute($query);
@@ -244,6 +244,90 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 );
             }
             echo json_encode($res);
+        }else if($tabla == "fichas"){
+            $resultados = []; 
+            $sql = "SELECT ficha,jornada.id_jornada,jornada.nom_jornada,ambiente.id_ambiente,ambiente.n_ambiente,nave.id_nave,nave.nom_nave,formacion.id_formacion,formacion.nom_formacion,usuarios.documento,nombres,apellidos 
+                    FROM fichas,usuarios,jornada,ambiente,nave,formacion 
+                    WHERE fichas.id_jornada = jornada.id_jornada
+                    AND fichas.id_ambiente = ambiente.id_ambiente
+                    AND fichas.id_formacion = formacion.id_formacion
+                    AND fichas.instructor = usuarios.documento
+                    AND ambiente.id_nave = nave.id_nave
+                    AND ficha = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query , 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $ficha, $id_jornada, $nom_jornada, $id_ambiente, $n_ambiente, $id_nave, $nom_nave, $id_formacion, $nom_formacion, $documento, $nombres, $apellidos);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, 
+                [
+                    'ficha' => $ficha,
+                    'id_jornada' => $id_jornada,
+                    'nom_jornada' => $nom_jornada,
+                    'id_ambiente' => $id_ambiente,
+                    'n_ambiente' => $n_ambiente,
+                    'id_nave' => $id_nave,
+                    'nom_nave' => $nom_nave,
+                    'id_formacion' => $id_formacion,
+                    'nom_formacion' => $nom_formacion,
+                    'documento' => $documento,
+                    'nombres' => $nombres,
+                    'apellidos' => $apellidos,
+                ]
+                );
+            }
+            
+            $res;
+            if(count($resultados) > 0){
+                $res = array(
+                    "err" => false,
+                    "status" => http_response_code(200),
+                    "statusText" => "datos encontrados con exito",
+                    "data" => $resultados
+                );
+            }else{
+                $res = array(
+                    "err" => false,
+                    "status" => http_response_code(200),
+                    "statusText" => "no se encontraron datos",
+                    "data" => [],
+                );
+            }
+            echo json_encode($res);
+        }else if($tabla == "instructores"){
+            $resultados = [];
+            $id = 3;
+            $sql = "SELECT documento,Nombres FROM usuarios WHERE id_tipo_usuario = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query , 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $documento, $nombres);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, 
+                [
+                    'documento' => $documento,
+                    'nombres' => $nombres,
+                ]
+                );
+            }
+            
+            $res;
+            if(count($resultados) > 0){
+                $res = array(
+                    "err" => false,
+                    "status" => http_response_code(200),
+                    "statusText" => "datos encontrados con exito",
+                    "data" => $resultados
+                );
+            }else{
+                $res = array(
+                    "err" => false,
+                    "status" => http_response_code(200),
+                    "statusText" => "no se encontraron datos",
+                    "data" => [],
+                );
+            }
+            echo json_encode($res);
         }
 
 
@@ -310,7 +394,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             );
         }
     } else if ($tabla === 'ambiente'){
-        $sql = "INSERT INTO ambiente (id_ambiente, id_nave , nom_ambiente) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO ambiente (id_ambiente, id_nave , n_ambiente) VALUES (?, ?, ?)";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iis', $_POST['id_ambiente'],$_POST['nave'],$_POST['nom_ambiente']);
         $ok = mysqli_stmt_execute($query);
@@ -356,7 +440,27 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }catch(Exception $ex){
             echo json_encode($ex);
         }
-
+    }else if ($tabla === 'fichas'){
+        $sql = "INSERT INTO fichas (ficha, id_jornada, id_ambiente, id_formacion, instructor) VALUES (?, ?, ?, ?, ? )";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'iiiii', $_POST['numero_ficha'],$_POST['tip_jornada'], $_POST['tip_ambiente'], $_POST['nom_formacion'], $_POST['doc_instruc'] );
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = [];
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Registro insertado con exito',
+            );
+            echo json_encode($res);
+        }else{
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'No se puede insertar el registro',
+            );
+        }
     }
 
 }elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
@@ -500,7 +604,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
 
         echo json_encode($res);   
     } if ($_PUT['tabla'] === 'ambiente'){
-        $sql = "UPDATE ambiente set  nom_ambiente= ? , id_nave = ? 
+        $sql = "UPDATE ambiente set  n_ambiente= ? , id_nave = ? 
                 where id_ambiente = ?";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'sii', $_PUT['nom_ambiente'], $_PUT['select_nave'] , $_PUT['numero_ambiente']);
@@ -564,13 +668,36 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         );
         echo json_encode($res);
     }
+    if($tabla === 'fichas'){
+        $sql = "UPDATE $tabla SET  id_jornada = ?, id_ambiente = ?, id_formacion = ?, instructor = ? WHERE ficha = ? ";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok= mysqli_stmt_bind_param($query , 'iiiii' , $_PUT['select_jornada'] , $_PUT['select_ambiente'], $_PUT['select_formacion'], $_PUT['select_instructor'], $_PUT['numero_ficha']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res;
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Ficha modificada correctamente'
+            );
+        }else{
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'No se logro modificar la ficha'
+            );
+        }
+        echo json_encode($res);
+    }
+    
 
 
 }elseif($_SERVER['REQUEST_METHOD'] === 'DELETE'){
     $_DELETE = json_decode(file_get_contents('php://input'), true);
     $tabla = $_DELETE['tabla'];
     $id = $_DELETE['id'];
-    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios'){
+    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios' && $tabla !== 'fichas'){
         $sql = "DELETE from $tabla where id_$tabla = ?";
         $query = mysqli_prepare($mysqli , $sql);
         $ok = mysqli_stmt_bind_param($query, 's' , $id);
@@ -598,6 +725,19 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     }
     if($tabla === 'usuarios' ){
         $sql = "DELETE from $tabla where documento = ? ";
+        $query = mysqli_prepare($mysqli , $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i' , $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Registro borrado con exito',
+        );
+        echo json_encode($res);
+    }
+    if($tabla === 'fichas' ){
+        $sql = "DELETE from $tabla where ficha = ? ";
         $query = mysqli_prepare($mysqli , $sql);
         $ok = mysqli_stmt_bind_param($query, 'i' , $id);
         $ok = mysqli_stmt_execute($query);

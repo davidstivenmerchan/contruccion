@@ -56,11 +56,11 @@
             </div>
         </div>
         <div class="card">
-            <h3>Crear Detalle Formacion</h3>
+            <h3>Crear Fichas</h3>
 
             <div class="botones">
-                <button class="aparecerambientes formuambientes4" data-form="formu3"> <i class="aparecerambientes formuambientes4 fa fa-file-alt" title="Mostrar Detalle de formaciones" data-form="formu3"></i>  </button>
-                <button class="aparecerambientes formuambientes10" data-form="formu7"> <i class="aparecerambientes formuambientes10 fa fa-keyboard" title="Registrar Detalle Formacion" data-form="formu7"></i> </button>
+                <button class="aparecerambientes formuambientes4" data-form="formu3"> <i class="aparecerambientes formuambientes4 fa fa-file-alt" title="Mostrar Fichas" data-form="formu3"></i>  </button>
+                <button class="aparecerambientes formuambientes10" data-form="formu7"> <i class="aparecerambientes formuambientes10 fa fa-keyboard" title="Registrar Fichas" data-form="formu7"></i> </button>
             </div>
         </div>
     </section>
@@ -82,7 +82,7 @@
                 </tr>
 
                 <?php
-                    $sql="SELECT id_ambiente,nom_ambiente,nom_nave 
+                    $sql="SELECT id_ambiente,n_ambiente,nom_nave 
                         FROM ambiente,nave 
                         WHERE ambiente.id_nave = nave.id_nave";
                     $result=mysqli_query($mysqli,$sql);
@@ -95,7 +95,7 @@
 
                 <tr class="datos" style="text-align: center;">
                     <td><?php echo $mostrar['id_ambiente'] ?></td>
-                    <td><?php echo $mostrar['nom_ambiente'] ?></td>
+                    <td><?php echo $mostrar['n_ambiente'] ?></td>
                     <td><?php echo $mostrar['nom_nave'] ?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" class="edit ambiente" title="editar" data-ambiente="<?php echo $mostrar['id_ambiente'];?>">
@@ -116,7 +116,7 @@
             <form class="formulario" id="ambientes">
 
                 <input type="number" name="id_ambiente" id="id_ambiente" placeholder="Escriba el numero de Id" required>
-                <input type="text" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Nombre del Ambiente" required>
+                <input type="number" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Numero Ambiente" required>
 
                 <select name="nave" id="nave" required>
                 <option value="">Seleccione una Nave</option>
@@ -174,9 +174,9 @@
 
         <div class="formu1 tablas">
             <h2>Jornadas</h2>
-            <table class="tabla" border=1 cellspacing="0">
-                <tr class="header">
-                    <td>Id</td>
+            <table class="tabla tablajornada" border=1 cellspacing="0">
+                <tr class="header"> 
+                    <td>ID</td>                 
                     <td>Nombre jornada</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
@@ -186,8 +186,8 @@
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
-                <tr class="datos">
-                    <td><?php echo $eh['id_jornada']?></td>
+                <tr class="datos">     
+                    <td><?php echo $eh['id_jornada']?></td>               
                     <td><?php echo $eh['nom_jornada']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit jornada" data-jornada="<?php echo $eh['id_jornada']; ?>">
@@ -205,8 +205,8 @@
 
 
             <table class="tabla" border=1 cellspacing="0">
-                <tr class="header">
-                    <td>Id</td>
+                <tr class="header">  
+                    <td>ID</td>   
                     <td>Nombre formacion</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
@@ -231,34 +231,45 @@
         </div>
 
         <div class="formu3 tablas">
-            <h2>Detalle de formacion</h2>
+            <h2>Fichas</h2>
 
 
-            <table class="tabla" border=1 cellspacing="0">
+            <table class="tabla" border=1 cellspacing="0" style="width: 60vw;">
                 <tr class="header">
-                    <td>Id</td>
-                    <td>Nombre Formacion</td>
-                    <td>Numero de ficha</td>
-                    <td>Nombre Ambiente</td>
+                    <td>ficha</td>
+                    <td>Jornada</td>
+                    <td>Ambiente</td>
+                    <td>Nave</td>
+                    <td>Formacion</td>
+                    <td>Documento Instructor</td>
+                    <td>Nombre Instructor</td>
+                    <td>Apellido Instructor</td>
                     <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
-            $con = "SELECT id_detalle_formacion, nom_formacion,num_ficha, ambiente.nom_ambiente 
-                    FROM detalle_formacion,formacion,ambiente 
-                    WHERE detalle_formacion.id_formacion = formacion.id_formacion
-                    AND detalle_formacion.id_ambiente = ambiente.id_ambiente";
+            $con = "SELECT ficha,nom_jornada,n_ambiente,nom_nave,nom_formacion,usuarios.documento,nombres,apellidos 
+                    FROM fichas,usuarios,jornada,ambiente,nave,formacion 
+                    WHERE fichas.id_jornada = jornada.id_jornada
+                    AND fichas.id_ambiente = ambiente.id_ambiente
+                    AND fichas.id_formacion = formacion.id_formacion
+                    AND fichas.instructor = usuarios.documento
+                    AND ambiente.id_nave = nave.id_nave";
             $m = mysqli_query($mysqli, $con);
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_detalle_formacion']?></td>
+                    <td><?php echo $eh['ficha']?></td>
+                    <td><?php echo $eh['nom_jornada']?></td>
+                    <td><?php echo $eh['n_ambiente']?></td>
+                    <td><?php echo $eh['nom_nave']?></td>
                     <td><?php echo $eh['nom_formacion']?></td>
-                    <td><?php echo $eh['num_ficha']?></td>
-                    <td><?php echo $eh['nom_ambiente']?></td>
+                    <td><?php echo $eh['documento']?></td>
+                    <td><?php echo $eh['nombres']?></td>
+                    <td><?php echo $eh['apellidos']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit detalle_formacion" data-detalleformacion="<?php echo $eh['id_detalle_formacion']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove detalle_formacion" data-detalleformacion="<?php echo $eh['id_detalle_formacion']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit fichas" data-fichas="<?php echo $eh['ficha']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove fichas" data-fichas="<?php echo $eh['ficha']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -296,11 +307,33 @@
 
 
         <div class="form1 formu7">
-            <p type="title">DETALLE FORMACION</p>
+            <p type="title">FICHAS</p>
             <div class="linea"></div>
-            <form class="formulario" id="detalle_formacion" autocomplete="off">
+            <form class="formulario" id="fichas" autocomplete="off">
 
-                <select name="formacion" id="detalle" required>
+                <input type="number" name="numero_ficha" id="numero_ficha" placeholder="Escriba el numero de ficha" required>
+
+                <select name="tip_jornada" id="tip_jornada" required>
+                <option value="">Selecione una Jornada</option>
+                <?php
+                    foreach (consultar("SELECT * FROM jornada", $mysqli) as $i) :  ?>
+                    <option value="<?php echo $i['id_jornada']?>"><?php echo $i['nom_jornada']?></option>
+                <?php
+                    endforeach;
+                ?>
+                </select>
+
+                <select name="tip_ambiente" id="tip_ambiente" required>
+                <option value="">Seleccione un Ambiente</option>
+                <?php
+                    foreach (consultar("SELECT * FROM ambiente", $mysqli) as $i) :  ?>
+                    <option value="<?php echo $i['id_ambiente']?>"><?php echo $i['n_ambiente']?></option>
+                <?php
+                    endforeach;
+                ?>
+                </select>
+
+                <select name="nom_formacion" id="nom_formacion" required>
                 <option value="">Selecione una Formacion</option>
                 <?php
                     foreach (consultar("SELECT * FROM formacion", $mysqli) as $i) :  ?>
@@ -310,17 +343,16 @@
                 ?>
                 </select>
 
-                <input type="number" name="num_ficha" id="num_ficha" placeholder="Escriba el numero de ficha" required>
-
-                <select name="ambiente" id="ambiente" required>
-                <option value="">Seleccione un Ambiente</option>
+                <select name="doc_instruc" id="doc_instruc" required>
+                <option value="">Selecione un Instructor</option>
                 <?php
-                    foreach (consultar("SELECT * FROM ambiente", $mysqli) as $i) :  ?>
-                    <option value="<?php echo $i['id_ambiente']?>"><?php echo $i['nom_ambiente']?></option>
+                    foreach (consultar("SELECT * FROM usuarios WHERE id_tipo_usuario = 3", $mysqli) as $i) :  ?>
+                    <option value="<?php echo $i['documento']?>"><?php echo $i['Nombres'] ." ". $i['Apellidos']?></option>
                 <?php
                     endforeach;
                 ?>
                 </select>
+
                 <input type="submit" value="Guardar">
             </form>
         </div>
