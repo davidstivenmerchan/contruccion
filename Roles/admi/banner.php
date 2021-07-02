@@ -27,7 +27,7 @@
                 <li>
                     <a href="pag_admin/usuarios.php">
                         <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                        <span class="title">Usuarios</span>
+                        <span class="title" >Usuarios</span>
                     </a>
                 </li>
 

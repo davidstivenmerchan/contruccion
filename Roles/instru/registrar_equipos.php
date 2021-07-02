@@ -13,10 +13,10 @@
 <a href="instructor.php"> <i class="atras fas fa-arrow-left"></i></a> 
 
 <h1>EQUIPOS DE COMPUTO</h1>
-
+ 
 <nav>
     <ul>
-        <li onclick="parte1()";><strong>DISPONIBILIDAD DE LOS EQUIPOS</strong></li>
+        <li onclick="parte1()"><strong>DISPONIBILIDAD DE LOS EQUIPOS</strong></li>
         <li onclick="parte2()"><strong>ESTADO DE LOS EQUIPOS</strong></li>
     </ul>
 </nav>
