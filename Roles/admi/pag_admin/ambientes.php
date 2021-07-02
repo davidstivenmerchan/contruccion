@@ -347,7 +347,7 @@
                 <option value="">Selecione un Instructor</option>
                 <?php
                     foreach (consultar("SELECT * FROM usuarios WHERE id_tipo_usuario = 3", $mysqli) as $i) :  ?>
-                    <option value="<?php echo $i['documento']?>"><?php echo $i['Nombres'] ." ". $i['Apellidos']?></option>
+                    <option value="<?php echo $i['documento']?>"><?php echo $i['documento'] ." ". $i['Nombres']." ".$i['Apellidos']?></option>
                 <?php
                     endforeach;
                 ?>
