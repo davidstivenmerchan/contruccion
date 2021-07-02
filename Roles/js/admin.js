@@ -17,6 +17,7 @@ import { editTipUsu } from './edit_tipusu.js';
 import addPeriferico from './add_periferico.js';
 import { ajax } from './ajax.js';
 import { editUsuario } from './edit_usu.js';
+import { editFicha } from './edit_ficha.js';
 
 
 
@@ -156,7 +157,11 @@ document.addEventListener('click' , e => {
         if(e.target.matches('.usuario')){
             const $id = e.target.getAttribute('data-usuario');
             editUsuario( $id );
-        }  
+        
+        }if(e.target.matches('.fichas')){
+            const $id = e.target.getAttribute('data-fichas');
+            editFicha( $id );
+        }
     }
 
 
@@ -218,6 +223,9 @@ document.addEventListener('click' , e => {
 
         }else if(e.target.matches('.usuario')){
             getdelete('data-usuario', 'usuarios', 'pag_admin/usuarios.php');
+        
+        }else if(e.target.matches('.fichas')){
+            getdelete('data-fichas', 'fichas', 'pag_admin/ambientes.php');
         }
     }
 });
@@ -351,11 +359,20 @@ document.addEventListener('submit', (e)=>{
             url: `./acciones.php?tabla=dispositivo_electronico&id=${parseInt(data.dispositivoElectronico)}`,
             cbSuccess : ( {data:datos} ) => {
                 if(datos.length === 0){
-                    alert('no se puede registrar por que no se puede asignar un dispositivo electronico que no existe');
+                    alert('No se puede registrar por que no se puede asignar un dispositivo electronico que no existe');
                 }else{
                     handleAdd(e, './acciones.php', data, './pag_admin/equipos.php');
                 }
             }
         })
+    }else if( e.target.matches('#fichas')){
+        data = {
+            numero_ficha: parseInt(e.target.numero_ficha.value),
+            tip_jornada: parseInt(e.target.tip_jornada.value),
+            tip_ambiente: parseInt(e.target.tip_ambiente.value),
+            nom_formacion: parseInt(e.target.nom_formacion.value),
+            doc_instruc: parseInt(e.target.doc_instruc.value),
+        }   
+        handleAdd(e , 'insert_ficha.php', data , 'pag_admin/ambientes.php');
     }
 });

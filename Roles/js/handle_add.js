@@ -16,7 +16,6 @@ const handleAdd = ( e, url, data, paginaCargar ) => {
     })
       .then( result => {
         if( result.isConfirmed ){
-            debugger;
             ajax({
                 url,
                 method: 'POST',
