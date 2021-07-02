@@ -18,10 +18,10 @@ export const editAmbiente = ( id ) =>{
         <input type="text" name="idserial" id="id_ambiente" disabled value="${data[0].id}">
 
 
-        <label for="nom_ambiente"> Nombre Ambiente  </label>
+        <label for="nom_ambiente"> Numero Ambiente  </label>
         <input type="text" name="nom_ambiente" id="nom_ambiente" class="nom_ambiente" value="${data[0].nameAmbiente}">
 
-        <label for="select_nave"> Ambiente  </label>
+        <label for="select_nave"> Nave  </label>
         <select name="select_nave" id="select_nave" >
             <option value="${data[0].id_nave}"> ${data[0].nave} </option>
             ${ajax({
