@@ -74,14 +74,63 @@
         </ul>
     </nav>
     <div id="tablainstru" class="tablainstru">
-        hpta estoy brillando ajajajjajaja que loquera
+        <table class="tablainstructor" >
+            <tr class="titulo">
+                        <td>Documento</td>
+                        <td>Tipo Documento</td>
+                        <td>Cod Carnet</td>
+                        <td>Nombres</td>
+                        <td>Apellidos</td>
+                        <td>Fecha Nacimiento</td>
+                        <td>Genero</td>
+                        <td>Correo SENA</td>
+                        <td>Telefono</td>
+                        <td class="acciones">Acciones</td>
+                    </tr>
+
+                    <?php
+                        $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,
+                                Apellidos,fecha_nacimiento,nom_genero,correo_personal,correo_sena,telefono
+                                FROM usuarios,tipo_documento,tipo_usuario,genero
+                                WHERE usuarios.id_tipo_documento = tipo_documento.id_tipo_documento
+                                AND usuarios.id_tipo_usuario = tipo_usuario.id_tipo_usuario
+                                AND usuarios.id_genero = genero.id_genero
+                                AND tipo_usuario.id_tipo_usuario = 3";
+                                
+                        $result=mysqli_query($mysqli,$sql);
+
+                        while($mostrar=mysqli_fetch_array($result)){
+
+                        
+                    ?>
+
+
+                    <tr class="datos" data-documento="<?php echo $mostrar['documento'];?> ">
+                        <td><?php echo $mostrar['documento'] ?></td>
+                        <td><?php echo $mostrar['nom_documento'] ?></td>
+                        <td><?php echo $mostrar['Cod_Carnet'] ?></td>
+                        <td><?php echo $mostrar['Nombres'] ?></td>
+                        <td><?php echo $mostrar['Apellidos'] ?></td>
+                        <td><?php echo $mostrar['fecha_nacimiento'] ?></td>
+                        <td><?php echo $mostrar['nom_genero'] ?></td>
+                        <td><?php echo $mostrar['correo_sena'] ?></td>
+                        <td><?php echo $mostrar['telefono'] ?></td>
+                        <td class="imgs">
+                            <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit usuario"  data-usuario="<?php echo $mostrar['documento']; ?>">
+                            <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove usuario"  data-usuario="<?php echo $mostrar['documento']; ?>">               
+                        </td>
+                    </tr>
+                    
+                        <?php
+                        }
+                        ?>
+        </table>
     </div>
 
     <table class="tablausu" id="tablausu">
                 <tr class="titulo">
                     <td>Documento</td>
                     <td>Tipo Documento</td>
-                    <td>Tipo Usuario</td>
                     <td>Cod Carnet</td>
                     <td>Nombres</td>
                     <td>Apellidos</td>
@@ -112,7 +161,6 @@
                 <tr class="datos" data-documento="<?php echo $mostrar['documento'];?> ">
                     <td><?php echo $mostrar['documento'] ?></td>
                     <td><?php echo $mostrar['nom_documento'] ?></td>
-                    <td><?php echo $mostrar['nom_tipo_usuario'] ?></td>
                     <td><?php echo $mostrar['Cod_Carnet'] ?></td>
                     <td><?php echo $mostrar['Nombres'] ?></td>
                     <td><?php echo $mostrar['Apellidos'] ?></td>

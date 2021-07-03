@@ -325,7 +325,7 @@ table .acciones {
 }
 
 .tablausu .acciones{
-    width: 1rem;
+    width: 2rem;
     
 }
 
@@ -409,7 +409,6 @@ table .acciones {
 .formmodal input{
     width: 60%;
     height: 2rem;
-    margin: 2vh 0;
 }
 .formmodal select {
     width: 60%;
@@ -443,8 +442,7 @@ table .acciones {
     outline: 0;
     width: 30%;
 
-} 
-
+}
 .crearusuario{
     /* background-color: red; */
     display: grid;
@@ -502,10 +500,15 @@ table .acciones {
 .tablainstru{
     display:none;
 }
-.is-active-usu{
-    display: flex;
-    margin:0 auto;
+
+.tablainstructor{
+    border: thin solid #000000;
+    border-spacing: 0;
+    margin: 1rem;
 }
-.is-noactive-usu{
-    display: none;
+.tablainstructor .titulo{
+    height: 3rem;
+}
+.tablainstructor td{
+    padding: .3rem;
 }
