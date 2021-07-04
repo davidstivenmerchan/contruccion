@@ -24,7 +24,7 @@
         $consulta3 = "UPDATE dispositivo_electronico SET id_estado_dispositivo=1 where serial='$serial' ";
         $ejecucion3 =mysqli_query($mysqli, $consulta3);
 
-        $consulta4= "DELETE FROM asignacion_equipos where ='$id_entrada"
+        
 
     }
 
