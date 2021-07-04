@@ -3,7 +3,6 @@
 
    $serial = $_POST['id'];
 
-
    $consulta1= "SELECT dispositivo_electronico.id_estado_disponibilidad 
    from dispositivo_electronico where serial='$serial'";
    $ejecucion1 = mysqli_query($mysqli , $consulta1);
@@ -28,15 +27,5 @@
    }else{
        echo 'todo good';
    }
-   
-
-  
-
-
-   
-
-
-
-
 
 ?>

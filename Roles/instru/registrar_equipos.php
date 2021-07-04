@@ -21,9 +21,10 @@
     </ul>
 </nav>
 
-<div id="disponibilidad">
+<div id="disponibilidad" >
   <h2><strong>Disponibilidad de los Equipos</strong></h2>
 
+  <div class="disponibilidad">
   <table>
       <thead>
           <tr>
@@ -34,6 +35,7 @@
             <th>Marca</th>
             <th>Estado Disponibilidad</th>
             <th>Operacion</th>
+            <th>Asignacion</th>
             
           </tr>
       </thead>
@@ -41,6 +43,23 @@
 
       </tbody>
   </table>
+
+
+  <div class="ver_aprendiz">
+  <h3>Datos del Aprendiz</h3>
+  <div id="aprendiz">
+  <p>Seleccione un Equipo para ver los Datos</p>
+
+
+  </div>
+
+  
+
+ 
+
+  </div>
+  </div>
+
 </div>
 
 
