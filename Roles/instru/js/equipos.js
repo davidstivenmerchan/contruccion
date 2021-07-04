@@ -1,5 +1,6 @@
 $("#estado").hide();
 
+
 function parte1() {
     $("#estado").hide();
     $('#disponibilidad').show();
@@ -47,9 +48,14 @@ $(document).ready(function(){
                             ${buscar.disponibilidad}
                         </td>
                         <td>
-                        <button class="editar">
+                            <button class="editar">
                                 Cambiar de Estado
-                        </button>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="veraprendiz">
+                                ver aprendiz
+                            </button>
                         </td>
                     </tr>
                     `
@@ -67,14 +73,61 @@ $(document).ready(function(){
             let element = $(this)[0].parentElement.parentElement;
             let id = $(element).attr('eliminarr');
             $.post('js/cambiardisponibilidad.php', {id}, function(response){
+            
             console.log(response);
             obtenerdisponibilidad();
             
 
         })
     }
-        
+         
     });
+
+    $(document).on('click', '.veraprendiz', function(){
+        let element = $(this)[0].parentElement.parentElement;
+        let id = $(element).attr('eliminarr');
+        $.post('js/veraprendizasignado.php', {id}, function(response){
+
+        console.log(response);
+        
+        let busqueda = JSON.parse(response);
+        let template = '';
+
+        if(response.length!==0 && response!=="[]"){
+        busqueda.forEach( buscar => {
+            template += `
+            
+            <p><strong>Documento: </strong>${buscar.documento}</p>
+            <p><strong>Nombres: </strong>${buscar.Nombres}</p>
+            <p><strong>Apellidos: </strong> ${buscar.Apellidos}</p>
+            <p><strong>Telefono: </strong> ${buscar.telefono}</p>
+            <p><strong>Correo: </strong> ${buscar.correo_sena}</p>
+            `
+        
+        
+            $('#aprendiz').html(template);
+        
+        
+
+    });
+    }else{
+       
+            template += `
+            
+            <p>Este equipo no tiene ningun aprendiz asignado</p>
+           
+            `
+        
+        
+            $('#aprendiz').html(template);
+
+   
+
+
+    }
+});
+});
+
         
     function obtenerestado() {
         $.ajax({
@@ -83,6 +136,8 @@ $(document).ready(function(){
             success: function(response){
                 let busqueda = JSON.parse(response);
                 let template = '';
+
+               
     
                 busqueda.forEach( buscar => {
                     template += `
@@ -117,10 +172,14 @@ $(document).ready(function(){
                 $('#estadodispositivo').html(template);
             
             }
+    
         });
+    }
+        
+    
 
         
-    }
+    
     $(document).on('click', '.editarr', function(){
         if(confirm('Esta Seguro de Querer Cambiar el Estado de este Equipo?')){ 
             

@@ -43,7 +43,7 @@ h2{
 }
 
 table{
-    margin:40px 200px;
+    margin:40px 30px;
     padding: 10px;
     Border-spacing:0;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
@@ -117,4 +117,26 @@ table tr td{
 }
 .atras:hover{
     color: #ff6b00;
+}
+.ver_aprendiz{
+    margin-top: 40px;
+    width: 280px;
+    height: 400px;
+    border:rgb(112,178,45) solid 3px ;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.ver_aprendiz h3{
+    text-align: center;
+    background: #ff6b00 ;
+    padding: 10px;
+    margin: 0;
+    color: white;
+
+}
+.ver_aprendiz div p{
+    margin: 5px 10px;
+    padding: 10px;
+}
+.disponibilidad{
+    display: flex;
 }
