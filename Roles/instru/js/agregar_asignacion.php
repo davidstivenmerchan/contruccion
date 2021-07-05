@@ -16,10 +16,13 @@
      }
      
      if($aprendiz==''){
-         echo "El aprendiz no se encuentra en su grupo";
+         echo "<script> alert('El aprendiz no se encuentra en su grupo');
+                             window.location= '../asignacion_equipos.php?var=$docuinstru';
+                         </script>";
+     
      }else{
 
-        $consulta = "INSERT INTO entrada_aprendiz(fecha, hora, documento) values('$fecha', '$hora', '$cedula')";
+     $consulta = "INSERT INTO entrada_aprendiz(fecha, hora, documento) values('$fecha', '$hora', '$cedula')";
      $ejecutar = mysqli_query($mysqli, $consulta);
 
      $consulta2 = "SELECT MAX(entrada_aprendiz.id_entrada_aprendiz) from entrada_aprendiz";
@@ -31,6 +34,21 @@
      }else{
          echo "fallo la consulta dos";
      }
+
+     $con = "SELECT aceptacion_usuarios.id_estado_aprobacion 
+     from aceptacion_usuarios WHERE aceptacion_usuarios.documento=$cedula";
+     $eje=mysqli_query($mysqli,$con);
+     $most=mysqli_fetch_array($eje);
+     if($most){
+         $aceptacion = $most['id_estado_aprobacion'];
+     }
+
+     if($aceptacion==2){
+        echo "<script> alert('El aprendiz no se encuentra aceptado');
+        window.location= '../asignacion_equipos.php?var=$docuinstru';
+    </script>";
+
+     }else{
 
      $consulta3 = "SELECT equipos.id_equipo, dispositivo_electronico.serial,
      dispositivo_electronico.id_estado_disponibilidad,
@@ -59,6 +77,8 @@
      echo "<script> alert('se agrego exitosamente el equipo');
                              window.location= '../asignacion_equipos.php?var=$docuinstru';
                          </script>";
+
+    }
      
 
      }
