@@ -49,7 +49,7 @@ $(document).ready(function(){
                         </td>
                         <td>
                             <button class="editar">
-                                Cambiar de Estado
+                                Terminar Asignación
                             </button>
                         </td>
                         <td>
@@ -97,18 +97,20 @@ $(document).ready(function(){
         busqueda.forEach( buscar => {
             template += `
             
+            <div class="ver_aprendiz">
+            <h3>Datos del Aprendiz</h3>
+            <div id="aprendiz">
+        
+
             <p><strong>Documento: </strong>${buscar.documento}</p>
             <p><strong>Nombres: </strong>${buscar.Nombres}</p>
             <p><strong>Apellidos: </strong> ${buscar.Apellidos}</p>
             <p><strong>Telefono: </strong> ${buscar.telefono}</p>
             <p><strong>Correo: </strong> ${buscar.correo_sena}</p>
+            </div>
+           
             `
-        
-        
-            $('#aprendiz').html(template);
-        
-        
-
+            $('#dispo').html(template);
     });
     }else{
        
@@ -117,12 +119,7 @@ $(document).ready(function(){
             <p>Este equipo no tiene ningun aprendiz asignado</p>
            
             `
-        
-        
             $('#aprendiz').html(template);
-
-   
-
 
     }
 });
@@ -180,20 +177,6 @@ $(document).ready(function(){
 
         
     
-    $(document).on('click', '.editarr', function(){
-        if(confirm('Esta Seguro de Querer Cambiar el Estado de este Equipo?')){ 
-            
-            let element = $(this)[0].parentElement.parentElement;
-            let id = $(element).attr('eliminarr');
-            $.post('js/cambiarestado.php', {id}, function(response){
-            console.log(response);
-            obtenerestado()
-            
-
-        })
-    }
-});
-   
 
    
         

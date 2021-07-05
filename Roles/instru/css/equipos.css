@@ -140,3 +140,19 @@ table tr td{
 .disponibilidad{
     display: flex;
 }
+.veraprendiz{
+    background: #ff6b00 ;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    width: 90px;
+    height: 60px;
+    transition: .5s;
+
+}
+.veraprendiz:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+
+}
