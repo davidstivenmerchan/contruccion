@@ -24,7 +24,7 @@
 <div id="disponibilidad" >
   <h2><strong>Disponibilidad de los Equipos</strong></h2>
 
-  <div class="disponibilidad">
+  <div class="disponibilidad" >
   <table>
       <thead>
           <tr>
@@ -43,15 +43,12 @@
 
       </tbody>
   </table>
-
-
-  <div class="ver_aprendiz">
-  <h3>Datos del Aprendiz</h3>
-  <div id="aprendiz">
-  <p>Seleccione un Equipo para ver los Datos</p>
-
+  <div id="dispo">
 
   </div>
+
+
+  
 
   
 
