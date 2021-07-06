@@ -52,6 +52,13 @@
                     </a>
                 </li>
                 <li>
+                    <a href="#" class="otros">
+                        <span class="icon"><i class="fa fas fa-cubes" aria-hidden="true"></i></span>
+                        <span class="title">Otros</span>
+                        
+                    </a>
+                </li>
+                <li>
                     <a href="../../includes/salir.php" class="salir">
                         <span class="icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
                         <span class="title">Salir</span>
