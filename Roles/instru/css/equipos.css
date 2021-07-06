@@ -18,7 +18,10 @@ body{
 h1{
     text-align: center;
 }
-nav{
+
+
+
+/* nav{
     background:rgb(112,178,45) ;
 
 }
@@ -37,7 +40,8 @@ nav ul li{
 nav ul li:hover{
     background: #ff6b00  ;
     cursor: pointer;
-}
+} */
+
 h2{
     margin: 20px 30px;
 }

@@ -83,8 +83,11 @@
     background: transparent;
 }
 
+.navigation .ip{
+    margin-left: -1rem;
+}
 .navigation img{
-    max-width: 100%;
+    max-width: 80%;
 }
 
 @media screen and (max-width: 1122px){

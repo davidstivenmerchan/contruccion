@@ -2,11 +2,7 @@
     grid-area: header;
     /* padding: 0 3rem; */
 }
-.navigation{
-    width: 15vw;
-    grid-area: banner;
-    z-index: 1;
-}
+
 
 main{
     /* width: 80vw; */
