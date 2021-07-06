@@ -41,7 +41,7 @@
                 <li>
                     <a href="pag_admin/ambientes.php">
                         <span class="icon"><i class="fa fa-building" aria-hidden="true"></i></span>
-                        <span class="title">Ambientes</span>
+                        <span class="title">Fichas</span>
                     </a>
                 </li>
 

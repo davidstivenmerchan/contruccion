@@ -2,7 +2,7 @@
    require_once ('../../../includes/conexion.php');
 
    $serial = $_POST['id'];
-
+   $horaHoy = date("H:i:s"); 
 
    $consulta1= "SELECT dispositivo_electronico.id_estado_disponibilidad 
    from dispositivo_electronico where serial='$serial'";
@@ -18,25 +18,26 @@
    }
    
    if($disponibilidad==2){
-       $consulta3 = "UPDATE dispositivo_electronico SET id_estado_disponibilidad=1 where serial='$serial' ";
-       $ejecucion3 =mysqli_query($mysqli, $consulta3);
 
-   }
+        $consulta4="SELECT equipos.id_equipo from equipos where equipos.serial='$serial'";
+        $ejecucion4=mysqli_query($mysqli, $consulta4);
+        $mostrar4=mysqli_fetch_array($ejecucion4);
+        if($mostrar4){
+            $id_equipo = $mostrar4['id_equipo'];
+            $mensaje = "finalizado por el instructor";
+        }
+        $consulta5="UPDATE asignacion_equipos SET asignacion_equipos.descripcion_final='$mensaje', hora_final='$horaHoy' where asignacion_equipos.id_equipo='$id_equipo'";
+        $ejecucion5 = mysqli_query($mysqli, $consulta5);
+
+        $consulta3 = "UPDATE dispositivo_electronico SET id_estado_disponibilidad=1 where serial='$serial' ";
+        $ejecucion3 =mysqli_query($mysqli, $consulta3);
+
+    }
 
    if(!$ejecucion1 and !$ejecucion2 and !$ejecucion3){
        die('no sirvio error');
    }else{
        echo 'todo good';
    }
-   
-
-  
-
-
-   
-
-
-
-
 
 ?>
