@@ -111,16 +111,14 @@
                         Si quiere saber mas informacion llame a la linea 00000000 o dirijase a la oficina principal.
                     </p>
                 </article>
-                <form action="#" class="conctactenos" id="conctactenos" autocomplete="off">
+                <form action="correo.php" method="POST" class="conctactenos" id="conctactenos" autocomplete="off">
                     <h2>¡Envienos sus datos!</h2>
                     <label for="nombre">Nombre </label>
                     <input type="text" id="nombre" class="nombre" name="nombre" placeholder="escribe tu nombre...">
-                    <label for="telefono"> Telefono </label>
-                    <input type="text" id="telefono" class="telefono" name="telefono" placeholder="escribe tu telefono...">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="email" placeholder="anino79@misena.edu.co">
                     <label for="mensaje">Deje su mensaje</label>
-                    <textarea name="nensaje" id="mensaje" cols="30" rows="10"></textarea>
+                    <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
 
                     <a href="#"> Politica de privacidad </a>
                     <div class="terminos">
@@ -128,7 +126,7 @@
                         <label for="terminos" > He leido y acepto la politica de privacidad </label>
                     </div>
 
-                    <input type="submit" value="Enviar">
+                    <input type="submit" value="Enviar" name="enviar">
                 </form>
             </div>
             
