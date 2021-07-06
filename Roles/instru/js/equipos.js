@@ -54,7 +54,7 @@ $(document).ready(function(){
                         </td>
                         <td>
                             <button class="veraprendiz">
-                                ver aprendiz
+                                Ver aprendiz
                             </button>
                         </td>
                     </tr>
