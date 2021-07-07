@@ -25,17 +25,19 @@
   <h2><strong>Disponibilidad de los Equipos</strong></h2>
 
   <div class="disponibilidad" >
+  <div id="propiedades">
+
+  </div>
   <table>
       <thead>
           <tr>
             <th>Serial</th>
             <th>Placa Sena</th>
             <th>Tipo de Dispositivo</th>
-            <th>Nombre Dispositivo</th>
-            <th>Marca</th>
             <th>Estado Disponibilidad</th>
             <th>Operacion</th>
             <th>Asignacion</th>
+            <th>Especificaciones</th>
             
           </tr>
       </thead>
