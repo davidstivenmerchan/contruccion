@@ -39,12 +39,6 @@ $(document).ready(function(){
                             ${buscar.tipo}
                         </td>
                         <td>
-                            ${buscar.dispositivo}
-                        </td>
-                        <td>
-                            ${buscar.marca}
-                        </td>
-                        <td>
                             ${buscar.disponibilidad}
                         </td>
                         <td>
@@ -54,7 +48,12 @@ $(document).ready(function(){
                         </td>
                         <td>
                             <button class="veraprendiz">
-                                Ver aprendiz
+                                Ver Aprendiz 
+                            </button>
+                        </td>
+                        <td>
+                            <button class="vercompu">
+                                Ver Detalle
                             </button>
                         </td>
                     </tr>
@@ -111,6 +110,8 @@ $(document).ready(function(){
            
             `
             $('#dispo').html(template);
+            $('#dispo').show();
+            $('#propiedades').hide();
     });
     }else{
        
@@ -172,6 +173,53 @@ $(document).ready(function(){
     
         });
     }
+
+
+    $(document).on('click', '.vercompu', function(){
+        let element = $(this)[0].parentElement.parentElement;
+        let id = $(element).attr('eliminarr');
+        $.post('js/vercompu.php', {id}, function(response){
+
+        console.log(response);
+        
+        let busqueda = JSON.parse(response);
+        let template = '';
+
+        if(response.length!==0 && response!=="[]"){
+        busqueda.forEach( buscar => {
+            template += `
+            
+            <div class="ver_aprendiz especificaciones">
+            <h3>Datos del Computador</h3>
+            <div id="aprendiz">
+        
+
+            <p><strong>Procesador: </strong>${buscar.procesador}</p>
+            <p><strong>Ram (GB): </strong>${buscar.ramGB}</p>
+            <p><strong>Sistema Operativo: </strong> ${buscar.nom_tipo_sistema}</p>
+            <p><strong>Marca: </strong> ${buscar.nom_marca}</p>
+          
+            </div>
+           
+            `
+            $('#propiedades').show();
+            $('#propiedades').html(template);
+            $('#dispo').hide();
+           
+
+    });
+    }else{
+       
+            template += `
+            
+            <p>Este equipo no tiene ningun aprendiz asignado</p>
+           
+            `
+            $('#aprendiz').html(template);
+
+    }
+});
+});
         
     
 

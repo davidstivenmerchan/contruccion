@@ -21,7 +21,7 @@ h1{
 
 
 
-/* nav{
+nav{
     background:rgb(112,178,45) ;
 
 }
@@ -40,7 +40,7 @@ nav ul li{
 nav ul li:hover{
     background: #ff6b00  ;
     cursor: pointer;
-} */
+} 
 
 h2{
     margin: 20px 30px;
@@ -159,4 +159,22 @@ table tr td{
     color: white;
     cursor: pointer;
 
+}
+.especificaciones{
+    margin-left: 30px;
+}
+.vercompu{
+    background: #ff6b00 ;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    width: 90px;
+    height: 60px;
+    transition: .5s;
+
+}
+.vercompu:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
 }
