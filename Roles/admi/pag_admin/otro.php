@@ -1,5 +1,5 @@
 <!--
-    este archivo html hace refernecia a la seccion de equipos del administrador este archivo tiene toda la 
+    este archivo  hace refernecia a la seccion de equipos del administrador este archivo tiene toda la 
     logica de la interfaz, en ella se muestran tablas y formularios pertenecientes o que tiene n que ver con este crud
     este archivo esta siendo consumido por una peticion http desde el archivo admin.php en el cual se muestra todo
     elegimos esta tecnica de hacerlo con ajax por que nos permite moularizar mas el codigo.
@@ -29,15 +29,7 @@
 <body>
     <!-- esta seccion cards es de donde pertenecen todas las tarjetas mostrdas en la interaz-->
     <section class="cards">
-        <!--card tipo de dispositivo-->
-        <div class="card">
-            <h3>Crear tipo de dispositivos</h3>
 
-            <div class="botones">
-                <button class="aparecerequipos formula1" data-form="form"> <i class="aparecerequipos formula1 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form"></i> </button>
-                <button class="aparecerequipos formula8" data-form="formu7"> <i class="aparecerequipos formula8 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu7"></i> </button>
-            </div>
-        </div>
         <div class="card">
             <h3>Crear marca de equipos</h3>
         
@@ -71,22 +63,7 @@
             </div>
         </div>
         <!-- /******* hasta aqui */ -->
-        <div class="card">
-            <h3>Dispositivos Electronicos</h3>
-
-            <div class="botones">
-                <button class="aparecerequipos formula6" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu5"></i>  </button>
-                <button class="aparecerequipos formula13" data-form="formu12"> <i class="aparecerequipos formula13 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu12"></i> </button>
-            </div>
-        </div>
-        <div class="card">
-            <h3>Crear periferico</h3>
-
-            <div class="botones">
-                <button class="aparecerequipos formula7" data-form="formu6"> <i class=" aparecerequipos formula7 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu6"></i>  </button>
-                <button class="aparecerequipos formula14" data-form="formu13"> <i class="aparecerequipos formula14 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu13"></i> </button>
-            </div>
-        </div>
+        
     </section>
     <div class="forms">
         <div class="form">
