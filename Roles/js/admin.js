@@ -186,13 +186,13 @@ document.addEventListener('click' , e => {
             getdelete('data-marca', 'marca');
 
         }else if(e.target.matches('.estado')){
-            getdelete('data-estado', 'estado_dispositivo', 'pag_admin/equipos.php');
+            getdelete('data-estado', 'estado_dispositivo', 'pag_admin/otro.php');
 
         }else if(e.target.matches('.aprobacion')){
-            getdelete('data-estadoapro', 'estado_aprobacion','pag_admin/equipos.php');
+            getdelete('data-estadoapro', 'estado_aprobacion','pag_admin/otro.php');
 
         }else if(e.target.matches('.disponibi')){
-            getdelete('data-estadodisponi', 'estado_disponibilidad','pag_admin/equipos.php');
+            getdelete('data-estadodisponi', 'estado_disponibilidad','pag_admin/otro.php');
 
         }else if(e.target.matches('.dispositivo')){
             getdelete('data-dispositivo', 'dispositivo_electronico','pag_admin/equipos.php');
@@ -259,25 +259,25 @@ document.addEventListener('submit', (e)=>{
             tabla: 'marca',
             nameTipo: e.target.nom_marca.value,
         }   
-        handleAdd(e , 'acciones.php', data , 'pag_admin/equipos.php');
+        handleAdd(e , 'acciones.php', data , 'pag_admin/otro.php');
     }else if( e.target.matches('#estadoDispo') ){
         data = {
             tabla: 'estado_dispositivo',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e, 'acciones.php' , data , 'pag_admin/equipos.php');
+        handleAdd(e, 'acciones.php' , data , 'pag_admin/otro.php');
     }else if( e.target.matches('#estadoApro') ){
         data = {
             tabla: 'estado_aprobacion',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e , 'acciones.php' , data , 'pag_admin/equipos.php');
+        handleAdd(e , 'acciones.php' , data , 'pag_admin/otro.php');
     }else if( e.target.matches('#estadoDisponibilidad') ){
         data = {
             tabla: 'estado_disponibilidad',
             nameTipo: e.target.nom_estado.value,
         }
-        handleAdd(e , 'acciones.php' , data , 'pag_admin/equipos.php');
+        handleAdd(e , 'acciones.php' , data , 'pag_admin/otro.php');
     }else if( e.target.matches('#nave')){
         data = {
             tabla: 'nave',
