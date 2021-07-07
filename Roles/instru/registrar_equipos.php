@@ -26,7 +26,6 @@
 
   <div class="disponibilidad" >
   <div id="propiedades">
-
   </div>
   <table>
       <thead>
