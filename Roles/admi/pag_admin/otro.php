@@ -35,52 +35,60 @@
 
             <div class="botones">
                 <button class="aparecerequipos formula1" data-form="form"> <i class="aparecerequipos formula1 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form"></i> </button>
-                <button class="aparecerequipos formula6" data-form="formu7"> <i class="aparecerequipos formula8 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu7"></i> </button>
+                <button class="aparecerequipos formula8" data-form="formu7"> <i class="aparecerequipos formula8 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu7"></i> </button>
             </div>
         </div>
-        <!--card tipo de periferico-->
         <div class="card">
-            <h3>Tipo de Periferico</h3>
+            <h3>Crear marca de equipos</h3>
+        
+            <div class="botones">
+                <button class="aparecerequipos formula2" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu1"></i></button>
+                <button class="aparecerequipos formula9" data-form="formu8"> <i class="aparecerequipos formula9 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="formu8"></i> </button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Crear estado dispositivo</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula2" data-form="form"> <i class="aparecerequipos formula1 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form"></i> </button>
-                <button class="aparecerequipos formula7" data-form="formu7"> <i class="aparecerequipos formula8 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu7"></i> </button>
+                <button class="aparecerequipos formula3" data-form="formu2"> <i class="aparecerequipos formula3 fa fa-file-alt" title="Mostrar Datos estados dispositivos" data-form="formu2"></i></button>
+                <button class="aparecerequipos formula10" data-form="formu9"> <i class="aparecerequipos formula10 fa fa-keyboard" title="Registrar dato estado dispositivo" data-form="formu9"></i> </button>
             </div>
         </div>
+        <div class="card">
+            <h3>Crear estado aprobacion</h3>
 
-        <!--card dispositivo electronico-->
+            <div class="botones">
+                <button class="aparecerequipos formula4" data-form="formu3"> <i class="aparecerequipos formula4 fa fa-file-alt" title="Mostrar Datos de estados de aprobacion" data-form="formu3"></i>  </button>
+                <button class="aparecerequipos formula11" data-form="formu10"> <i class="aparecerequipos formula11 fa fa-keyboard" title="Registrar dato estado de aprobacion" data-form="formu10"></i> </button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Crear disponibilidad</h3>
+
+            <div class="botones">
+                <button class="aparecerequipos formula5" data-form="formu4"> <i class=" aparecerequipos formula5 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu4"></i>  </button>
+                <button class="aparecerequipos formula12" data-form="formu11"> <i class="aparecerequipos formula12 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu11"></i> </button>
+            </div>
+        </div>
+        <!-- /******* hasta aqui */ -->
         <div class="card">
             <h3>Dispositivos Electronicos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula3" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu5"></i>  </button>
-                <button class="aparecerequipos formula8" data-form="formu12"> <i class="aparecerequipos formula13 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu12"></i> </button>
+                <button class="aparecerequipos formula6" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu5"></i>  </button>
+                <button class="aparecerequipos formula13" data-form="formu12"> <i class="aparecerequipos formula13 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu12"></i> </button>
             </div>
         </div>
-
-        <!-- card periferico-->
         <div class="card">
             <h3>Crear periferico</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula4" data-form="formu6"> <i class=" aparecerequipos formula7 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu6"></i>  </button>
-                <button class="aparecerequipos formula9" data-form="formu13"> <i class="aparecerequipos formula14 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu13"></i> </button>
+                <button class="aparecerequipos formula7" data-form="formu6"> <i class=" aparecerequipos formula7 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu6"></i>  </button>
+                <button class="aparecerequipos formula14" data-form="formu13"> <i class="aparecerequipos formula14 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu13"></i> </button>
             </div>
         </div>
-        <!-- compus peris -->
-        <div class="card">
-            <h3>Computadores - perifericos</h3>
-        
-            <div class="botones">
-                <button class="aparecerequipos formula5" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu1"></i></button>
-                <button class="aparecerequipos formula10" data-form="formu8"> <i class="aparecerequipos formula9 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="formu8"></i> </button>
-            </div>
-        </div>
-
-
     </section>
     <div class="forms">
-        <!--Primera tabla de tipo de dispositivo tiene la clase form-->
         <div class="form">
             <h2>Tipo de dispositivos</h2>
 
@@ -118,9 +126,8 @@
             
             </table>
         </div>
-        <!---tabla que tiene que ver con tipo de periferico-->
         <div class="formu1 tablas">
-            <h2>Tipo de periferico</h2>
+            <h2>Marcas</h2>
 
 
             <table class="tablamarca" border=1 cellspacing="0">
@@ -130,7 +137,7 @@
                     <td class="acciones"> Accciones </td>
                 </tr>
                 <?php 
-            $con = "SELECT * from tip_periferico";
+            $con = "SELECT * from marca";
             $m = mysqli_query($mysqli, $con);
             while($eh = mysqli_fetch_array($m)){           
             ?>
@@ -139,8 +146,8 @@
                     <td><?php echo $eh['id_marca']?></td>
                     <td><?php echo $eh['nom_marca']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tip_periferico" data-marca="<?php echo $eh['id_marca']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tip_periferico" data-marca="<?php echo $eh['id_marca']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit marca" data-marca="<?php echo $eh['id_marca']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove marca" data-marca="<?php echo $eh['id_marca']; ?>">                     
                     </td>
                 </tr>
                 <?php
