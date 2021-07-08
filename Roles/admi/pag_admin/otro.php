@@ -307,7 +307,6 @@
             </form>
         </div>
 
-
         <div class="form1 formu10">
             <p type="title">Crear Estado de Aprobacion</p>
             <div class="linea"></div>
