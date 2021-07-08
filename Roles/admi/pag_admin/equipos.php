@@ -35,7 +35,7 @@
 
             <div class="botones">
                 <button class="aparecerequipos formula1" data-form="form"> <i class="aparecerequipos formula1 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form"></i> </button>
-                <button class="aparecerequipos formula6" data-form="formu7"> <i class="aparecerequipos formula8 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu7"></i> </button>
+                <button class="aparecerequipos formula6" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu5"></i> </button>
             </div>
         </div>
         <!--card tipo de periferico-->
@@ -43,8 +43,8 @@
             <h3>Tipo de Periferico</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula2" data-form="form"> <i class="aparecerequipos formula1 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form"></i> </button>
-                <button class="aparecerequipos formula7" data-form="formu7"> <i class="aparecerequipos formula8 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu7"></i> </button>
+                <button class="aparecerequipos formula2" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu1"></i> </button>
+                <button class="aparecerequipos formula7" data-form="formu6"> <i class="aparecerequipos formula7 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu6"></i> </button>
             </div>
         </div>
 
@@ -53,8 +53,8 @@
             <h3>Dispositivos Electronicos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula3" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu5"></i>  </button>
-                <button class="aparecerequipos formula8" data-form="formu12"> <i class="aparecerequipos formula13 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu12"></i> </button>
+                <button class="aparecerequipos formula3" data-form="formu2"> <i class="aparecerequipos formula3 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu2"></i>  </button>
+                <button class="aparecerequipos formula8" data-form="formu7"> <i class="aparecerequipos formula8 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu7"></i> </button>
             </div>
         </div>
 
@@ -63,8 +63,8 @@
             <h3>Crear periferico</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula4" data-form="formu6"> <i class=" aparecerequipos formula7 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu6"></i>  </button>
-                <button class="aparecerequipos formula9" data-form="formu13"> <i class="aparecerequipos formula14 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu13"></i> </button>
+                <button class="aparecerequipos formula4" data-form="formu3"> <i class=" aparecerequipos formula4 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu3"></i>  </button>
+                <button class="aparecerequipos formula9" data-form="formu8"> <i class="aparecerequipos formula9 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu8"></i> </button>
             </div>
         </div>
         <!-- compus peris -->
@@ -72,8 +72,8 @@
             <h3>Computadores - perifericos</h3>
         
             <div class="botones">
-                <button class="aparecerequipos formula5" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu1"></i></button>
-                <button class="aparecerequipos formula10" data-form="formu8"> <i class="aparecerequipos formula9 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="formu8"></i> </button>
+                <button class="aparecerequipos formula5" data-form="formu4"> <i class="aparecerequipos formula5 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu4"></i></button>
+                <button class="aparecerequipos formula10" data-form="formu9"> <i class="aparecerequipos formula10 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="formu9"></i> </button>
             </div>
         </div>
 
@@ -126,7 +126,7 @@
             <table class="tablamarca" border=1 cellspacing="0">
                 <tr class="header">
                     <td>Id</td>
-                    <td>Marca</td>
+                    <td>Nom Tipo Periferico</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
                 <?php 
@@ -136,11 +136,11 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_marca']?></td>
-                    <td><?php echo $eh['nom_marca']?></td>
+                    <td><?php echo $eh['id_tip_periferico']?></td>
+                    <td><?php echo $eh['nom_tip_periferico']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tip_periferico" data-marca="<?php echo $eh['id_marca']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tip_periferico" data-marca="<?php echo $eh['id_marca']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipPeriferico" data-tipPeriferico="<?php echo $eh['id_tip_periferico']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove tipPeriferico" data-tipPeriferico="<?php echo $eh['id_tip_periferico']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -148,97 +148,9 @@
             ?>
             </table>
         </div>
+        <!-- Tabla dispositivo electronico -->
 
         <div class="formu2 tablas">
-            <h2>Estados de los dispositivos</h2>
-
-
-            <table class="tablamarca" border=1 cellspacing="0">
-                <tr class="header">
-                    <td>Id</td>
-                    <td>Estado</td>
-                    <td class="acciones"> Accciones </td>
-                </tr>
-                <?php 
-            $con = "SELECT * from estado_dispositivo";
-            $m = mysqli_query($mysqli, $con);
-            while($eh = mysqli_fetch_array($m)){           
-            ?>
-
-                <tr class="datos">
-                    <td><?php echo $eh['id_estado_dispositivo']?></td>
-                    <td><?php echo $eh['nom_estado_dispositivo']?></td>
-                    <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" class="edit estado" alt="editar" title="editar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">
-                        <img src="./../../assets/trash-solid.svg" class="remove estado" alt="eliminar" title="eliminar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">                     
-                    </td>
-                </tr>
-                <?php
-            } 
-            ?>
-            </table>
-        </div>
-
-        <div class="formu3 tablas">
-            <h2>Estados de aprobacion</h2>
-
-
-            <table class="tablamarca" border=1 cellspacing="0">
-                <tr class="header">
-                    <td>Id</td>
-                    <td>Estado</td>
-                    <td class="acciones">Acciones</td>
-                </tr>
-                <?php 
-            $con = "SELECT * from estado_aprobacion";
-            $m = mysqli_query($mysqli, $con);
-            while($eh = mysqli_fetch_array($m)){           
-            ?>
-
-                <tr class="datos">
-                    <td><?php echo $eh['id_estado_aprobacion']?></td>
-                    <td><?php echo $eh['nom_aprobacion']?></td>
-                    <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit aprobacion" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove aprobacion" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">                     
-                    </td>
-                </tr>
-                <?php
-            } 
-            ?>
-            </table>
-        </div>
-
-        <div class="formu4 tablas">
-            <h2>Estados de disponibilidad</h2>
-
-
-            <table class="tablamarca" border=1 cellspacing="0">
-                <tr class="header">
-                    <td>Id</td>
-                    <td>Estado</td>
-                    <td class="acciones">Acciones</td>
-                </tr>
-                <?php 
-            $con = "SELECT * from estado_disponibilidad";
-            $m = mysqli_query($mysqli, $con);
-            while($eh = mysqli_fetch_array($m)){           
-            ?>
-
-                <tr class="datos">
-                    <td><?php echo $eh['id_estado_disponibilidad']?></td>
-                    <td><?php echo $eh['nom_estado_disponibilidad']?></td>
-                    <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit disponibi" data-estadodisponi="<?php echo $eh['id_estado_disponibilidad']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove disponibi" data-estadodisponi="<?php echo $eh['id_estado_disponibilidad']; ?>">                     
-                    </td>
-                </tr>
-                <?php
-            } 
-            ?>
-            </table>
-        </div>
-        <div class="formu5 tablas">
             
                 <h2>Dispositivos Electronicos</h2>
             <table class="tablamarca" border=1 cellspacing="0">
@@ -281,15 +193,33 @@
             ?>
             </table>
         </div>
-        <div class="formu6 tablas">
+
+        <!------periferico-->
+        <div class="formu3 tablas">
+            <h2>Perifericos</h2>
+            <table>
+                <tr class="header">
+                    <td>Id Peiferico</td>
+                    <td>tipo periferico</td>
+                    <td>Nombre periferico</td>
+                    <td>Marca</td>
+                    <td>Estado Disponibilidad</td>
+                    <td>Estado dispositivo</td>
+                    <td>Dispositvo Asociado</td>
+                </tr>
+            </table>
+        </div>
+        <!-- Compus perifericos -->
+        <div class="formu4 tablas">
             <table>
                 <td>
-                    holi
+                    holi desde comu-perifericos
                 </td>
             </table>
         </div>
 
-        <div class="form1 formu7">
+        <!--- Formulario de tipo de dispositivos---->
+        <div class="form1 formu5">
             <p type="title">Crear tipos de Dispositivos</p>
             <div class="linea"></div>
             <form id="tipoDispo" class="formulario" autocomplete="off">
@@ -301,52 +231,20 @@
             </form>  
         </div>
 
-        <div class="form1 formu8">
-            <p type="title">Crear la Marca de los Equipos</p>
+        <!--formulario de tipo de periferico-->
+        
+        <div class="form1 formu6">
+            <p type="title">Crear Tipo de periferico</p>
             <div class="linea"></div>
-            <form class="formulario" id="marcaEquipos" autocomplete="off">
-                    <!--  -->
-                    <label for="nom">Nombre de la Marca</label><br>
-                    <input type="text" name="nom_marca" id="nom_marca" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras" >
-                    <input type="submit" value="Guardar">
-            </form>
-        </div>
-
-        <div class="form1 formu9">
-            <p type="title">Crear Estado del Dispositivo</p>
-            <div class="linea"></div>
-            <form class="formulario" id="estadoDispo" autocomplete="off">
-                <label for="nom">Nombre del Estado del Dispositivo</label><br>
-                <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
+            <form class="formulario" id="tipPeriferico" autocomplete="off">
+                <label for="nom">Nombre del tipo de Periferico</label><br>
+                <input type="text" name="nameTipPeriferico" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                 <input type="submit" value="Guardar">
             </form>
         </div>
-
-
-        <div class="form1 formu10">
-            <p type="title">Crear Estado de Aprobacion</p>
-            <div class="linea"></div>
-            <form class="formulario" id="estadoApro" autocomplete="off">
-
-                <label for="nom">Nombre del Estado de Aprobacion</label><br>
-                <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
-                
-                <input type="submit" value="Guardar">
-            </form>
-        </div>
-
-        <div class="form1 formu11">
-            <p type="title">Crear Estado de Disponibilidad</p>
-            <div class="linea"></div>
-            <form class="formulario" id="estadoDisponibilidad" autocomplete="off">
-                
-                <label for="nom">Nombre del Estado de Disponibilidad</label><br>
-                <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
-                <input type="submit" value="Guardar">
-                    
-            </form>
-        </div>
-        <div class="form1 formu12">
+        
+        <!-- Formulario de tipo Dispositivo electronico-->
+        <div class="form1 formu7">
             <h2>Registro de Dispositivos Electronicos </h2>
 
             <form id="formuDispositivo"class="fommu" autocomplete="off">
@@ -406,7 +304,9 @@
             <input type="submit" value="REGISTRAR" name="registrar" class="resgi">
             </form>
         </div>
-        <div class="form1 formu13">
+
+        <!--formulario Perifericos-->
+        <div class="form1 formu8">
                 <form action="" id="perifericoform" autocomplete="off">
                     <article class="serialperiferico">
                         <label for="serialperiferico">Serial</label>
@@ -464,6 +364,11 @@
                     </article>
                     <input type="submit" value="Registrar">
                 </form>
+        </div> 
+
+        <!--FOrmulario dispo-periferico-->
+        <div class="form1 formu9">
+         11111 holi
         </div>
     </div>
 

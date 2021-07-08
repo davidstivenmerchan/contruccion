@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         );
         echo json_encode($res);
     }
-    else if ($tabla == 'dispositivo_electronico'){
+    elseif ($tabla == 'dispositivo_electronico'){
         $resultados = [];
             $sql = "SELECT serial,placa_sena,tipo_dispositivo.id_tipo_dispositivo, nom_tipo_dispositivo, nom_dispositivo,estado_disponibilidad.id_estado_disponibilidad,nom_estado_disponibilidad,estado_dispositivo.id_estado_dispositivo,nom_estado_dispositivo, marca.id_marca,nom_marca 
                     from dispositivo_electronico,estado_disponibilidad,estado_dispositivo,marca,tipo_dispositivo 
@@ -108,7 +108,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             'data' => $resultados,
         );
         echo json_encode($res);
-        }else if ($tabla == 'detalle_formacion'){
+        }elseif ($tabla == 'detalle_formacion'){
             $resultados = [];
             $sql = "SELECT id_detalle_formacion,formacion.id_formacion,nom_formacion,num_ficha, ambiente.id_ambiente,ambiente.nom_ambiente 
                     FROM detalle_formacion,formacion,ambiente 
@@ -136,7 +136,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             'data' => $resultados, 
             );
             echo json_encode($res);
-        }else if ($tabla == 'ambiente'){
+        }elseif ($tabla == 'ambiente'){
             $resultados= [];
             $sql = "SELECT id_ambiente, n_ambiente, ambiente.id_nave, nave.nom_nave from ambiente,nave where id_ambiente = ? AND ambiente.id_nave = nave.id_nave ";
             $query = mysqli_prepare($mysqli, $sql);
@@ -155,7 +155,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             );
             echo json_encode($res);
             return ;
-        }else if($tabla == "periferico"){
+        }elseif($tabla == "periferico"){
             $resultados = [];
             if($tipDispo == 1) {
                 $idDispositivos = [3];
@@ -195,7 +195,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 );
             }
             echo json_encode($res);
-        }else if($tabla == "usuarios"){
+        }elseif($tabla == "usuarios"){
             $resultados = []; 
             $sql = "SELECT documento, tipo_documento.id_tipo_documento,tipo_documento.nom_documento,Cod_Carnet,Nombres,
                     Apellidos,fecha_nacimiento,correo_personal,correo_sena,telefono,genero.id_genero,genero.nom_genero
@@ -244,7 +244,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 );
             }
             echo json_encode($res);
-        }else if($tabla == "fichas"){
+        }elseif($tabla == "fichas"){
             $resultados = []; 
             $sql = "SELECT ficha,jornada.id_jornada,jornada.nom_jornada,ambiente.id_ambiente,ambiente.n_ambiente,nave.id_nave,nave.nom_nave,formacion.id_formacion,formacion.nom_formacion,usuarios.documento,nombres,apellidos 
                     FROM fichas,usuarios,jornada,ambiente,nave,formacion 
@@ -294,7 +294,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 );
             }
             echo json_encode($res);
-        }else if($tabla == "instructores"){
+        }elseif($tabla == "instructores"){
             $resultados = [];
             $id = 3;
             $sql = "SELECT documento,Nombres FROM usuarios WHERE id_tipo_usuario = ?";
@@ -358,21 +358,23 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     }
     if( $tabla === 'tipo_dispositivo' ){
         insertTable($mysqli, $tabla, 'nom_tipo_dispositivo', $_POST['nameTipo']);
-    }else if( $tabla === 'marca' ){
+    }elseif( $tabla === 'marca' ){
         insertTable($mysqli, $tabla, 'nom_marca', $_POST['nameTipo']);
-    } else if( $tabla === 'estado_dispositivo'  ){
+    } elseif( $tabla === 'estado_dispositivo'  ){
         insertTable($mysqli, $tabla , 'nom_estado_dispositivo', $_POST['nameTipo']);
-    } else if( $tabla === 'estado_aprobacion' ){
+    } elseif( $tabla === 'estado_aprobacion' ){
         insertTable( $mysqli, $tabla, 'nom_aprobacion', $_POST['nameTipo']);
-    } else if( $tabla === 'estado_disponibilidad' ){
+    } elseif( $tabla === 'estado_disponibilidad' ){
         insertTable($mysqli , $tabla , 'nom_estado_disponibilidad', $_POST['nameTipo']);
-    } else if ($tabla === 'nave'){
+    } elseif ($tabla === 'nave'){
         insertTable($mysqli, $tabla , 'nom_nave', $_POST['nameTipo']);
-    } else if ($tabla === 'jornada'){
+    } elseif ($tabla === 'jornada'){
         insertTable($mysqli, $tabla , 'nom_jornada', $_POST['nameTipo']);
-    } else if ($tabla === 'formacion'){
+    } elseif ($tabla === 'formacion'){
         insertTable($mysqli, $tabla , 'nom_formacion', $_POST['nameTipo']);
-    } else if ($tabla === 'detalle_formacion'){
+    }elseif($tabla === 'tip_periferico'){
+        insertTable($mysqli, $tabla, 'nom_tip_periferico', $_POST['nameTipo']);
+    }elseif ($tabla === 'detalle_formacion'){
         $sql = "INSERT INTO detalle_formacion (id_detalle_formacion, id_formacion, num_ficha, id_ambiente) VALUES (NULL, ?, ?, ? )";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iii', $_POST['formacion'],$_POST['num_ficha'], $_POST['ambiente'] );
@@ -703,6 +705,28 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
         echo json_encode($res);
     }
+    if($tabla === 'tip_periferico'){
+        $sql = "UPDATE $tabla set nom_tip_periferico = ? where id_tip_periferico = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'si', $_PUT['nomTipPeriferico'], $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Modificado con exito'
+            );
+        }else{
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'No se puede modificar tus registros'
+            );
+        }
+        echo json_encode($res);
+    }
     
 
 
@@ -716,11 +740,20 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         $ok = mysqli_stmt_bind_param($query, 's' , $id);
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
-        $res = array (
-            'err' => false,
-            'status' => http_response_code(200),
-            'statusText' => 'Registro borrado con exito',
-        );
+        $res;
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => "Registro borrado con exito!'# $id",
+            );
+        }else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'no se logro borrar el registro',
+            );
+        }
         echo json_encode($res);
     }
     if($tabla === 'dispositivo_electronico' ){
@@ -732,7 +765,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         $res = array (
             'err' => false,
             'status' => http_response_code(200),
-            'statusText' => 'Registro borrado con exito',
+            'statusText' => 'Registro borrado con exito!',
         );
         echo json_encode($res);
     }

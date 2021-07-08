@@ -238,34 +238,36 @@ table .acciones {
     justify-content: center;
     align-items: center; */
 }
-.formu12{
+
+/*************formu 7*********/
+.formu7{
     width: 80%;
     height:auto;
     margin: 0 0 5rem 0;
     padding: auto;
     /* margin: 0; */
 }
-.formu12 h2{
+.formu7 h2{
     margin: 3vh 0 3vh 10%;
     width: 100%;
 }
-.formu12 label{
+.formu7 label{
     margin: 0 0 0 10%;
 }
-.formu12 input{
+.formu7 input{
     display: flex;
     flex-direction: column;
     width: 80%;
     height: 2rem;
     margin: 2vh auto;
 } 
-.formu12 input[type="number"]{
+.formu7 input[type="number"]{
     width: 80%;
     height: 2rem;
     /* align-self: center; */
     margin: 2vh auto;
 }
-.formu12 select{
+.formu7 select{
     display: flex;
     flex-direction: column;
     height: 2rem;
@@ -273,7 +275,7 @@ table .acciones {
     width: 80%;
 }
 
-.formu12 input[type="submit"]{
+.formu7 input[type="submit"]{
     align-items: center;
     background-color: #ffffff;
     border: 1px solid #FF6719;
@@ -285,37 +287,37 @@ table .acciones {
     transition: all 0.2s ease-in;
     width: 40%;
 }
-.formu12 input[type="submit"]:hover{
+.formu7 input[type="submit"]:hover{
     background-color: #FF6719;
     border: none;
     color: #ffffff;
 }
 
 /*******formu 13***/
-.formu13{
+.formu8{
     /* display: flex; */
     flex-direction: column;
     flex: 0 1 60vw;
     height: 100%;
 }
-.formu13 form{
+.formu8 form{
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     
     width: 80%;
 }
-.formu13 form article{
+.formu8 form article{
     display: flex;
     flex-direction: column;
 }
-.formu13 form article input,
-.formu13 form article select,
-.formu13 input[type="number"]{
+.formu8 form article input,
+.formu8 form article select,
+.formu8 input[type="number"]{
     width:100%;
     height:2rem;
 }
-.formu13 input[type="submit"]{
+.formu8 input[type="submit"]{
     background-color: #FF6719;
     border: none;
     outline: 0;
@@ -323,5 +325,4 @@ table .acciones {
     margin: 0 auto;
     height: 2rem;
     width: 80%;
-
 }
