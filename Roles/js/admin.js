@@ -17,6 +17,7 @@ import addPeriferico from './add_periferico.js';
 import { ajax } from './ajax.js';
 import { editUsuario } from './edit_usu.js';
 import { editFicha } from './edit_ficha.js';
+import editTipPeriferico from './edit_tip_periferico.js';
 
 
 
@@ -76,7 +77,7 @@ $elemento.forEach( el =>{
 document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
-    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9', 'formu10', 'formu11','formu12', 'formu13'];
+    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9'];
     const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7', 'formu8', 'formu9'];
 
     const callAparecer = ( array ) =>{
@@ -87,8 +88,6 @@ document.addEventListener('click' , e => {
         aparecer( elemento );
     }
     if(e.target.matches('.seccUsua li')){
-       
-
         if(e.target.matches('.aprentabla')){
             document.getElementById('tablainstru').style.display = 'none';
             document.getElementById('tablausu').style.display = 'block';
@@ -114,9 +113,12 @@ document.addEventListener('click' , e => {
         if(e.target.matches('.tipdispo')){
             const $id = e.target.getAttribute('data-tipdispo');
             editTipoDispo($id);
-        }else if(e.target.matches(".marca")){
+        }else if(e.target.matches('.marca')){
             const $id = e.target.getAttribute('data-marca');
             editMarca($id);
+        }else if(e.target.matches(".tipPeriferico")){
+            const $id = e.target.getAttribute('data-tipPeriferico');
+            editTipPeriferico( $id );
         }else if(e.target.matches(".estado")){
             const $id = e.target.getAttribute('data-estado');
             editEstadoDispositivo($id);
@@ -182,9 +184,10 @@ document.addEventListener('click' , e => {
         if(e.target.matches('.tipdispo')){
             getdelete('data-tipdispo' ,'tipo_dispositivo','pag_admin/equipos.php' );
 
-        }else if( e.target.matches('.marca')){
-            getdelete('data-marca', 'marca');
-
+        }else if(e.target.matches('.marca')){
+            getdelete('data-marca', 'marca', 'pag_admin/otro.php');
+        }else if( e.target.matches('.tipPeriferico')){
+            getdelete('data-tipPeriferico', 'tip_periferico', 'pag_admin/equipos.php');
         }else if(e.target.matches('.estado')){
             getdelete('data-estado', 'estado_dispositivo', 'pag_admin/equipos.php');
 
@@ -254,6 +257,12 @@ document.addEventListener('submit', (e)=>{
             nameTipo: e.target.nom_dis.value,
         }
         handleAdd(e , 'acciones.php', data , 'pag_admin/equipos.php');
+    }else if(e.target.matches('#tipPeriferico')){
+        data = {
+            tabla: 'tip_periferico',
+            nameTipo: e.target.nameTipPeriferico.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
     }else if( e.target.matches('#marcaEquipos')){
         data = {
             tabla: 'marca',
