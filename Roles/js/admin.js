@@ -79,6 +79,8 @@ document.addEventListener('click' , e => {
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
     const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9'];
     const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7', 'formu8', 'formu9'];
+    const formuOtros = ['form', 'formu1', 'formu2', 'formu3', 'formu4', 'formu4', 'formu5', 'formu6', 'formu7'];
+
 
     const callAparecer = ( array ) =>{
         const [ , primera ] = e.target.classList;
@@ -107,7 +109,9 @@ document.addEventListener('click' , e => {
     if(e.target.matches('.aparecerambientes') || e.target.matches('.aparecerambientes *')){    
         callAparecer(formuambientes);
     }
-    
+    if(e.target.matches('.aparecerotros') || e.target.matches('.aparecerotros *')){
+        callAparecer(formuOtros);
+    }
 
     if(e.target.matches(".edit")){
         if(e.target.matches('.tipdispo')){
