@@ -114,9 +114,11 @@ document.addEventListener('click' , e => {
         if(e.target.matches('.tipdispo')){
             const $id = e.target.getAttribute('data-tipdispo');
             editTipoDispo($id);
+            
         }else if(e.target.matches(".marca")){
             const $id = e.target.getAttribute('data-marca');
             editMarca($id);
+
         }else if(e.target.matches(".estado")){
             const $id = e.target.getAttribute('data-estado');
             editEstadoDispositivo($id);
@@ -183,7 +185,7 @@ document.addEventListener('click' , e => {
             getdelete('data-tipdispo' ,'tipo_dispositivo','pag_admin/equipos.php' );
 
         }else if( e.target.matches('.marca')){
-            getdelete('data-marca', 'marca');
+            getdelete('data-marca', 'marca', 'pag_admin/otro.php');
 
         }else if(e.target.matches('.estado')){
             getdelete('data-estado', 'estado_dispositivo', 'pag_admin/otro.php');
