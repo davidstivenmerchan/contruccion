@@ -22,8 +22,6 @@
             'ramGB' => $row['ramGB'],
             'nom_tipo_sistema' => $row['nom_tipo_sistema'],
             'nom_marca' => $row['nom_marca']
-
-          
         );
     }
     $jsonstring = json_encode($json);
