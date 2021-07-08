@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="otros">
+                    <a href="pag_admin/otro.php" class="otros">
                         <span class="icon"><i class="fa fas fa-cubes" aria-hidden="true"></i></span>
                         <span class="title">Otros</span>
                         

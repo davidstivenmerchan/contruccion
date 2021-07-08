@@ -10,8 +10,6 @@ function parte2() {
     $('#disponibilidad').hide();
 }
 
-
- 
 $(document).ready(function(){
 
     obtenerdisponibilidad();
@@ -75,8 +73,7 @@ $(document).ready(function(){
             
             console.log(response);
             obtenerdisponibilidad();
-            
-
+        
         })
     }
          
@@ -107,26 +104,20 @@ $(document).ready(function(){
             <p><strong>Telefono: </strong> ${buscar.telefono}</p>
             <p><strong>Correo: </strong> ${buscar.correo_sena}</p>
             </div>
-           
             `
             $('#dispo').html(template);
             $('#dispo').show();
             $('#propiedades').hide();
     });
     }else{
-       
-            template += `
-            
+            template += 
+            `
             <p>Este equipo no tiene ningun aprendiz asignado</p>
-           
             `
             $('#aprendiz').html(template);
-
     }
 });
-});
-
-        
+});  
     function obtenerestado() {
         $.ajax({
             url: 'js/estadoequipos.php',
@@ -134,9 +125,6 @@ $(document).ready(function(){
             success: function(response){
                 let busqueda = JSON.parse(response);
                 let template = '';
-
-               
-    
                 busqueda.forEach( buscar => {
                     template += `
                     <tr eliminarr="${buscar.serial}">
@@ -168,13 +156,9 @@ $(document).ready(function(){
                 });
                 
                 $('#estadodispositivo').html(template);
-            
             }
-    
         });
     }
-
-
     $(document).on('click', '.vercompu', function(){
         let element = $(this)[0].parentElement.parentElement;
         let id = $(element).attr('eliminarr');
@@ -187,12 +171,11 @@ $(document).ready(function(){
 
         if(response.length!==0 && response!=="[]"){
         busqueda.forEach( buscar => {
-            template += `
-            
+            template += 
+            `
             <div class="ver_aprendiz especificaciones">
             <h3>Datos del Computador</h3>
             <div id="aprendiz">
-        
 
             <p><strong>Procesador: </strong>${buscar.procesador}</p>
             <p><strong>Ram (GB): </strong>${buscar.ramGB}</p>
@@ -200,7 +183,6 @@ $(document).ready(function(){
             <p><strong>Marca: </strong> ${buscar.nom_marca}</p>
           
             </div>
-           
             `
             $('#propiedades').show();
             $('#propiedades').html(template);
@@ -210,13 +192,11 @@ $(document).ready(function(){
     });
     }else{
        
-            template += `
-            
+            template += 
+            `
             <p>Este equipo no tiene ningun aprendiz asignado</p>
-           
             `
             $('#aprendiz').html(template);
-
     }
 });
 });

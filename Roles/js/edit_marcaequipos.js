@@ -47,7 +47,7 @@ export const editMarca = ( id ) =>{
                     const $main = document.querySelector('main');
                     
                     getHTML({
-                        url: 'pag_admin/equipos.php',
+                        url: 'pag_admin/otro.php',
                         success: (html) => $main.innerHTML = html,
                         error: (error) => $main.innerHTML = `<h1>${error}</h1>`,
                     });
