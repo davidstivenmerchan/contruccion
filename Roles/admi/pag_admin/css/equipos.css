@@ -200,6 +200,8 @@ table .acciones {
     margin-top: -25px;
 }
 .cards .card .botones button{
+    background-color: #FF6719;
+    color:#ffffff;
     cursor: pointer;
     border: none;
     outline: 0;
