@@ -206,7 +206,36 @@
                     <td>Estado Disponibilidad</td>
                     <td>Estado dispositivo</td>
                     <td>Dispositvo Asociado</td>
+                    <td>Acciones</td>
                 </tr>
+                <?php
+                    $sql = "SELECT periferico.id_periferico, tip_periferico.nom_tip_periferico, 
+                    periferico.nom_periferico,marca.nom_marca, estado_disponibilidad.nom_estado_disponibilidad,
+                    estado_dispositivo.nom_estado_dispositivo, dispositivo_electronico.serial 
+                    from periferico INNER JOIN tip_periferico on periferico.id_tip_periferico = tip_periferico.id_tip_periferico 
+                    INNER JOIN marca on periferico.id_marca = marca.id_marca 
+                    INNER JOIN estado_disponibilidad on periferico.estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
+                    INNER JOIN estado_dispositivo on periferico.estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
+                    INNER JOIN dispositivo_electronico on periferico.dispositivo_electronico = dispositivo_electronico.serial";
+                    $res = mysqli_query($mysqli, $sql);
+                    while($eh = mysqli_fetch_array($res)){
+                ?>
+                    <tr class="datos">
+                        <td><?php echo $eh['id_periferico']?></td>
+                        <td><?php echo $eh['nom_tip_periferico'] ?></td>
+                        <td><?php echo $eh['nom_periferico'] ?></td>
+                        <td><?php echo $eh['nom_marca'] ?></td>
+                        <td><?php echo $eh['nom_estado_disponibilidad'] ?></td>
+                        <td><?php echo $eh['nom_estado_dispositivo'] ?></td>
+                        <td><?php echo $eh['serial'] ?></td>
+                        <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit periferico" data-periferico="<?php echo $eh['id_periferico']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove periferico" data-periferico="<?php echo $eh['id_periferico']; ?>">                     
+                    </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </table>
         </div>
         <!-- Compus perifericos -->

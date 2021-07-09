@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' ){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores'){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -155,29 +155,38 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             );
             echo json_encode($res);
             return ;
-        }elseif($tabla == "periferico"){
+        }elseif($tabla == 'periferico'){
             $resultados = [];
-            if($tipDispo == 1) {
-                $idDispositivos = [3];
-                $sql = "SELECT * from periferico where id_tip_periferico = ?";
-                $query = mysqli_prepare($mysqli, $sql);
-                $ok = mysqli_stmt_bind_param($query , 'i', $idDispositivos[0]);
-                $ok = mysqli_stmt_execute($query);
-                $ok = mysqli_stmt_bind_result($query, $idPeriferico, $idTipPeriferico,$nomTipPeriferico,$idMarca,$fechaAdd, $idEstadoDisponibilidad, $idEstadoDispositivo );
-                while(mysqli_stmt_fetch($query)){
-                    array_push($resultados, 
-                    [
-                        'id' => $idPeriferico,
-                        "idTipoPeriferico" => $idTipPeriferico,
-                        'nomPeriferico' => $nomTipPeriferico,
-                        'idMarca' => $idMarca,
-                        'fechaAdd' => $fechaAdd,
-                        'idEstadoDisponibilidad' => $idEstadoDisponibilidad,
-                        "idEstadoDispositivo" => $idEstadoDispositivo,
-                    ]
-                    );
-                }
+            $sql = "SELECT periferico.id_periferico,periferico.id_tip_periferico,tip_periferico.nom_tip_periferico, 
+            periferico.id_marca,marca.nom_marca, periferico.estado_disponibilidad, estado_disponibilidad.nom_estado_disponibilidad,
+            periferico.estado_dispositivo,estado_dispositivo.nom_estado_dispositivo,dispositivo_electronico.serial 
+            from periferico INNER JOIN tip_periferico on periferico.id_tip_periferico = tip_periferico.id_tip_periferico 
+            INNER JOIN marca on periferico.id_marca = marca.id_marca 
+            INNER JOIN estado_disponibilidad on periferico.estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
+            INNER JOIN estado_dispositivo on periferico.estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
+            INNER JOIN dispositivo_electronico on periferico.dispositivo_electronico = dispositivo_electronico.serial WHERE periferico.id_periferico = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query , 's', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idPeriferico, $idTipPeriferico,$nomTipPeriferico,$idMarca, $nomMarca,$idEstadoDisponibilidad,$nomEstadoDisponibilidad,
+                $idEstadoDispositivo, $nomEstadoDispositivo, $serialDispoAsociado );
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, 
+                [
+                    'id' => $idPeriferico,
+                    "idTipoPeriferico" => $idTipPeriferico,
+                    'nomPeriferico' => $nomTipPeriferico,
+                    'idMarca' => $idMarca,
+                    'nomMarca' => $nomMarca,
+                    'idEstadoDisponibilidad' => $idEstadoDisponibilidad,
+                    'nomEstadoDisponibilidad' => $nomEstadoDisponibilidad,
+                    "idEstadoDispositivo" => $idEstadoDispositivo,
+                    'nomEstadoDispositivo' => $nomEstadoDispositivo,
+                    'serialDispoAsociado' => $serialDispoAsociado,
+                ]
+                );
             }
+            
             $res;
             if(count($resultados) > 0){
                 $res = array(
@@ -190,7 +199,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 $res = array(
                     "err" => false,
                     "status" => http_response_code(200),
-                    "statusText" => "no se encontraron datos",
+                    "statusText" => "no se encontraron datos!() ",
                     "data" => [],
                 );
             }
