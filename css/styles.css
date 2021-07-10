@@ -64,7 +64,7 @@ header nav a {
   text-decoration: none;
   font-size: 20px;
   background: white ;
-  transition: .10s;
+  transition: .2s;
 }
 header nav a:hover {
   color: white;

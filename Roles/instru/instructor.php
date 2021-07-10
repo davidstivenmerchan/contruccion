@@ -78,7 +78,7 @@ while(mysqli_stmt_fetch($query)){
    </nav>
    <div class="enlaces">
         <h2>INFORMES</h2>
-        <a href="../../reportes/asistencia.php" class="uno">
+        <a href="elegir_asistencia.php" class="uno">
             <span class="icon"><img src="../../assets/documento.png" alt=""></span>
             <p class="pueba">Asistencia</p>
         </a>
