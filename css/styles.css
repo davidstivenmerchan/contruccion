@@ -115,8 +115,16 @@ header .opciones .registrate:hover{
   margin-left: 110px;
   font-size: 230px;
   margin-top: 150px;
-  width: 80vw;
+ 
   color: white;
+  transition: 1s;
+  
+}
+.container h3:hover{
+ color: #ff7402;
+ transform: translateY(10px);
+ 
+  
 }
 
 
