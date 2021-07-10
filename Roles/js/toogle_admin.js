@@ -9,7 +9,7 @@ export const desaparecer = ( elementos ) => {
     elementos.forEach ( form => {
         ( form === 'form' )
           ? document.querySelector(`.${form}`).classList.add('invisible')
-          : document.querySelector(`.${form}`).classList.remove('visible')
+          : document.querySelector(`.${form}`).classList.remove('visible');
     });
     
 }

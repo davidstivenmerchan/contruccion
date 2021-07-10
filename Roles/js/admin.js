@@ -18,6 +18,7 @@ import { ajax } from './ajax.js';
 import { editUsuario } from './edit_usu.js';
 import { editFicha } from './edit_ficha.js';
 import editTipPeriferico from './edit_tip_periferico.js';
+import editPeriferico from './edit_periferico.js';
 
 
 
@@ -152,7 +153,7 @@ document.addEventListener('click' , e => {
         }else if(e.target.matches(".detalle_formacion")){
             const $id = e.target.getAttribute('data-detalleformacion');
             editDetalleformacion($id);
-        }   else if(e.target.matches('.tipoDocu')){
+        }else if(e.target.matches('.tipoDocu')){
             const $id = e.target.getAttribute('data-tipoDocu');
             editTipDocu($id);
         }else if(e.target.matches('.tipoUsu')){
@@ -164,6 +165,9 @@ document.addEventListener('click' , e => {
         }else if(e.target.matches('.fichas')){
             const $id = e.target.getAttribute('data-fichas');
             editFicha( $id );
+        }else if(e.target.matches('.periferico')){
+            const $id = e.target.getAttribute('data-periferico');
+            editPeriferico( $id );
         }
     }
 
