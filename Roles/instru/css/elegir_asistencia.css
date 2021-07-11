@@ -7,6 +7,24 @@ font-family: Helvetica;
 .padre{
     display: flex;
 }
+.enviar{
+    background: #ff7402;
+    border: none;
+    color: white;
+    transition: 1s;
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 90px;
+    border-radius: 5px;
+    
+    
+}
+.enviar:hover{
+    cursor: pointer;
+    background: rgb(112,178,45);
+
+
+}
 .titulo{
     position: absolute;
     background: #DAD2D0;
@@ -87,7 +105,7 @@ transform: translateY(10px);
     width: 130%;
     
 }
-.hijo2 div{
+.hijo22{
     
     background:  white;
     border-radius: 30px;
@@ -113,6 +131,18 @@ transform: translateY(10px);
 .hijo2:hover .hijo22{
     width: 500px;
 }
+.hijo2:hover .formu{
+    width: 500px;
+}
+.hijo2:hover label{
+    margin-left: 100px;
+}
+.hijo2:hover .enviar{
+    margin-left: 150px;
+}
+.hijo2:hover .far{
+    right:175px;
+}
 .hijo22:hover{
     background: #ff7402;
     color: white;
@@ -123,7 +153,39 @@ transform: translateY(10px);
     transform: translateY(10px);
 }
 .formu{
-    position: absolute;
-    top: 100px;
+    
+    margin-top: 30px;
+    margin-left: 110px;
     background: white;
+    border: #ff7402 2px solid;
+    border-radius: 20px;
+    width: 400px;
+    transition:1s ;
+}
+
+.formu form{
+    width: 400px;
+    
+}
+.formu form label{
+    margin-top: 10px;
+    margin-left: 30px;
+    transition: 1s;
+    
+}
+.campos{
+    margin: 10px 5px;
+    
+}
+.far{
+    color: #ff7402;
+ 
+    right:90px;
+    transition: 1s;
+    font-size: 20px;
+}
+.far:hover{
+    color: rgb(112,178,45);
+    cursor: pointer;
+    
 }
