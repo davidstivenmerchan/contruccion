@@ -14,6 +14,8 @@ $fecha = "$año-$mes-04";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/elegir_asistencia.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <title>Reportes</title>
 
 </head>
@@ -27,11 +29,13 @@ $fecha = "$año-$mes-04";
            <a href="../../reportes/asistencia.php"><div class="hijo11"><p>MES ACTUAL</p></div></a> 
         </div>
         <div class="hijo2">
-            <div class="hijo22"> <p>MES ESPECIFICO</p></div>
-            <div class="formu">
+       
+            <div class="hijo22" onclick="mostrar();"> <p>MES ESPECIFICO</p></div>
+            <div class="formu" id="formulario">
+            <i class="far fa-times-circle" onclick="desaparecer();"></i>
                 <form action="../../reportes/asistencia_especifica.php" method="POST">
                         <label for="mes">Seleccione el Mes</label>
-                        <select name="mes" id="mes">
+                        <select name="mes" id="mes" class="campos">
                             <option value="01">Enero</option>
                             <option value="02">Febrero</option>
                             <option value="03">Marzo</option>
@@ -45,8 +49,8 @@ $fecha = "$año-$mes-04";
                         </select>
                         <br>
                         <label for="año">Ingrese el Año</label>
-                        <input type="number" id="año" name="año">
-                        <input type="submit" value="Buscar Asistencias">
+                        <input type="number" id="año" name="año" class="campos">
+                        <input type="submit" value="Buscar Asistencias" class="enviar">
 
                         
                     </form>
@@ -54,6 +58,12 @@ $fecha = "$año-$mes-04";
                 
             </div>
         </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<script src="js/asistencia.js"></script>
     
 </body>
 </html>
