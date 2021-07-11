@@ -1,5 +1,6 @@
 <?php
     require_once ('../../includes/conexion.php');
+    $cedula_instru = $_GET['var'];
 ?>
 <?php
 function consultar($consulta, $mysqli):mysqli_result
@@ -7,6 +8,7 @@ function consultar($consulta, $mysqli):mysqli_result
     return mysqli_query($mysqli, $consulta);    
 } 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,16 +23,20 @@ function consultar($consulta, $mysqli):mysqli_result
     <h1>Formaciones</h1>
     <label for="select">Seleccione que lista de formacion quiere ver</label>
     <form action=""></form>
-        <select name="ficha" id="ficha" required>
-            <option value=""></option>
-            <?php
-            foreach (consultar("SELECT ficha FROM fichas WHERE instructor = 444", $mysqli) as $ficha) :  ?>
-            <option value="<?php echo $ficha['ficha']?>"><?php echo $ficha['ficha']?></option>
+        <select name="ficha" id="ficha" required onchange="select();">
+        <option value="">Seleccione una ficha</option>
+        
+        
 
+        <?php
+            foreach (consultar("SELECT ficha FROM fichas WHERE instructor = $cedula_instru", $mysqli) as $ficha) :  ?>
+            <option value="<?php echo $ficha['ficha']?>"><?php echo $ficha['ficha']?></option>
             <?php
             endforeach;
-            ?>
+        ?>
         </select>
+
+        
     </form>
 
 
@@ -46,26 +52,16 @@ function consultar($consulta, $mysqli):mysqli_result
                 <th>Telefono</th>
             </tr>
         </thead>
-        <?php
+        <tbody id="mostrar_aprendices2">
 
-            $consul="SELECT id_tipo_documento,documento,Cod_Carnet,Nombres,Apellidos,
-            correo_sena,telefono from usuarios, matricula WHERE usuarios.documento=matricula.aprendiz AND ficha= '$ficha'";
-            $ejecutar = mysqli_query($mysqli,$consul);
-
-            while($mostrar=mysqli_fetch_array($ejecutar)){
-        ?>
-            <tr>
-                <td><?php echo $mostrar['id_tipo_documento']?></td>
-                <td><?php echo $mostrar['documento']?></td>
-                <td><?php echo $mostrar['Cod_Carnet']?></td>
-                <td><?php echo $mostrar['Apellidos']?></td>
-                <td><?php echo $mostrar['Nombres']?></td>
-                <td><?php echo $mostrar['correo_sena']?></td>
-                <td><?php echo $mostrar['telefono']?></td>
-            </tr>
-        <?php
-            }
-        ?>
+        </tbody>
    </table>
 </body>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="js/grupos.js"></script>
+
+ 
 </html>
