@@ -68,20 +68,23 @@
     }
 
     $consulta5 = "SELECT dispositivo_electronico.serial, dispositivo_electronico.placa_sena, 
-    dispositivo_electronico.nom_dispositivo, marca.nom_marca, tipo_dispositivo.nom_tipo_dispositivo
-    FROM dispositivo_electronico, marca, tipo_dispositivo
-    WHERE marca.id_marca=dispositivo_electronico.id_marca 
-    and tipo_dispositivo.id_tipo_dispositivo=dispositivo_electronico.id_tipo_dispositivo
-    and serial ='$serial'";
+    tipo_dispositivo.nom_tipo_dispositivo, dispositivo_electronico.procesador, 
+    dispositivo_electronico.ramGB, tipo_sistema.nom_tipo_sistema, dispositivo_electronico.almacenamiento, 
+    marca.nom_marca FROM marca, dispositivo_electronico, tipo_sistema, tipo_dispositivo
+    where marca.id_marca=dispositivo_electronico.id_marca and 
+    tipo_sistema.id_tipo_sistema=dispositivo_electronico.id_tipo_sistema 
+    and tipo_dispositivo.id_tipo_dispositivo=dispositivo_electronico.id_tipo_dispositivo";
     $ejecucion5 = mysqli_query($mysqli, $consulta5);
     $mostrar5 = mysqli_fetch_array($ejecucion5);
     if($mostrar5){
         $idserial = $mostrar5['serial'];
         $placa = $mostrar5['placa_sena'];
-        $nom_dispositivo = $mostrar5['nom_dispositivo'];
+        $nom_dispositivo = $mostrar5['nom_tipo_dispositivo'];
+        $procesador = $mostrar5['procesador'];
+        $ramGB = $mostrar5['ramGB'];
+        $tipodsis = $mostrar5['nom_tipo_sistema'];
+        $almacenamiento = $mostrar5['almacenamiento'];
         $marca = $mostrar5['nom_marca'];
-        $tipodis = $mostrar5['nom_tipo_dispositivo'];
-
     }
 
 ?>
@@ -145,7 +148,12 @@
             <p>Placa Sena: <?php echo  $placa ?></p>
             <p>Dispositivo: <?php echo  $nom_dispositivo ?></p>
             <p>Marca: <?php echo  $marca ?></p>
-            <p>Tipo de Dispositivo: <?php echo  $tipodis ?></p>
+            <p>Procesador: <?php echo  $procesador ?></p>
+            <p>RAM: <?php echo  $ramGB ?></p>
+            <p>Sistema: <?php echo  $tipodsis ?></p>
+            <p>almacenamiento: <?php echo  $almacenamiento ?></p>
+            
+            
 
         </div>
     </div>
