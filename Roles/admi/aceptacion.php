@@ -88,7 +88,4 @@ while($i = mysqli_fetch_array($ejecu)){
 </html>
 
 
-    
-
-
 
