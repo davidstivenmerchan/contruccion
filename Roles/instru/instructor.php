@@ -88,7 +88,7 @@ while(mysqli_stmt_fetch($query)){
             <p class="pueba" >Asignacion</p>
         </a>
 
-        <a href="" class="tres">
+        <a href="../../reportes/equipos.php" class="tres">
             <span class="icon"><img src="../../assets/sitio-web.png" alt=""></span>
             <p class="pueba" >Equipos</p>
         </a>
