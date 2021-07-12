@@ -1,0 +1,191 @@
+body{
+    margin: 0px;    
+    font-size: 16px;
+    font-family: Helvetica;
+    
+    }
+    .padre{
+        display: flex;
+    }
+    .enviar{
+        background: #ff7402;
+        border: none;
+        color: white;
+        transition: 1s;
+        width: 50%;
+        margin-top: 10px;
+        margin-left: 90px;
+        border-radius: 5px;
+        
+        
+    }
+    .enviar:hover{
+        cursor: pointer;
+        background: rgb(112,178,45);
+    
+    
+    }
+    .titulo{
+        position: absolute;
+        background: #DAD2D0;
+        padding: 5px 20px;
+        border-radius: 20px;
+        margin-left: 250px;
+        margin-top: 20px;
+        display: flex;
+     
+    }
+    .titulo img{
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+    }
+    h1{
+        text-align: center;
+    
+    }
+    /*PARTE 1*/
+    .hijo1{
+        width: 100%;
+        background: #ff7402;
+        height: 625px;
+        border-right: white 1px solid;
+        transition: 1s;
+        
+        
+    }
+    .hijo1 div{
+        
+        background:  white;
+        border-radius: 30px;
+        border: white solid 2px;
+        width: 400px;
+        padding: 10px;
+        color:black;
+        margin-top: 250px;
+        margin-left: 100px;
+        transition: 1s;
+        
+    }
+    .hijo1 div p{
+        text-align: center;
+        font-weight: 600;
+        
+    }
+    a{
+        text-decoration: none;
+    }
+    .hijo1:hover{
+        width: 130%;
+    }
+    .hijo1:hover .hijo11{
+        width: 500px;
+    }
+    .hijo11:hover{
+        background: rgb(112,178,45);
+        color: white;
+        cursor: pointer;
+        -webkit-box-shadow: 0px 19px 14px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 19px 14px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 19px 14px 1px rgba(0,0,0,0.75);
+    transform: translateY(10px);
+        
+    }
+    
+    
+    /*PARTE 2*/
+    .hijo2{
+        width: 100%;
+        background:  rgb(112,178,45);
+        height: 625px;
+        border-left: white 1px solid;
+        transition: 1s;
+    }
+    .hijo2:hover{
+        width: 130%;
+        
+    }
+    .hijo22{
+        
+        background:  white;
+        border-radius: 30px;
+        border: white solid 2px;
+        width: 400px;
+        padding: 10px;
+        color:black;
+        margin-top: 250px;
+        margin-left: 100px;
+        transition: 1s;
+        
+    }
+    .hijo2 div p{
+        text-align: center;
+        font-weight: 600;
+    
+    }
+    .hijo2:hover{
+        width: 130%;
+        
+        
+    }
+    .hijo2:hover .hijo22{
+        width: 500px;
+    }
+    .hijo2:hover .formu{
+        width: 500px;
+    }
+    .hijo2:hover label{
+        margin-left: 100px;
+    }
+    .hijo2:hover .enviar{
+        margin-left: 150px;
+    }
+    .hijo2:hover .far{
+        right:175px;
+    }
+    .hijo22:hover{
+        background: #ff7402;
+        color: white;
+        cursor: pointer;
+        -webkit-box-shadow: 0px 19px 14px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 19px 14px 1px rgba(0,0,0,0.75);
+        box-shadow: 0px 19px 14px 1px rgba(0,0,0,0.75);
+        transform: translateY(10px);
+    }
+    .formu{
+        
+        margin-top: 30px;
+        margin-left: 110px;
+        background: white;
+        border: #ff7402 2px solid;
+        border-radius: 20px;
+        width: 400px;
+        transition:1s ;
+    }
+    
+    .formu form{
+        width: 400px;
+        
+    }
+    .formu form label{
+        margin-top: 10px;
+        margin-left: 30px;
+        transition: 1s;
+        
+    }
+    .campos{
+        margin: 10px 5px;
+        
+    }
+    .far{
+        color: #ff7402;
+     
+        right:90px;
+        transition: 1s;
+        font-size: 20px;
+    }
+    .far:hover{
+        color: rgb(112,178,45);
+        cursor: pointer;
+        
+    }
