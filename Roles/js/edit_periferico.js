@@ -1,3 +1,4 @@
+import { getHTML } from "./admin.js";
 import { ajax } from "./ajax.js";
 
 
@@ -13,11 +14,14 @@ const editPeriferico = ( id ) => {
             $alert.innerHTML = `
                 <form class="formmodal formmodaltipos" id="editPeriferico">  
                     <div class="cerrarmodal">X</div> 
-                    <input type="hidden" name="idestadoaprobacion" value="${data[0].id}">
+                    <input type="hidden" name="idperiferico" value="${data[0].id}">
                     <label for="esta_aprobacion"> ID </label>
                     <input type="text" name="iddisable" id="esta_aprobacion" placeholder="${data[0].id}" disabled>
                 
-                    <label for="">Tipo de periferico</label>
+                    <label for=""> nombre del periferico </label>
+                    <input type="text" name="namePeriferico" id="namePeriferico" value="${data[0].nomPeriferico}"/>
+
+                    <label for="select_tip_periferico">Tipo de periferico</label>
                     <select name="select_tip_periferico" id="select_tip_periferico">
                         <option value="${data[0].idTipoPeriferico}">${data[0].nomPeriferico}</option>
                         ${ajax({
@@ -35,16 +39,107 @@ const editPeriferico = ( id ) => {
                             }
                         })}
                     </select>
-                    <select name="select_marca" id="">
-
+                    <select name="select_marca" id="select_marca">
+                        <option value="${data[0].idMarca}">${data[0].nomMarca}</option>
+                        ${ajax({
+                            url: 'acciones.php?tabla=marca',
+                            method: 'GET',
+                            cbSuccess : ( { data: datos } ) => {
+                                const $select = document.getElementById('select_marca');
+                                let html;
+                                datos.forEach( el => {
+                                    ( el.id !== data[0].idMarca )
+                                        ? html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                                        : null
+                                });
+                                $select.innerHTML = html;
+                            }
+                        })}
                     </select>
-
-                    <label for="nameesta_aprobacion"> tipo de aprobacionsitivo</label>
-                    <input type="text" name="nameesta_aprobacion" id="nameesta_aprobacion" class="estado_aprobacions" id="estado_aprobacions" value="${data[0].nameTipo}">
+                    <select id="select_estado_dispo" name="select_estado_dispo">
+                        <option value="${data[0].idEstadoDisponibilidad}"> ${data[0].nomEstadoDisponibilidad} </option>
+                        ${ajax({
+                           url: 'acciones.php?tabla=estado_disponibilidad',
+                           method: 'GET',
+                           cbSuccess: ( { data:datos } ) =>{
+                               const $select = document.getElementById('select_estado_dispo');
+                               let html;
+                               datos.forEach( el => {
+                                   ( el.id !== data[0].idEstadoDisponibilidad )
+                                        ? html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                                        : null;
+                               });
+                               $select.innerHTML += html;
+                           } 
+                        })}
+                        </select>
+                        <select name="select_estado_dispositivo" id="select_estado_dispositivo">
+                            <option value="${data[0].idEstadoDispositivo}"> ${ data[0].nomEstadoDispositivo }</option>
+                            ${ajax({
+                                url: 'acciones.php?tabla=estado_dispositivo',
+                                method: 'GET',
+                                cbSuccess: ( {data:datos} ) => {
+                                    const $select = document.getElementById('select_estado_dispositivo');
+                                    let html;
+                                    datos.forEach( el => {
+                                        ( el.id !== data[0].idEstadoDispositivo )
+                                            ? html += `<option value="${el.id}"> ${ el.nameTipo }</option>`
+                                            : null;
+                                    });
+                                    $select.innerHTML += html;
+                                }
+                            })} 
+                        </select>
+                    <label for="nameesta_aprobacion"> dispoSitivo osociado </label>
+                    <input type="text" name="dispo_asociado" id="dispo_asociado" class="dispo_asociado" id="dispo_asociado" value="${data[0].serialDispoAsociado}">
                     <input type="submit" value="actualizar"/>   
                 </form>
             `;
         }
+    });
+
+
+    document.addEventListener('submit', e => {
+        document.querySelector('.formmodal').classList.add('desplazar');
+        setTimeout( () => document.querySelector('.alert').classList.remove('ver'), 1000 );
+        if(e.target.matches('#editPeriferico')){
+            e.preventDefault();
+            console.log('entre aqui que emocion viva el perico');
+            const data = {
+                tabla,
+                idPeriferico: e.target.idperiferico.value,
+                tipPeriferico: e.target.select_tip_periferico.value,
+                namePeriferico: e.target.namePeriferico.value,
+                marca: e.target.select_marca.value,
+                estadoDisponibilidad: e.target.select_estado_dispo.value,
+                estadoDispositivo: e.target.select_estado_dispositivo.value,
+                dispoAsociado: e.target.dispo_asociado.value
+            }
+            ajax({
+                url: 'acciones.php',
+                method: 'PUT',
+                cbSuccess: (  data ) => {
+                    setTimeout( ()=>{
+                        Swal.fire({
+                            title: 'Cambio Exitoso!',
+                            text: data.statusText,
+                            icon: 'success',
+                            confirmButtonText: 'ok',
+                        });
+                    }, 1200);
+                    
+                    const $main = document.querySelector('main');
+                    getHTML({
+                        url: 'pag_admin/equipos.php',
+                        success: ( html ) => $main.innerHTML = html,
+                        error: ( err ) => $main.innerHTML = `<h1> ${err.status} ${err.statusText} </h1>`,
+                    });
+                },
+                data
+            });
+        }
+
+        console.log('pase de largo huevas');
     });
 }
 

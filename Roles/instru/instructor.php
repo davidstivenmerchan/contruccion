@@ -78,7 +78,7 @@ while(mysqli_stmt_fetch($query)){
    </nav>
    <div class="enlaces">
         <h2>INFORMES</h2>
-        <a href="../../reportes/asistencia.php" class="uno">
+        <a href="elegir_asistencia.php" class="uno">
             <span class="icon"><img src="../../assets/documento.png" alt=""></span>
             <p class="pueba">Asistencia</p>
         </a>
@@ -100,7 +100,7 @@ while(mysqli_stmt_fetch($query)){
    </div>
    <div class="grupos">
        <h3>GRUPOS</h3>
-        <a href="grupos.php" class="grup">
+        <a href="grupos.php?var=<?php echo $documento?>" class="grup">
             <span class="icon"><img src="../../assets/grupo.png" alt=""></span>
         </a>
    </div>
