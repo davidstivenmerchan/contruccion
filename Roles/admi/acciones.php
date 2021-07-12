@@ -736,6 +736,29 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
         echo json_encode($res);
     }
+    if( $tabla === 'periferico' ){
+        $sql = 'UPDATE periferico SET id_tip_periferico = ?, nom_periferico = ?, id_marca = ?, estado_disponibilidad = ?, estado_dispositivo = ? , dispositivo_electronico = ? where id_periferico = ?';
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query ,'isiiiii',$_PUT['tipPeriferico'], $_PUT['namePeriferico'], $_PUT['marca'], $_PUT['estadoDisponibilidad'], $_PUT['estadoDispositivo'], $_PUT['dispoAsociado'], $_PUT['idPeriferico']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res;
+        if( $ok ){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Periferico modificado con exito'
+            );
+        }else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'no se puede modificar este periferico intentalo nuevamente'
+            );
+        }
+
+        echo json_encode($res);
+    }
     
 
 
