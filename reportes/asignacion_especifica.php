@@ -46,17 +46,17 @@ function Header()
     $this->SetFont('Arial','B',12);
     
     // Movernos a la derecha
-    $this->Cell(50);
+    $this->Cell(90);
     // Título
     $this->Cell(100,10,'Informes de Asistencia',1,0,'C');
     // Salto de línea
     $this->Ln(30);
 
-    $this->Cell(39,10,'Documento',1, 0,'C',0);
-    $this->Cell(39,10,'Fecha',1, 0,'C',0);
-    $this->Cell(39,10,'Serial',1, 0,'C',0);
-    $this->Cell(39,10,'Descripcion Inicial',1, 0,'C',0);
-    $this->Cell(39,10,'Descripcion Final',1, 1,'C',0);
+    $this->Cell(55,10,'Documento',1, 0,'C',0);
+    $this->Cell(55,10,'Fecha',1, 0,'C',0);
+    $this->Cell(55,10,'Serial',1, 0,'C',0);
+    $this->Cell(55,10,'Descripcion Inicial',1, 0,'C',0);
+    $this->Cell(55,10,'Descripcion Final',1, 1,'C',0);
 }
 
 // Pie de página
@@ -72,18 +72,18 @@ function Footer()
 }
 
 // Creación del objeto de la clase heredada
-$pdf = new PDF();
+$pdf = new PDF('L');
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial','',12);
 
 
 while($row = $ejecucion->fetch_assoc()){
-    $pdf->Cell(39,20,$row['documento'],1, 0,'C',0);
-    $pdf->Cell(39,20,$row['fecha'],1, 0,'C',0);
-    $pdf->Cell(39,20,$row['serial'],1, 0,'C',0);
-    $pdf->Cell(39,20,$row['descripcion_inicial'],1, 0,'C',0);
-    $pdf->Cell(39,20,$row['descripcion_final'],1, 1,'L',0);
+    $pdf->Cell(55,20,$row['documento'],1, 0,'C',0);
+    $pdf->Cell(55,20,$row['fecha'],1, 0,'C',0);
+    $pdf->Cell(55,20,$row['serial'],1, 0,'C',0);
+    $pdf->Cell(55,20,$row['descripcion_inicial'],1, 0,'C',0);
+    $pdf->Cell(55,20,$row['descripcion_final'],1, 1,'L',0);
 
 }
 $pdf->Output();
