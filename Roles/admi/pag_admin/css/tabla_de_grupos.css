@@ -1,0 +1,37 @@
+html{
+    font-size: 16px;
+    font-family: Helvetica;
+    box-sizing: border-box;
+}
+
+*, 
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+h1{
+    text-align: center;
+}
+select{
+    margin-left: 100px;
+}
+.tabla_busqueda{
+    margin:10px 200px;
+    padding: 10px;
+    Border-spacing:0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    width: 1000px;
+}
+.tabla_busqueda tr th{
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    background: #ff6b00;
+    color: white;
+}
+.tabla_busqueda tr td{
+    width: 250px;
+    margin: 10px;
+    padding: 20px;
+
+}
