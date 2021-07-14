@@ -73,32 +73,40 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     }
     elseif ($tabla == 'dispositivo_electronico'){
         $resultados = [];
-            $sql = "SELECT serial,placa_sena,tipo_dispositivo.id_tipo_dispositivo, nom_tipo_dispositivo, nom_dispositivo,estado_disponibilidad.id_estado_disponibilidad,nom_estado_disponibilidad,estado_dispositivo.id_estado_dispositivo,nom_estado_dispositivo, marca.id_marca,nom_marca 
-                    from dispositivo_electronico,estado_disponibilidad,estado_dispositivo,marca,tipo_dispositivo 
-                    where serial = ?
-                    AND dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo 
-                    AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
-                    AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
+            $sql = "SELECT serial,placa_sena,tipo_dispositivo.id_tipo_dispositivo,tipo_dispositivo.nom_tipo_dispositivo,procesador,ramGB,tipo_sistema.id_tipo_sistema,tipo_sistema.nom_tipo_sistema,
+                    estado_disponibilidad.id_estado_disponibilidad,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.id_estado_dispositivo,estado_dispositivo.nom_estado_dispositivo,marca.id_marca,marca.nom_marca,almacenamiento,ambiente.id_ambiente,ambiente.n_ambiente
+                    FROM dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,ambiente
+                    WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
+                    AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
+                    AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
+                    AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo
                     AND dispositivo_electronico.id_marca = marca.id_marca
+                    AND dispositivo_electronico.id_ambiente = ambiente.id_ambiente
                 ";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 's', $id);
         $ok = mysqli_stmt_execute($query);
-        $ok = mysqli_stmt_bind_result($query, $serial , $placa_sena,$idTipoDispositivo, $nom_tipo_dispositivo,$nom_dispositivo ,
-        $idEstadoDisponibilidad ,$nom_estado_disponibilidad , $idEstadoDispositivo,$nom_estado_dispositivo ,$idMarca, $nom_marca );
+        $ok = mysqli_stmt_bind_result($query, $serial, $placa_sena, $idTipoDispositivo, $nom_tipo_dispositivo,$procesador, $ramGB, $idTipoSistema, $NomTipoSistema,
+        $idEstadoDisponibilidad ,$nom_estado_disponibilidad , $idEstadoDispositivo,$nom_estado_dispositivo ,$idMarca, $nom_marca, $almacenamiento, $IdAmbiente, $N_Ambiente);
         while(mysqli_stmt_fetch($query)){
             array_push($resultados, [
                 'serial' => $serial ,
                 'placa_sena'=> $placa_sena,
                 'idTipoDispositivo' => $idTipoDispositivo ,
                 'nom_tipo_dispositivo'=> $nom_tipo_dispositivo,
-                'nom_dispositivo'=> $nom_dispositivo,
+                'procesador'=> $procesador,
+                'ramGB'=> $ramGB,
+                'idTipoSistema'=> $idTipoSistema,
+                'NomTipoSistema'=> $NomTipoSistema,
                 'idEstadoDisponibilidad' => $idEstadoDisponibilidad,
                 'nom_estado_disponibilidad'=> $nom_estado_disponibilidad,
                 'idEstadoDispositivo' => $idEstadoDispositivo,
                 'nom_estado_dispositivo'=> $nom_estado_dispositivo,
                 'idMarca' => $idMarca,
                 'nom_marca'=> $nom_marca,
+                'almacenamiento'=> $almacenamiento,
+                'IdAmbiente'=> $IdAmbiente,
+                'N_Ambiente'=> $N_Ambiente,
                 ]);
         }
         mysqli_stmt_close($query);
@@ -543,8 +551,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         echo json_encode($res);
     }
     if($_PUT['tabla'] === 'dispositivo_electronico'){
-        $sql = "UPDATE $tabla set serial =? , placa_sena =?, id_tipo_dispositivo =? , nom_dispositivo = ?,
-        id_estado_disponibilidad = ?, id_estado_dispositivo = ?, id_marca = ? where serial = ?";
+        $sql = "UPDATE $tabla set serial =? , placa_sena =?, id_tipo_dispositivo =?, procesador = ?, ramGB = ?, id_tipo_sistema = ?,
+        id_estado_disponibilidad = ?, id_estado_dispositivo = ?, id_marca = ?, almacenamiento = ?, id_ambiente = ? where serial = ?";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iiisiiii',$_PUT['serial'], $_PUT['placaSena'], $_PUT['TipoDispo'], $_PUT['nameDispositivoElectronico'],
                                     $_PUT['EstadoDisponibilidad'], $_PUT['EstadoDispositivo'], $_PUT['marca'], $_PUT['serialAntiguo'] );

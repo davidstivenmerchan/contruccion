@@ -252,11 +252,15 @@ document.addEventListener('submit', (e)=>{
         data = {
             serial: e.target.serial.value,
             placaSena: e.target.placa_sena.value,
-            nomDispositivo: e.target.nom_dispositivo.value,
+            Procesador: e.target.Procesador.value,
+            RamGB: e.target.RamGB.value,
+            id_tipo_siste: e.target.id_tipo_siste.value,
             idTipoDis: e.target.id_tipo_dis.value,
             estadoDisponi: e.target.estado_disponi.value,
             estadoDisposi: e.target.estado_disposi.value,
             marca: e.target.marca.value,
+            Almacenamiento: e.target.Almacenamiento.value,
+            ambiente_dispo: e.target.ambiente_dispo.value,
         }
         handleAdd(e, 'registro_dispositivo_e.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#tipoDispo')){

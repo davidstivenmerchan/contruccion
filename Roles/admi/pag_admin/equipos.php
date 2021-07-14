@@ -152,25 +152,32 @@
 
         <div class="formu2 tablas">
             
-                <h2>Dispositivos Electronicos</h2>
-            <table class="tablamarca" border=1 cellspacing="0">
+                <h2 style="margin-left: 8%;">Dispositivos Electronicos</h2>
+            <table class="tablamarca" border=1 cellspacing="10px" style="width: 80%; margin-left: 8%;">
                 <tr class="header">
                     <td>serial</td>
                     <td>Placa Sena</td>
                     <td>Tipo Dispositivo</td>
-                    <td>Nombre </td>
+                    <td>Procesador</td>
+                    <td>Ram (GB)</td>
+                    <td>Tipo Sistema</td>
                     <td>Estado disponibilidad</td>
                     <td>Estado Dispositivo</td>
-                    <td>Marca</td>
+                    <td>Marca Equipo</td>
+                    <td>Almacenamiento</td>
+                    <td>Ambiente Asignado</td>
                     <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
-            $con = "SELECT serial,placa_sena, nom_tipo_dispositivo, nom_dispositivo,nom_estado_disponibilidad,nom_estado_dispositivo,nom_marca
-                    FROM dispositivo_electronico,estado_disponibilidad,estado_dispositivo,marca,tipo_dispositivo 
-                    WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo 
-                    AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
-                    AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
-                    AND dispositivo_electronico.id_marca = marca.id_marca ";
+            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesador,ramGB,tipo_sistema.nom_tipo_sistema,
+                    estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento,ambiente.n_ambiente
+                    FROM dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,ambiente
+                    WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
+                    AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
+                    AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
+                    AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo
+                    AND dispositivo_electronico.id_marca = marca.id_marca
+                    AND dispositivo_electronico.id_ambiente = ambiente.id_ambiente";
             $m = mysqli_query($mysqli, $con);
             while($eh = mysqli_fetch_array($m)){           
             ?>
@@ -179,10 +186,14 @@
                     <td><?php echo $eh['serial']?></td>
                     <td><?php echo $eh['placa_sena']?></td>
                     <td><?php echo $eh['nom_tipo_dispositivo']?></td>
-                    <td><?php echo $eh['nom_dispositivo']?></td>
+                    <td><?php echo $eh['procesador']?></td>
+                    <td><?php echo $eh['ramGB']?></td>
+                    <td><?php echo $eh['nom_tipo_sistema']?></td>
                     <td><?php echo $eh['nom_estado_disponibilidad']?></td>
                     <td><?php echo $eh['nom_estado_dispositivo']?></td>
                     <td><?php echo $eh['nom_marca']?></td>
+                    <td><?php echo $eh['almacenamiento']?></td>
+                    <td><?php echo $eh['n_ambiente']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit dispositivo" data-dispositivo="<?php echo $eh['serial']; ?>">
                         <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove dispositivo" data-dispositivo="<?php echo $eh['serial']; ?>">                     
@@ -278,18 +289,33 @@
 
             <form id="formuDispositivo"class="fommu" autocomplete="off">
                 
-                  
-                <label for="serial">Serial</label>
-                <input type="text" name="serial" id="serial" required>
+                
+                
+                <input type="text" name="serial" id="serial" placeholder="Serial" required>
 
-                <label for="placa_sena">Placa Sena</label>
-                <input type="text" name="placa_sena" id="placa_sena" autocomplete="off" required>
+                
+                <input type="text" name="placa_sena" id="placa_sena" autocomplete="off" placeholder="Placa Sena" required>
 
-                <label for="nom_dispositivo">Nombre Dispositivo</label>
-                <input type="text" name="nom_dispositivo" id="nom_dispositivo" autocomplete="off" required>
+                
+                <input type="text" name="Procesador" id="Procesador" autocomplete="off" placeholder="Procesador" required>
+
+                
+                <input type="text" name="RamGB" id="RamGB" autocomplete="off" placeholder="Ram en GB" required>
+
+                <!-- selectores  -->
+            
+            <select name="id_tipo_siste" id="id_tipo_siste" required>
+            <option value="">Seleccione el Tipo de Sistema</option>
+            <?php
+                foreach (consultarEquipos($mysqli, "SELECT * from tipo_sistema") as $i) :  ?>
+                <option value="<?php echo $i['id_tipo_sistema']?>"><?php echo $i['nom_tipo_sistema']?></option>
+            <?php
+                endforeach;
+            ?>
+            </select>
 
             <!-- selectores  -->
-            <label for="id_tipo_dis">tipo de dispositivo</label>
+            
             <select name="id_tipo_dis" id="id_tipo_dis" required>
             <option value="">Seleccione el Tipo de Dispositivo</option>
             <?php
@@ -329,6 +355,22 @@
                 endforeach;
             ?>
             </select>
+
+            
+                <input type="text" name="Almacenamiento" id="Almacenamiento" autocomplete="off" placeholder="Almacenamiento" required>
+
+            <!-- selectores  5 -->
+            <select name="ambiente_dispo" id="ambiente_dispo" required>
+            <option value="">Ambiente</option>
+            <?php
+                foreach (consultarEquipos($mysqli, "SELECT * from ambiente") as $i) :  ?>
+                <option value="<?php echo $i['id_ambiente']?>"><?php echo $i['n_ambiente']?></option>
+            <?php
+                endforeach;
+            ?>
+            </select>
+
+            
 
             <input type="submit" value="REGISTRAR" name="registrar" class="resgi">
             </form>

@@ -38,8 +38,30 @@ export const editdispoelectronico = ( id ) =>{
             })}
         </select> 
 
-        <label for="namedispositivo_electronico"> Nombre Dispositivo  </label>
-        <input type="text" name="namedispositivo_electronico" id="namedispositivo_electronico" class="namedispositivo_electronico" value="${data[0].nom_dispositivo}">
+        <label for="nameProcesador"> Procesador  </label>
+        <input type="text" name="nameProcesador" id="nameProcesador" class="nameProcesador" value="${data[0].procesador}">
+
+        <label for="RamGB"> Ram (GB)  </label>
+        <input type="number" name="RamGB" id="RamGB" class="RamGB" value="${data[0].RamGB}">
+
+        <label for="select_tipo_sistema"> Tipo Sistema </label>
+        <select name="select_tipo_sistema" id="select_tipo_sistema">
+            <option value="${data[0].idTipoSistema}">${data[0].nom_tipo_sistema}</option>
+            ${ajax({
+                url: "./acciones.php?tabla=tipo_sistema",
+                cbSuccess: ( { data: datos } ) => {
+                    const $select = document.getElementById('select_tipo_sistema');
+                    let $html ;
+                    datos.forEach( el => {
+                        ( el.id !== data[0].idTipoSistema)
+                         ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                         : null;
+                    });
+                    $select.innerHTML += $html;
+                }
+            })}
+        </select>
+
 
         <label for="select_estado_disponibilidad"> Estado Disponibilidad  </label>
         <select name="select_estado_disponibilidad" id="select_estado_disponibilidad" >
@@ -95,6 +117,27 @@ export const editdispoelectronico = ( id ) =>{
         })}
     </select>
 
+    <label for="select_ambi"> Ambiente </label>
+    <select name="select_ambi" id="select_ambi">
+        <option value="${data[0].idAmbi}"> ${data[0].n_ambiente} </option>
+        ${ajax({
+            url: "./acciones.php?tabla=marca",
+            cbSuccess: ( { data: datos } ) => {
+                const $select = document.getElementById('select_ambi');
+                let $html ;
+                datos.forEach( el => {
+                    ( el.id !== data[0].idAmbi ) 
+                      ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                      : null;
+                });
+                $select.innerHTML += $html;
+            }
+        })}
+    </select>
+
+    <label for="Almacenamiento"> Almacenamiento  </label>
+        <input type="text" name="Almacenamiento" id="Almacenamiento" class="Almacenamiento" value="${data[0].Almacenamiento}">
+
         <input type="submit" value="actualizar"/>
         </form>
         `;
@@ -136,10 +179,14 @@ export const editdispoelectronico = ( id ) =>{
                     serial: e.target.idserial.value,
                     placaSena: parseInt(e.target.placa_sena.value),
                     TipoDispo: parseInt(e.target.select_tipo_dispo.value),
-                    nameDispositivoElectronico: e.target.namedispositivo_electronico.value,
+                    nameProcesador: e.target.nameProcesador.value,
+                    RamGB: e.target.RamGB.value,
+                    select_tipo_sistema: parseInt(e.target.select_tipo_sistema.value),
                     EstadoDisponibilidad: parseInt(e.target.select_estado_disponibilidad.value),
                     EstadoDispositivo: parseInt(e.target.select_estado_dispositivo.value), 
                     marca: parseInt(e.target.select_marca.value),
+                    Almacenamiento: e.target.Almacenamiento.value,
+                    select_ambi: parseInt(e.target.select_ambi.value),
                 }
             });
         }
