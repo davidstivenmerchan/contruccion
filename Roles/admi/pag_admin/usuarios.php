@@ -17,20 +17,9 @@
     <title>Form</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
-    <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
     <link rel="stylesheet" href="../../css/mostrar_tablas.css">
+    <link rel="stylesheet" href="./pag_admin/css/usuarios.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    
-    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
-    <script src="../../js/confirmacioneliminar.js"></script>
-
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
-    <script src="../../js/separarusuarios.js"></script>
-   
-
 </head>
 <body>
     <section class="cards">
@@ -73,20 +62,25 @@
             <li class="instructorestabla">Instructores</li>
         </ul>
     </nav>
+
+    
     <div id="tablainstru" class="tablainstru">
+        <article class="search">
+            <input type="number" name="search" id="searchinstru" class="searchinput" placeholder="busca un instructor por su documento" autocomplete="off">
+        </article>
         <table class="tablainstructor" >
             <tr class="titulo">
-                        <td>Documento</td>
-                        <td>Tipo Documento</td>
-                        <td>Cod Carnet</td>
-                        <td>Nombres</td>
-                        <td>Apellidos</td>
-                        <td>Fecha Nacimiento</td>
-                        <td>Genero</td>
-                        <td>Correo SENA</td>
-                        <td>Telefono</td>
-                        <td class="acciones">Acciones</td>
-                    </tr>
+                <td>Documento</td>
+                <td>Tipo Documento</td>
+                <td>Cod Carnet</td>
+                <td>Nombres</td>
+                <td>Apellidos</td>
+                <td>Fecha Nacimiento</td>
+                <td>Genero</td>
+                <td>Correo SENA</td>
+                <td>Telefono</td>
+                <td class="acciones">Acciones</td>
+            </tr>
 
                     <?php
                         $sql="SELECT documento, nom_documento,nom_tipo_usuario,Cod_Carnet,Nombres,
@@ -127,7 +121,11 @@
         </table>
     </div>
 
-    <table class="tablausu" id="tablausu">
+    <div class="tablausu" id="tablausu">
+        <article class="search">
+            <input type="number" name="search" id="searchapren" class="searchinput" placeholder="busca un aprendiz" autocomplete="off">
+        </article>
+        <table class="tablaaprendiz">    
                 <tr class="titulo">
                     <td>Documento</td>
                     <td>Tipo Documento</td>
@@ -179,7 +177,7 @@
                     ?>
             
         </table>
-    
+    </div>
     </div>
 
     <div class="form1">
@@ -349,6 +347,18 @@
             <input type="submit" value="Guardar" name="enviar3">    
     </form>
     </div>
+
+
+
+    <!--muevo scripts aca todo por motivos de carga-->
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
+    <script src="../../js/confirmacioneliminar.js"></script>
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+    <script src="../../js/separarusuarios.js"></script>
 </body>
 
 

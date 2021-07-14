@@ -42,11 +42,11 @@ export const editdispoelectronico = ( id ) =>{
         <input type="text" name="nameProcesador" id="nameProcesador" class="nameProcesador" value="${data[0].procesador}">
 
         <label for="RamGB"> Ram (GB)  </label>
-        <input type="number" name="RamGB" id="RamGB" class="RamGB" value="${data[0].RamGB}">
+        <input type="number" name="RamGB" id="RamGB" class="RamGB" value="${parseInt(data[0].ramGB)}">
 
         <label for="select_tipo_sistema"> Tipo Sistema </label>
         <select name="select_tipo_sistema" id="select_tipo_sistema">
-            <option value="${data[0].idTipoSistema}">${data[0].nom_tipo_sistema}</option>
+            <option value="${data[0].idTipoSistema}">${data[0].NomTipoSistema}</option>
             ${ajax({
                 url: "./acciones.php?tabla=tipo_sistema",
                 cbSuccess: ( { data: datos } ) => {
@@ -119,14 +119,14 @@ export const editdispoelectronico = ( id ) =>{
 
     <label for="select_ambi"> Ambiente </label>
     <select name="select_ambi" id="select_ambi">
-        <option value="${data[0].idAmbi}"> ${data[0].n_ambiente} </option>
+        <option value="${data[0].IdAmbiente}"> ${data[0].N_Ambiente} </option>
         ${ajax({
             url: "./acciones.php?tabla=marca",
             cbSuccess: ( { data: datos } ) => {
                 const $select = document.getElementById('select_ambi');
                 let $html ;
                 datos.forEach( el => {
-                    ( el.id !== data[0].idAmbi ) 
+                    ( el.id !== data[0].IdAmbiente ) 
                       ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
                       : null;
                 });
@@ -136,7 +136,7 @@ export const editdispoelectronico = ( id ) =>{
     </select>
 
     <label for="Almacenamiento"> Almacenamiento  </label>
-        <input type="text" name="Almacenamiento" id="Almacenamiento" class="Almacenamiento" value="${data[0].Almacenamiento}">
+        <input type="text" name="Almacenamiento" id="Almacenamiento" class="Almacenamiento" value="${data[0].almacenamiento}">
 
         <input type="submit" value="actualizar"/>
         </form>
@@ -180,7 +180,7 @@ export const editdispoelectronico = ( id ) =>{
                     placaSena: parseInt(e.target.placa_sena.value),
                     TipoDispo: parseInt(e.target.select_tipo_dispo.value),
                     nameProcesador: e.target.nameProcesador.value,
-                    RamGB: e.target.RamGB.value,
+                    RamGB: parseInt(e.target.RamGB.value),
                     select_tipo_sistema: parseInt(e.target.select_tipo_sistema.value),
                     EstadoDisponibilidad: parseInt(e.target.select_estado_disponibilidad.value),
                     EstadoDispositivo: parseInt(e.target.select_estado_dispositivo.value), 
