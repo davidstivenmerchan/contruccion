@@ -4,6 +4,13 @@ main{
     height: 100%;
 }
 
+/* .search{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+} */
+
 .cards{
     display:grid;
     gap:1rem;
@@ -354,6 +361,19 @@ table .acciones {
     
 }
 
+.undefined{
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+    align-items: center;
+    /* text-align: center; */
+    width: 700%;
+}
+/* .undefined td{
+    text-align: center;
+    width: 100%;
+    margin:0 auto;
+} */
 .alert{
     background-color: rgba(0, 0, 0, .4);
     width: 100vw;
@@ -501,14 +521,17 @@ table .acciones {
     display:none;
 }
 
-.tablainstructor{
+.tablainstructor,
+.tablaaprendiz{
     border: thin solid #000000;
     border-spacing: 0;
     margin: 1rem;
 }
-.tablainstructor .titulo{
+.tablainstructor .titulo
+.tablaaprendiz .titulo{
     height: 3rem;
 }
-.tablainstructor td{
+.tablainstructor td,
+.tablaaprendiz td{
     padding: .3rem;
 }

@@ -19,6 +19,7 @@ import { editUsuario } from './edit_usu.js';
 import { editFicha } from './edit_ficha.js';
 import editTipPeriferico from './edit_tip_periferico.js';
 import editPeriferico from './edit_periferico.js';
+import buscadorUser from './buscador_user.js';
 
 
 
@@ -234,14 +235,67 @@ document.addEventListener('click' , e => {
         
         }else if(e.target.matches('.fichas')){
             getdelete('data-fichas', 'fichas', 'pag_admin/ambientes.php');
+        }else if(e.target.matches('.periferico')){
+            getdelete('data-periferico' , 'periferico', 'pag_admin/equipos.php');
         }
     }
 });
 
-document.addEventListener('change' , (e) => {
-    if(e.target.matches("#id_tipo_dis")){
-        const value = e.target.value;
-        addPeriferico(value);
+document.addEventListener('keyup' , (e) => {
+
+    const value = e.target.value;
+    if( value === '') return ;
+
+    if(e.target.matches('#searchinstru')){
+        buscadorUser('instructor', value, 'tablainstructor');
+    }else if(e.target.matches('#searchapren')){
+        buscadorUser('aprendiz', value, 'tablaaprendiz');           
+    }else if(e.target.matches('#searchdispo')){
+        ajax({
+            url: `buscador.php?query=dispo_electronico&id=${value}`,
+            method: 'GET',
+            cbSuccess: ( { data } ) => {
+                const $tabla = document.getElementById('tabladispoelectronico');
+                let html = "";
+                data.forEach( el => {
+                    html += `
+                        <tr class="datos">
+                            <td>${el.serial}</td>
+                            <td>${el.placaSena}</td>
+                            <td>${el.nomTipoDispo}</td>
+                            <td>${el.nomDispositivo}</td>
+                            <td>${el.estadoDisponibilidad}</td>
+                            <td>${el.estadoDispositivo}</td>
+                            <td>${el.marca}</td>
+                            <td class="imgs">
+                            <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit dispositivo"  data-dispositivo="${el.serial}">
+                            <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove dispositivo"  data-dispositivo="${el.serial}">               
+                        </td>
+                        </tr>
+                    `;
+                });
+
+                $tabla.innerHTML = `
+                <tr class="header">
+                    <td>serial</td>
+                    <td>Placa Sena</td>
+                    <td>Tipo Dispositivo</td>
+                    <td>Nombre </td>
+                    <td>Estado disponibilidad</td>
+                    <td>Estado Dispositivo</td>
+                    <td>Marca</td>
+                    <td class="acciones">Acciones</td>
+                </tr>
+                <tbody>
+                    ${
+                        ( html !== '' )
+                           ? html
+                           : `<tr class="undefined"><td> no se encontraron dispositivos electronico </td></tr>`
+                    }
+                </tbody>
+                `;
+            }
+        });
     }
 });
 

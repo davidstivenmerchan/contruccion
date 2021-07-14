@@ -34,7 +34,11 @@
 }
 .tablausu{
     margin: 20px;
+<<<<<<< HEAD
+    height: 200px;
+=======
     
+>>>>>>> 5c977cd624114a9a13ace4ad01b11b3e9838fba6
     Border-spacing:0;
     background: white;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
@@ -47,9 +51,13 @@
     font-style: italic;
 }
 
+.tablausu td{
+    border-spacing: 0;
+}
 .tablausu .titulo td{
     color: white;
     text-align: center;
+
 }
 
 .tablausu td{
@@ -57,7 +65,7 @@
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     
-    width: auto;
+    width: 100%;
 }
 
 .tablausu .acciones{

@@ -151,9 +151,11 @@
         <!-- Tabla dispositivo electronico -->
 
         <div class="formu2 tablas">
-            
+            <article class="search">
+                <input type="number" name="search" id="searchdispo" class="searchinput" placeholder="busca un dispositivo por su serial" autocomplete="off">
+            </article>
                 <h2>Dispositivos Electronicos</h2>
-            <table class="tablamarca" border=1 cellspacing="0">
+            <table id="tabladispoelectronico" class="tablamarca" border=1 cellspacing="0">
                 <tr class="header">
                     <td>serial</td>
                     <td>Placa Sena</td>

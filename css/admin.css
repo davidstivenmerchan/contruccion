@@ -85,6 +85,24 @@ body{
     height:50px;
     border-radius:50%;
 }
+
+.search {
+    align-items: center;
+    background-color: transparent;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.search input{
+    border:none;
+    border-bottom: thin solid #000000;
+    height: 2rem;
+    outline: none;
+    text-align: center;
+    width: 80%;
+}
 main{
     background-color: #EDEDED;
     width: 100%;
