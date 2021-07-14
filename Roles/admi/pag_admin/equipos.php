@@ -315,7 +315,6 @@
             </select>
 
             <!-- selectores  -->
-            
             <select name="id_tipo_dis" id="id_tipo_dis" required>
             <option value="">Seleccione el Tipo de Dispositivo</option>
             <?php
@@ -325,6 +324,7 @@
                 endforeach;
             ?>
             </select>
+
             <!-- selectores  2 -->
             <select name="estado_disponi" id="estado_disponi" required>
             <option value="">Seleccione el Tipo de Disponibilidad</option>
