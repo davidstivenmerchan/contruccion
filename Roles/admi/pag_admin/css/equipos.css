@@ -209,6 +209,13 @@ table .acciones {
     height: 4rem;
     border-radius: 50%;
 }
+.undefined{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+    width: 700%;
+}
 
 .cards .card .botones .fa{
     font-size: 30px;

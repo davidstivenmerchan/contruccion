@@ -55,13 +55,13 @@ while(mysqli_stmt_fetch($query)){
         </div>
         <div class="topbar">
             <div class="toggle" onclick="toggleMenu();"></div>
-            <div class="search">
+            <!-- <div class="search">
                 <label>
                     <input type="text" placeholder="searh">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </label>
                 
-            </div>
+            </div> -->
             <div class="user">
                 <?php echo $user[0]['nombres']; ?>
                 <br>
