@@ -180,7 +180,7 @@ header .opciones .registrate:hover{
   margin-bottom: 20px;
 }
 
-.login-box input[type="text"],
+.login-box input[type="number"],
 .login-box input[type="password"] {
   border: none;
   border-bottom: 1px solid #fff;
@@ -190,7 +190,32 @@ header .opciones .registrate:hover{
   color: #fff;
   font-size: 16px;
 }
-
+.form_usuario-correcto .form_validacion{
+  color: greenyellow;
+  opacity: 1;
+}
+.form_usuario-incorrecto .form_label_usu{
+  color: red;
+}
+.form_usuario-incorrecto .form_validacion{
+  color: red;
+  opacity: 1;
+}
+.form_usuario-incorrecto .form_input{
+  border: 3px solid red;
+}
+.form_usuario .form_input_error{
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+.form_usuario .form_input_error-activo{
+  display: block;
+}
+.login-box .form_usuario i{
+  position: absolute;
+  
+}
 .login-box input[type="submit"] {
   border: none;
   outline: none;
