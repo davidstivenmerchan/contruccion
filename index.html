@@ -44,9 +44,15 @@
                 </div>
                 <p class="form_input_error">El usuario debe tener 11 digitos, el cual sera el numero de su documento de identidad</p>
             </div>
-     
-            <label for="password">Contraseña</label>
-            <input type="password" name="clave" id="clave" placeholder="Ingrese su contraseña">
+            <div class="form_usuario" id="form_usuario">
+                <label for="password" class="form_label_con">Contraseña</label>
+                <div>
+                    <input type="password" name="clave" id="clave" placeholder="Ingrese su contraseña">
+                    <i class="form_validacion  fa fa-times-circle"></i>
+                </div>
+                <p class="form_input_error">La contraseña debe tener minimo 3 caracteres y maximo 8 caracteres</p>
+            </div>
+            
             <input type="submit" name="ingresar" id="inicio" value="Ingresar">
             <a href="includes/recuperar_clave.html">Recordar Contraseña</a><br>
             </form>
