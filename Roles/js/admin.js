@@ -382,7 +382,6 @@ document.addEventListener('submit', (e)=>{
     }else if( e.target.matches('#ambientes')){
         data = {
             tabla: 'ambiente',
-            id_ambiente : e.target.id_ambiente.value,
             nom_ambiente : e.target.nom_ambiente.value,
             nave : e.target.nave.value,
         }
