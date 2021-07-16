@@ -128,7 +128,7 @@ box-shadow: 0px 0px 24px -1px rgba(0,0,0,0.75);
     visibility: visible;
 }
 
-/*************************      Campo cedula    ********************/
+/*************************      Campo carnet   ********************/
 
 .cancelcarnet{
     position: absolute;
@@ -150,5 +150,159 @@ box-shadow: 0px 0px 24px -1px rgba(0,0,0,0.75);
     color: green;
 }
 .correccarnet__ver{
+    visibility: visible;
+}
+/**************************** cammpo nombre **************************/
+.cancelnom{
+    position: absolute;
+    top: 200px;
+    left: 530px;
+    visibility: hidden;
+    color: red;
+}
+.cancelnom_ver{
+    visibility: visible;
+}
+.correcnom{
+    position: absolute;
+    top: 200px;
+    left: 530px;
+    visibility: hidden;
+    color: green;
+}
+.correcnom__ver{
+    visibility: visible;
+}
+/**************************** cammpo apellido **************************/
+
+.cancelape{
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    visibility: hidden;
+    color: red;
+}
+.cancelape_ver{
+    visibility: visible;
+}
+.correcape{
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    visibility: hidden;
+    color: green;
+}
+.correcape__ver{
+    visibility: visible;
+}
+/**************************** cammpo telefono **************************/
+
+.canceltel{
+    position: absolute;
+    top: 200px;
+    left: 1060px;
+    visibility: hidden;
+    color: red;
+}
+.canceltel_ver{
+    visibility: visible;
+}
+.correctel{
+    position: absolute;
+    top: 200px;
+    left: 1060px;
+    visibility: hidden;
+    color: green;
+}
+.correctel__ver{
+    visibility: visible;
+}
+/**************************** cammpo sena **************************/
+
+.cancelcos{
+    position: absolute;
+    top: 260px;
+    left: 530px;
+    visibility: hidden;
+    color: red;
+}
+.cancelcos_ver{
+    visibility: visible;
+}
+.correccos{
+    position: absolute;
+    top: 260px;
+    left: 530px;
+    visibility: hidden;
+    color: green;
+}
+.correccos__ver{
+    visibility: visible;
+}
+/**************************** cammpo personal **************************/
+
+.cancelcop{
+    position: absolute;
+    top: 260px;
+    left: 800px;
+    visibility: hidden;
+    color: red;
+}
+.cancelcop_ver{
+    visibility: visible;
+}
+.correccop{
+    position: absolute;
+    top: 260px;
+    left: 800px;
+    visibility: hidden;
+    color: green;
+}
+.correccop__ver{
+    visibility: visible;
+}
+
+/**************************** cammpo password **************************/
+
+.cancelpas{
+    position: absolute;
+    top: 320px;
+    left: 625px;
+    visibility: hidden;
+    color: red;
+}
+.cancelpas_ver{
+    visibility: visible;
+}
+.correcpas{
+    position: absolute;
+    top: 320px;
+    left: 625px;
+    visibility: hidden;
+    color: green;
+}
+.correcpas__ver{
+    visibility: visible;
+}
+/**************************** cammpo password2 **************************/
+
+.cancelpas2{
+    position: absolute;
+    top: 320px;
+    left:900px;
+    visibility: hidden;
+    color: red;
+}
+.cancelpas2_ver{
+    visibility: visible;
+}
+.correcpas2{
+    position: absolute;
+    top: 320px;
+    left:900px;
+    visibility: hidden;
+    color: green;
+}
+.correcpas2__ver{
     visibility: visible;
 }
