@@ -21,7 +21,21 @@ const validarFormulario = (e) => {
                 document.querySelector('#form_usuario i').classList.remove('fa-check-circle');
                 document.querySelector('#form_usuario .form_input_error').classList.add('.form_input_error-activo');
             }
-        break;    
+        break;  
+        case "clave":
+            if(expresiones.usuario.test(e.target.value)){
+                document.getElementById('form_clave').classList.remove('form_usuario-incorrecto');
+                document.getElementById('form_clave').classList.add('form_usuario-correcto');
+                document.querySelector('#form_clave i').classList.add('fa-check-circle');
+                document.querySelector('#form_clave i').classList.remove('fa-times-circle');
+            }else{
+                document.getElementById('form_clave').classList.add('form_usuario-incorrecto');
+                document.getElementById('form_clave').classList.remove('form_usuario-correcto');
+                document.querySelector('#form_clave i').classList.add('fa-times-circle');
+                document.querySelector('#form_clave i').classList.remove('fa-check-circle');
+                document.querySelector('#form_clave .form_input_error').classList.add('.form_input_error-activo');
+            }
+        break;
     }
 }
 
