@@ -216,6 +216,32 @@ header .opciones .registrate:hover{
   position: absolute;
   
 }
+.form_clave-correcto .form_validacion{
+  color: greenyellow;
+  opacity: 1;
+}
+.form_clave-incorrecto .form_label_usu{
+  color: red;
+}
+.form_clave-incorrecto .form_validacion{
+  color: red;
+  opacity: 1;
+}
+.form_clave-incorrecto .form_input{
+  border: 3px solid red;
+}
+.form_clave .form_input_error{
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+.form_clave .form_input_error-activo{
+  display: block;
+}
+.login-box .form_clave i{
+  position: absolute;
+  
+}
 .login-box input[type="submit"] {
   border: none;
   outline: none;
