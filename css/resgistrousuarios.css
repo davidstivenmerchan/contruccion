@@ -103,3 +103,52 @@ box-shadow: 0px 0px 24px -1px rgba(0,0,0,0.75);
 .icono:hover{
     color: rgb(112,178,45);
 } 
+
+/*************************      Campo cedula    ********************/
+.cancelcedula{
+    position: absolute;
+    top: 140px;
+    left: 520px;
+    visibility: hidden;
+    color: red;
+
+}
+.cancelcedula__ver{
+    visibility: visible;
+}
+.correccedula{
+    position: absolute;
+    top: 140px;
+    left: 520px;
+    visibility: hidden;
+    color: green;
+}
+
+.correccedula__ver{
+    visibility: visible;
+}
+
+/*************************      Campo cedula    ********************/
+
+.cancelcarnet{
+    position: absolute;
+    top: 140px;
+    left: 1055px;
+    visibility: hidden;
+    color: red;
+}
+
+.cancelcarnet__ver{
+    visibility: visible;
+}
+
+.correccarnet{
+    position: absolute;
+    top: 140px;
+    left: 1055px;
+    visibility: hidden;
+    color: green;
+}
+.correccarnet__ver{
+    visibility: visible;
+}
