@@ -306,3 +306,22 @@ box-shadow: 0px 0px 24px -1px rgba(0,0,0,0.75);
 .correcpas2__ver{
     visibility: visible;
 }
+
+.bloqueo{
+    position: absolute;
+    top:540px;
+    left: 600px;
+    width: 720px;
+    height: 40px;
+    border: none;
+    transition: .5s;
+    display: none;
+   
+    
+}
+.bloqueo_quitar{
+    display: block;
+}
+.bloqueo p{
+    color: red;
+}
