@@ -112,6 +112,9 @@
     <div class="sele4">
         <input type="submit" value="REGISTRAR" name="enviar">
     </div>
+    <div class="bloqueo" id="bloqueo">
+        <p>¡Llene Todos Los Campos!</p>
+    </div>
         <!-- hola -->
     </form>   
     </div> 
