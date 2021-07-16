@@ -6,15 +6,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $_POST = json_decode( file_get_contents('php://input'), true );
     $serial = $_POST['serial'];
     $placa_sena = $_POST['placaSena'];
-    $nom_dispositivo = $_POST['nomDispositivo'];
-    $id_tipo_dis = $_POST['idTipoDis'];
+    $id_tipo_dis =  $_POST['idTipoDis'];
+    $Procesador = $_POST['Procesador'];
+    $RamGB = $_POST['RamGB'];
+    $id_tipo_siste = $_POST['id_tipo_siste'];
     $estado_disponi = $_POST['estadoDisponi'];
-    $estado_disposi = $_POST['estadoDisposi'];
+    $estado_disposi = $_POST['estadoDisposi'];    
     $marca = $_POST['marca'];
+    $Almacenamiento = $_POST['Almacenamiento'];
+    $ambiente_dispo = $_POST['ambiente_dispo'];
     
     $consulta = "INSERT INTO dispositivo_electronico(serial, placa_sena,id_tipo_dispositivo,
-    nom_dispositivo,id_estado_disponibilidad,id_estado_dispositivo,id_marca) values($serial,'$placa_sena',
-    $id_tipo_dis,'$nom_dispositivo',$estado_disponi,$estado_disposi,$marca)";
+    procesador,ramGB,id_tipo_sistema,id_estado_disponibilidad,id_estado_dispositivo,id_marca,almacenamiento,id_ambiente) 
+    values($serial,'$placa_sena', $id_tipo_dis,'$Procesador','$RamGB','$id_tipo_siste',$estado_disponi,$estado_disposi,$marca,'$Almacenamiento','$ambiente_dispo')";
 
     $query =  mysqli_query($mysqli,$consulta);
 
@@ -22,14 +26,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo json_encode([
             'err' => false,
             'status' => http_response_code(200),
-            'statusText' => 'usuario creado con exito',
+            'statusText' => 'Dispositivo creado con exito',
         ]);
         // echo json_encode(1);
     }else{
         echo json_encode([
             'err' => true,
             'status' => http_response_code(500),
-            'statusText' => 'no se puede crear el usuario',
+            'statusText' => 'No se puede crear el Dispositivo',
         ]);
         // echo json_encode(2);
     }

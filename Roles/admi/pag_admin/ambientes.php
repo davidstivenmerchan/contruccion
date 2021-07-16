@@ -115,10 +115,10 @@
             <div class="linea"></div>
             <form class="formulario" id="ambientes">
 
-                <input type="number" name="id_ambiente" id="id_ambiente" placeholder="Escriba el numero de Id" required>
+                
                 <input type="number" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Numero Ambiente" required>
 
-                <select name="nave" id="nave" required>
+                <select name="nave" id="nave" style="width: 130%;" required>
                 <option value="">Seleccione una Nave</option>
                 <?php
                     

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
    
     <title>AECES</title>
@@ -34,13 +36,25 @@
         <div class="login-box" id="login">
             <h1>INICIAR SESION</h1>
             <form method= "post" name="form1" id="form1" action="includes/login.php" autocomplete="off"> 
-            <label for="usuario">Usuario</label>
-            <input type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario"> 
-            <label for="password">Contraseña</label>
-            <input type="password" name="clave" id="password" placeholder="Ingrese su contraseña">
+            <div class="form_usuario" id="form_usuario">
+                <label for="usuario" class="form_label_usu">Usuario</label>
+                <div>
+                    <input type="number" name="usuario" id="usuario" placeholder="Ingrese su usuario">
+                    <i class="form_validacion  fa fa-times-circle"></i>
+                </div>
+                <p class="form_input_error">El usuario debe tener 11 digitos, el cual sera el numero de su documento de identidad</p>
+            </div>
+            <div class="form_usuario" id="form_usuario">
+                <label for="password" class="form_label_con">Contraseña</label>
+                <div>
+                    <input type="password" name="clave" id="clave" placeholder="Ingrese su contraseña">
+                    <i class="form_validacion  fa fa-times-circle"></i>
+                </div>
+                <p class="form_input_error">La contraseña debe tener minimo 3 caracteres y maximo 8 caracteres</p>
+            </div>
+            
             <input type="submit" name="ingresar" id="inicio" value="Ingresar">
             <a href="includes/recuperar_clave.html">Recordar Contraseña</a><br>
-            <img src="assets/marca-x.png" alt="cerrar" class="cerrar" width="20px" height="20px" onclick="desaparecer()">
             </form>
         </div>
 
@@ -158,4 +172,5 @@
 </body>
 <script src="Roles/js/index.js" type="module"></script>
 <script src="Roles/js/aparecerlogin.js" type="module"></script>
+<script src="Roles/js/validacion_index.js" type="module"></script>
 </html>
