@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    console.log('Tengo sueño');
     recargarlista();
 
     $('#ficha').change(function(){
