@@ -43,12 +43,12 @@ inputs.forEach((input) => {
      input.addEventListener('blur', validarFormulario);
  });
 
-formulario.addEventListener('submit', (e) => {
-    if(campos.usuario && campos.clave){ 
-        formulario.reset()
-    }else{
-        document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-    }
-});
+//formulario.addEventListener('submit', (e) => {
+    //if(campos.usuario && campos.clave){ 
+        //formulario.reset()
+    //}else{
+        //document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+    //}
+//});
 
  
