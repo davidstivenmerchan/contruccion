@@ -20,6 +20,7 @@ import { editFicha } from './edit_ficha.js';
 import editTipPeriferico from './edit_tip_periferico.js';
 import editPeriferico from './edit_periferico.js';
 import buscadorUser from './buscador_user.js';
+import gruposAdmin from './grupos_admin.js';
 
 
 
@@ -446,5 +447,12 @@ document.addEventListener('submit', (e)=>{
             doc_instruc: parseInt(e.target.doc_instruc.value),
         }   
         handleAdd(e , 'insert_ficha.php', data , 'pag_admin/ambientes.php');
+    }
+});
+
+
+document.addEventListener('change', (e) => {
+    if(e.target.matches('#ficha')){
+        gruposAdmin(e);
     }
 });

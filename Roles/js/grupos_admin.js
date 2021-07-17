@@ -1,27 +1,22 @@
-$(document).ready(function(){
-    console.log('Tengo sueño');
-    recargarlista();
+import { ajax } from "./ajax.js";
 
-    $('#ficha').change(function(){
+const gruposAdmin = (e) => {
 
-    recargarlista();
-
-    });
-    
- function recargarlista(){
-        $.ajax({
-            url: 'admi/pag_admin/buscar_grupos.php',
-            type: 'POST',
-            data: "ficha=" +$('#ficha').val(),
-            success: function(response){
-                
-                let busqueda = JSON.parse(response);
-                let template = '';
-            
-                if(response.length!==0 && response!=="[]"){  
-                busqueda.forEach( buscar => { 
-                    template += `
+    ajax({
+        url: 'pag_admin/buscar_grupos.php',
+        method: 'POST',
+        data: {
+            'ficha': e.target.value
+        },
+        cbSuccess: ( response ) => {
                
+            // let busqueda = JSON.parse(response);
+            let template = '';
+        
+            if(response.length!==0 && response!=="[]"){  
+                response.forEach( buscar => { 
+                    template += `
+            
                     <tr>
                         <td>
                             ${buscar.nom_documento}
@@ -45,24 +40,69 @@ $(document).ready(function(){
                             ${buscar.telefono}
                         </td>
                     </tr>
-     
+    
                     `
                 });
 
-                $('#mostrar_aprendices2').html(template);
-           //     $('#buscar_asignacion_equipos').show();
+                document.querySelector('#mostrar_aprendices2').innerHTML = template;
+                // $('#mostrar_aprendices2').html(template);
+        //     $('#buscar_asignacion_equipos').show();
                 
                 
             }else{
-               // $('#mensajenegativo').show();
+            // $('#mensajenegativo').show();
             }
         }
-        })
-//    }else{
-    //    $('#mensajenegativo').hide();
-    //    $('#buscar_asignacion_equipos').hide();
-//    }
-    
-    }
-    
-});
+    });
+    // $.ajax({
+    //     url: 'admi/pag_admin/buscar_grupos.php',
+    //     type: 'POST',
+    //     data: "ficha=" +$('#ficha').val(),
+    //     success: function(response){
+            
+    //         let busqueda = JSON.parse(response);
+    //         let template = '';
+        
+    //         if(response.length!==0 && response!=="[]"){  
+    //         busqueda.forEach( buscar => { 
+    //             template += `
+           
+    //             <tr>
+    //                 <td>
+    //                     ${buscar.nom_documento}
+    //                 </td>
+    //                 <td>
+    //                     ${buscar.documento}
+    //                 </td>
+    //                 <td>
+    //                     ${buscar.Cod_Carnet}
+    //                 </td>
+    //                 <td>
+    //                     ${buscar.Nombres}
+    //                 </td>
+    //                 <td>
+    //                     ${buscar.Apellidos}
+    //                 </td>
+    //                 <td>
+    //                     ${buscar.correo_sena}
+    //                 </td>
+    //                 <td>
+    //                     ${buscar.telefono}
+    //                 </td>
+    //             </tr>
+ 
+    //             `
+    //         });
+
+    //         $('#mostrar_aprendices2').html(template);
+    //    //     $('#buscar_asignacion_equipos').show();
+            
+            
+    //     }else{
+    //        // $('#mensajenegativo').show();
+    //     }
+    // }
+    // })
+}
+
+export default gruposAdmin;
