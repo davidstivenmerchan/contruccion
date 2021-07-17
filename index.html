@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
-   
     <title>AECES</title>
-<!-- <a href="">hola</a> -->
+
 </head>
 <body>
     <div class="container">
@@ -26,12 +25,9 @@
             </nav>
             <div class="opciones">
                 <a href="registro.php"><button class="registrate"> Registrate </button></a>
-                <button class="iniciosesion" id="iniciosesion" onclick="aparecer()"> Iniciar sesion</button>
+                <button class="iniciosesion" id="iniciosesion">Iniciar sesion</button>
             </div>
         </header>
-        <!--<figure class="banner">
-            <img src="./assets/unnamed.png" alt="industria y construccion" title="industria y construccion">
-        </figure>  -->
         <h3>AECES</h3>
         <div class="login-box" id="login">
             <h1>INICIAR SESION</h1>
@@ -44,7 +40,7 @@
                 </div>
                 <p class="form_input_error">El usuario debe tener 11 digitos, el cual sera el numero de su documento de identidad</p>
             </div>
-            <div class="form_usuario" id="form_usuario">
+            <div class="form_clave" id="form_clave">
                 <label for="password" class="form_label_con">Contraseña</label>
                 <div>
                     <input type="password" name="clave" id="clave" placeholder="Ingrese su contraseña">
@@ -52,9 +48,10 @@
                 </div>
                 <p class="form_input_error">La contraseña debe tener minimo 3 caracteres y maximo 8 caracteres</p>
             </div>
-            
+            <div class="formulario__mensaje" id="formulario__mensaje">
+				<p><i class="fa fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena los datos correctamente. </p>
+			</div>
             <input type="submit" name="ingresar" id="inicio" value="Ingresar">
-            <a href="includes/recuperar_clave.html">Recordar Contraseña</a><br>
             </form>
         </div>
 
