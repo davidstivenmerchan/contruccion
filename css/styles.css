@@ -149,14 +149,6 @@ header .opciones .registrate:hover{
   opacity: 1;
 }
 
-.login-box .avatar{
-  width: 110px;
-  height: 110px;
-  border-radius: 30%;
-  position: absolute;
-  top: -65px;
-  left: calc(50% - 50px);
-}
 
 .login-box h1 {
   margin-top: -20px;
@@ -177,7 +169,7 @@ header .opciones .registrate:hover{
 
 .login-box input {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .login-box input[type="number"],
@@ -186,72 +178,65 @@ header .opciones .registrate:hover{
   border-bottom: 1px solid #fff;
   background: transparent;
   outline: none;
-  height: 40px;
   color: #fff;
   font-size: 16px;
+  margin-top: 10px;
 }
+
 .form_usuario-correcto .form_validacion{
   color: greenyellow;
   opacity: 1;
-}
-.form_usuario-incorrecto .form_label_usu{
-  color: red;
 }
 .form_usuario-incorrecto .form_validacion{
   color: red;
   opacity: 1;
 }
-.form_usuario-incorrecto .form_input{
-  border: 3px solid red;
+.form_usuario-incorrecto .grupo_input{
+  border-bottom: 3px solid red;
 }
-
+.form_validacion{
+  position: absolute;
+  visibility: hidden;
+}
+.form_validacion-activo{
+  visibility: visible;
+}
 .form_usuario .form_input_error{
   font-size: 12px;
-  margin-top: -5px;
-	margin-bottom: 10px;
+  margin-top: 10px;
+	margin-bottom: 0px;
 	display: none;
 }
 .form_usuario .form_input_error-activo{
   display: block;
 }
-.login-box .form_usuario i{
-  position: absolute;
 
-  
-}
 .form_clave-correcto .form_validacion{
   color: greenyellow;
   opacity: 1;
-}
-.form_clave-incorrecto .form_label_con{
-  color: red;
 }
 .form_clave-incorrecto .form_validacion{
   color: red;
   opacity: 1;
 }
-.form_clave-incorrecto .form_input{
-  border: 3px solid red;
+.form_clave-incorrecto .grupo_input{
+  border-bottom: 3px solid red;
 }
 
 .form_clave .form_input_error{
   font-size: 12px;
-  margin-top: -5px;
+  margin-top: 10px;
 	margin-bottom: 10px;
 	display: none;
 }
 .form_clave .form_input_error-activo{
   display: block;
 }
-.login-box .form_clave i{
-  position: absolute;
-  
-}
 .formulario__mensaje {
-	height: 45px;
-	line-height: 45px;
+	height: 18px;
+	line-height: 18px;
 	background: #F66060;
-	padding: 0 15px;
+	padding: 2px 2px 2px 2px;
 	border-radius: 3px;
 	display: none;
 }
@@ -271,6 +256,7 @@ header .opciones .registrate:hover{
   color: #fff;
   font-size: 18px;
   border-radius: 20px;
+  margin-top: 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
 

@@ -26,6 +26,7 @@ const validarCampo = (expresion, input, campo ) => {
         document.getElementById(`form_${campo}`).classList.add('form_usuario-correcto');
         document.querySelector(`#form_${campo} i`).classList.add('fa-check-circle');
         document.querySelector(`#form_${campo} i`).classList.remove('fa-times-circle');
+        document.querySelector(`#form_${campo} i`).classList.add('form_validacion-activo');
         document.querySelector(`#form_${campo} .form_input_error`).classList.remove('form_input_error-activo');
         campos[campo] = true;
     }else{
@@ -33,6 +34,7 @@ const validarCampo = (expresion, input, campo ) => {
         document.getElementById(`form_${campo}`).classList.remove('form_usuario-correcto');
         document.querySelector(`#form_${campo} i`).classList.add('fa-times-circle');
         document.querySelector(`#form_${campo} i`).classList.remove('fa-check-circle');
+        document.querySelector(`#form_${campo} i`).classList.remove('form_validacion-activo');
         document.querySelector(`#form_${campo} .form_input_error`).classList.add('form_input_error-activo');
         campos[campo] = false;
     }
@@ -43,12 +45,21 @@ inputs.forEach((input) => {
      input.addEventListener('blur', validarFormulario);
  });
 
-//formulario.addEventListener('submit', (e) => {
-    //if(campos.usuario && campos.clave){ 
-        //formulario.reset()
-    //}else{
-        //document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-    //}
-//});
+formulario.addEventListener('submit', (e) => {
+    if(campos.usuario && campos.clave){ 
+        console.log('funciona');
+    }else{
+        e.preventDefault();
+
+        
+                document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+
+            setTimeout(() => {
+
+                document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
+
+            }, 8000);
+    }
+});
 
  

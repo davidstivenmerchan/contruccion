@@ -34,7 +34,7 @@
             <form method= "post" name="form1" id="form1" action="includes/login.php" autocomplete="off"> 
             <div class="form_usuario" id="form_usuario">
                 <label for="usuario" class="form_label_usu">Usuario</label>
-                <div>
+                <div class="grupo_input">
                     <input type="number" name="usuario" id="usuario" placeholder="Ingrese su usuario">
                     <i class="form_validacion  fa fa-times-circle"></i>
                 </div>
@@ -42,14 +42,14 @@
             </div>
             <div class="form_clave" id="form_clave">
                 <label for="password" class="form_label_con">Contraseña</label>
-                <div>
+                <div class="grupo_input">
                     <input type="password" name="clave" id="clave" placeholder="Ingrese su contraseña">
                     <i class="form_validacion  fa fa-times-circle"></i>
                 </div>
                 <p class="form_input_error">La contraseña debe tener minimo 3 caracteres y maximo 8 caracteres</p>
             </div>
             <div class="formulario__mensaje" id="formulario__mensaje">
-				<p><i class="fa fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena los datos correctamente. </p>
+				<p><i class="fa fa-exclamation-triangle"></i> <b>Error:</b> Complete bien los datos </p>
 			</div>
             <input type="submit" name="ingresar" id="inicio" value="Ingresar">
             </form>

@@ -71,9 +71,9 @@ if (isset($_POST['ingresar'])){
                 
         }
     }else{
-        echo "<script> alert('VERIFIQUE SU CONTRASEÑA O DOCUMENTO. ERROR AL INGRESAR');
-            window.location= '../index.html';
-            </script>";
+       echo "<script> alert('VERIFIQUE SU CONTRASEÑA O DOCUMENTO. ERROR AL INGRESAR');
+          window.location= '../index.html';
+         </script>";
         exit();
     }
 
