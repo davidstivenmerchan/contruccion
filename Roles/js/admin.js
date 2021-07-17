@@ -243,9 +243,7 @@ document.addEventListener('click' , e => {
 });
 
 document.addEventListener('keyup' , (e) => {
-
     const value = e.target.value;
-    if( value === '') return ;
 
     if(e.target.matches('#searchinstru')){
         buscadorUser('instructor', value, 'tablainstructor');
