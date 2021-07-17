@@ -1,7 +1,7 @@
 <?php
 
 require_once ('../../../includes/conexion.php');
-
+$_POST = json_decode( file_get_contents('php://input'), true);
 
 $buscar = $_POST['ficha'];
 
@@ -26,8 +26,7 @@ if(!empty($buscar)){
                 'telefono' => $row['telefono']
             );
         }
-        $jsonstring = json_encode($json);
-        echo $jsonstring;
+        echo json_encode($json);
     }
    
 }
