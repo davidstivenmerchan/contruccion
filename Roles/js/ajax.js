@@ -1,4 +1,3 @@
-
 export const ajax = ({ url, method, cbSuccess, data}) => {
 
     fetch(url,{
