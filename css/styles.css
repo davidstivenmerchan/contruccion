@@ -310,6 +310,7 @@ header .opciones .registrate:hover{
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 700px;
   align-items: center;
   margin: auto;
   text-align: justify;
@@ -320,7 +321,7 @@ header .opciones .registrate:hover{
 .servicios h2{
   margin-left: 0px;
   font-size: 50px;
-  margin-top: -300px;
+  margin-top: -350px;
   color: black;
 }
 .servicios p{
@@ -364,7 +365,7 @@ header .opciones .registrate:hover{
   grid-area: nosotros;
   background-color: lightgray;
   width: 100%;
-  height: 800px;
+  height: 700px;
 }
 .nosotros h2{
   margin-left: 0px;
@@ -401,23 +402,23 @@ header .opciones .registrate:hover{
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: black;
   font-size: 20px;
-  height: 600px;
+  height: 700px;
 }
 .contactenos h4{
-  margin-left: -200px;
+
   font-size: 50px;
   margin-top: 30px;
   color: black;
 }
 .contactenos p{
   width: 600px;
-  margin-left: 60px;
+
   margin-top: -30px;
+  color: white;
 }
 .contactenos .cont {
-  width: 70%;
+  width: 75%;
   display: grid;
   grid-template-columns: repeat(2, auto);
 }
@@ -429,7 +430,8 @@ header .opciones .registrate:hover{
   color: white;
   font-size: 15px;
   height: 520px;
-  margin-top: -120px;
+  margin-top: -30px;
+  margin-left: 20px;
 
 }
 .contactenos .cont form h2 {
@@ -519,10 +521,10 @@ footer {
 }
 
 .scroll-top-btn{
-  background-color: #f38200;
+  background-color: #ff6b00;
   cursor: pointer;
   position: fixed;
-  bottom: 2vh;
+  bottom: 5vh;
   right: calc( 2rem + 1vw );
   z-index: 999;
   width: 5rem;
@@ -537,7 +539,7 @@ footer {
 }
 
 .scroll-top-btn:hover{
-  background-color: #FAB50A ;
+  background-color: #f38200 ;
   color:#ffffff;
 }
 .hidden{
@@ -547,8 +549,8 @@ footer {
 
 .mapa{
   position: absolute;
-  top:1850px;
-  left: 300px;
+  top:1800px;
+  left: 250px;
   border: #f38200 solid 1px;
 }
 
@@ -562,7 +564,6 @@ footer{
   background:#ff6b00;
   display: flex;
   align-items: flex-end;
-  margin-top: 2rem;
 }
 footer img{
   margin-left: 20px;
