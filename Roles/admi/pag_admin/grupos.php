@@ -21,7 +21,7 @@ function consultar($consulta, $mysqli):mysqli_result
 <body>
 
 <h1>Grupos</h1>
-    <label for="select">Seleccione que lista de formacion quiere ver</label>
+    <label for="select">Seleccione que lista de formacion quiere ver:</label>
     <form action=""></form>
         <select name="ficha" id="ficha" required>
         <option value="">Seleccione una ficha</option>
