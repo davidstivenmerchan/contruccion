@@ -14,7 +14,8 @@
 <div class="navigation">
             <ul>
                 <li class="ip">
-                    <img src="./../../assets/logo_sin_fondo_6.png" alt="" class="img"> 
+                    <h4 class="uno">AECES</h4>
+                    <h4 class="dos">APLICACION WEB</h4>
                 </li>
 
                 <li>

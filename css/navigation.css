@@ -8,27 +8,11 @@
     flex-direction: column;
     justify-content: flex-start;
 }
-.navigation.active .ip{
-    margin: 0;
-}
 .navigation.active ul li a .title{
     display:none;
 }
 .navigation.active ul li a .fa{
     margin: 0 0 0 1vw;
-}
-.navigation.active .img{
-    visibility: hidden;
-    transition: 0.2s;
-}
-.navigation .img{
-    width: 15rem;
-    height: 15rem;
-    display: block;
-    margin: 2vh 0 10vh 6vh;
-}
-.navigation .ip{
-    margin: 3rem 0;
 }
 .navigation{
     background-color: #70b22d !important;
@@ -38,9 +22,23 @@
     justify-content: flex-start;
     transition: 0.5s;
     overflow: hidden;
-    /* width: 10vw; */
+    height: 100%;
 }
-
+.navigation .ip{
+    justify-content: center;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    margin-top: -3rem;
+}
+.navigation .ip .uno{
+    margin-top: 10px;
+    margin-left: 6rem;
+}
+.navigation .ip .dos{
+    margin-bottom: 5px;
+   margin-left: -8rem;
+}
 .navigation ul {
     margin: 0;
     padding: 0;
@@ -83,13 +81,6 @@
     background: transparent;
 }
 
-.navigation .ip{
-    margin-left: -1rem;
-}
-.navigation img{
-    max-width: 80%;
-}
-
 @media screen and (max-width: 1122px){
     .navigation {
         width: 60px;
@@ -110,17 +101,7 @@
     .navigation ul li a .fa{
         margin: 0 0 0 1vw;
     }
-    .navigation .img{
+    .navigation .ip h4{
         visibility: hidden;
-        transition: 0.2s;
-    }
-    .navigation .img{
-        width: 15rem;
-        height: 15rem;
-        display: block;
-        margin: 2vh 0 10vh 6vh;
-    }
-    .navigation .ip{
-        margin: 3re
     }
 }
