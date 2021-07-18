@@ -36,9 +36,6 @@ while(mysqli_stmt_fetch($query)){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="sweetalert2.all.min.js"></script>
-    Optional: include a polyfill for ES6 Promises for IE11
-    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script> -->
     <title>Admin</title>
     <link rel="stylesheet" href="./../../css/admin.css">
 
@@ -55,19 +52,12 @@ while(mysqli_stmt_fetch($query)){
         </div>
         <div class="topbar">
             <div class="toggle" onclick="toggleMenu();"></div>
-            <!-- <div class="search">
-                <label>
-                    <input type="text" placeholder="searh">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </label>
-                
-            </div> -->
             <div class="user">
                 <?php echo $user[0]['nombres']; ?>
                 <br>
                 <?php echo $rol[0]['nom_tipo_usuario']; ?>
-                
             </div>
+            <img src="../../assets/logo_sin_fondo_6.png" alt="" width="50px" height="50px">
         </div>
         <main> 
         </main>
