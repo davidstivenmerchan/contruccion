@@ -452,6 +452,30 @@ header .opciones .registrate:hover{
   outline: none;
   border-bottom: 1px solid #fff;
 }
+/*name*/
+.name_mal{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  color: red;
+
+}
+.name_mal-ver{
+  visibility: visible;
+}
+.name_bien{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  color: green;
+}
+
+.name_bien-ver{
+  visibility: visible;
+}
+/*email*/
 .contactenos .cont form a {
   text-decoration: none;
   margin: 0.5rem 0;
