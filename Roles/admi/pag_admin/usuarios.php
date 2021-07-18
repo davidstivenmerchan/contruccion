@@ -245,9 +245,8 @@
 
     </div>
     <div class="form3">
-    <p>Crear usuarios</p>
+    <h2>Crear usuarios</h2>
         <div class="linea"></div>
-        <img src="../../assets/Group_45.jpg" alt="holi">
     
             <form class="crearusuario" action="insertarusuarios.php" id="crearusuario" autocomplete="off">
                     <div class="doc">
