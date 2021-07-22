@@ -1,0 +1,32 @@
+.servicios{
+    grid-area: servicios;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    margin: auto;
+    .cards{
+        display: flex;
+        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(3 , 1fr);
+        .card{
+            display: flex;
+            flex-direction: column;
+            img{
+                width: 100%;
+                max-width: 100%;
+            }
+            button{
+                // align-self: center;
+                margin: auto;
+                width: 50%;
+                border: none;
+                outline: 0;
+                cursor: pointer;
+                background-color: #e24800;
+                color: #ffffff;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.nosotros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: nosotros;
+    background-color: rgba(0, 0, 0, .1);
+    width: 100%;
+    .nosotrosconte{
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        // margin: auto;
+        p{
+            width: 40%;
+        }
+        figure{
+            width: 50%;
+            img{
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+    article{
+        font-size: 1.5rem;
+        color: #ff9100;
+    }
+}

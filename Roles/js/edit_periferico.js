@@ -17,10 +17,6 @@ const editPeriferico = ( id ) => {
                     <input type="hidden" name="idperiferico" value="${data[0].id}">
                     <label for="esta_aprobacion"> ID </label>
                     <input type="text" name="iddisable" id="esta_aprobacion" placeholder="${data[0].id}" disabled>
-                
-                    <label for=""> nombre del periferico </label>
-                    <input type="text" name="namePeriferico" id="namePeriferico" value="${data[0].nomPeriferico}"/>
-
                     <label for="select_tip_periferico">Tipo de periferico</label>
                     <select name="select_tip_periferico" id="select_tip_periferico">
                         <option value="${data[0].idTipoPeriferico}">${data[0].nomPeriferico}</option>
@@ -90,8 +86,10 @@ const editPeriferico = ( id ) => {
                                 }
                             })} 
                         </select>
-                    <label for="nameesta_aprobacion"> dispoSitivo osociado </label>
-                    <input type="text" name="dispo_asociado" id="dispo_asociado" class="dispo_asociado" id="dispo_asociado" value="${data[0].serialDispoAsociado}">
+                    <label for="pulgadasPeriferico"> pulgadas periferico </label>
+                    <input type="text" name="pulgadas_periferico" id="pulgadasPeriferico" class="pulgadasPeriferico" value="${data[0].pulgadas}">
+                    <label for="descripcion">Descripcion</label>
+                    <input type="text" name="descripcion" id="descripcion" class="descripcion" value="${data[0].descripcion}" />
                     <input type="submit" value="actualizar"/>   
                 </form>
             `;
@@ -108,12 +106,12 @@ const editPeriferico = ( id ) => {
             const data = {
                 tabla,
                 idPeriferico: e.target.idperiferico.value,
-                tipPeriferico: e.target.select_tip_periferico.value,
-                namePeriferico: e.target.namePeriferico.value,
-                marca: e.target.select_marca.value,
-                estadoDisponibilidad: e.target.select_estado_dispo.value,
-                estadoDispositivo: e.target.select_estado_dispositivo.value,
-                dispoAsociado: e.target.dispo_asociado.value
+                tipPeriferico: parseInt(e.target.select_tip_periferico.value),
+                marca: parseInt(e.target.select_marca.value),
+                estadoDisponibilidad: parseInt(e.target.select_estado_dispo.value),
+                estadoDispositivo: parseInt(e.target.select_estado_dispositivo.value),
+                pulgadas: parseInt(e.target.pulgadas_periferico.value),
+                descripcion: e.target.descripcion.value,
             }
             ajax({
                 url: 'acciones.php',

@@ -1,0 +1,15 @@
+.container{
+    width:100%;
+    max-width:100%;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows:repeat(9 , auto);
+
+    grid-template-areas:"header header header"
+                        "banner banner banner"
+                        "servicios servicios servicios"
+                        "nosotros nosotros nosotros"
+                        "conctacto conctacto conctacto"
+                        "organizaciones organizaciones organizaciones"
+                        "footer footer footer";
+}

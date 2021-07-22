@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores'){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris'){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -139,11 +139,21 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                     ]);
             }
             mysqli_stmt_close($query);
-            $res = array(
-            'status' => http_response_code(200),
-            'statusText', 'resultados encontrados',
-            'data' => $resultados, 
-            );
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText', 'resultados encontrados',
+                    'data' => $resultados, 
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText', 'hubo un error al hacer la peticion',
+                );
+            }
             echo json_encode($res);
         }elseif ($tabla == 'ambiente'){
             $resultados= [];
@@ -168,17 +178,17 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             $resultados = [];
             $sql = "SELECT periferico.id_periferico,periferico.id_tip_periferico,tip_periferico.nom_tip_periferico, 
             periferico.id_marca,marca.nom_marca, periferico.estado_disponibilidad, estado_disponibilidad.nom_estado_disponibilidad,
-            periferico.estado_dispositivo,estado_dispositivo.nom_estado_dispositivo,dispositivo_electronico.serial 
+            periferico.estado_dispositivo,estado_dispositivo.nom_estado_dispositivo, pulgadas, descripcion
             from periferico INNER JOIN tip_periferico on periferico.id_tip_periferico = tip_periferico.id_tip_periferico 
             INNER JOIN marca on periferico.id_marca = marca.id_marca 
             INNER JOIN estado_disponibilidad on periferico.estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
             INNER JOIN estado_dispositivo on periferico.estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
-            INNER JOIN dispositivo_electronico on periferico.dispositivo_electronico = dispositivo_electronico.serial WHERE periferico.id_periferico = ?";
+            WHERE periferico.id_periferico = ?";
             $query = mysqli_prepare($mysqli, $sql);
             $ok = mysqli_stmt_bind_param($query , 's', $id);
             $ok = mysqli_stmt_execute($query);
             $ok = mysqli_stmt_bind_result($query, $idPeriferico, $idTipPeriferico,$nomTipPeriferico,$idMarca, $nomMarca,$idEstadoDisponibilidad,$nomEstadoDisponibilidad,
-                $idEstadoDispositivo, $nomEstadoDispositivo, $serialDispoAsociado );
+                $idEstadoDispositivo, $nomEstadoDispositivo, $pulgadas, $descripcion );
             while(mysqli_stmt_fetch($query)){
                 array_push($resultados, 
                 [
@@ -191,7 +201,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                     'nomEstadoDisponibilidad' => $nomEstadoDisponibilidad,
                     "idEstadoDispositivo" => $idEstadoDispositivo,
                     'nomEstadoDispositivo' => $nomEstadoDispositivo,
-                    'serialDispoAsociado' => $serialDispoAsociado,
+                    'pulgadas' => $pulgadas,
+                    'descripcion' => $descripcion
                 ]
                 );
             }
@@ -346,6 +357,42 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 );
             }
             echo json_encode($res);
+        }elseif($tabla ==='compu_peris'){
+            $resultados = [];
+            $sql = "SELECT * from compu_peris where id_compu_peris = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idCompuPeris, $serial, $idPeriferico, $fechaCompuPeris);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados,
+                    [
+                        'idCompuPeris' => $idCompuPeris,
+                        'serial' => $serial,
+                        'idPeriferico' => $idPeriferico,
+                        'fechaCompuPeris' => $fechaCompuPeris,
+                    ]
+                );
+            }
+
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'data encontrada con exito',
+                    'data' => $resultados,
+                );
+            }else {
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'no se hizo la peticion correctamente',
+                    'data' => [],
+                );
+            }
+
+            echo json_encode($res);
         }
 
 
@@ -437,9 +484,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
     }elseif($tabla === 'periferico'){
         try{
-            $sql = "INSERT INTO periferico(id_periferico, id_tip_periferico,nom_periferico, id_marca, estado_disponibilidad,estado_dispositivo, dispositivo_electronico) values(?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO periferico(id_periferico, id_tip_periferico, id_marca, estado_disponibilidad,estado_dispositivo, pulgadas,periferico.descripcion) values(?,?,?,?,?,?,?)";
             $query = mysqli_prepare($mysqli, $sql);
-            $ok = mysqli_stmt_bind_param($query, 'sisiiii',$_POST['serialPeriferico'], $_POST['tipPeriferico'], $_POST['nomPeriferico'], $_POST['marcaPeriferico'], $_POST['estadoDisponibilidad'], $_POST['estadoDispositivo'], $_POST['dispositivoElectronico']);
+            $ok = mysqli_stmt_bind_param($query, 'siiiiis',$_POST['serialPeriferico'], $_POST['tipPeriferico'], $_POST['marcaPeriferico'], $_POST['estadoDisponibilidad'], $_POST['estadoDispositivo'], $_POST['pulgadas'], $_POST['caracteristicas']);
             $ok = mysqli_stmt_execute($query);
             mysqli_stmt_close($query);
             $res;
@@ -631,7 +678,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         );   
 
         echo json_encode($res);   
-    } if ($_PUT['tabla'] === 'ambiente'){
+    } 
+    if ($_PUT['tabla'] === 'ambiente'){
         $sql = "UPDATE ambiente set  n_ambiente= ? , id_nave = ? 
                 where id_ambiente = ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -753,10 +801,12 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
         echo json_encode($res);
     }
-    if( $tabla === 'periferico' ){
-        $sql = 'UPDATE periferico SET id_tip_periferico = ?, nom_periferico = ?, id_marca = ?, estado_disponibilidad = ?, estado_dispositivo = ? , dispositivo_electronico = ? where id_periferico = ?';
+    if( $tabla === 'periferico' ){ 
+        $sql = 'UPDATE periferico SET id_tip_periferico = ?, id_marca = ?, 
+        estado_disponibilidad = ?, estado_dispositivo = ? , pulgadas = ?, descripcion = ?
+        where id_periferico = ?';
         $query = mysqli_prepare($mysqli, $sql);
-        $ok = mysqli_stmt_bind_param($query ,'isiiiii',$_PUT['tipPeriferico'], $_PUT['namePeriferico'], $_PUT['marca'], $_PUT['estadoDisponibilidad'], $_PUT['estadoDispositivo'], $_PUT['dispoAsociado'], $_PUT['idPeriferico']);
+        $ok = mysqli_stmt_bind_param($query ,'iiiiisi',$_PUT['tipPeriferico'], $_PUT['marca'], $_PUT['estadoDisponibilidad'], $_PUT['estadoDispositivo'], $_PUT['pulgadas'], $_PUT['descripcion'], $_PUT['idPeriferico']);
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
         $res;
@@ -776,6 +826,29 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
 
         echo json_encode($res);
     }
+    if($tabla == 'compu_peris'){
+        $sql = "UPDATE compu_peris set serial = ? , id_periferico = ?, fecha_compu_peris = ? where id_compu_peris = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'sssi', $_PUT['serialDispo'], $_PUT['idPeriferico'], $_PUT['dateCompuPeris'], $_PUT['idCompuDispo']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'registro actualizado correctamente',
+            );
+        }else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'ha ocurridó un error al inetentar actualizar'
+            );
+        }
+
+        echo json_encode($res);
+    }
     
 
 
@@ -783,7 +856,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     $_DELETE = json_decode(file_get_contents('php://input'), true);
     $tabla = $_DELETE['tabla'];
     $id = $_DELETE['id'];
-    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios' && $tabla !== 'fichas'){
+    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios' && $tabla !== 'fichas' && $tabla !== 'compu_peris'){
         $sql = "DELETE from $tabla where id_$tabla = ?";
         $query = mysqli_prepare($mysqli , $sql);
         $ok = mysqli_stmt_bind_param($query, 's' , $id);
@@ -843,5 +916,30 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             'statusText' => 'Registro borrado con exito',
         );
         echo json_encode($res);
+    }
+    if($tabla === 'compu_peris'){
+        $sql = "DELETE from $tabla where id_compu_peris = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i', $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res ;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'registro borrado con exito'
+            );
+        }
+        else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'no se puede borrar este registro'
+            );
+        }
+
+        echo json_encode($res);
+
     }
 }

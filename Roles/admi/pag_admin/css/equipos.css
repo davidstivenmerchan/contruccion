@@ -248,6 +248,62 @@ table .acciones {
     align-items: center; */
 }
 
+/*************formu 3*********/
+.formu3{
+    width: 40%;
+    height:auto;
+    margin: 0 0 5rem 0;
+    padding: auto;
+    /* margin: 0; */
+}
+.formu3 h2{
+    margin: 3vh 0 3vh 10%;
+    width: 100%;
+}
+.formu3 label{
+    margin: 0 0 0 10%;
+}
+.formu3 input{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 2rem;
+    margin: 2vh auto;
+} 
+.formu3 input[type="number"]{
+    width: 80%;
+    height: 2rem;
+    /* align-self: center; */
+    margin: 2vh auto;
+}
+.formu3 select{
+    display: flex;
+    flex-direction: column;
+    height: 2rem;
+    margin: 2vh auto;
+    width: 80%;
+}
+
+.formu3 input[type="submit"]{
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #FF6719;
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: all 0.2s ease-in;
+    width: 40%;
+}
+.formu3 input[type="submit"]:hover{
+    background-color: #FF6719;
+    border: none;
+    color: #ffffff;
+}
+
+
+
 /*************formu 7*********/
 .formu7{
     width: 40%;
@@ -327,11 +383,33 @@ table .acciones {
     height:2rem;
 }
 .formu8 input[type="submit"]{
+    grid-column: span 2;
     background-color: #FF6719;
     border: none;
+    cursor: pointer;
     outline: 0;
     color:#ffffff;
     margin: 0 auto;
     height: 2rem;
     width: 80%;
+}
+
+.formmodaldispoPeri {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.formmodaldispoPeri label{
+    display: block;
+}
+
+.formmodaldispoPeri input {
+    width: 100%;
+    height: 2rem;
+}
+
+.formmodaldispoPeri input[type="submit"]{
+    width: 1orem;
+    margin:0 25%;
 }
