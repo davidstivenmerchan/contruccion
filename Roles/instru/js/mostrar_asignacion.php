@@ -2,12 +2,11 @@
 
     require_once ('../../../includes/conexion.php');
 
-    $consulta1 = "SELECT entrada_aprendiz.documento, equipos.serial, 
+    $consulta1 = "SELECT entrada_aprendiz.documento, dispositivo_electronico.serial, 
     entrada_aprendiz.fecha, asignacion_equipos.hora_inicial, 
     asignacion_equipos.descripcion_inicial, asignacion_equipos.hora_final,
-    asignacion_equipos.descripcion_final FROM asignacion_equipos, entrada_aprendiz, equipos 
-    where entrada_aprendiz.id_entrada_aprendiz=asignacion_equipos.id_entrada_aprendiz and
-    equipos.id_equipo=asignacion_equipos.id_equipo";
+    asignacion_equipos.descripcion_final FROM asignacion_equipos, entrada_aprendiz, dispositivo_electronico 
+    where entrada_aprendiz.id_entrada_aprendiz=asignacion_equipos.id_entrada_aprendiz and dispositivo_electronico.serial=asignacion_equipos.serial";
     $ejecutar1 = mysqli_query($mysqli, $consulta1); 
 
     if(!$ejecutar1){

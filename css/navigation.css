@@ -2,11 +2,13 @@
     width: 60px;
     padding: 0;
     height: 100%;
+    
 }
 .navigation.active ul{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    
 }
 .navigation.active ul li a .title{
     display:none;
@@ -23,6 +25,9 @@
     transition: 0.5s;
     overflow: hidden;
     height: 100%;
+   /* position: fixed;
+    z-index: 500; */
+    
 }
 .navigation .ip{
     justify-content: center;
@@ -104,4 +109,7 @@
     .navigation .ip h4{
         visibility: hidden;
     }
+}
+h4{
+    font-family: Arial, Helvetica, sans-serif;
 }
