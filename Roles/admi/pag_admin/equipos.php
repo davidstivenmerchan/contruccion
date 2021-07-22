@@ -212,33 +212,31 @@
                 <tr class="header">
                     <td>Id Peiferico</td>
                     <td>tipo periferico</td>
-                    <td>Nombre periferico</td>
-                    <td>Marca</td>
+                    <td>Marca Periferico</td>
                     <td>Estado Disponibilidad</td>
                     <td>Estado dispositivo</td>
-                    <td>Dispositvo Asociado</td>
+                    <td>Pulgadas</td>
+                    <td>Descripcion</td>
                     <td>Acciones</td>
                 </tr>
                 <?php
-                    $sql = "SELECT periferico.id_periferico, tip_periferico.nom_tip_periferico, 
-                    periferico.nom_periferico,marca.nom_marca, estado_disponibilidad.nom_estado_disponibilidad,
-                    estado_dispositivo.nom_estado_dispositivo, dispositivo_electronico.serial 
-                    from periferico INNER JOIN tip_periferico on periferico.id_tip_periferico = tip_periferico.id_tip_periferico 
-                    INNER JOIN marca on periferico.id_marca = marca.id_marca 
-                    INNER JOIN estado_disponibilidad on periferico.estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad 
-                    INNER JOIN estado_dispositivo on periferico.estado_dispositivo = estado_dispositivo.id_estado_dispositivo 
-                    INNER JOIN dispositivo_electronico on periferico.dispositivo_electronico = dispositivo_electronico.serial";
+                    $sql = "SELECT id_periferico,tip_periferico.nom_tip_periferico,marca.nom_marca,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,pulgadas,descripcion
+                            FROM periferico,tip_periferico,marca,estado_disponibilidad,estado_dispositivo
+                            WHERE periferico.id_tip_periferico = tip_periferico.id_tip_periferico
+                            AND periferico.id_marca = marca.id_marca
+                            AND periferico.estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
+                            AND periferico.estado_dispositivo = estado_dispositivo.id_estado_dispositivo";
                     $res = mysqli_query($mysqli, $sql);
                     while($eh = mysqli_fetch_array($res)){
                 ?>
                     <tr class="datos">
                         <td><?php echo $eh['id_periferico']?></td>
                         <td><?php echo $eh['nom_tip_periferico'] ?></td>
-                        <td><?php echo $eh['nom_periferico'] ?></td>
                         <td><?php echo $eh['nom_marca'] ?></td>
                         <td><?php echo $eh['nom_estado_disponibilidad'] ?></td>
                         <td><?php echo $eh['nom_estado_dispositivo'] ?></td>
-                        <td><?php echo $eh['serial'] ?></td>
+                        <td><?php echo $eh['pulgadas'] ?></td>
+                        <td><?php echo $eh['descripcion'] ?></td>
                         <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit periferico" data-periferico="<?php echo $eh['id_periferico']; ?>">
                         <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove periferico" data-periferico="<?php echo $eh['id_periferico']; ?>">                     
@@ -252,9 +250,35 @@
         <!-- Compus perifericos -->
         <div class="formu4 tablas">
             <table>
-                <td>
-                    holi desde comu-perifericos
-                </td>
+                <tr class="header">
+                    <td>ID</td>
+                    <td>Serial</td>
+                    <td>Id Periferico</td>
+                    <td>Descripcion Perisferico</td>
+                    <td>Fecha Creacion</td>
+                    <td>Acciones</td>
+                </tr>
+                <?php
+                    $sql = "SELECT id_compu_peris, serial, periferico.id_periferico ,periferico.descripcion,fecha_compu_peris 
+                            FROM compu_peris,periferico 
+                            WHERE compu_peris.id_periferico = periferico.id_periferico";
+                    $res = mysqli_query($mysqli, $sql);
+                    while($eh = mysqli_fetch_array($res)){
+                ?>
+                    <tr class="datos">
+                        <td><?php echo $eh['id_compu_peris']?></td>
+                        <td><?php echo $eh['serial'] ?></td>
+                        <td><?php echo $eh['id_periferico'] ?></td>
+                        <td><?php echo $eh['descripcion'] ?></td>
+                        <td><?php echo $eh['fecha_compu_peris'] ?></td>
+                        <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit compu-periferico" data-compusPerifericos="<?php echo $eh['id_compu_peris']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove compu-periferico" data-compusPerifericos="<?php echo $eh['id_compu_peris']; ?>">                     
+                    </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </table>
         </div>
 
@@ -394,10 +418,6 @@
                             <?php endforeach; ?>
                         </select>
                     </article>
-                    <article class="nom_peroferico">
-                        <label for="nom_periferico">Nombre del periferico</label>
-                        <input type="text" name="nom_periferico" id="nom_periferico" placeholder="nombre del periferico" autocomplete="off" required>
-                    </article>
                     <article class="marca">
                         <label for="marcaperiferico"> marca </label>
                         <select name="marcaperiferico" id="marcaperiferico" required>
@@ -421,7 +441,7 @@
                         </select>
                     </article>
                     <article class="estadoDispositivo">
-                            <label for="">estado Dispositivo</label>
+                            <label for="EstadoDispositivo">estado Dispositivo</label>
                             <select name="estadoDispositivo" id="EstadoDispositivo" required>
                                 <option>Seleccione una opcion</option>
                                 <?php
@@ -433,14 +453,45 @@
                                 ?>
                             </select>
                     </article>
+                    <article>
+                        <label for="pulgadas"> pulgadas</label>
+                        <input type="number" name="pulgadas" id="pulgadas" placeholder="pulgadas del periferico">
+                    </article>
+                    <article class="caracteristicas">
+                        <label for="caracteristicas">Caracteristicas del periferico</label>
+                        <input type="text" name="caracteristicas" id="caracteristicas" placeholder="caracteristicas del periferico" autocomplete="off" required>
+                    </article>
                     <input type="submit" value="Registrar">
                 </form>
         </div> 
 
-        <!--FOrmulario dispo-periferico-->
+        <!--FOrmulario Computadores-Perisferico-->
         <div class="form1 formu9">
-         Perisferico
-        </div>
+            <h2>Registro de Computadores Perisfericos </h2>
+
+            <form id="formuCompuPeris" class="fommu" autocomplete="off">
+
+                <select name="serialcompu" id="serialcompu" required>
+                    <option value="">Serial Computador</option>
+                    <?php
+                        foreach (consultarEquipos($mysqli, "SELECT * from dispositivo_electronico") as $i) :  ?>
+                        <option value="<?php echo $i['serial']?>"><?php echo $i['serial'] ." - ". $i['procesador']?></option>
+                    <?php
+                        endforeach;
+                    ?>
+                </select>
+
+                <select name="id_periferico" id="id_periferico" required>
+                    <option value="">Periferico</option>
+                    <?php
+                        foreach (consultarEquipos($mysqli, "SELECT * from periferico") as $i) :  ?>
+                        <option value="<?php echo $i['id_periferico']?>"><?php echo $i['id_periferico'] ." - ". $i['descripcion']?></option>
+                    <?php
+                        endforeach;
+                    ?>
+                </select>
+            </form>
+            </div>
     </div>
 
     <script src="../js/equipos.js" type="module"></script>

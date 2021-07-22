@@ -21,6 +21,7 @@ import editTipPeriferico from './edit_tip_periferico.js';
 import editPeriferico from './edit_periferico.js';
 import buscadorUser from './buscador_user.js';
 import gruposAdmin from './grupos_admin.js';
+import editCompusPeri from './edit_compus_peri.js';
 
 
 
@@ -96,10 +97,11 @@ document.addEventListener('click' , e => {
         if(e.target.matches('.aprentabla')){
             document.getElementById('tablainstru').style.display = 'none';
             document.getElementById('tablausu').style.display = 'block';
-            document.getElementById('tablausu').style.margin = "30px 8rem 0 0";
+            document.getElementById('tablausu').style.margin = "30px 4rem";
         }else{
             document.getElementById('tablausu').style.display = 'none';
             document.getElementById('tablainstru').style.display = 'block';
+            document.getElementById('tablainstru').style.margin = "30px 4rem";
         }
     }
     // const aparecerEquipo = document.querySelectorAll
@@ -170,6 +172,9 @@ document.addEventListener('click' , e => {
         }else if(e.target.matches('.periferico')){
             const $id = e.target.getAttribute('data-periferico');
             editPeriferico( $id );
+        }else if(e.target.matches('.compu-periferico')){
+            const $id = e.target.getAttribute('data-compusPerifericos');
+            editCompusPeri($id);
         }
     }
 
@@ -238,6 +243,8 @@ document.addEventListener('click' , e => {
             getdelete('data-fichas', 'fichas', 'pag_admin/ambientes.php');
         }else if(e.target.matches('.periferico')){
             getdelete('data-periferico' , 'periferico', 'pag_admin/equipos.php');
+        }else if(e.target.matches('.compu-periferico')){
+            getdelete('data-compusPerifericos', 'compu_peris', 'pag_admin/equipos.php');
         }
     }
 });
@@ -420,22 +427,14 @@ document.addEventListener('submit', (e)=>{
             tabla: 'periferico',
             serialPeriferico: e.target.serialperiferico.value,
             tipPeriferico: parseInt(e.target.tipPeriferico.value),
-            nomPeriferico: e.target.nom_periferico.value,
             marcaPeriferico: parseInt(e.target.marcaperiferico.value),
             estadoDisponibilidad: parseInt( e.target.estadoDisponibilidad.value),
             estadoDispositivo: parseInt(e.target.estadoDispositivo.value),
-            dispositivoElectronico: parseInt(e.target.dispositivoElectronico.value),
+            pulgadas: parseInt(e.target.pulgadas.value),
+            caracteristicas: e.target.caracteristicas.value,
         }
-        ajax({
-            url: `./acciones.php?tabla=dispositivo_electronico&id=${parseInt(data.dispositivoElectronico)}`,
-            cbSuccess : ( {data:datos} ) => {
-                if(datos.length === 0){
-                    alert('No se puede registrar por que no se puede asignar un dispositivo electronico que no existe');
-                }else{
-                    handleAdd(e, './acciones.php', data, './pag_admin/equipos.php');
-                }
-            }
-        })
+        
+        handleAdd(e, './acciones.php', data, './pag_admin/equipos.php');
     }else if( e.target.matches('#fichas')){
         data = {
             numero_ficha: parseInt(e.target.numero_ficha.value),

@@ -1,0 +1,24 @@
+.organizaciones{
+    grid-area: organizaciones;
+    background-color: rgb(243, 130, 0);
+    width: 100%;
+    .content{
+        width: 70%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        figure{
+            cursor: pointer;
+            width:20%;
+            max-width: 100%;
+            img{
+                max-width: 100%;
+            }
+        }
+        .facebook{
+            img{
+                 height: 29px;
+            }
+        }
+    }
+}

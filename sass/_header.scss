@@ -1,0 +1,49 @@
+header{
+    margin: 0;
+    grid-area: header;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    padding: 10vh 0 0 0;
+    nav{
+        border-bottom: 1px solid #ffffff;
+        color:#ffffff;
+        padding: 1rem 0;
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        a{
+            color: #ffffff;
+            text-decoration: none;
+        }
+    }
+    .logo{
+        img{
+            width: 12vw;
+            height: 12vh;
+        }
+    }
+    .opciones{
+        margin: 0 2vw 0 0;
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        button{
+            height: 6vh;
+            width: 6rem;
+            border-radius: 4rem;
+            border: none;
+            cursor: pointer;
+        }
+        .iniciosesion{
+            background-color: #ff7402;
+            color: #ffffff;
+        }
+        .registrate{
+            background-color: rgba($color: #000000, $alpha: .5);
+            color: #ff7402;
+            border: 1px solid #ff7402;
+        }
+    }
+}
