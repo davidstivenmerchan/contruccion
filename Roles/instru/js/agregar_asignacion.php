@@ -50,22 +50,21 @@
 
      }else{
 
-     $consulta3 = "SELECT equipos.id_equipo, dispositivo_electronico.serial,
+     $consulta3 = "SELECT dispositivo_electronico.serial,
      dispositivo_electronico.id_estado_disponibilidad,
-     dispositivo_electronico.id_estado_dispositivo from equipos, dispositivo_electronico
-     WHERE dispositivo_electronico.serial = equipos.serial and 
+     dispositivo_electronico.id_estado_dispositivo from dispositivo_electronico
+     WHERE  
      dispositivo_electronico.id_estado_disponibilidad = 1 and dispositivo_electronico.id_estado_dispositivo=1";
      $ejecutar3 = mysqli_query($mysqli, $consulta3);
      $mostrar3 = mysqli_fetch_array($ejecutar3);
      if($mostrar3){
-        $id_equipo = $mostrar3['id_equipo'];
         $serial = $mostrar3['serial'];
      }else{
         echo "no hay dispositivos disponibles";
      } 
 
-     $consulta4 = "INSERT INTO asignacion_equipos(id_entrada_aprendiz, id_equipo, hora_inicial) 
-     values('$id_entrada_aprendiz','$id_equipo', '$hora')";
+     $consulta4 = "INSERT INTO asignacion_equipos(id_entrada_aprendiz, asignacion_equipos.serial, hora_inicial) 
+     values('$id_entrada_aprendiz','$serial','$hora')";
      $ejecutar4 = mysqli_query($mysqli,$consulta4);
 
      $consulta5 = "UPDATE dispositivo_electronico SET id_estado_disponibilidad = 2 where serial='$serial'";
@@ -75,7 +74,7 @@
 
      
      echo "<script> alert('se agrego exitosamente el equipo');
-                             window.location= '../asignacion_equipos.php?var=$docuinstru';
+                            window.location= '../asignacion_equipos.php?var=$docuinstru';
                          </script>";
 
     }

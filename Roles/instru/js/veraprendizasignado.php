@@ -6,11 +6,12 @@
     $enuso = "En Uso";
 
     $consulta1 = "SELECT usuarios.documento, usuarios.Nombres, usuarios.Apellidos, usuarios.telefono, usuarios.correo_sena FROM
-    equipos, entrada_aprendiz, usuarios, asignacion_equipos
-    WHERE equipos.id_equipo=asignacion_equipos.id_equipo
+    dispositivo_electronico, entrada_aprendiz, usuarios, asignacion_equipos
+    WHERE dispositivo_electronico.serial=asignacion_equipos.serial
     and entrada_aprendiz.id_entrada_aprendiz=asignacion_equipos.id_entrada_aprendiz
     and usuarios.documento=entrada_aprendiz.documento
-    and serial='$serial' and descripcion_final='$enuso'";
+    and dispositivo_electronico.serial='$serial' and descripcion_final='$enuso'";
+    
     $ejecutar1 = mysqli_query($mysqli, $consulta1); 
 
     if(!$ejecutar1){
