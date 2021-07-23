@@ -129,7 +129,6 @@
             <table class="tabla">
                 <tr class="titulo">
                     <tr class="header" style="text-align: center;">
-                        <td>Id Tipo Dispositivo</td>
                         <td>Nombre Tipo Dispositivo</td>
                         <td class="acciones"> Accciones </td>
                     </tr>
@@ -146,7 +145,6 @@
 
 
                 <tr class="datos" style="text-align: center;">
-                    <td><?php echo $mostrar['id_tipo_dispositivo'] ?></td>
                     <td><?php echo $mostrar['nom_tipo_dispositivo'] ?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" class="edit tipdispo" title="editar" data-tipdispo="<?php echo $mostrar['id_tipo_dispositivo'];?>">
@@ -167,7 +165,6 @@
 
             <table class="tablamarca" border=1 cellspacing="0">
                 <tr class="header">
-                    <td>Id</td>
                     <td>Nom Tipo Periferico</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
@@ -178,7 +175,6 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_tip_periferico']?></td>
                     <td><?php echo $eh['nom_tip_periferico']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit tipPeriferico" data-tipPeriferico="<?php echo $eh['id_tip_periferico']; ?>">
@@ -297,8 +293,7 @@
             <h2>Perifericos</h2>
             <table>
                 <tr class="header">
-                    <td>Id Peiferico</td>
-                    <td>tipo periferico</td>
+                    <td>Tipo periferico</td>
                     <td>Marca Periferico</td>
                     <td>Estado Disponibilidad</td>
                     <td>Estado dispositivo</td>
@@ -307,7 +302,7 @@
                     <td>Acciones</td>
                 </tr>
                 <?php
-                    $sql = "SELECT id_periferico,tip_periferico.nom_tip_periferico,marca.nom_marca,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,pulgadas,descripcion
+                    $sql = "SELECT tip_periferico.nom_tip_periferico,marca.nom_marca,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,pulgadas,descripcion
                             FROM periferico,tip_periferico,marca,estado_disponibilidad,estado_dispositivo
                             WHERE periferico.id_tip_periferico = tip_periferico.id_tip_periferico
                             AND periferico.id_marca = marca.id_marca
@@ -317,7 +312,6 @@
                     while($eh = mysqli_fetch_array($res)){
                 ?>
                     <tr class="datos">
-                        <td><?php echo $eh['id_periferico']?></td>
                         <td><?php echo $eh['nom_tip_periferico'] ?></td>
                         <td><?php echo $eh['nom_marca'] ?></td>
                         <td><?php echo $eh['nom_estado_disponibilidad'] ?></td>
@@ -338,22 +332,20 @@
         <div class="formu8 tablas">
             <table>
                 <tr class="header">
-                    <td>ID</td>
                     <td>Serial</td>
-                    <td>Id Periferico</td>
+                    <td>Periferico</td>
                     <td>Descripcion Perisferico</td>
                     <td>Fecha Creacion</td>
                     <td>Acciones</td>
                 </tr>
                 <?php
-                    $sql = "SELECT id_compu_peris, serial, periferico.id_periferico ,periferico.descripcion,fecha_compu_peris 
+                    $sql = "SELECT serial, periferico.id_periferico ,periferico.descripcion,fecha_compu_peris 
                             FROM compu_peris,periferico 
                             WHERE compu_peris.id_periferico = periferico.id_periferico";
                     $res = mysqli_query($mysqli, $sql);
                     while($eh = mysqli_fetch_array($res)){
                 ?>
                     <tr class="datos">
-                        <td><?php echo $eh['id_compu_peris']?></td>
                         <td><?php echo $eh['serial'] ?></td>
                         <td><?php echo $eh['id_periferico'] ?></td>
                         <td><?php echo $eh['descripcion'] ?></td>

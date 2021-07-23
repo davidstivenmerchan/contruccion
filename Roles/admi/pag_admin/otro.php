@@ -73,7 +73,6 @@
 
             <table class="tablamarca" border=1 cellspacing="0">
                 <tr class="header">
-                    <td>Id</td>
                     <td>Marca</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
@@ -84,7 +83,6 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_marca']?></td>
                     <td><?php echo $eh['nom_marca']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit marca" data-marca="<?php echo $eh['id_marca']; ?>">
@@ -103,7 +101,6 @@
 
             <table class="tablamarca" border=1 cellspacing="0">
                 <tr class="header">
-                    <td>Id</td>
                     <td>Estado</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
@@ -114,7 +111,6 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_estado_dispositivo']?></td>
                     <td><?php echo $eh['nom_estado_dispositivo']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" class="edit estado" alt="editar" title="editar" data-estado="<?php echo $eh['id_estado_dispositivo']; ?>">
@@ -133,7 +129,6 @@
 
             <table class="tablamarca" border=1 cellspacing="0">
                 <tr class="header">
-                    <td>Id</td>
                     <td>Estado</td>
                     <td class="acciones">Acciones</td>
                 </tr>
@@ -144,7 +139,6 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_estado_aprobacion']?></td>
                     <td><?php echo $eh['nom_aprobacion']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit aprobacion" data-estadoapro="<?php echo $eh['id_estado_aprobacion']; ?>">
@@ -163,7 +157,6 @@
 
             <table class="tablamarca" border=1 cellspacing="0">
                 <tr class="header">
-                    <td>Id</td>
                     <td>Estado</td>
                     <td class="acciones">Acciones</td>
                 </tr>
@@ -174,7 +167,6 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_estado_disponibilidad']?></td>
                     <td><?php echo $eh['nom_estado_disponibilidad']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit disponibi" data-estadodisponi="<?php echo $eh['id_estado_disponibilidad']; ?>">
