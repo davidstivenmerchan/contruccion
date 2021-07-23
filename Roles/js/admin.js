@@ -81,7 +81,7 @@ $elemento.forEach( el =>{
 document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
-    const formulaEquipos = [ 'form' , 'form1' , 'form2', 'form3', 'form4' , 'form5' , 'form6', 'form7', 'form8' , 'form9', 'form10', 'form11', 'form12', 'form13', 'form14', 'form15', 'form16', 'form17'];
+    const formulaEquipos = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9', 'formu10', 'formu11', 'formu12', 'formu13', 'formu14', 'formu15', 'formu16', 'formu17'];
     const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7', 'formu8', 'formu9'];
     const formuOtros = ['form', 'formu1', 'formu2', 'formu3', 'formu4', 'formu4', 'formu5', 'formu6', 'formu7'];
 

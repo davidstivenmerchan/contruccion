@@ -35,7 +35,7 @@
 
             <div class="botones">
                 <button class="aparecerequipos formula1" data-form="form"> <i class="aparecerequipos formula1 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form"></i> </button>
-                <button class="aparecerequipos formula10" data-form="form9"> <i class="aparecerequipos formula10 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="form9"></i> </button>
+                <button class="aparecerequipos formula10" data-form="formu9"> <i class="aparecerequipos formula10 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu9"></i> </button>
             </div>
         </div>
         <!--card tipo de periferico-->
@@ -43,8 +43,8 @@
             <h3>Tipo de Periferico</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula2" data-form="form1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form1"></i> </button>
-                <button class="aparecerequipos formula11" data-form="form10"> <i class="aparecerequipos formula11 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="form10"></i> </button>
+                <button class="aparecerequipos formula2" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form1"></i> </button>
+                <button class="aparecerequipos formula11" data-form="formu10"> <i class="aparecerequipos formula11 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu10"></i> </button>
             </div>
         </div>
 
@@ -53,8 +53,8 @@
             <h3>Memoria RAM</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula3" data-form="form2"> <i class="aparecerequipos formula3 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form2"></i>  </button>
-                <button class="aparecerequipos formula12" data-form="form11"> <i class="aparecerequipos formula12 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="form11"></i> </button>
+                <button class="aparecerequipos formula3" data-form="formu2"> <i class="aparecerequipos formula3 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu2"></i>  </button>
+                <button class="aparecerequipos formula12" data-form="formu11"> <i class="aparecerequipos formula12 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu11"></i> </button>
             </div>
         </div>
 
@@ -64,8 +64,8 @@
             <h3>almacenamiento</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula4" data-form="form3"> <i class="aparecerequipos formula4 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form3"></i>  </button>
-                <button class="aparecerequipos formula13" data-form="form12"> <i class="aparecerequipos formula13 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="form12"></i> </button>
+                <button class="aparecerequipos formula4" data-form="formu3"> <i class="aparecerequipos formula4 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu3"></i>  </button>
+                <button class="aparecerequipos formula13" data-form="formu12"> <i class="aparecerequipos formula13 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu12"></i> </button>
             </div>
         </div>
 
@@ -74,8 +74,8 @@
             <h3>Procesador</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula5" data-form="form4"> <i class="aparecerequipos formula5 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form4"></i>  </button>
-                <button class="aparecerequipos formula14" data-form="form13"> <i class="aparecerequipos formula14 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="form13"></i> </button>
+                <button class="aparecerequipos formula5" data-form="formu4"> <i class="aparecerequipos formula5 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu4"></i>  </button>
+                <button class="aparecerequipos formula14" data-form="formu13"> <i class="aparecerequipos formula14 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu13"></i> </button>
             </div>
         </div>
 
@@ -85,8 +85,8 @@
             <h3>Sistema operativo</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula6" data-form="form5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form5"></i>  </button>
-                <button class="aparecerequipos formula15" data-form="form14"> <i class="aparecerequipos formula15 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="form14"></i> </button>
+                <button class="aparecerequipos formula6" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu5"></i>  </button>
+                <button class="aparecerequipos formula15" data-form="formu14"> <i class="aparecerequipos formula15 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu14"></i> </button>
             </div>
         </div>
 
@@ -95,8 +95,8 @@
             <h3>Dispositivos Electronicos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula7" data-form="form6"> <i class="aparecerequipos formula7 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="form6"></i>  </button>
-                <button class="aparecerequipos formula16" data-form="form15"> <i class="aparecerequipos formula16 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="form15"></i> </button>
+                <button class="aparecerequipos formula7" data-form="formu6"> <i class="aparecerequipos formula7 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu6"></i>  </button>
+                <button class="aparecerequipos formula16" data-form="formu15"> <i class="aparecerequipos formula16 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu15"></i> </button>
             </div>
         </div>
 
@@ -105,8 +105,8 @@
             <h3>Crear periferico</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula8" data-form="form7"> <i class=" aparecerequipos formula8 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="form7"></i>  </button>
-                <button class="aparecerequipos formula17" data-form="form16"> <i class="aparecerequipos formula17 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="form16"></i> </button>
+                <button class="aparecerequipos formula8" data-form="formu7"> <i class=" aparecerequipos formula8 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu7"></i>  </button>
+                <button class="aparecerequipos formula17" data-form="formu16"> <i class="aparecerequipos formula17 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu16"></i> </button>
             </div>
         </div>
         <!-- compus peris -->
@@ -114,8 +114,8 @@
             <h3>Computadores - perifericos</h3>
         
             <div class="botones">
-                <button class="aparecerequipos formula9" data-form="form8"> <i class="aparecerequipos formula9 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="form8"></i></button>
-                <button class="aparecerequipos formula18" data-form="form17"> <i class="aparecerequipos formula18 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="form17"></i> </button>
+                <button class="aparecerequipos formula9" data-form="formu8"> <i class="aparecerequipos formula9 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu8"></i></button>
+                <button class="aparecerequipos formula18" data-form="formu17"> <i class="aparecerequipos formula18 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="formu17"></i> </button>
             </div>
         </div>
 
@@ -161,7 +161,7 @@
             </table>
         </div>
         <!---tabla que tiene que ver con tipo de periferico-->
-        <div class="form1 tablas">
+        <div class="formu1 tablas">
             <h2>Tipo de periferico</h2>
 
 
@@ -192,7 +192,7 @@
         </div>
 
         <!--memoria ram-->
-        <div class="form2 tablas">
+        <div class="formu2 tablas">
             <h2>Memoria Ram</h2>
             <!-- <table>
                 <tr class="header"> 
@@ -219,25 +219,25 @@
 
         <!--alamacenamiento -->
 
-        <div class="form3 tablas">
+        <div class="formu3 tablas">
             <h2>ALMACENAMIENTO</h2>
             <p>hola hola hola</p>
         </div>
         
         <!--Procesador-->
-        <div class="form4 tablas">
+        <div class="formu4 tablas">
             <h2>Procesador</h2>
         </div>
 
         <!--Sistema operativo-->
 
-        <div class="form5 tablas">
+        <div class="formu5 tablas">
             <h2>Sistema operativo</h2>
         </div>
 
         <!-- Tabla dispositivo electronico -->
 
-        <div class="form6 tablas">
+        <div class="formu6 tablas">
             
                 <h2 style="margin-left: 8%;">Dispositivos Electronicos</h2>
             <table class="tablamarca" border=1 cellspacing="10px" style="width: 80%; margin-left: 8%;">
@@ -293,7 +293,7 @@
         </div>
 
         <!------periferico-->
-        <div class="form7 tablas">
+        <div class="formu7 tablas">
             <h2>Perifericos</h2>
             <table>
                 <tr class="header">
@@ -335,7 +335,7 @@
             </table>
         </div>
         <!-- Compus perifericos -->
-        <div class="form8 tablas">
+        <div class="formu8 tablas">
             <table>
                 <tr class="header">
                     <td>ID</td>
@@ -370,7 +370,7 @@
         </div>
 
         <!--- Formulario de tipo de dispositivos---->
-        <div class="formu1 form9">
+        <div class="form1 formu9">
             <p type="title">Crear tipos de Dispositivos</p>
             <div class="linea"></div>
             <form id="tipoDispo" class="formulario" autocomplete="off">
@@ -384,7 +384,7 @@
 
         <!--formulario de MEMORIA RAM-->
 
-        <div class="formu1 form10">
+        <div class="form1 formu10">
             <h2>Crear Tipo de memoria Ram</h2>
             <div class="linea"></div>
             <form id="memoria_ram" class="formulario" autocomplete="off">
@@ -396,7 +396,7 @@
 
         <!--Formulario de Almacenamiento-->
 
-        <div class="formu1 form11">
+        <div class="form1 formu11">
             <h2>Crear Tipo de Almacenamiento</h2>
             <div class="linea"></div>
             <form class="formulario" id="almacenamientoform">
@@ -407,7 +407,7 @@
         </div>
 
         <!--procesador-->
-        <div class="formu1 form12">
+        <div class="form1 formu12">
             <h2>Procesador</h2>
             <div class="linea"></div>
             <form  class="formulario" id="procesadorform">
@@ -419,7 +419,7 @@
 
         <!--Sistema operativo-->
 
-        <div class="formu1 form13">
+        <div class="form1 formu13">
             <h2>Sistema operativo</h2>
             <div class="linea"></div>
             <form class="formulario" id="sistemaoperativo_form">
@@ -431,7 +431,7 @@
 
         <!--formulario de tipo de periferico-->
         
-        <div class="formu1 form14">
+        <div class="form1 formu14">
             <p type="title">Crear Tipo de periferico</p>
             <div class="linea"></div>
             <form class="formulario" id="tipPeriferico" autocomplete="off">
@@ -442,7 +442,7 @@
         </div>
         
         <!-- Formulario de tipo Dispositivo electronico-->
-        <div class="formu1 form15">
+        <div class="form1 formu15">
             <h2>Registro de Dispositivos Electronicos </h2>
 
             <form id="formuDispositivo"class="fommu" autocomplete="off">
@@ -535,7 +535,7 @@
         </div>
 
         <!--formulario Perifericos-->
-        <div class="formu1 form16">
+        <div class="form1 formu16">
                 <form action="" id="perifericoform" autocomplete="off">
                     <article class="serialperiferico">
                         <label for="serialperiferico">Id Periferico</label>
@@ -600,7 +600,7 @@
         </div> 
 
         <!--FOrmulario Computadores-Perisferico-->
-        <div class="formu1 form17">
+        <div class="form1 formu17">
             <h2>Registro de Computadores Perisfericos </h2>
 
             <form id="formuCompuPeris" class="fommu" autocomplete="off">

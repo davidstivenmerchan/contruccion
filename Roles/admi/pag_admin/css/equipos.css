@@ -18,8 +18,8 @@ main{
 }
 
 
-.form1, .form2, .form3, .form4, .form5, .form5, .form6, .form7, .form8, .form9, .form10,
-.form11, .form12, .form13, .form14, .form15, .form16, .form17{
+.formu1, .formu2, .formu3, .formu4, .formu5, .formu5, .formu6, .formu7, .formu8, .formu9, .formu10,
+.formu11, .formu12, .formu13, .formu14, .formu15, .formu16, .formu17{
     display: none;
 } 
 
@@ -311,34 +311,34 @@ table .acciones {
 
 
 /*************formu 7*********/
-.formu7{
+.formu15{
     width: 40%;
     height:auto;
     margin: 0 0 5rem 0;
     padding: auto;
     /* margin: 0; */
 }
-.formu7 h2{
+.formu15 h2{
     margin: 3vh 0 3vh 10%;
     width: 100%;
 }
-.formu7 label{
+.formu15 label{
     margin: 0 0 0 10%;
 }
-.formu7 input{
+.formu15 input{
     display: flex;
     flex-direction: column;
     width: 80%;
     height: 2rem;
     margin: 2vh auto;
 } 
-.formu7 input[type="number"]{
+.formu15 input[type="number"]{
     width: 80%;
     height: 2rem;
     /* align-self: center; */
     margin: 2vh auto;
 }
-.formu7 select{
+.formu15 select{
     display: flex;
     flex-direction: column;
     height: 2rem;
@@ -346,7 +346,7 @@ table .acciones {
     width: 80%;
 }
 
-.formu7 input[type="submit"]{
+.formu15 input[type="submit"]{
     align-items: center;
     background-color: #ffffff;
     border: 1px solid #FF6719;
@@ -358,37 +358,37 @@ table .acciones {
     transition: all 0.2s ease-in;
     width: 40%;
 }
-.formu7 input[type="submit"]:hover{
+.formu15 input[type="submit"]:hover{
     background-color: #FF6719;
     border: none;
     color: #ffffff;
 }
 
 /*******formu 13***/
-.formu8{
+.formu16{
     /* display: flex; */
     flex-direction: column;
     flex: 0 1 60vw;
     height: 100%;
 }
-.formu8 form{
+.formu16 form{
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     
     width: 80%;
 }
-.formu8 form article{
+.formu16 form article{
     display: flex;
     flex-direction: column;
 }
-.formu8 form article input,
-.formu8 form article select,
-.formu8 input[type="number"]{
+.formu16 form article input,
+.formu16 form article select,
+.formu16 input[type="number"]{
     width:100%;
     height:2rem;
 }
-.formu8 input[type="submit"]{
+.formu16 input[type="submit"]{
     grid-column: span 2;
     background-color: #FF6719;
     border: none;
