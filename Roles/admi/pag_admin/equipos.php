@@ -404,8 +404,8 @@
         <div class="form1 formu8">
                 <form action="" id="perifericoform" autocomplete="off">
                     <article class="serialperiferico">
-                        <label for="serialperiferico">Serial</label>
-                        <input type="text" name="serialperiferico" id="serialperiferico" placeholder="serial del periferico" autocomplete="off" required>
+                        <label for="serialperiferico">Id Periferico</label>
+                        <input type="text" name="serialperiferico" id="serialperiferico" placeholder="inserte el Id Periferico" autocomplete="off" required>
                     </article>
                     <article class="tipPeriferico">
                         <label for="tipPeriferico"> tipo de periferico </label>
