@@ -19,14 +19,14 @@
    
    if($disponibilidad==2){
 
-        $consulta4="SELECT equipos.id_equipo from equipos where equipos.serial='$serial'";
+        $consulta4="SELECT dispositivo_electronico.serial from dispositivo_electronico where dispositivo_electronico.serial='$serial'";
         $ejecucion4=mysqli_query($mysqli, $consulta4);
         $mostrar4=mysqli_fetch_array($ejecucion4);
         if($mostrar4){
-            $id_equipo = $mostrar4['id_equipo'];
+            $id_equipo = $mostrar4['serial'];
             $mensaje = "finalizado por el instructor";
         }
-        $consulta5="UPDATE asignacion_equipos SET asignacion_equipos.descripcion_final='$mensaje', hora_final='$horaHoy' where asignacion_equipos.id_equipo='$id_equipo'";
+        $consulta5="UPDATE asignacion_equipos SET asignacion_equipos.descripcion_final='$mensaje', hora_final='$horaHoy' where asignacion_equipos.serial='$id_equipo'";
         $ejecucion5 = mysqli_query($mysqli, $consulta5);
 
         $consulta3 = "UPDATE dispositivo_electronico SET id_estado_disponibilidad=1 where serial='$serial' ";
