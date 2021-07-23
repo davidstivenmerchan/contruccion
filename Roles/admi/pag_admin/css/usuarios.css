@@ -520,13 +520,13 @@ table .acciones {
 
 .tablainstru{
     display:none;
+    width: 60vw;
+    position: relative;
 }
 
 .tablainstructor,
 .tablaaprendiz{
     border-spacing: 0;
-    margin: 1rem;
-
 }
 .tablainstructor .titulo
 .tablaaprendiz .titulo{
