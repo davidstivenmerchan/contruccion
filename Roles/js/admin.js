@@ -81,7 +81,7 @@ $elemento.forEach( el =>{
 document.addEventListener('click' , e => {
 
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
-    const formula = [ 'form' , 'formu1' , 'formu2', 'formu3' , 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9'];
+    const formulaEquipos = [ 'form' , 'form1' , 'form2', 'form3', 'form4' , 'form5' , 'form6', 'form7', 'form8' , 'form9', 'form10', 'form11', 'form12', 'form13', 'form14', 'form15', 'form16', 'form17'];
     const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7', 'formu8', 'formu9'];
     const formuOtros = ['form', 'formu1', 'formu2', 'formu3', 'formu4', 'formu4', 'formu5', 'formu6', 'formu7'];
 
@@ -90,7 +90,7 @@ document.addEventListener('click' , e => {
         const [ , primera ] = e.target.classList;
         const elemento = document.querySelector(`.${primera}`).getAttribute('data-form');
         const nuevoArray = array.filter( (formulario )=> formulario !== elemento );
-        desaparecer( nuevoArray )
+        desaparecer( nuevoArray );
         aparecer( elemento );
     }
     if(e.target.matches('.seccUsua li')){
@@ -109,7 +109,7 @@ document.addEventListener('click' , e => {
         callAparecer(formularios); //aprecer pertenece a usuarios
     }
     if(e.target.matches('.aparecerequipos') || e.target.matches('.aparecerequipos *')){
-        callAparecer(formula);
+        callAparecer(formulaEquipos);
     }
     if(e.target.matches('.aparecerambientes') || e.target.matches('.aparecerambientes *')){    
         callAparecer(formuambientes);
@@ -420,7 +420,7 @@ document.addEventListener('submit', (e)=>{
             clave: e.target.clave.value,
             telefono: parseInt(e.target.telefono.value),
         }
-        debugger;
+        // debugger;
         handleAdd(e, 'insertarusuarios.php', data, 'pag_admin/usuarios.php');
     }else if(e.target.matches('#perifericoform')){
         data = {
