@@ -32,15 +32,19 @@
     color: black;
     text-align: center;
 }
+.tablainstructor{
+    background: white;
+    border: none;
+}
 .tablausu{
     margin: 20px;
     height: 200px;
     Border-spacing:0;
-    background: white;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-    border-color: rgb(10, 10, 14);
 }
-
+.tablaaprendiz{
+    background: white;
+    border: none;
+}
 
 .tablausu .titulo{
     background-color: #ff6b00;
@@ -60,7 +64,6 @@
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    
     width: 100%;
 }
 
@@ -117,4 +120,11 @@
 }
 .imgss *{
     margin: 5px;
+}
+.searchinput{
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    margin-left: 20px;
 }

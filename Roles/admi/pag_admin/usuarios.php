@@ -66,7 +66,7 @@
     
     <div id="tablainstru" class="tablainstru">
         <article class="search">
-            <input type="number" name="search" id="searchinstru" class="searchinput" placeholder="busca un instructor por su documento" autocomplete="off">
+            <input type="number" name="search" id="searchinstru" class="searchinput" placeholder="Busca un instructor por su documento" autocomplete="off">
         </article>
         <table class="tablainstructor" >
             <tr class="titulo">
@@ -123,7 +123,7 @@
 
     <div class="tablausu" id="tablausu">
         <article class="search">
-            <input type="number" name="search" id="searchapren" class="searchinput" placeholder="busca un aprendiz" autocomplete="off">
+            <input type="number" name="search" id="searchapren" class="searchinput" placeholder="Busca un aprendiz" autocomplete="off">
         </article>
         <table class="tablaaprendiz">    
                 <tr class="titulo">
