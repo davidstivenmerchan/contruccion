@@ -35,6 +35,7 @@
 .tablainstructor{
     background: white;
     border: none;
+    margin-left: -150px;
 }
 .tablausu{
     margin: 20px;
@@ -126,5 +127,4 @@
     border: none;
     border-bottom: 1px solid black;
     background: transparent;
-    margin-left: 20px;
 }
