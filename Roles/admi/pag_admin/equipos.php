@@ -318,15 +318,19 @@
                     <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
-            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesador,ramGB,tipo_sistema.nom_tipo_sistema,
-                    estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento,ambiente.n_ambiente
-                    FROM dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,ambiente
+            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesadores.nom_procesador ,ram.tamaño_ram,tipo_sistema.nom_tipo_sistema,estado_disponibilidad.nom_estado_disponibilidad,
+                    estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento.tamaño_almacena
+                    FROM  dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,
+                    procesadores,ram,almacenamiento
                     WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
                     AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
                     AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
                     AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo
                     AND dispositivo_electronico.id_marca = marca.id_marca
-                    AND dispositivo_electronico.id_ambiente = ambiente.id_ambiente";
+                    AND dispositivo_electronico.id_procesador = procesadores.id_procesador
+                    AND dispositivo_electronico.ramGB = ram.ramGB
+                    AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
+                    AND dispositivo_electronico.id_almacena = almacenamiento.id_almacena";
             $m = mysqli_query($mysqli, $con);
             while($eh = mysqli_fetch_array($m)){           
             ?>
@@ -335,14 +339,13 @@
                     <td><?php echo $eh['serial']?></td>
                     <td><?php echo $eh['placa_sena']?></td>
                     <td><?php echo $eh['nom_tipo_dispositivo']?></td>
-                    <td><?php echo $eh['procesador']?></td>
-                    <td><?php echo $eh['ramGB']?></td>
+                    <td><?php echo $eh['nom_procesador']?></td>
+                    <td><?php echo $eh['tamaño_ram']?></td>
                     <td><?php echo $eh['nom_tipo_sistema']?></td>
                     <td><?php echo $eh['nom_estado_disponibilidad']?></td>
                     <td><?php echo $eh['nom_estado_dispositivo']?></td>
                     <td><?php echo $eh['nom_marca']?></td>
-                    <td><?php echo $eh['almacenamiento']?></td>
-                    <td><?php echo $eh['n_ambiente']?></td>
+                    <td><?php echo $eh['tamaño_almacena']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit dispositivo" data-dispositivo="<?php echo $eh['serial']; ?>">
                         <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove dispositivo" data-dispositivo="<?php echo $eh['serial']; ?>">                     
