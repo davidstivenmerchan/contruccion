@@ -43,8 +43,8 @@
             <h3>Tipo de Periferico</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula2" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="form1"></i> </button>
-                <button class="aparecerequipos formula11" data-form="formu10"> <i class="aparecerequipos formula11 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu10"></i> </button>
+                <button class="aparecerequipos formula2" data-form="formu1"> <i class="aparecerequipos formula2 fa fa-file-alt" title="Mostrar Datos de tipo Periferico" data-form="form1"></i> </button>
+                <button class="aparecerequipos formula11" data-form="formu14"> <i class="aparecerequipos formula11 fa fa-keyboard" title="Registrar datos tipo Periferico" data-form="formu14"></i> </button>
             </div>
         </div>
 
@@ -54,18 +54,18 @@
 
             <div class="botones">
                 <button class="aparecerequipos formula3" data-form="formu2"> <i class="aparecerequipos formula3 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu2"></i>  </button>
-                <button class="aparecerequipos formula12" data-form="formu11"> <i class="aparecerequipos formula12 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu11"></i> </button>
+                <button class="aparecerequipos formula12" data-form="formu10"> <i class="aparecerequipos formula12 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu10"></i> </button>
             </div>
         </div>
 
         <!--Almacenamiento-->
 
         <div class="card">
-            <h3>almacenamiento</h3>
+            <h3>Almacenamiento</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula4" data-form="formu3"> <i class="aparecerequipos formula4 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu3"></i>  </button>
-                <button class="aparecerequipos formula13" data-form="formu12"> <i class="aparecerequipos formula13 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu12"></i> </button>
+                <button class="aparecerequipos formula4" data-form="formu3"> <i class="aparecerequipos formula4 fa fa-file-alt" title="Mostrar Datos Almacenamiento" data-form="formu3"></i>  </button>
+                <button class="aparecerequipos formula13" data-form="formu11"> <i class="aparecerequipos formula13 fa fa-keyboard" title="Registrar datos Almacenamiento" data-form="formu11"></i> </button>
             </div>
         </div>
 
@@ -74,8 +74,8 @@
             <h3>Procesador</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula5" data-form="formu4"> <i class="aparecerequipos formula5 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu4"></i>  </button>
-                <button class="aparecerequipos formula14" data-form="formu13"> <i class="aparecerequipos formula14 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu13"></i> </button>
+                <button class="aparecerequipos formula5" data-form="formu4"> <i class="aparecerequipos formula5 fa fa-file-alt" title="Mostrar Datos Procesador" data-form="formu4"></i>  </button>
+                <button class="aparecerequipos formula14" data-form="formu12"> <i class="aparecerequipos formula14 fa fa-keyboard" title="Registrar datos Procesador" data-form="formu12"></i> </button>
             </div>
         </div>
 
@@ -85,8 +85,8 @@
             <h3>Sistema operativo</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula6" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos de tipo dispositivo" data-form="formu5"></i>  </button>
-                <button class="aparecerequipos formula15" data-form="formu14"> <i class="aparecerequipos formula15 fa fa-keyboard" title="Registrar datos tipo dispositivo" data-form="formu14"></i> </button>
+                <button class="aparecerequipos formula6" data-form="formu5"> <i class="aparecerequipos formula6 fa fa-file-alt" title="Mostrar Datos Sistema operativo" data-form="formu5"></i>  </button>
+                <button class="aparecerequipos formula15" data-form="formu13"> <i class="aparecerequipos formula15 fa fa-keyboard" title="Registrar datos Sistema operativo" data-form="formu13"></i> </button>
             </div>
         </div>
 
@@ -95,8 +95,8 @@
             <h3>Dispositivos Electronicos</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula7" data-form="formu6"> <i class="aparecerequipos formula7 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu6"></i>  </button>
-                <button class="aparecerequipos formula16" data-form="formu15"> <i class="aparecerequipos formula16 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu15"></i> </button>
+                <button class="aparecerequipos formula7" data-form="formu6"> <i class="aparecerequipos formula7 fa fa-file-alt" title="Mostrar Datos de Dispositivos Electronicos" data-form="formu6"></i>  </button>
+                <button class="aparecerequipos formula16" data-form="formu15"> <i class="aparecerequipos formula16 fa fa-keyboard" title="Registrar datos Dispositivos Electronicos" data-form="formu15"></i> </button>
             </div>
         </div>
 
@@ -105,8 +105,8 @@
             <h3>Crear periferico</h3>
 
             <div class="botones">
-                <button class="aparecerequipos formula8" data-form="formu7"> <i class=" aparecerequipos formula8 fa fa-file-alt" title="Mostrar Datos de estados de disponibilidad" data-form="formu7"></i>  </button>
-                <button class="aparecerequipos formula17" data-form="formu16"> <i class="aparecerequipos formula17 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu16"></i> </button>
+                <button class="aparecerequipos formula8" data-form="formu7"> <i class=" aparecerequipos formula8 fa fa-file-alt" title="Mostrar Datos periferico" data-form="formu7"></i>  </button>
+                <button class="aparecerequipos formula17" data-form="formu16"> <i class="aparecerequipos formula17 fa fa-keyboard" title="Registrar datos periferico" data-form="formu16"></i> </button>
             </div>
         </div>
         <!-- compus peris -->
@@ -114,8 +114,8 @@
             <h3>Computadores - perifericos</h3>
         
             <div class="botones">
-                <button class="aparecerequipos formula9" data-form="formu8"> <i class="aparecerequipos formula9 fa fa-file-alt" title="Mostrar Datos marca de equipos" data-form="formu8"></i></button>
-                <button class="aparecerequipos formula18" data-form="formu17"> <i class="aparecerequipos formula18 fa fa-keyboard" title="Registrar dato marca de equipo" data-form="formu17"></i> </button>
+                <button class="aparecerequipos formula9" data-form="formu8"> <i class="aparecerequipos formula9 fa fa-file-alt" title="Mostrar Datos Computadores - perifericos" data-form="formu8"></i></button>
+                <button class="aparecerequipos formula18" data-form="formu17"> <i class="aparecerequipos formula18 fa fa-keyboard" title="Registrar dato Computadores - perifericos" data-form="formu17"></i> </button>
             </div>
         </div>
 
@@ -189,46 +189,112 @@
 
         <!--memoria ram-->
         <div class="formu2 tablas">
-            <h2>Memoria Ram</h2>
-            <!-- <table>
-                <tr class="header"> 
-                    <td>Nombre MeMoria Ram</td>
+        <h2>Memoria Ram (GB)</h2>
+            <table class="tablamarca" border=1 cellspacing="0">
+                <tr class="header">
+                    <td>Memoria Ram</td>
+                    <td class="acciones"> Accciones </td>
                 </tr>
+                <?php 
+            $con = "SELECT * from ram";
+            $m = mysqli_query($mysqli, $con);
+            while($eh = mysqli_fetch_array($m)){           
+            ?>
 
+                <tr class="datos">
+                    <td><?php echo $eh['tamaño_ram']?></td>
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit ramGB" data-ramGB="<?php echo $eh['ramGB']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove ramGB" data-ramGB="<?php echo $eh['ramGB']; ?>">                     
+                    </td>
+                </tr>
                 <?php
-                    $sql = "SELECT * from memoria_ram";
-                    $memrRam = mysqli_query($mysqli, $sql);
-                    while($MR = mysqli_fetch_array($memrRam)){
-                    
-                ?>
-                    <tr class="datos"> 
-                        
-                        <td><?php echo $MR['name_memoria_ram'] ?></td>
-                        <td class="imgs">
-                            <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit memoRam" data-memoRam="<?php echo $MR['id_tip_periferico']; ?>">
-                            <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove memoRam" data-memoRam="<?php echo $MR['id_tip_periferico']; ?>">                     
-                        </td>
-                    </tr>
-                <?php } ?>
-            </table> -->
+            } 
+            ?>
+            </table>
         </div>
 
         <!--alamacenamiento -->
 
         <div class="formu3 tablas">
-            <h2>ALMACENAMIENTO</h2>
-            <p>hola hola hola</p>
+        <h2>Almacenamiento</h2>
+            <table class="tablamarca" border=1 cellspacing="0">
+                <tr class="header">
+                    <td>Almacenamiento</td>
+                    <td class="acciones"> Accciones </td>
+                </tr>
+                <?php 
+            $con = "SELECT * from almacenamiento";
+            $m = mysqli_query($mysqli, $con);
+            while($eh = mysqli_fetch_array($m)){           
+            ?>
+
+                <tr class="datos">
+                    <td><?php echo $eh['tamaño_almacena']?></td>
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit almacenamiento" data-almacenamiento="<?php echo $eh['id_almacena']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove almacenamiento" data-almacenamiento="<?php echo $eh['id_almacena']; ?>">                     
+                    </td>
+                </tr>
+                <?php
+            } 
+            ?>
+            </table>
         </div>
         
         <!--Procesador-->
         <div class="formu4 tablas">
-            <h2>Procesador</h2>
+        <h2>Procesador</h2>
+            <table class="tablamarca" border=1 cellspacing="0">
+                <tr class="header">
+                    <td>Procesador</td>
+                    <td class="acciones"> Accciones </td>
+                </tr>
+                <?php 
+            $con = "SELECT * from procesadores";
+            $m = mysqli_query($mysqli, $con);
+            while($eh = mysqli_fetch_array($m)){           
+            ?>
+
+                <tr class="datos">
+                    <td><?php echo $eh['nom_procesador']?></td>
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit Procesador" data-Procesador="<?php echo $eh['id_procesador']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove Procesador" data-Procesador="<?php echo $eh['id_procesador']; ?>">                     
+                    </td>
+                </tr>
+                <?php
+            } 
+            ?>
+            </table>
         </div>
 
         <!--Sistema operativo-->
 
         <div class="formu5 tablas">
-            <h2>Sistema operativo</h2>
+        <h2>Sistema operativo</h2>
+            <table class="tablamarca" border=1 cellspacing="0">
+                <tr class="header">
+                    <td>Sistema operativo</td>
+                    <td class="acciones"> Accciones </td>
+                </tr>
+                <?php 
+            $con = "SELECT * from tipo_sistema";
+            $m = mysqli_query($mysqli, $con);
+            while($eh = mysqli_fetch_array($m)){           
+            ?>
+
+                <tr class="datos">
+                    <td><?php echo $eh['nom_tipo_sistema']?></td>
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit Procesador" data-Procesador="<?php echo $eh['id_tipo_sistema']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove Procesador" data-Procesador="<?php echo $eh['id_tipo_sistema']; ?>">                     
+                    </td>
+                </tr>
+                <?php
+            } 
+            ?>
+            </table>
         </div>
 
         <!-- Tabla dispositivo electronico -->
