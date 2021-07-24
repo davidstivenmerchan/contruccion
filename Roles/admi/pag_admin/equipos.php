@@ -314,14 +314,12 @@
                     <td>Estado Dispositivo</td>
                     <td>Marca Equipo</td>
                     <td>Almacenamiento</td>
-                    <td>Ambiente Asignado</td>
                     <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
-            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesadores.nom_procesador ,ram.tamaño_ram,tipo_sistema.nom_tipo_sistema,estado_disponibilidad.nom_estado_disponibilidad,
-                    estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento.tamaño_almacena
-                    FROM  dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,
-                    procesadores,ram,almacenamiento
+            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesadores.nom_procesador ,ram.tamaño_ram,tipo_sistema.nom_tipo_sistema,
+                    estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento.tamaño_almacena
+                    FROM  dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,procesadores,ram,almacenamiento
                     WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
                     AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
                     AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
