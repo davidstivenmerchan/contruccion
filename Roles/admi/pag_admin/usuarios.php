@@ -330,7 +330,7 @@
     <div class="linea"></div>
     <form class="formulario"  id="creartipodocu" autocomplete="off"> <!-- action="insertarusuarios.php" method-->
             <label for="nom">Nombre del Tipo de Documento</label><br>
-            <input type="text" name="nom_doc" id="nom_doc" autocomplete="off" required>
+            <input type="text" name="nom_doc" id="nom_doc" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20">
             <input type="submit" value="Guardar" name="enviar2">
         
     </form>
@@ -342,7 +342,7 @@
     <div class="linea"></div>
     <form class="formulario" id="creartipusu" autocomplete="off"> <!-- action="insertarusuarios.php" method="POST" -->
             <label for="nom">Nombre del Tipo de Usuario</label><br>
-            <input type="text" name="nom_usu" id="nom_usu" required>
+            <input type="text" name="nom_usu" id="nom_usu" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20">
             <input type="submit" value="Guardar" name="enviar3">    
     </form>
     </div>

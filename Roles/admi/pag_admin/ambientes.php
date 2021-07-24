@@ -74,7 +74,6 @@
             <table class="tablanave">
                 <tr class="titulo">
                     <tr class="header" style="text-align: center;">
-                        <td>Id</td>
                         <td>Nombre Ambiente</td>
                         <td>Nombre Nave</td>
                         <td class="acciones"> Accciones </td>
@@ -82,7 +81,7 @@
                 </tr>
 
                 <?php
-                    $sql="SELECT id_ambiente,n_ambiente,nom_nave 
+                    $sql="SELECT n_ambiente,nom_nave 
                         FROM ambiente,nave 
                         WHERE ambiente.id_nave = nave.id_nave";
                     $result=mysqli_query($mysqli,$sql);
@@ -94,7 +93,6 @@
 
 
                 <tr class="datos" style="text-align: center;">
-                    <td><?php echo $mostrar['id_ambiente'] ?></td>
                     <td><?php echo $mostrar['n_ambiente'] ?></td>
                     <td><?php echo $mostrar['nom_nave'] ?></td>
                     <td class="imgs">
@@ -116,7 +114,7 @@
             <form class="formulario" id="ambientes">
 
                 
-                <input type="number" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Numero Ambiente" required>
+                <input type="number" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Numero Ambiente" pattern="^ \ d +$" required title="Solo se permiten letras y numeros" maxlength="6">
 
                 <select name="nave" id="nave" style="width: 130%;" required>
                 <option value="">Seleccione una Nave</option>
@@ -140,7 +138,6 @@
             <table class="tablanave">
                 <tr class="titulo">
                     <tr class="header" style="text-align: center;">
-                        <td>Id</td>
                         <td>Nombre Nave</td>
                         <td class="acciones"> Accciones </td>
                     </tr>
@@ -157,7 +154,6 @@
 
 
                 <tr class="datos" style="text-align: center;">
-                    <td><?php echo $mostrar['id_nave'] ?></td>
                     <td><?php echo $mostrar['nom_nave'] ?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" class="edit nave" title="editar" data-nave="<?php echo $mostrar['id_nave'];?>">
@@ -175,8 +171,7 @@
         <div class="formu1 tablas">
             <h2>Jornadas</h2>
             <table class="tabla tablajornada" border=1 cellspacing="0">
-                <tr class="header"> 
-                    <td>ID</td>                 
+                <tr class="header">             
                     <td>Nombre jornada</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
@@ -186,8 +181,7 @@
             while($eh = mysqli_fetch_array($m)){           
             ?>
 
-                <tr class="datos">     
-                    <td><?php echo $eh['id_jornada']?></td>               
+                <tr class="datos">                
                     <td><?php echo $eh['nom_jornada']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit jornada" data-jornada="<?php echo $eh['id_jornada']; ?>">
@@ -205,8 +199,7 @@
 
 
             <table class="tabla" border=1 cellspacing="0">
-                <tr class="header">  
-                    <td>ID</td>   
+                <tr class="header">     
                     <td>Nombre formacion</td>
                     <td class="acciones"> Accciones </td>
                 </tr>
@@ -217,7 +210,6 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['id_formacion']?></td>
                     <td><?php echo $eh['nom_formacion']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" class="edit formacion" alt="editar" title="editar" data-formacion ="<?php echo $eh['id_formacion']; ?>">
@@ -282,7 +274,7 @@
             <p type="title">NAVE</p>
             <div class="linea"></div>
             <form id="nave" class="formulario" autocomplete="off">
-                <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave" required>
+                <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="20">
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -291,7 +283,7 @@
             <p type="title">JORNADA</p>
             <div class="linea"></div>
             <form class="formulario" id="jornada" autocomplete="off">
-                    <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada" required>
+                    <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20">
                     <input type="submit" value="Guardar">
             </form>
         </div>
@@ -300,7 +292,7 @@
             <p type="title">FORMACION</p>
             <div class="linea"></div>
             <form class="formulario" id="formacion" autocomplete="off">
-                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" autocomplete="off" required>
+                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20"
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -311,7 +303,7 @@
             <div class="linea"></div>
             <form class="formulario" id="fichas" autocomplete="off">
 
-                <input type="number" name="numero_ficha" id="numero_ficha" placeholder="Escriba el numero de ficha" required>
+                <input type="number" name="numero_ficha" id="numero_ficha" placeholder="Escriba el numero de ficha" pattern="^ [0-9\s]+$" required title="Solo se permiten numeros" maxlength="7">
 
                 <select name="tip_jornada" id="tip_jornada" required>
                 <option value="">Selecione una Jornada</option>

@@ -17,13 +17,16 @@ function consultar($consulta, $mysqli):mysqli_result
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/asignacion.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <title>Document</title>
 </head>
 <body>
     <h1>Formaciones</h1>
-    <label for="select">Seleccione que lista de formacion quiere ver</label>
+    <a href="instructor.php"> <i class="atras fas fa-arrow-left"></i></a> 
+    <label for="select" class="grupo_label">Seleccione que lista de formacion quiere ver</label>
     <form action=""></form>
-        <select name="ficha" id="ficha" required onchange="select();">
+        <select class="grupo_select" name="ficha" id="ficha" required onchange="select();">
         <option value="">Seleccione una ficha</option>
         
         

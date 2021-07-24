@@ -2,8 +2,8 @@ const  formulario  = document.getElementById('form1');
 const inputs = document.querySelectorAll('#form1 input');
 
 const expresiones =  {
-    usuario : /^\d{1,4}$/, // Letras, numeros, guion y guion_bajo
-	clave : /^.{1,4}$/,   // 3 a 12 dígitos.
+    usuario : /^\d{1,11}$/, // numeros
+	clave : /^.{1,20}$/,   // letras y numeros
 }
 
 const campos = {

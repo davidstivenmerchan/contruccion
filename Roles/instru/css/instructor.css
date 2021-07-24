@@ -43,8 +43,8 @@ header .user{
 }
 .datos{
     position: absolute;
-    width: 25rem;
-    height: 25rem;
+    width: 28rem;
+    height: 26rem;
     background: rgba(255, 107, 0, 0.4);
     color: white;
     margin-top: -31rem;
@@ -271,7 +271,7 @@ nav .tres:hover{
     background: #ff6b00;
     justify-content: center;
     margin-top: 70px;
-    margin-left: 635px;
+    margin-left: 670px;
     cursor: pointer;
 
 }

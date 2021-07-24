@@ -104,3 +104,19 @@ h1{
 .atras:hover{
     color: #ff6b00;
 }
+.grupo_label{
+    margin-left: 100px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.grupo_select{
+    width: 400px;
+    margin-left: 100px;
+    border: none;
+    border-bottom: 3px solid orangered;
+    background: transparent;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
