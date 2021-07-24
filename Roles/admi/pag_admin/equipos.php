@@ -368,7 +368,7 @@
             <form id="tipoDispo" class="formulario" autocomplete="off">
     
                 <label for="nom">Nombre del Tipo de Dispositivo</label><br>
-                <input type="text" name="nom_dis" id="nom_dis" required>
+                <input type="text" name="nom_dis" id="nom_dis" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20">
 
                 <input type="submit" value="Guardar">
             </form>  
@@ -381,7 +381,7 @@
             <div class="linea"></div>
             <form id="memoria_ram" class="formulario" autocomplete="off">
                 <label for="memoriaram">Nombre de memoria Ram</label>
-                <input type="text" name="memoriaRam" id="memoriaRam" autocomplete="off">
+                <input type="text" name="memoriaRam" id="memoriaRam" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -391,9 +391,9 @@
         <div class="form1 formu11">
             <h2>Crear Tipo de Almacenamiento</h2>
             <div class="linea"></div>
-            <form class="formulario" id="almacenamientoform">
+            <form class="formulario" id="almacenamientoform" autocomplete="off">
                 <label for="almacenamiento">Nombre Del Tipo de almacenamiento</label>
-                <input type="text" name="almacenamiento" id="almacenamiento" autocomplete="off">
+                <input type="text" name="almacenamiento" id="almacenamiento" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GU">
             </form>
         </div>
@@ -402,9 +402,9 @@
         <div class="form1 formu12">
             <h2>Procesador</h2>
             <div class="linea"></div>
-            <form  class="formulario" id="procesadorform">
+            <form  class="formulario" id="procesadorform" autocomplete="off">
                 <label for="procesador">Nombre del tipo de procesador</label>
-                <input type="text" name="procesador" id="procesador" autocomplete="off">
+                <input type="text" name="procesador" id="procesador" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -414,9 +414,9 @@
         <div class="form1 formu13">
             <h2>Sistema operativo</h2>
             <div class="linea"></div>
-            <form class="formulario" id="sistemaoperativo_form">
+            <form class="formulario" id="sistemaoperativo_form" autocomplete="off">
                 <label for="sistema_op">Sistema Operativo</label>
-                <input type="text" name="sistema_op" id="sistema_op" autocomplete="off">
+                <input type="text" name="sistema_op" id="sistema_op" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="20">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>

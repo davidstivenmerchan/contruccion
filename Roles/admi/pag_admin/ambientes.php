@@ -114,7 +114,7 @@
             <form class="formulario" id="ambientes">
 
                 
-                <input type="number" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Numero Ambiente" required>
+                <input type="number" name="nom_ambiente" id="nom_ambiente" placeholder="Escriba el Numero Ambiente" pattern="^ \ d +$" required title="Solo se permiten letras y numeros" maxlength="6">
 
                 <select name="nave" id="nave" style="width: 130%;" required>
                 <option value="">Seleccione una Nave</option>
@@ -274,7 +274,7 @@
             <p type="title">NAVE</p>
             <div class="linea"></div>
             <form id="nave" class="formulario" autocomplete="off">
-                <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave" required>
+                <input type="text" name="nom_nave" id="nom_nave" placeholder="Escribe el nombre de la nave" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="20">
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -283,7 +283,7 @@
             <p type="title">JORNADA</p>
             <div class="linea"></div>
             <form class="formulario" id="jornada" autocomplete="off">
-                    <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada" required>
+                    <input type="text" name="nom_jornada" id="nom_jornada" placeholder="Escribe el nombre de la jornada" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20">
                     <input type="submit" value="Guardar">
             </form>
         </div>
@@ -292,7 +292,7 @@
             <p type="title">FORMACION</p>
             <div class="linea"></div>
             <form class="formulario" id="formacion" autocomplete="off">
-                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" autocomplete="off" required>
+                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20"
                 <input type="submit" value="Guardar">
             </form>
         </div>
@@ -303,7 +303,7 @@
             <div class="linea"></div>
             <form class="formulario" id="fichas" autocomplete="off">
 
-                <input type="number" name="numero_ficha" id="numero_ficha" placeholder="Escriba el numero de ficha" required>
+                <input type="number" name="numero_ficha" id="numero_ficha" placeholder="Escriba el numero de ficha" pattern="^ [0-9\s]+$" required title="Solo se permiten numeros" maxlength="7">
 
                 <select name="tip_jornada" id="tip_jornada" required>
                 <option value="">Selecione una Jornada</option>
