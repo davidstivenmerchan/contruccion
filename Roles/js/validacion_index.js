@@ -3,7 +3,7 @@ const inputs = document.querySelectorAll('#form1 input');
 
 const expresiones =  {
     usuario : /^\d{1,11}$/, // numeros
-	clave : /^.[a-zA-ZÀ-ÿ\s]{1,20}$/,   // letras y numeros
+	clave : /^.{1,20}$/,   // letras y numeros
 }
 
 const campos = {
