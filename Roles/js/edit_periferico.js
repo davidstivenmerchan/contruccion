@@ -102,7 +102,6 @@ const editPeriferico = ( id ) => {
         setTimeout( () => document.querySelector('.alert').classList.remove('ver'), 1000 );
         if(e.target.matches('#editPeriferico')){
             e.preventDefault();
-            console.log('entre aqui que emocion viva el perico');
             const data = {
                 tabla,
                 idPeriferico: e.target.idperiferico.value,
@@ -136,8 +135,6 @@ const editPeriferico = ( id ) => {
                 data
             });
         }
-
-        console.log('pase de largo huevas');
     });
 }
 
