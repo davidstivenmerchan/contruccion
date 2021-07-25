@@ -393,6 +393,41 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             }
 
             echo json_encode($res);
+
+        }elseif($tabla ==='almacenamiento'){
+            $resultados = [];
+            $sql = "SELECT * from almacenamiento where id_almacena = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idAlmacena, $tamañoAlmacena);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados,
+                    [
+                        'idAlmacena' => $idAlmacena,
+                        'tamañoAlmacena' => $tamañoAlmacena,
+                    ]
+                );
+            }
+
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'data encontrada con exito',
+                    'data' => $resultados,
+                );
+            }else {
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'no se hizo la peticion correctamente',
+                    'data' => [],
+                );
+            }
+
+            echo json_encode($res);
         }
 
 
@@ -961,6 +996,19 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             );
         }
 
+        echo json_encode($res);
+    }
+    if($_PUT['tabla'] === 'almacenamiento'){
+        $sql = "UPDATE $tabla set tamaño_almacena = ? where id_almacena = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['tam_almacena'] , $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'estado de aprobacion modificado correctamente'
+        );
         echo json_encode($res);
     }
     

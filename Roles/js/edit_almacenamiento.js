@@ -6,6 +6,7 @@ export const editAlmacenamiento = ( id )=> {
     ajax({
         url:`./acciones.php?id=${id}&tabla=${tabla}`,
         cbSuccess: ( { data } ) => {
+            console.log(data);
             const $alert = document.getElementById('alert');
             $alert.classList.add('ver');
             $alert.innerHTML= `
@@ -52,7 +53,7 @@ export const editAlmacenamiento = ( id )=> {
                         data:{
                             tabla,
                             id: e.target.id_almacena.value,
-                            tam_almacena: e.target.tam_almacena.value
+                            tamaño_almacena: e.target.tamaño_almacena.value
                         },
                     });
                 }
