@@ -287,8 +287,8 @@
                 <tr class="datos">
                     <td><?php echo $eh['nom_tipo_sistema']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit Procesador" data-Procesador="<?php echo $eh['id_tipo_sistema']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove Procesador" data-Procesador="<?php echo $eh['id_tipo_sistema']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit Sistem_opera" data-Sistem_opera="<?php echo $eh['id_tipo_sistema']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove Sistem_opera" data-Sistem_opera="<?php echo $eh['id_tipo_sistema']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -448,7 +448,7 @@
             <div class="linea"></div>
             <form id="memoria_ram" class="formulario" autocomplete="off">
                 <label for="memoriaram">Nombre de memoria Ram</label>
-                <input type="text" name="memoriaRam" id="memoriaRam" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="text" name="memoriaRam" id="memoriaRam" required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -460,8 +460,8 @@
             <div class="linea"></div>
             <form class="formulario" id="almacenamientoform" autocomplete="off">
                 <label for="almacenamiento">Nombre Del Tipo de almacenamiento</label>
-                <input type="text" name="almacenamiento" id="almacenamiento" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
-                <input type="submit" value="GU">
+                <input type="text" name="almacenamiento" id="almacenamiento"  required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="submit" value="GUARDAR">
             </form>
         </div>
 
@@ -471,7 +471,7 @@
             <div class="linea"></div>
             <form  class="formulario" id="procesadorform" autocomplete="off">
                 <label for="procesador">Nombre del tipo de procesador</label>
-                <input type="text" name="procesador" id="procesador" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="text" name="procesador" id="procesador"  required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -483,7 +483,7 @@
             <div class="linea"></div>
             <form class="formulario" id="sistemaoperativo_form" autocomplete="off">
                 <label for="sistema_op">Sistema Operativo</label>
-                <input type="text" name="sistema_op" id="sistema_op" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="20">
+                <input type="text" name="sistema_op" id="sistema_op"  required title="Solo se permiten letras y numeros" maxlength="20">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
