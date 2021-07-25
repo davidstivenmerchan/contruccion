@@ -310,19 +310,20 @@ document.addEventListener('submit', (e)=>{
     let data;
     if(e.target.matches('#formuDispositivo')){
         data = {
-            serial: e.target.serial.value,
-            placaSena: e.target.placa_sena.value,
-            Procesador: e.target.Procesador.value,
-            RamGB: e.target.RamGB.value,
-            id_tipo_siste: e.target.id_tipo_siste.value,
-            idTipoDis: e.target.id_tipo_dis.value,
-            estadoDisponi: e.target.estado_disponi.value,
-            estadoDisposi: e.target.estado_disposi.value,
-            marca: e.target.marca.value,
-            Almacenamiento: e.target.Almacenamiento.value,
-            ambiente_dispo: e.target.ambiente_dispo.value,
+            tabla: 'dispositivo_electronico',
+            serial: e.target.serial.value, 
+            placaSena: e.target.placa_sena.value, 
+            Procesador: parseInt(e.target.Procesador.value),
+            RamGB: parseInt(e.target.RamGB.value),
+            idTipoSiste: parseInt(e.target.id_tipo_siste.value),
+            idTipoDis: parseInt(e.target.id_tipo_dis.value),
+            estadoDisponi: 1,
+            estadoDisposi: 1,
+            marca: parseInt(e.target.marca.value),
+            Almacenamiento: parseInt(e.target.Almacenamiento.value),
+            ambiente_dispo: parseInt(e.target.ambiente_dispo.value),
         }
-        handleAdd(e, 'registro_dispositivo_e.php' , data , 'pag_admin/equipos.php');
+        handleAdd(e, 'acciones.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#tipoDispo')){
         data = {
             tabla: 'tipo_dispositivo',

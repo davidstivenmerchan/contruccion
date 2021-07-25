@@ -460,7 +460,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'statusText' => 'No se puede insertar el registro',
             );
         }
-    } else if ($tabla === 'ambiente'){
+    } elseif ($tabla === 'ambiente'){
         $sql = "INSERT INTO ambiente (id_ambiente, id_nave , n_ambiente) VALUES (?, ?, ?)";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iis', $_POST['id_ambiente'],$_POST['nave'],$_POST['nom_ambiente']);
@@ -507,7 +507,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }catch(Exception $ex){
             echo json_encode($ex);
         }
-    }else if ($tabla === 'fichas'){
+    }elseif ($tabla === 'fichas'){
         $sql = "INSERT INTO fichas (ficha, id_jornada, id_ambiente, id_formacion, instructor) VALUES (?, ?, ?, ?, ? )";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iiiii', $_POST['numero_ficha'],$_POST['tip_jornada'], $_POST['tip_ambiente'], $_POST['nom_formacion'], $_POST['doc_instruc'] );
@@ -528,6 +528,28 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'statusText' => 'No se puede insertar el registro',
             );
         }
+    }elseif($tabla === 'dispositivo_electronico'){
+        $sql = "INSERT INTO dispositivo_electronico(serial, placa_sena, id_tipo_dispositivo, id_procesador, ramGB, id_tipo_sistema, id_estado_disponibilidad, id_estado_dispositivo, id_marca, id_almacena)
+        values(?,?,?,?,?,?,?,?,?,?)";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'ssiiiiiiii', $_POST['serial'], $_POST['placaSena'], $_POST['idTipoDis'], $_POST['Procesador'], $_POST['RamGB'], $_POST['idTipoSiste'], $_POST['estadoDisponi'], $_POST['estadoDisposi'] ,$_POST['marca'], $_POST['Almacenamiento'] );
+        $ok = mysqli_stmt_execute($query);
+        $res ;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'dispositivo electronico creado con exito'
+            );
+        }else {
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'hubo un error al crear el dispositivo :V'
+            );
+        }
+
+        echo json_encode($res);
     }
 
 }elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {

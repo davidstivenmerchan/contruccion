@@ -516,15 +516,25 @@
                 <input type="text" name="placa_sena" id="placa_sena" autocomplete="off" placeholder="Placa Sena" required>
 
                 
-                <input type="text" name="Procesador" id="Procesador" autocomplete="off" placeholder="Procesador" required>
-
+                <select name="Procesador" id="procesador" class="procesador" required>
+                    <option> Eligue una opcion de procesador</option>
+                    <?php foreach(consultarEquipos($mysqli,"SELECT * from procesadores" ) as $p) : ?>
+                        <option value="<?php echo $p['id_procesador']; ?>"> <?php echo $p['nom_procesador']; ?> </option>
+                    <?php endforeach; ?>
+                </select>
+            
                 
-                <input type="text" name="RamGB" id="RamGB" autocomplete="off" placeholder="Ram en GB" required>
-
+                
+                <select name="RamGB" id="RamGB" class="RamGB" required>
+                    <option>Eligue una opcion de memoria RAM</option>
+                    <?php foreach(consultarEquipos($mysqli, "SELECT * from ram") as $r): ?>
+                        <option value="<?php echo $r['ramGB']; ?>"> <?php echo $r['tamaño_ram']; ?> </option>
+                    <?php endforeach; ?>
+                </select>
                 <!-- selectores  -->
             
             <select name="id_tipo_siste" id="id_tipo_siste" required>
-            <option value="">Seleccione el Tipo de Sistema</option>
+            <option value="">seccione el Tipo de Sistema</option>
             <?php
                 foreach (consultarEquipos($mysqli, "SELECT * from tipo_sistema") as $i) :  ?>
                 <option value="<?php echo $i['id_tipo_sistema']?>"><?php echo $i['nom_tipo_sistema']?></option>
@@ -544,26 +554,6 @@
             ?>
             </select>
 
-            <!-- selectores  2 -->
-            <select name="estado_disponi" id="estado_disponi" required>
-            <option value="">Seleccione el Tipo de Disponibilidad</option>
-                <?php
-                    foreach (consultarEquipos($mysqli, "SELECT * from estado_disponibilidad") as $i) :  ?>
-                    <option value="<?php echo $i['id_estado_disponibilidad']?>"><?php echo $i['nom_estado_disponibilidad']?></option>
-                <?php
-                    endforeach;
-                ?>
-            </select>
-            <!-- selectores  3 -->
-            <select name="estado_disposi" id="estado_disposi" required>
-            <option value="">Seleccione el Tipo de Estado</option>
-            <?php
-                foreach (consultarEquipos($mysqli, "SELECT * FROM  estado_dispositivo") as $i) :  ?>
-                <option value="<?php echo $i['id_estado_dispositivo']?>"><?php echo $i['nom_estado_dispositivo']?></option>
-            <?php
-                endforeach;
-            ?>
-            </select>
             <!-- selectores  4 -->
             <select name="marca" id="marca" required>
             <option value="">Marca</option>
@@ -575,9 +565,12 @@
             ?>
             </select>
 
-            
-                <input type="text" name="Almacenamiento" id="Almacenamiento" autocomplete="off" placeholder="Almacenamiento" required>
-
+            <select name="Almacenamiento" id="Almacenamiento" class="Almacenamiento">
+                <option>Seleccione una opcion de almacenamiento</option>
+                <?php foreach(consultarEquipos($mysqli, "SELECT * from almacenamiento") as $a) : ?>
+                    <option value="<?php echo $a['id_almacena']; ?>"> <?php echo $a['tamaño_almacena']; ?></option>
+                <?php endforeach; ?>
+            </select>
             <!-- selectores  5 -->
             <select name="ambiente_dispo" id="ambiente_dispo" required>
             <option value="">Ambiente</option>
