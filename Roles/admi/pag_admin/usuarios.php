@@ -284,7 +284,7 @@
                     </div>
                     <div class="nombre">
                         <label for="nom">Nombre</label>
-                        <input type="text" name="nom" id="nom" autocomplete="off" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
+                        <input type="text" name="nom" id="nom" autocomplete="off" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras" maxlength="20">
                     </div>
                     <div class="apellido">
                         <label for="ape">Apellido</label>
