@@ -287,8 +287,8 @@
                 <tr class="datos">
                     <td><?php echo $eh['nom_tipo_sistema']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit Procesador" data-Procesador="<?php echo $eh['id_tipo_sistema']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove Procesador" data-Procesador="<?php echo $eh['id_tipo_sistema']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit Sistem_opera" data-Sistem_opera="<?php echo $eh['id_tipo_sistema']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove Sistem_opera" data-Sistem_opera="<?php echo $eh['id_tipo_sistema']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -314,14 +314,12 @@
                     <td>Estado Dispositivo</td>
                     <td>Marca Equipo</td>
                     <td>Almacenamiento</td>
-                    <td>Ambiente Asignado</td>
                     <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
-            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesadores.nom_procesador ,ram.tamaño_ram,tipo_sistema.nom_tipo_sistema,estado_disponibilidad.nom_estado_disponibilidad,
-                    estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento.tamaño_almacena
-                    FROM  dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,
-                    procesadores,ram,almacenamiento
+            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesadores.nom_procesador ,ram.tamaño_ram,tipo_sistema.nom_tipo_sistema,
+                    estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento.tamaño_almacena
+                    FROM  dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,procesadores,ram,almacenamiento
                     WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
                     AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
                     AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
@@ -450,7 +448,7 @@
             <div class="linea"></div>
             <form id="memoria_ram" class="formulario" autocomplete="off">
                 <label for="memoriaram">Nombre de memoria Ram</label>
-                <input type="text" name="memoriaRam" id="memoriaRam" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="text" name="memoriaRam" id="memoriaRam" required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -462,8 +460,8 @@
             <div class="linea"></div>
             <form class="formulario" id="almacenamientoform" autocomplete="off">
                 <label for="almacenamiento">Nombre Del Tipo de almacenamiento</label>
-                <input type="text" name="almacenamiento" id="almacenamiento" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
-                <input type="submit" value="GU">
+                <input type="text" name="almacenamiento" id="almacenamiento"  required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="submit" value="GUARDAR">
             </form>
         </div>
 
@@ -473,7 +471,7 @@
             <div class="linea"></div>
             <form  class="formulario" id="procesadorform" autocomplete="off">
                 <label for="procesador">Nombre del tipo de procesador</label>
-                <input type="text" name="procesador" id="procesador" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="text" name="procesador" id="procesador"  required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -485,7 +483,7 @@
             <div class="linea"></div>
             <form class="formulario" id="sistemaoperativo_form" autocomplete="off">
                 <label for="sistema_op">Sistema Operativo</label>
-                <input type="text" name="sistema_op" id="sistema_op" pattern="^ [ a-zA-Z0-9\s]+$" required title="Solo se permiten letras y numeros" maxlength="20">
+                <input type="text" name="sistema_op" id="sistema_op"  required title="Solo se permiten letras y numeros" maxlength="20">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -516,15 +514,25 @@
                 <input type="text" name="placa_sena" id="placa_sena" autocomplete="off" placeholder="Placa Sena" required>
 
                 
-                <input type="text" name="Procesador" id="Procesador" autocomplete="off" placeholder="Procesador" required>
-
+                <select name="Procesador" id="procesador" class="procesador" required>
+                    <option> Eligue una opcion de procesador</option>
+                    <?php foreach(consultarEquipos($mysqli,"SELECT * from procesadores" ) as $p) : ?>
+                        <option value="<?php echo $p['id_procesador']; ?>"> <?php echo $p['nom_procesador']; ?> </option>
+                    <?php endforeach; ?>
+                </select>
+            
                 
-                <input type="text" name="RamGB" id="RamGB" autocomplete="off" placeholder="Ram en GB" required>
-
+                
+                <select name="RamGB" id="RamGB" class="RamGB" required>
+                    <option>Eligue una opcion de memoria RAM</option>
+                    <?php foreach(consultarEquipos($mysqli, "SELECT * from ram") as $r): ?>
+                        <option value="<?php echo $r['ramGB']; ?>"> <?php echo $r['tamaño_ram']; ?> </option>
+                    <?php endforeach; ?>
+                </select>
                 <!-- selectores  -->
             
             <select name="id_tipo_siste" id="id_tipo_siste" required>
-            <option value="">Seleccione el Tipo de Sistema</option>
+            <option value="">seccione el Tipo de Sistema</option>
             <?php
                 foreach (consultarEquipos($mysqli, "SELECT * from tipo_sistema") as $i) :  ?>
                 <option value="<?php echo $i['id_tipo_sistema']?>"><?php echo $i['nom_tipo_sistema']?></option>
@@ -544,26 +552,6 @@
             ?>
             </select>
 
-            <!-- selectores  2 -->
-            <select name="estado_disponi" id="estado_disponi" required>
-            <option value="">Seleccione el Tipo de Disponibilidad</option>
-                <?php
-                    foreach (consultarEquipos($mysqli, "SELECT * from estado_disponibilidad") as $i) :  ?>
-                    <option value="<?php echo $i['id_estado_disponibilidad']?>"><?php echo $i['nom_estado_disponibilidad']?></option>
-                <?php
-                    endforeach;
-                ?>
-            </select>
-            <!-- selectores  3 -->
-            <select name="estado_disposi" id="estado_disposi" required>
-            <option value="">Seleccione el Tipo de Estado</option>
-            <?php
-                foreach (consultarEquipos($mysqli, "SELECT * FROM  estado_dispositivo") as $i) :  ?>
-                <option value="<?php echo $i['id_estado_dispositivo']?>"><?php echo $i['nom_estado_dispositivo']?></option>
-            <?php
-                endforeach;
-            ?>
-            </select>
             <!-- selectores  4 -->
             <select name="marca" id="marca" required>
             <option value="">Marca</option>
@@ -575,19 +563,13 @@
             ?>
             </select>
 
-            
-                <input type="text" name="Almacenamiento" id="Almacenamiento" autocomplete="off" placeholder="Almacenamiento" required>
-
-            <!-- selectores  5 -->
-            <select name="ambiente_dispo" id="ambiente_dispo" required>
-            <option value="">Ambiente</option>
-            <?php
-                foreach (consultarEquipos($mysqli, "SELECT * from ambiente") as $i) :  ?>
-                <option value="<?php echo $i['id_ambiente']?>"><?php echo $i['n_ambiente']?></option>
-            <?php
-                endforeach;
-            ?>
+            <select name="Almacenamiento" id="Almacenamiento" class="Almacenamiento">
+                <option>Seleccione una opcion de almacenamiento</option>
+                <?php foreach(consultarEquipos($mysqli, "SELECT * from almacenamiento") as $a) : ?>
+                    <option value="<?php echo $a['id_almacena']; ?>"> <?php echo $a['tamaño_almacena']; ?></option>
+                <?php endforeach; ?>
             </select>
+            
 
             
 

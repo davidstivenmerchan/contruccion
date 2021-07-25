@@ -393,6 +393,41 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             }
 
             echo json_encode($res);
+
+        }elseif($tabla ==='almacenamiento'){
+            $resultados = [];
+            $sql = "SELECT * from almacenamiento where id_almacena = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idAlmacena, $tamañoAlmacena);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados,
+                    [
+                        'idAlmacena' => $idAlmacena,
+                        'tamañoAlmacena' => $tamañoAlmacena,
+                    ]
+                );
+            }
+
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'data encontrada con exito',
+                    'data' => $resultados,
+                );
+            }else {
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'no se hizo la peticion correctamente',
+                    'data' => [],
+                );
+            }
+
+            echo json_encode($res);
         }
 
 
@@ -439,7 +474,99 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         insertTable($mysqli, $tabla , 'nom_formacion', $_POST['nameTipo']);
     }elseif($tabla === 'tip_periferico'){
         insertTable($mysqli, $tabla, 'nom_tip_periferico', $_POST['nameTipo']);
-    }elseif ($tabla === 'detalle_formacion'){
+    }elseif ($tabla === 'ram'){
+
+        $sql = "INSERT INTO ram (ramGB, tamaño_ram) VALUES (NULL, ?)";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 's', $_POST['memoriaRam']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res;
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Registro insertado con exito',
+            );
+        }else{     
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'No se puede insertar el registro',
+            );
+        }
+        echo json_encode($res);
+
+    }elseif ($tabla === 'tipo_sistema'){
+
+        $sql = "INSERT INTO tipo_sistema (id_tipo_sistema, nom_tipo_sistema) VALUES (NULL, ?)";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 's', $_POST['sistema_op']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res;
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Registro insertado con exito',
+            );
+        }else{     
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'No se puede insertar el registro',
+            );
+        }
+        echo json_encode($res);
+
+    }
+    
+    elseif ($tabla === 'almacenamiento'){
+        $sql = "INSERT INTO almacenamiento (id_almacena, tamaño_almacena) VALUES (NULL, ?)";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 's', $_POST['almacenamiento']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res;
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Registro insertado con exito',
+            );
+        }else{     
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'No se puede insertar el registro',
+            );
+        }
+        echo json_encode($res);
+
+    }elseif ($tabla === 'procesadores'){
+        $sql = "INSERT INTO procesadores (id_procesador, nom_procesador) VALUES (NULL, ?)";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 's', $_POST['nom_procesador']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res;
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Registro insertado con exito',
+            );
+        }else{     
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'No se puede insertar el registro',
+            );
+        }
+        echo json_encode($res);
+    }
+    elseif ($tabla === 'detalle_formacion'){
         $sql = "INSERT INTO detalle_formacion (id_detalle_formacion, id_formacion, num_ficha, id_ambiente) VALUES (NULL, ?, ?, ? )";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iii', $_POST['formacion'],$_POST['num_ficha'], $_POST['ambiente'] );
@@ -460,7 +587,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'statusText' => 'No se puede insertar el registro',
             );
         }
-    } else if ($tabla === 'ambiente'){
+    } elseif ($tabla === 'ambiente'){
         $sql = "INSERT INTO ambiente (id_ambiente, id_nave , n_ambiente) VALUES (?, ?, ?)";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iis', $_POST['id_ambiente'],$_POST['nave'],$_POST['nom_ambiente']);
@@ -507,7 +634,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }catch(Exception $ex){
             echo json_encode($ex);
         }
-    }else if ($tabla === 'fichas'){
+    }elseif ($tabla === 'fichas'){
         $sql = "INSERT INTO fichas (ficha, id_jornada, id_ambiente, id_formacion, instructor) VALUES (?, ?, ?, ?, ? )";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'iiiii', $_POST['numero_ficha'],$_POST['tip_jornada'], $_POST['tip_ambiente'], $_POST['nom_formacion'], $_POST['doc_instruc'] );
@@ -528,6 +655,28 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'statusText' => 'No se puede insertar el registro',
             );
         }
+    }elseif($tabla === 'dispositivo_electronico'){
+        $sql = "INSERT INTO dispositivo_electronico(serial, placa_sena, id_tipo_dispositivo, id_procesador, ramGB, id_tipo_sistema, id_estado_disponibilidad, id_estado_dispositivo, id_marca, id_almacena)
+        values(?,?,?,?,?,?,?,?,?,?)";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'ssiiiiiiii', $_POST['serial'], $_POST['placaSena'], $_POST['idTipoDis'], $_POST['Procesador'], $_POST['RamGB'], $_POST['idTipoSiste'], $_POST['estadoDisponi'], $_POST['estadoDisposi'] ,$_POST['marca'], $_POST['Almacenamiento'] );
+        $ok = mysqli_stmt_execute($query);
+        $res ;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'dispositivo electronico creado con exito'
+            );
+        }else {
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'hubo un error al crear el dispositivo :V'
+            );
+        }
+
+        echo json_encode($res);
     }
 
 }elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
@@ -849,6 +998,19 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
 
         echo json_encode($res);
     }
+    if($_PUT['tabla'] === 'almacenamiento'){
+        $sql = "UPDATE $tabla set tamaño_almacena = ? where id_almacena = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['tam_almacena'] , $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'estado de aprobacion modificado correctamente'
+        );
+        echo json_encode($res);
+    }
     
 
 
@@ -856,7 +1018,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     $_DELETE = json_decode(file_get_contents('php://input'), true);
     $tabla = $_DELETE['tabla'];
     $id = $_DELETE['id'];
-    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios' && $tabla !== 'fichas' && $tabla !== 'compu_peris'){
+    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios' && $tabla !== 'fichas' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'almacenamiento' && $tabla !== 'tipo_sistema' && $tabla !== 'procesadores'){
         $sql = "DELETE from $tabla where id_$tabla = ?";
         $query = mysqli_prepare($mysqli , $sql);
         $ok = mysqli_stmt_bind_param($query, 's' , $id);
@@ -876,6 +1038,58 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'statusText' => 'no se logro borrar el registro',
             );
         }
+        echo json_encode($res);
+    }
+    if($tabla === 'ram' ){
+        $sql = "DELETE from $tabla where ramGB = ? ";
+        $query = mysqli_prepare($mysqli , $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i' , $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Registro borrado con exito!',
+        );
+        echo json_encode($res);
+    }
+    if($tabla === 'almacenamiento' ){
+        $sql = "DELETE from $tabla where id_almacena = ? ";
+        $query = mysqli_prepare($mysqli , $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i' , $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Registro borrado con exito!',
+        );
+        echo json_encode($res);
+    }
+    if($tabla === 'procesadores' ){
+        $sql = "DELETE from $tabla where id_procesador = ? ";
+        $query = mysqli_prepare($mysqli , $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i' , $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Registro borrado con exito!',
+        );
+        echo json_encode($res);
+    }
+    if($tabla === 'tipo_sistema' ){
+        $sql = "DELETE from $tabla where id_tipo_sistema = ? ";
+        $query = mysqli_prepare($mysqli , $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i' , $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res = array (
+            'err' => false,
+            'status' => http_response_code(200),
+            'statusText' => 'Registro borrado con exito!',
+        );
         echo json_encode($res);
     }
     if($tabla === 'dispositivo_electronico' ){

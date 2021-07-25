@@ -22,6 +22,7 @@ import editPeriferico from './edit_periferico.js';
 import buscadorUser from './buscador_user.js';
 import gruposAdmin from './grupos_admin.js';
 import editCompusPeri from './edit_compus_peri.js';
+import { editAlmacenamiento } from './edit_almacenamiento.js';
 
 
 
@@ -175,6 +176,18 @@ document.addEventListener('click' , e => {
         }else if(e.target.matches('.compu-periferico')){
             const $id = e.target.getAttribute('data-compusPerifericos');
             editCompusPeri($id);
+        }else if(e.target.matches('.almacenamiento')){
+            const $id = e.target.getAttribute('data-almacenamiento');
+            editAlmacenamiento($id);
+        }else if(e.target.matches('.ramGB')){
+            const $id = e.target.getAttribute('data-ramGB');
+            edit($id);
+        }else if(e.target.matches('.Procesador')){
+            const $id = e.target.getAttribute('data-Procesador');
+            edit($id);
+        }else if(e.target.matches('.Sistem_opera')){
+            const $id = e.target.getAttribute('data-Sistem_opera');
+            edit($id);
         }
     }
 
@@ -241,10 +254,24 @@ document.addEventListener('click' , e => {
         
         }else if(e.target.matches('.fichas')){
             getdelete('data-fichas', 'fichas', 'pag_admin/ambientes.php');
+
         }else if(e.target.matches('.periferico')){
             getdelete('data-periferico' , 'periferico', 'pag_admin/equipos.php');
+
         }else if(e.target.matches('.compu-periferico')){
             getdelete('data-compusPerifericos', 'compu_peris', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.ramGB')){
+            getdelete('data-ramGB', 'ram', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.almacenamiento')){
+            getdelete('data-almacenamiento', 'almacenamiento', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.Procesador')){
+            getdelete('data-Procesador', 'procesadores', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.Sistem_opera')){
+            getdelete('data-Sistem_opera', 'tipo_sistema', 'pag_admin/equipos.php');
         }
     }
 });
@@ -310,32 +337,64 @@ document.addEventListener('submit', (e)=>{
     let data;
     if(e.target.matches('#formuDispositivo')){
         data = {
-            serial: e.target.serial.value,
-            placaSena: e.target.placa_sena.value,
-            Procesador: e.target.Procesador.value,
-            RamGB: e.target.RamGB.value,
-            id_tipo_siste: e.target.id_tipo_siste.value,
-            idTipoDis: e.target.id_tipo_dis.value,
-            estadoDisponi: e.target.estado_disponi.value,
-            estadoDisposi: e.target.estado_disposi.value,
-            marca: e.target.marca.value,
-            Almacenamiento: e.target.Almacenamiento.value,
-            ambiente_dispo: e.target.ambiente_dispo.value,
+            tabla: 'dispositivo_electronico',
+            serial: e.target.serial.value, 
+            placaSena: e.target.placa_sena.value, 
+            Procesador: parseInt(e.target.Procesador.value),
+            RamGB: parseInt(e.target.RamGB.value),
+            idTipoSiste: parseInt(e.target.id_tipo_siste.value),
+            idTipoDis: parseInt(e.target.id_tipo_dis.value),
+            estadoDisponi: 1,
+            estadoDisposi: 1,
+            marca: parseInt(e.target.marca.value),
+            Almacenamiento: parseInt(e.target.Almacenamiento.value),
+            
         }
-        handleAdd(e, 'registro_dispositivo_e.php' , data , 'pag_admin/equipos.php');
+        handleAdd(e, 'acciones.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#tipoDispo')){
         data = {
             tabla: 'tipo_dispositivo',
             nameTipo: e.target.nom_dis.value,
         }
         handleAdd(e , 'acciones.php', data , 'pag_admin/equipos.php');
+
     }else if(e.target.matches('#tipPeriferico')){
         data = {
             tabla: 'tip_periferico',
             nameTipo: e.target.nameTipPeriferico.value,
         }
         handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
-    }else if( e.target.matches('#marcaEquipos')){
+
+    }else if(e.target.matches('#memoria_ram')){
+        data = {
+            tabla: 'ram',
+            memoriaRam : e.target.memoriaRam.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
+
+    }else if(e.target.matches('#procesadorform')){
+        data = {
+            tabla: 'procesadores',
+            nom_procesador : e.target.procesador.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
+
+    }else if(e.target.matches('#sistemaoperativo_form')){
+        data = {
+            tabla: 'tipo_sistema',
+            sistema_op : e.target.sistema_op.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
+
+    }else if(e.target.matches('#almacenamientoform')){
+        data = {
+            tabla: 'almacenamiento',
+            almacenamiento : e.target.almacenamiento.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
+    }
+
+    else if( e.target.matches('#marcaEquipos')){
         data = {
             tabla: 'marca',
             nameTipo: e.target.nom_marca.value,
