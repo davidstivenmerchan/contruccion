@@ -241,10 +241,24 @@ document.addEventListener('click' , e => {
         
         }else if(e.target.matches('.fichas')){
             getdelete('data-fichas', 'fichas', 'pag_admin/ambientes.php');
+
         }else if(e.target.matches('.periferico')){
             getdelete('data-periferico' , 'periferico', 'pag_admin/equipos.php');
+
         }else if(e.target.matches('.compu-periferico')){
             getdelete('data-compusPerifericos', 'compu_peris', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.ramGB')){
+            getdelete('data-ramGB', 'ram', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.almacenamiento')){
+            getdelete('data-almacenamiento', 'almacenamiento', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.Procesador')){
+            getdelete('data-Procesador', 'procesadores', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.Sistem_opera')){
+            getdelete('data-Sistem_opera', 'tipo_sistema', 'pag_admin/equipos.php');
         }
     }
 });
@@ -330,13 +344,44 @@ document.addEventListener('submit', (e)=>{
             nameTipo: e.target.nom_dis.value,
         }
         handleAdd(e , 'acciones.php', data , 'pag_admin/equipos.php');
+
     }else if(e.target.matches('#tipPeriferico')){
         data = {
             tabla: 'tip_periferico',
             nameTipo: e.target.nameTipPeriferico.value,
         }
         handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
-    }else if( e.target.matches('#marcaEquipos')){
+
+    }else if(e.target.matches('#memoria_ram')){
+        data = {
+            tabla: 'ram',
+            memoriaRam : e.target.memoriaRam.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
+
+    }else if(e.target.matches('#procesadorform')){
+        data = {
+            tabla: 'procesadores',
+            nom_procesador : e.target.procesador.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
+
+    }else if(e.target.matches('#sistemaoperativo_form')){
+        data = {
+            tabla: 'tipo_sistema',
+            sistema_op : e.target.sistema_op.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
+
+    }else if(e.target.matches('#almacenamientoform')){
+        data = {
+            tabla: 'almacenamiento',
+            almacenamiento : e.target.almacenamiento.value,
+        }
+        handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
+    }
+
+    else if( e.target.matches('#marcaEquipos')){
         data = {
             tabla: 'marca',
             nameTipo: e.target.nom_marca.value,
