@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris'){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'tipo_sistema'){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -424,6 +424,66 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                     'status' => http_response_code(500),
                     'statusText' => 'no se hizo la peticion correctamente',
                     'data' => [],
+                );
+            }
+
+            echo json_encode($res);
+        }elseif($tabla === 'ram'){
+            $resultados = [];
+            $sql = "SELECT * from ram where ramGB = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idRam, $nameRam);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, [
+                    'idRam' => $idRam,
+                    'nameRam' => $nameRam,
+                ]);
+            }
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'ram encontrada con exito',
+                    'data' => $resultados
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'hubo un error al hacer la peticion :)',
+                );
+            }
+
+            echo json_encode($res);
+        }elseif($tabla === 'tipo_sistema'){
+            $resultados = [];
+            $sql = "SELECT * from $tabla where id_tipo_sistema = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i' ,$id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $id, $nameTipSistema);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, [
+                    'id' => $id,
+                    'nameTipoSistema' => $nameTipSistema,
+                ]);
+            }
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'tipos de sistema encontrado con sistema',
+                    'data' => $resultados,
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'error al intentar buscar!',
                 );
             }
 
@@ -1009,6 +1069,51 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             'status' => http_response_code(200),
             'statusText' => 'estado de aprobacion modificado correctamente'
         );
+        echo json_encode($res);
+    }
+    if($_PUT['tabla'] === 'ram'){
+        $sql = 'UPDATE ram set tamaño_ram = ? where ramGB = ?';
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query , 'si', $_PUT['ramName'], $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        // mysqli_stmt_close($query);
+        $res;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'actualizada con exito'
+            );
+        }else {
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'no se puede actualizar memoria ram'
+            );
+        }  
+
+        echo json_encode($res);
+    }
+    if($_PUT['tabla'] === 'tipo_sistema'){
+        $sql = 'UPDATE tipo_sistema set nom_tipo_sistema = ? where id_tipo_sistema = ?';
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'si', $_PUT['soName'] , $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        $res;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'SO modificado con exito',
+            );
+        }else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statustext' => 'error al cambiar',
+            );
+        }
+
         echo json_encode($res);
     }
     

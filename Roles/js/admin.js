@@ -23,7 +23,8 @@ import buscadorUser from './buscador_user.js';
 import gruposAdmin from './grupos_admin.js';
 import editCompusPeri from './edit_compus_peri.js';
 import { editAlmacenamiento } from './edit_almacenamiento.js';
-
+import editRam from './edit_ram.js';
+import editSo from './edit_sistemaOpera.js';
 
 
 
@@ -181,13 +182,13 @@ document.addEventListener('click' , e => {
             editAlmacenamiento($id);
         }else if(e.target.matches('.ramGB')){
             const $id = e.target.getAttribute('data-ramGB');
-            edit($id);
+            editRam($id);
         }else if(e.target.matches('.Procesador')){
             const $id = e.target.getAttribute('data-Procesador');
             edit($id);
         }else if(e.target.matches('.Sistem_opera')){
             const $id = e.target.getAttribute('data-Sistem_opera');
-            edit($id);
+            editSo($id);
         }
     }
 
