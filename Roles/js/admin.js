@@ -22,6 +22,7 @@ import editPeriferico from './edit_periferico.js';
 import buscadorUser from './buscador_user.js';
 import gruposAdmin from './grupos_admin.js';
 import editCompusPeri from './edit_compus_peri.js';
+import { editAlmacenamiento } from './edit_almacenamiento.js';
 
 
 
@@ -175,6 +176,18 @@ document.addEventListener('click' , e => {
         }else if(e.target.matches('.compu-periferico')){
             const $id = e.target.getAttribute('data-compusPerifericos');
             editCompusPeri($id);
+        }else if(e.target.matches('.almacenamiento')){
+            const $id = e.target.getAttribute('data-almacenamiento');
+            editAlmacenamiento($id);
+        }else if(e.target.matches('.ramGB')){
+            const $id = e.target.getAttribute('data-ramGB');
+            edit($id);
+        }else if(e.target.matches('.Procesador')){
+            const $id = e.target.getAttribute('data-Procesador');
+            edit($id);
+        }else if(e.target.matches('.Sistem_opera')){
+            const $id = e.target.getAttribute('data-Sistem_opera');
+            edit($id);
         }
     }
 
@@ -335,7 +348,7 @@ document.addEventListener('submit', (e)=>{
             estadoDisposi: 1,
             marca: parseInt(e.target.marca.value),
             Almacenamiento: parseInt(e.target.Almacenamiento.value),
-            ambiente_dispo: parseInt(e.target.ambiente_dispo.value),
+            
         }
         handleAdd(e, 'acciones.php' , data , 'pag_admin/equipos.php');
     }else if( e.target.matches('#tipoDispo')){

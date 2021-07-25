@@ -569,16 +569,7 @@
                     <option value="<?php echo $a['id_almacena']; ?>"> <?php echo $a['tamaño_almacena']; ?></option>
                 <?php endforeach; ?>
             </select>
-            <!-- selectores  5 -->
-            <select name="ambiente_dispo" id="ambiente_dispo" required>
-            <option value="">Ambiente</option>
-            <?php
-                foreach (consultarEquipos($mysqli, "SELECT * from ambiente") as $i) :  ?>
-                <option value="<?php echo $i['id_ambiente']?>"><?php echo $i['n_ambiente']?></option>
-            <?php
-                endforeach;
-            ?>
-            </select>
+            
 
             
 
