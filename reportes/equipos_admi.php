@@ -4,12 +4,11 @@ require('fpdf.php');
 require 'proceso_asistencia.php';
 
 $consulta = "SELECT entrada_aprendiz.documento, entrada_aprendiz.fecha, dispositivo_electronico.serial, dispositivo_electronico.placa_sena, tipo_dispositivo.nom_tipo_dispositivo, estado_dispositivo.nom_estado_dispositivo, asignacion_equipos.descripcion_inicial, asignacion_equipos.descripcion_final 
-from entrada_aprendiz, dispositivo_electronico, tipo_dispositivo, estado_dispositivo, asignacion_equipos, equipos 
+from entrada_aprendiz, dispositivo_electronico, tipo_dispositivo, estado_dispositivo, asignacion_equipos 
 WHERE entrada_aprendiz.id_entrada_aprendiz=asignacion_equipos.id_entrada_aprendiz
 and tipo_dispositivo.id_tipo_dispositivo=dispositivo_electronico.id_tipo_dispositivo
 and estado_dispositivo.id_estado_dispositivo=dispositivo_electronico.id_estado_dispositivo
-and dispositivo_electronico.serial=equipos.serial
-and equipos.id_equipo=asignacion_equipos.id_equipo";
+and dispositivo_electronico.serial=asignacion_equipos.serial";
 $ejecucion= $mysqli->query($consulta);
 
 
