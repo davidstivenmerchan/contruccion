@@ -101,7 +101,7 @@
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <title>Aprendiz</title>
 </head>
-<body>
+<body> 
     <form action="">
         <input type="hidden" value="<?php echo $m_inicial ?>" id="prueba34">
         <input type="hidden" value="<?php echo $m_final ?>" id="prueba35">
@@ -167,7 +167,7 @@
 <div class="padre">
 
     <div>
-        <button id="botoninicial"  class="botoninicial" onclick="alerta()">
+        <button id="botoninicial"  class="botoninicial desaparecer2" onclick="alerta()">
             Estado Inicial
         </button>
         <form action="js_aprendiz/agregarmensaje.php" id="formularioinicio" class="formuu" method="POST">
@@ -183,7 +183,7 @@
             </button>
     </div>
     <div>
-        <button class="botoninicial boton2" onclick="alerta2()">
+        <button class="botoninicial boton2 desaparecer2" onclick="alerta2()" id="booot">
             Estado Final
         </button>
         <form action="js_aprendiz/agregarfinal.php" id="formularioinicioo" class="formuu" method="POST">

@@ -42,11 +42,14 @@ $(document).ready(function(){
 
        if(prueba=="" && prueba2=="En Uso"){
         $('#bloqueo2').hide();
+        document.getElementById('botoninicial').classList.remove('desaparecer2');
        }
 
        if(prueba!="" && prueba2=="En Uso"){
         $('#bloqueo').hide();
         $('#bloqueo2').show();
+        document.getElementById('booot').classList.remove('desaparecer2');
+        document.getElementById('botoninicial').classList.add('desaparecer2');
        }
 
        if(prueba!="" && prueba2!="En Uso"){

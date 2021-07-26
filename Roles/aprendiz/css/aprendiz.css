@@ -45,6 +45,7 @@ body{
     color: white;
     font-size: 20px;
     transition: .5s;
+    
 }
 .botoninicial:hover{
     cursor: pointer;
@@ -90,6 +91,7 @@ button{
 }
 .boton2:disabled{
     background: black;
+
 }
 .cerrar{
     display: none;
@@ -154,4 +156,7 @@ button:hover{
     text-align: center;
     color: rgb(112,178,45);
     font-size: 23px;
+}
+.desaparecer2{
+    visibility: hidden;
 }
