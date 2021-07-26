@@ -138,9 +138,6 @@ $(document).ready(function(){
                             ${buscar.tipo}
                         </td>
                         <td>
-                            ${buscar.dispositivo}
-                        </td>
-                        <td>
                             ${buscar.marca}
                         </td>
                         <td>
@@ -158,7 +155,22 @@ $(document).ready(function(){
                 $('#estadodispositivo').html(template);
             }
         });
+    
     }
+    $(document).on('click', '.editarr', function(){
+        if(confirm('Esta Seguro de Querer Cambiar el Estado de este Equipo?')){ 
+            
+            let element = $(this)[0].parentElement.parentElement;
+            let id = $(element).attr('eliminarr');
+            $.post('js/cambiarestado.php', {id}, function(response){
+            
+            console.log(response);
+            obtenerestado();
+        
+        })
+    }
+         
+    });
     $(document).on('click', '.vercompu', function(){
         let element = $(this)[0].parentElement.parentElement;
         let id = $(element).attr('eliminarr');
