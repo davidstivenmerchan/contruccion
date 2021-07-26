@@ -448,7 +448,7 @@
             <div class="linea"></div>
             <form id="memoria_ram" class="formulario" autocomplete="off">
                 <label for="memoriaram">Nombre de memoria Ram</label>
-                <input type="text" name="memoriaRam" id="memoriaRam" required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="text" name="memoriaRam" id="memoriaRam" pattern="^[a-zA-Z0-9-\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -460,7 +460,7 @@
             <div class="linea"></div>
             <form class="formulario" id="almacenamientoform" autocomplete="off">
                 <label for="tama_almace">Nombre Del Tipo de almacenamiento</label>
-                <input type="text" name="tama_almace" id="tama_almace"  required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="text" name="tama_almace" id="tama_almace"  pattern="^[a-zA-Z0-9-\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -471,7 +471,7 @@
             <div class="linea"></div>
             <form  class="formulario" id="procesadorform" autocomplete="off">
                 <label for="procesador">Nombre del tipo de procesador</label>
-                <input type="text" name="procesador" id="procesador"  required title="Solo se permiten letras y numeros" maxlength="10">
+                <input type="text" name="procesador" id="procesador"  pattern="^[a-zA-Z0-9-(-)-+-\s]+$" required title="Solo se permiten letras y numeros" maxlength="30">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -483,7 +483,7 @@
             <div class="linea"></div>
             <form class="formulario" id="sistemaoperativo_form" autocomplete="off">
                 <label for="sistema_op">Sistema Operativo</label>
-                <input type="text" name="sistema_op" id="sistema_op"  required title="Solo se permiten letras y numeros" maxlength="20">
+                <input type="text" name="sistema_op" id="sistema_op"  pattern="^[a-zA-Z\s]+$" required title="Solo se permiten letras y numeros" maxlength="20">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
@@ -508,14 +508,14 @@
                 
                 
                 
-                <input type="text" name="serial" id="serial" placeholder="Serial" required>
+                <input type="text" name="serial" id="serial" placeholder="Serial" pattern="^[a-zA-Z0-9-\s]+$" required title="Solo se permiten letras y numeros" maxlength="10">
 
                 
-                <input type="text" name="placa_sena" id="placa_sena" autocomplete="off" placeholder="Placa Sena" required>
+                <input type="text" name="placa_sena" id="placa_sena" autocomplete="off" placeholder="Placa Sena" pattern="^[a-zA-Z0-9-\s]+$" required title="Solo se permiten letras y numeros" maxlength="8">
 
                 
                 <select name="Procesador" id="procesador" class="procesador" required>
-                    <option> Eligue una opcion de procesador</option>
+                    <option> Elige una opcion de procesador</option>
                     <?php foreach(consultarEquipos($mysqli,"SELECT * from procesadores" ) as $p) : ?>
                         <option value="<?php echo $p['id_procesador']; ?>"> <?php echo $p['nom_procesador']; ?> </option>
                     <?php endforeach; ?>
@@ -532,7 +532,7 @@
                 <!-- selectores  -->
             
             <select name="id_tipo_siste" id="id_tipo_siste" required>
-            <option value="">seccione el Tipo de Sistema</option>
+            <option value="">seleccione el Tipo de Sistema</option>
             <?php
                 foreach (consultarEquipos($mysqli, "SELECT * from tipo_sistema") as $i) :  ?>
                 <option value="<?php echo $i['id_tipo_sistema']?>"><?php echo $i['nom_tipo_sistema']?></option>
