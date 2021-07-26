@@ -488,6 +488,37 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             }
 
             echo json_encode($res);
+
+        }elseif($tabla === 'procesadores'){
+            $resultados = [];
+            $sql = "SELECT * from procesadores where id_procesador = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idProcesadaor, $TamProcesador);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, [
+                    'idProcesadaor' => $idProcesadaor,
+                    'TamProcesador' => $TamProcesador,
+                ]);
+            }
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'Procesador encontrado con exito',
+                    'data' => $resultados
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'hubo un error al hacer la peticion :)',
+                );
+            }
+
+            echo json_encode($res);
         }
 
 
@@ -1061,7 +1092,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     if($_PUT['tabla'] === 'almacenamiento'){
         $sql = "UPDATE $tabla set tamaño_almacena = ? where id_almacena = ?";
         $query = mysqli_prepare($mysqli, $sql);
-        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['tam_almacena'] , $_PUT['id']);
+        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['tamaño_almacena'] , $_PUT['id']);
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
         $res = array (
@@ -1098,6 +1129,28 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         $sql = 'UPDATE tipo_sistema set nom_tipo_sistema = ? where id_tipo_sistema = ?';
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 'si', $_PUT['soName'] , $_PUT['id']);
+        $ok = mysqli_stmt_execute($query);
+        $res;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'SO modificado con exito',
+            );
+        }else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statustext' => 'error al cambiar',
+            );
+        }
+
+        echo json_encode($res);
+    }
+    if($_PUT['tabla'] === 'procesadores'){
+        $sql = 'UPDATE procesadores set nom_procesador  = ? where id_procesador = ?';
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'si', $_PUT['TamProcesador'] , $_PUT['id']);
         $ok = mysqli_stmt_execute($query);
         $res;
         if($ok){
