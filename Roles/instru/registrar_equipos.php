@@ -69,7 +69,6 @@
             <th>Serial</th>
             <th>Placa Sena</th>
             <th>Tipo de Dispositivo</th>
-            <th>Nombre Dispositivo</th>
             <th>Marca</th>
             <th>Estado Dispositivo</th>
             <th>Operacion</th>
