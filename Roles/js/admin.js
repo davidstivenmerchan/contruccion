@@ -390,7 +390,7 @@ document.addEventListener('submit', (e)=>{
     }else if(e.target.matches('#almacenamientoform')){
         data = {
             tabla: 'almacenamiento',
-            almacenamiento : e.target.almacenamiento.value,
+            tama_almace : e.target.tama_almace.value,
         }
         handleAdd(e, 'acciones.php' , data, 'pag_admin/equipos.php');
     }

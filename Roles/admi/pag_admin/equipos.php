@@ -459,8 +459,8 @@
             <h2>Crear Tipo de Almacenamiento</h2>
             <div class="linea"></div>
             <form class="formulario" id="almacenamientoform" autocomplete="off">
-                <label for="almacenamiento">Nombre Del Tipo de almacenamiento</label>
-                <input type="text" name="almacenamiento" id="almacenamiento"  required title="Solo se permiten letras y numeros" maxlength="10">
+                <label for="tama_almace">Nombre Del Tipo de almacenamiento</label>
+                <input type="text" name="tama_almace" id="tama_almace"  required title="Solo se permiten letras y numeros" maxlength="10">
                 <input type="submit" value="GUARDAR">
             </form>
         </div>
