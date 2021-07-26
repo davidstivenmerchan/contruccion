@@ -14,10 +14,10 @@
     $tel=$_SESSION['tel'];
     
 
-    $consulta1 = "SELECT entrada_aprendiz.documento, asignacion_equipos.id_equipo, equipos.serial 
-    FROM entrada_aprendiz, asignacion_equipos, equipos  
+    $consulta1 = "SELECT entrada_aprendiz.documento, dispositivo_electronico.serial 
+    FROM entrada_aprendiz, asignacion_equipos, dispositivo_electronico
     WHERE entrada_aprendiz.id_entrada_aprendiz=asignacion_equipos.id_entrada_aprendiz 
-    AND equipos.id_equipo=asignacion_equipos.id_equipo 
+    AND dispositivo_electronico.serial=asignacion_equipos.serial
     AND documento = '$documento'";
 
     $ejecucion1 = mysqli_query($mysqli, $consulta1);
@@ -68,22 +68,23 @@
     }
 
     $consulta5 = "SELECT dispositivo_electronico.serial, dispositivo_electronico.placa_sena, 
-    tipo_dispositivo.nom_tipo_dispositivo, dispositivo_electronico.procesador, 
-    dispositivo_electronico.ramGB, tipo_sistema.nom_tipo_sistema, dispositivo_electronico.almacenamiento, 
-    marca.nom_marca FROM marca, dispositivo_electronico, tipo_sistema, tipo_dispositivo
+    tipo_dispositivo.nom_tipo_dispositivo, procesadores.nom_procesador, 
+    dispositivo_electronico.ramGB, tipo_sistema.nom_tipo_sistema, almacenamiento.tamano_almacena, 
+    marca.nom_marca FROM marca, dispositivo_electronico, tipo_sistema, tipo_dispositivo, procesadores, almacenamiento
     where marca.id_marca=dispositivo_electronico.id_marca and 
     tipo_sistema.id_tipo_sistema=dispositivo_electronico.id_tipo_sistema 
-    and tipo_dispositivo.id_tipo_dispositivo=dispositivo_electronico.id_tipo_dispositivo";
+    and tipo_dispositivo.id_tipo_dispositivo=dispositivo_electronico.id_tipo_dispositivo
+    and procesadores.id_procesador=dispositivo_electronico.id_procesador and almacenamiento.id_almacena=dispositivo_electronico.id_almacena";
     $ejecucion5 = mysqli_query($mysqli, $consulta5);
     $mostrar5 = mysqli_fetch_array($ejecucion5);
     if($mostrar5){
         $idserial = $mostrar5['serial'];
         $placa = $mostrar5['placa_sena'];
         $nom_dispositivo = $mostrar5['nom_tipo_dispositivo'];
-        $procesador = $mostrar5['procesador'];
+        $procesador = $mostrar5['nom_procesador'];
         $ramGB = $mostrar5['ramGB'];
         $tipodsis = $mostrar5['nom_tipo_sistema'];
-        $almacenamiento = $mostrar5['almacenamiento'];
+        $almacenamiento = $mostrar5['tamano_almacena'];
         $marca = $mostrar5['nom_marca'];
     }
 
