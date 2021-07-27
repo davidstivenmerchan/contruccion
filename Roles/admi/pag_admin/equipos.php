@@ -202,7 +202,7 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['tamaño_ram']?></td>
+                    <td><?php echo $eh['tamano_ram']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit ramGB" data-ramGB="<?php echo $eh['ramGB']; ?>">
                         <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove ramGB" data-ramGB="<?php echo $eh['ramGB']; ?>">                     
@@ -230,7 +230,7 @@
             ?>
 
                 <tr class="datos">
-                    <td><?php echo $eh['tamaño_almacena']?></td>
+                    <td><?php echo $eh['tamano_almacena']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit almacenamiento" data-almacenamiento="<?php echo $eh['id_almacena']; ?>">
                         <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove almacenamiento" data-almacenamiento="<?php echo $eh['id_almacena']; ?>">                     
@@ -259,8 +259,8 @@
                 <tr class="datos">
                     <td><?php echo $eh['nom_procesador']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit Procesador" data-Procesador="<?php echo $eh['id_procesador']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove Procesador" data-Procesador="<?php echo $eh['id_procesador']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit Procesador" data-procesador="<?php echo $eh['id_procesador']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove Procesador" data-procesador="<?php echo $eh['id_procesador']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -317,8 +317,8 @@
                     <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
-            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesadores.nom_procesador ,ram.tamaño_ram,tipo_sistema.nom_tipo_sistema,
-                    estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento.tamaño_almacena
+            $con = "SELECT serial,placa_sena,tipo_dispositivo.nom_tipo_dispositivo,procesadores.nom_procesador ,ram.tamano_ram,tipo_sistema.nom_tipo_sistema,
+                    estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,marca.nom_marca,almacenamiento.tamano_almacena
                     FROM  dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,procesadores,ram,almacenamiento
                     WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
                     AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
@@ -338,12 +338,12 @@
                     <td><?php echo $eh['placa_sena']?></td>
                     <td><?php echo $eh['nom_tipo_dispositivo']?></td>
                     <td><?php echo $eh['nom_procesador']?></td>
-                    <td><?php echo $eh['tamaño_ram']?></td>
+                    <td><?php echo $eh['tamano_ram']?></td>
                     <td><?php echo $eh['nom_tipo_sistema']?></td>
                     <td><?php echo $eh['nom_estado_disponibilidad']?></td>
                     <td><?php echo $eh['nom_estado_dispositivo']?></td>
                     <td><?php echo $eh['nom_marca']?></td>
-                    <td><?php echo $eh['tamaño_almacena']?></td>
+                    <td><?php echo $eh['tamano_almacena']?></td>
                     <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit dispositivo" data-dispositivo="<?php echo $eh['serial']; ?>">
                         <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove dispositivo" data-dispositivo="<?php echo $eh['serial']; ?>">                     
@@ -526,7 +526,7 @@
                 <select name="RamGB" id="RamGB" class="RamGB" required>
                     <option>Eligue una opcion de memoria RAM</option>
                     <?php foreach(consultarEquipos($mysqli, "SELECT * from ram") as $r): ?>
-                        <option value="<?php echo $r['ramGB']; ?>"> <?php echo $r['tamaño_ram']; ?> </option>
+                        <option value="<?php echo $r['ramGB']; ?>"> <?php echo $r['tamano_ram']; ?> </option>
                     <?php endforeach; ?>
                 </select>
                 <!-- selectores  -->
@@ -566,7 +566,7 @@
             <select name="Almacenamiento" id="Almacenamiento" class="Almacenamiento">
                 <option>Seleccione una opcion de almacenamiento</option>
                 <?php foreach(consultarEquipos($mysqli, "SELECT * from almacenamiento") as $a) : ?>
-                    <option value="<?php echo $a['id_almacena']; ?>"> <?php echo $a['tamaño_almacena']; ?></option>
+                    <option value="<?php echo $a['id_almacena']; ?>"> <?php echo $a['tamano_almacena']; ?></option>
                 <?php endforeach; ?>
             </select>
             

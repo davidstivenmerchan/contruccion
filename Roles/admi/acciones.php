@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'tipo_sistema'){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'tipo_sistema' && $tabla !== 'almacenamiento' && $tabla !== 'procesadores'){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -400,12 +400,12 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             $query = mysqli_prepare($mysqli, $sql);
             $ok = mysqli_stmt_bind_param($query, 'i', $id);
             $ok = mysqli_stmt_execute($query);
-            $ok = mysqli_stmt_bind_result($query, $idAlmacena, $tamañoAlmacena);
+            $ok = mysqli_stmt_bind_result($query, $idAlmacena, $tamaAlmacena);
             while(mysqli_stmt_fetch($query)){
                 array_push($resultados,
                     [
                         'idAlmacena' => $idAlmacena,
-                        'tamañoAlmacena' => $tamañoAlmacena,
+                        'tamaAlmacena' => $tamaAlmacena,
                     ]
                 );
             }
@@ -567,7 +567,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         insertTable($mysqli, $tabla, 'nom_tip_periferico', $_POST['nameTipo']);
     }elseif ($tabla === 'ram'){
 
-        $sql = "INSERT INTO ram (ramGB, tamaño_ram) VALUES (NULL, ?)";
+        $sql = "INSERT INTO ram (ramGB, tamano_ram) VALUES (NULL, ?)";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 's', $_POST['memoriaRam']);
         $ok = mysqli_stmt_execute($query);
@@ -614,7 +614,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     }
     
     elseif ($tabla === 'almacenamiento'){
-        $sql = "INSERT INTO almacenamiento (id_almacena, tamaño_almacena) VALUES (NULL, ?)";
+        $sql = "INSERT INTO almacenamiento (id_almacena, tamano_almacena) VALUES (NULL, ?)";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 's', $_POST['almacenamiento']);
         $ok = mysqli_stmt_execute($query);
@@ -1090,9 +1090,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         echo json_encode($res);
     }
     if($_PUT['tabla'] === 'almacenamiento'){
-        $sql = "UPDATE $tabla set tamaño_almacena = ? where id_almacena = ?";
+        $sql = "UPDATE $tabla set tamano_almacena = ? where id_almacena = ?";
         $query = mysqli_prepare($mysqli, $sql);
-        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['tamaño_almacena'] , $_PUT['id']);
+        $ok= mysqli_stmt_bind_param($query , 'ss' , $_PUT['tama_almacena'] , $_PUT['id']);
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
         $res = array (
@@ -1103,7 +1103,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         echo json_encode($res);
     }
     if($_PUT['tabla'] === 'ram'){
-        $sql = 'UPDATE ram set tamaño_ram = ? where ramGB = ?';
+        $sql = 'UPDATE ram set tamano_ram = ? where ramGB = ?';
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query , 'si', $_PUT['ramName'], $_PUT['id']);
         $ok = mysqli_stmt_execute($query);
@@ -1157,7 +1157,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             $res = array(
                 'err' => false,
                 'status' => http_response_code(200),
-                'statusText' => 'SO modificado con exito',
+                'statusText' => 'Procesador modificado con exito',
             );
         }else{
             $res = array(
@@ -1230,11 +1230,21 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         $ok = mysqli_stmt_bind_param($query, 'i' , $id);
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
-        $res = array (
-            'err' => false,
-            'status' => http_response_code(200),
-            'statusText' => 'Registro borrado con exito!',
-        );
+        $res;
+        if($ok){
+            $res = array (
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Procesador borrado con exito!',
+            );
+        }else{
+            $res = array (
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'Procesador no se logro eliminar',
+            );
+        }
+        
         echo json_encode($res);
     }
     if($tabla === 'tipo_sistema' ){
