@@ -27,6 +27,10 @@ import editRam from './edit_ram.js';
 import editSo from './edit_sistemaOpera.js';
 import addDispoPeri from './add_dispo_peri.js';
 import editProcesador from './edit_procesador.js';
+<<<<<<< HEAD
+=======
+
+>>>>>>> d1c6788b7e7bcaadc6b2643bbcc5dc9140c49209
 
 
 
@@ -86,7 +90,7 @@ document.addEventListener('click' , e => {
     const formularios = [ 'form' , 'form1' , 'form2', 'form3', 'form4', 'form5'];
     const formulaEquipos = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4' , 'formu5' , 'formu6', 'formu7', 'formu8' , 'formu9', 'formu10', 'formu11', 'formu12', 'formu13', 'formu14', 'formu15', 'formu16', 'formu17'];
     const formuambientes = [ 'form' , 'formu1' , 'formu2', 'formu3', 'formu4', 'formu5', 'formu6', 'formu7', 'formu8', 'formu9'];
-    const formuOtros = ['form', 'formu1', 'formu2', 'formu3', 'formu4', 'formu4', 'formu5', 'formu6', 'formu7'];
+    const formuOtros = ['form', 'formu1', 'formu2', 'formu3', 'formu4', 'formu4', 'formu5', 'formu6', 'formu7' , 'formu9', 'formu10'];
 
 
     const callAparecer = ( array ) =>{
@@ -274,6 +278,9 @@ document.addEventListener('click' , e => {
 
         }else if(e.target.matches('.Sistem_opera')){
             getdelete('data-Sistem_opera', 'tipo_sistema', 'pag_admin/equipos.php');
+
+        }else if(e.target.matches('.disposi_ambiente')){
+            getdelete('data-disposi_ambiente', 'disposi_ambientes', 'pag_admin/otro.php');
         }
     }
 });
