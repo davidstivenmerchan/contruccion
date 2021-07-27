@@ -26,7 +26,7 @@ import { editAlmacenamiento } from './edit_almacenamiento.js';
 import editRam from './edit_ram.js';
 import editSo from './edit_sistemaOpera.js';
 import addDispoPeri from './add_dispo_peri.js';
-
+import editProcesador from './edit_procesador.js';
 
 
 
