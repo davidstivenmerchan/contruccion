@@ -12,11 +12,11 @@ const editProcesador = ( id ) => {
             $alert.innerHTML = `
                 <form class="formmodal" id="edit_procesadores">
                     <div class="cerrarmodal">X</div>
-                    <input type="hidden" id="id_procesador" name="id_ram" value="${data[0].id}">
+                    <input type="hidden" id="id_procesador" name="id_ram" value="${data[0].idProcesadaor}">
                     <label>Seleccione el Procesador</label>
-                    <input type="number"  id="id_disabled" name="id_disabled" value="${data[0].id}" disabled/>
+                    <input type="number"  id="id_disabled" name="id_disabled" value="${data[0].idProcesadaor}" disabled/>
                     <label for="select_type_ram"> Seleccione el Procesador </label>
-                    <input type="text" name="TamProcesador" id="TamProcesador" value="${data[0].nameTipoProcesador}" />
+                    <input type="text" name="TamProcesador" id="TamProcesador" value="${data[0].TamProcesador}" />
 
                     <input type="submit" value="Actualizar" />
                 </form>
@@ -49,7 +49,7 @@ const editProcesador = ( id ) => {
                     });
                 },
                 data: {
-                    tabla: 'tipo_sistema',
+                    tabla: 'procesadores',
                     id: parseInt(e.target.id_procesador.value),
                     TamProcesador: e.target.TamProcesador.value,
                 }

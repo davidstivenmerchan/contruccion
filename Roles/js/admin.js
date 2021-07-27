@@ -25,7 +25,11 @@ import editCompusPeri from './edit_compus_peri.js';
 import { editAlmacenamiento } from './edit_almacenamiento.js';
 import editRam from './edit_ram.js';
 import editSo from './edit_sistemaOpera.js';
+<<<<<<< HEAD
 import addDispoPeri from './add_dispo_peri.js';
+=======
+import editProcesador from './edit_procesador.js';
+>>>>>>> 77a35958153b56ed5b9d172cde8b8de37f273d8d
 
 
 
@@ -185,8 +189,8 @@ document.addEventListener('click' , e => {
             const $id = e.target.getAttribute('data-ramGB');
             editRam($id);
         }else if(e.target.matches('.Procesador')){
-            const $id = e.target.getAttribute('data-Procesador');
-            edit($id);
+            const $id = e.target.getAttribute('data-procesador');
+            editProcesador($id);
         }else if(e.target.matches('.Sistem_opera')){
             const $id = e.target.getAttribute('data-Sistem_opera');
             editSo($id);
@@ -207,7 +211,7 @@ document.addEventListener('click' , e => {
          * y recibe la tabla que va a afectar.
          */
         const getdelete = ( dataAtribute, tabla, urlSuccess ) => { 
-            const id = e.target.getAttribute(dataAtribute);
+            const id = parseInt(e.target.getAttribute(dataAtribute));
             handleDelete({ id, tabla, urlSuccess});
         }
 
@@ -270,7 +274,7 @@ document.addEventListener('click' , e => {
             getdelete('data-almacenamiento', 'almacenamiento', 'pag_admin/equipos.php');
 
         }else if(e.target.matches('.Procesador')){
-            getdelete('data-Procesador', 'procesadores', 'pag_admin/equipos.php');
+            getdelete('data-procesador', 'procesadores', 'pag_admin/equipos.php');
 
         }else if(e.target.matches('.Sistem_opera')){
             getdelete('data-Sistem_opera', 'tipo_sistema', 'pag_admin/equipos.php');

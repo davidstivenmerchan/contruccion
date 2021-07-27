@@ -12,12 +12,12 @@ export const editAlmacenamiento = ( id )=> {
             $alert.innerHTML= `
                 <form class="formmodal formmodaltipos" id="edit_almacenamiento">
                     <div class="cerrarmodal">X</div>
-                    <input type="hidden" name="id_almacena" value="${data[0].id}">
+                    <input type="hidden" name="id_almacena" value="${data[0].idAlmacena}">
                     <label for="nave"> ID </label>
-                    <input type="text" name="iddisable" id="nave" placeholder="${data[0].id}" disabled>
+                    <input type="text" name="iddisable" id="nave" placeholder="${data[0].idAlmacena}" disabled>
                 
-                    <label for="tamaño_almacena"> Tamaño Almacenamiento </label>
-                    <input type="text" name="tamaño_almacena" id="tamaño_almacena" class="naves" id="tamaño_almacena" value="${data[0].nameTipo}">
+                    <label for="tama_almacena"> Tamaño Almacenamiento </label>
+                    <input type="text" name="tama_almacena" id="tama_almacena" class="naves" id="tama_almacena" value="${data[0].tamaAlmacena}">
                     <input type="submit" value="actualizar"/>
                 </form>
             `;
@@ -53,7 +53,7 @@ export const editAlmacenamiento = ( id )=> {
                         data:{
                             tabla,
                             id: e.target.id_almacena.value,
-                            tamaño_almacena: e.target.tamaño_almacena.value
+                            tama_almacena: e.target.tama_almacena.value
                         },
                     });
                 }
