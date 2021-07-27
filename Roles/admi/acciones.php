@@ -73,15 +73,15 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     }
     elseif ($tabla == 'dispositivo_electronico'){
         $resultados = [];
-            $sql = "SELECT serial,placa_sena,tipo_dispositivo.id_tipo_dispositivo,tipo_dispositivo.nom_tipo_dispositivo,dispositivo_electronico.id_procesador, procesadores.nom_procesador,dispositivo_electronico.ramGB, ram.tamaño_ram,tipo_sistema.id_tipo_sistema,tipo_sistema.nom_tipo_sistema,
-            estado_disponibilidad.id_estado_disponibilidad,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.id_estado_dispositivo,estado_dispositivo.nom_estado_dispositivo,marca.id_marca,marca.nom_marca,dispositivo_electronico.id_almacena, almacenamiento.tamaño_almacena
+            $sql = "SELECT serial,placa_sena,tipo_dispositivo.id_tipo_dispositivo,tipo_dispositivo.nom_tipo_dispositivo,dispositivo_electronico.id_procesador, procesadores.nom_procesador,dispositivo_electronico.ramGB, ram.tamano_ram,tipo_sistema.id_tipo_sistema,tipo_sistema.nom_tipo_sistema,
+            estado_disponibilidad.id_estado_disponibilidad,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.id_estado_dispositivo,estado_dispositivo.nom_estado_dispositivo,marca.id_marca,marca.nom_marca,dispositivo_electronico.id_almacena, almacenamiento.tamano_almacena
             FROM dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,ambiente,procesadores, ram, almacenamiento
             WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
             AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
             AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
             AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo
             AND dispositivo_electronico.id_marca = marca.id_marca
-           	AND dispositivo_electronico.id_procesador = procesadores.id_procesador
+            AND dispositivo_electronico.id_procesador = procesadores.id_procesador
             AND dispositivo_electronico.serial = ? LIMIT 1";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 's', $id);

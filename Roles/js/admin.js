@@ -25,11 +25,7 @@ import editCompusPeri from './edit_compus_peri.js';
 import { editAlmacenamiento } from './edit_almacenamiento.js';
 import editRam from './edit_ram.js';
 import editSo from './edit_sistemaOpera.js';
-<<<<<<< HEAD
 import addDispoPeri from './add_dispo_peri.js';
-=======
-import editProcesador from './edit_procesador.js';
->>>>>>> 77a35958153b56ed5b9d172cde8b8de37f273d8d
 
 
 
