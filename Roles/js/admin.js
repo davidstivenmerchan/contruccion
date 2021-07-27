@@ -27,6 +27,7 @@ import editRam from './edit_ram.js';
 import editSo from './edit_sistemaOpera.js';
 import addDispoPeri from './add_dispo_peri.js';
 import editProcesador from './edit_procesador.js';
+import editDispoAmbiente from './edit_dispo_ambientes.js';
 
 
 
@@ -191,6 +192,9 @@ document.addEventListener('click' , e => {
         }else if(e.target.matches('.Sistem_opera')){
             const $id = e.target.getAttribute('data-Sistem_opera');
             editSo($id);
+        }else if(e.target.matches('.disposi_ambiente')){
+            const $id = e.target.getAttribute('data-disposi_ambiente');
+            editDispoAmbiente($id);
         }
     }
 

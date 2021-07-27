@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'tipo_sistema' && $tabla !== 'almacenamiento' && $tabla !== 'procesadores' && $tabla !== 'disposi_ambientes'){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'tipo_sistema' && $tabla !== 'almacenamiento' && $tabla !== 'procesadores' && $tabla !== 'disposi_ambientes' ){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -549,7 +549,38 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             }
 
             echo json_encode($res);
-        }
+        }elseif($tabla === 'disposi_ambientes'){
+            $resultados = [];
+            $sql = "SELECT * from $tabla where id_disposi_ambientes = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idDisposiAmbientes,$idCompuPeris, $idAmbiente);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, [
+                    'idDisposiAmbientes' => $idDisposiAmbientes,
+                    'idProcesadaor' => $idProcesadaor,
+                    'TamProcesador' => $TamProcesador,
+                ]);
+            }
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'Procesador encontrado con exito',
+                    'data' => $resultados
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'hubo un error al hacer la peticion :)',
+                );
+            }
+
+            echo json_encode($res);
+        }   
 
 
 }elseif( $_SERVER['REQUEST_METHOD'] === 'POST' ){
