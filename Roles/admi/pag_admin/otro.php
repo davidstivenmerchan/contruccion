@@ -194,13 +194,14 @@
 
             <table class="tablamarca" border=1 cellspacing="0">
                 <tr class="header">
+                    <td>ID</td>
                     <td>Serial Dispositivo</td>
                     <td>Periferico Dispositivo</td>
                     <td>Numero Ambiente</td>
                     <td class="acciones">Acciones</td>
                 </tr>
                 <?php 
-            $con = "SELECT dispositivo_electronico.serial,periferico.id_periferico,ambiente.n_ambiente
+            $con = "SELECT id_disposi_ambientes,dispositivo_electronico.serial,periferico.id_periferico,ambiente.n_ambiente
                     FROM disposi_ambientes,dispositivo_electronico,ambiente,periferico,compu_peris
                     WHERE disposi_ambientes.id_compu_peris = compu_peris.id_compu_peris
                     AND compu_peris.serial = dispositivo_electronico.serial
@@ -211,12 +212,13 @@
             ?>
 
                 <tr class="datos">
+                    <td><?php echo $eh['id_disposi_ambientes']?></td>
                     <td><?php echo $eh['serial']?></td>
                     <td><?php echo $eh['id_periferico']?></td>
                     <td><?php echo $eh['n_ambiente']?></td>
                     <td class="imgs">
-                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit disposi-ambiente" data-disposi-ambiente="<?php echo $eh['id_disposi_ambientes']; ?>">
-                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove disposi-ambiente" data-disposi-ambiente="<?php echo $eh['id_disposi_ambientes']; ?>">                     
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit disposi_ambiente" data-disposi_ambiente="<?php echo $eh['id_disposi_ambientes']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove disposi_ambiente" data-disposi_ambiente="<?php echo $eh['id_disposi_ambientes']; ?>">                     
                     </td>
                 </tr>
                 <?php
@@ -272,6 +274,22 @@
                 <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                 <input type="submit" value="Guardar">
                     
+            </form>
+        </div>
+    </div>
+
+    <!--#Dispositivos Ambientes-->
+    <div class="form1 formu10 dispoAmbientes ">
+            <p type="title">Crear Dispositivos Ambientes</p>
+            <div class="linea"></div>
+            <form class="formulario" id="disposi_ambientes" autocomplete="off">
+                
+                
+                <input type="text" name="id_compuPeris " id="id_compuPeris" placeholder=" Id Computador Perisfericos ">
+
+                <input type="text" name="idAmbiente  " id="idAmbiente" placeholder= " Id Ambiente ">
+
+                <input type="submit" value="Guardar">
             </form>
         </div>
     </div>
