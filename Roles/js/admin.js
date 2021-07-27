@@ -27,10 +27,7 @@ import editRam from './edit_ram.js';
 import editSo from './edit_sistemaOpera.js';
 import addDispoPeri from './add_dispo_peri.js';
 import editProcesador from './edit_procesador.js';
-<<<<<<< HEAD
-=======
 
->>>>>>> d1c6788b7e7bcaadc6b2643bbcc5dc9140c49209
 
 
 
