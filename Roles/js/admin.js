@@ -25,6 +25,7 @@ import editCompusPeri from './edit_compus_peri.js';
 import { editAlmacenamiento } from './edit_almacenamiento.js';
 import editRam from './edit_ram.js';
 import editSo from './edit_sistemaOpera.js';
+import addDispoPeri from './add_dispo_peri.js';
 
 
 
@@ -504,6 +505,13 @@ document.addEventListener('submit', (e)=>{
             doc_instruc: parseInt(e.target.doc_instruc.value),
         }   
         handleAdd(e , 'insert_ficha.php', data , 'pag_admin/ambientes.php');
+    }else if(e.target.matches('#formuCompuPeris')){
+        data = {
+           tabla: 'compu_peris',
+           serialDispo: e.target.serial_dispo.value,
+           idPeriferico: e.target.id_periferico.value,
+        }
+        addDispoPeri(e, 'acciones.php', 'pag_admin/equipos.php', data );
     }
 });
 

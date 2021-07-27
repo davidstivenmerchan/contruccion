@@ -369,7 +369,7 @@
                     <td>Acciones</td>
                 </tr>
                 <?php
-                    $sql = "SELECT tip_periferico.nom_tip_periferico,marca.nom_marca,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,pulgadas,descripcion
+                    $sql = "SELECT periferico.id_periferico, tip_periferico.nom_tip_periferico,marca.nom_marca,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.nom_estado_dispositivo,pulgadas,descripcion
                             FROM periferico,tip_periferico,marca,estado_disponibilidad,estado_dispositivo
                             WHERE periferico.id_tip_periferico = tip_periferico.id_tip_periferico
                             AND periferico.id_marca = marca.id_marca
@@ -397,7 +397,7 @@
         </div>
         <!-- Compus perifericos -->
         <div class="formu8 tablas">
-            <table>
+        <table>
                 <tr class="header">
                     <td>Serial</td>
                     <td>Periferico</td>
@@ -406,16 +406,14 @@
                     <td>Acciones</td>
                 </tr>
                 <?php
-                    $sql = "SELECT serial, periferico.id_periferico ,periferico.descripcion,fecha_compu_peris 
-                            FROM compu_peris,periferico 
-                            WHERE compu_peris.id_periferico = periferico.id_periferico";
+                    $sql = "SELECT id_compu_peris, compu_peris.serial, compu_peris.id_periferico, compu_peris.fecha_compu_peris, periferico.descripcion FROM compu_peris INNER JOIN periferico on compu_peris.id_periferico = periferico.id_periferico";
                     $res = mysqli_query($mysqli, $sql);
                     while($eh = mysqli_fetch_array($res)){
                 ?>
                     <tr class="datos">
                         <td><?php echo $eh['serial'] ?></td>
                         <td><?php echo $eh['id_periferico'] ?></td>
-                        <td><?php echo $eh['descripcion'] ?></td>
+                        <td><?php echo $eh['descripcion']	?></td> 
                         <td><?php echo $eh['fecha_compu_peris'] ?></td>
                         <td class="imgs">
                         <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit compu-periferico" data-compusPerifericos="<?php echo $eh['id_compu_peris']; ?>">
@@ -646,27 +644,10 @@
         <div class="form1 formu17">
             <h2>Registro de Computadores Perisfericos </h2>
 
-            <form id="formuCompuPeris" class="fommu" autocomplete="off">
-
-                <select name="serialcompu" id="serialcompu" required>
-                    <option value="">Serial Computador</option>
-                    <?php
-                        foreach (consultarEquipos($mysqli, "SELECT * from dispositivo_electronico") as $i) :  ?>
-                        <option value="<?php echo $i['serial']?>"><?php echo $i['serial'] ." - ". $i['procesador']?></option>
-                    <?php
-                        endforeach;
-                    ?>
-                </select>
-
-                <select name="id_periferico" id="id_periferico" required>
-                    <option value="">Periferico</option>
-                    <?php
-                        foreach (consultarEquipos($mysqli, "SELECT * from periferico") as $i) :  ?>
-                        <option value="<?php echo $i['id_periferico']?>"><?php echo $i['id_periferico'] ." - ". $i['descripcion']?></option>
-                    <?php
-                        endforeach;
-                    ?>
-                </select>
+            <form id="formuCompuPeris" class="fommuCompuPeris" autocomplete="off">
+                <input type="text" name="serial_dispo" class="serial_dispo" placeholder="Escribe el serial del dispositivo que quieres asociar" required/>
+                <input type="text" name="id_periferico" class="id_periferico" placeholder="Id periferico" required />
+                <input type="submit" value="Guardar" />
             </form>
             </div>
     </div>
