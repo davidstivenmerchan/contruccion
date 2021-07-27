@@ -821,24 +821,25 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
 
         echo json_encode($res);
+        
     } elseif($tabla === 'disposi_ambientes'){
 
-        $sql = "INSERT INTO compu_peris(id_compu_peris, serial, id_periferico, fecha_compu_peris) values(null, ? , ? , CURDATE())";
+        $sql = "INSERT INTO disposi_ambientes(id_disposi_ambientes , id_compu_peris , id_ambiente) values(null, ? , ?";
         $query = mysqli_prepare($mysqli, $sql);
-        $ok = mysqli_stmt_bind_param($query, 'ss', $_POST['serialDispo'], $_POST['idPeriferico']);
+        $ok = mysqli_stmt_bind_param($query, 'ii', $_POST['IdCompuPeris'], $_POST['IdAmbiente']);
         $ok = mysqli_stmt_execute($query);
         $res ;
         if($ok){
             $res = array(
                 'err' => false,
                 'status' => http_response_code(200),
-                'statusText' => 'Compu- peri creado con exito'
+                'statusText' => 'Dispositivo Ambientes creado con exito'
             );
         }else{
             $res = array(
                 'err' => true,
                 'status' => http_response_code(500),
-                'statusText' => 'hubo  un error :)',
+                'statusText' => 'Hubo  un error',
             );
         }
 
