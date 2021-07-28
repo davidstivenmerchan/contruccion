@@ -28,6 +28,7 @@ import editSo from './edit_sistemaOpera.js';
 import addDispoPeri from './add_dispo_peri.js';
 import editProcesador from './edit_procesador.js';
 import editDispoAmbiente from './edit_dispo_ambientes.js';
+import addDispoAmbiente from './addDispoAmbiente.js';
 
 
 
@@ -513,6 +514,7 @@ document.addEventListener('submit', (e)=>{
             doc_instruc: parseInt(e.target.doc_instruc.value),
         }   
         handleAdd(e , 'insert_ficha.php', data , 'pag_admin/ambientes.php');
+
     }else if(e.target.matches('#formuCompuPeris')){
         data = {
            tabla: 'compu_peris',
@@ -520,6 +522,14 @@ document.addEventListener('submit', (e)=>{
            idPeriferico: e.target.id_periferico.value,
         }
         addDispoPeri(e, 'acciones.php', 'pag_admin/equipos.php', data );
+
+    }else if(e.target.matches('#disposi_ambientes')){
+        data = {
+           tabla: 'disposi_ambientes',
+           IdCompuPeris: e.target.IdCompuPerisfe.value,
+           IdAmbiente: e.target.IdAmbientee.value,
+        }
+        addDispoAmbiente(e, 'insert_dispo_ambiente.php', 'pag_admin/otro.php', data  );
     }
 });
 

@@ -285,9 +285,9 @@
             <form class="formulario" id="disposi_ambientes" autocomplete="off">
                 
                 
-                <input type="text" name="id_compuPeris " id="id_compuPeris" placeholder=" Id Computador Perisfericos ">
+                <input type="text" name="IdCompuPeris" id="IdCompuPerisfe" placeholder=" Id Computador Perisfericos ">
 
-                <input type="text" name="idAmbiente  " id="idAmbiente" placeholder= " Id Ambiente ">
+                <input type="text" name="IdAmbiente" id="IdAmbientee" placeholder= " Id Ambiente ">
 
                 <input type="submit" value="Guardar">
             </form>

@@ -519,36 +519,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             }
 
             echo json_encode($res);
-        }elseif($tabla === 'disposi_ambientes'){
-            $resultados = [];
-            $sql = "SELECT * from disposi_ambientes where id_disposi_ambientes = ?";
-            $query = mysqli_prepare($mysqli, $sql);
-            $ok = mysqli_stmt_bind_param($query, 'i', $id);
-            $ok = mysqli_stmt_execute($query);
-            $ok = mysqli_stmt_bind_result($query, $idProcesadaor, $TamProcesador);
-            while(mysqli_stmt_fetch($query)){
-                array_push($resultados, [
-                    'idProcesadaor' => $idProcesadaor,
-                    'TamProcesador' => $TamProcesador,
-                ]);
-            }
-            $res;
-            if($ok){
-                $res = array(
-                    'err' => false,
-                    'status' => http_response_code(200),
-                    'statusText' => 'Procesador encontrado con exito',
-                    'data' => $resultados
-                );
-            }else{
-                $res = array(
-                    'err' => true,
-                    'status' => http_response_code(500),
-                    'statusText' => 'hubo un error al hacer la peticion :)',
-                );
-            }
-
-            echo json_encode($res);
+            
         }elseif($tabla === 'disposi_ambientes'){
             $resultados = [];
             $sql = "SELECT * from $tabla where id_disposi_ambientes = ?";
@@ -559,8 +530,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             while(mysqli_stmt_fetch($query)){
                 array_push($resultados, [
                     'idDisposiAmbientes' => $idDisposiAmbientes,
-                    'idProcesadaor' => $idProcesadaor,
-                    'TamProcesador' => $TamProcesador,
+                    'idCompuPeris' => $idCompuPeris,
+                    'idAmbiente' => $idAmbiente,
                 ]);
             }
             $res;
@@ -568,14 +539,14 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 $res = array(
                     'err' => false,
                     'status' => http_response_code(200),
-                    'statusText' => 'Procesador encontrado con exito',
+                    'statusText' => 'Dispositivo ambiente encontrado con exito',
                     'data' => $resultados
                 );
             }else{
                 $res = array(
                     'err' => true,
                     'status' => http_response_code(500),
-                    'statusText' => 'hubo un error al hacer la peticion :)',
+                    'statusText' => 'Hubo un error al hacer la peticion',
                 );
             }
 
@@ -672,9 +643,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
         echo json_encode($res);
 
-    }
-    
-    elseif ($tabla === 'almacenamiento'){
+    }elseif ($tabla === 'almacenamiento'){
         $sql = "INSERT INTO almacenamiento (id_almacena, tamano_almacena) VALUES (NULL, ?)";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 's', $_POST['tama_almace']);
@@ -852,28 +821,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
 
         echo json_encode($res);
-    } elseif($tabla === 'disposi_ambientes'){
-
-        $sql = "INSERT INTO compu_peris(id_compu_peris, serial, id_periferico, fecha_compu_peris) values(null, ? , ? , CURDATE())";
-        $query = mysqli_prepare($mysqli, $sql);
-        $ok = mysqli_stmt_bind_param($query, 'ss', $_POST['serialDispo'], $_POST['idPeriferico']);
-        $ok = mysqli_stmt_execute($query);
-        $res ;
-        if($ok){
-            $res = array(
-                'err' => false,
-                'status' => http_response_code(200),
-                'statusText' => 'Compu- peri creado con exito'
-            );
-        }else{
-            $res = array(
-                'err' => true,
-                'status' => http_response_code(500),
-                'statusText' => 'hubo  un error :)',
-            );
-        }
-
-        echo json_encode($res);
+        
     }
 
 }elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
@@ -1270,6 +1218,28 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'err' => true,
                 'status' => http_response_code(500),
                 'statustext' => 'error al cambiar',
+            );
+        }
+
+        echo json_encode($res);
+
+    } if($_PUT['tabla'] === 'disposi_ambientes'){
+        $sql = 'UPDATE disposi_ambientes set  id_compu_peris   = ? , id_ambiente  = ? where id_disposi_ambientes  = ?';
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'iii', $_PUT['CompuPeris'] , $_PUT['Ambiente'], $_PUT['idDispoAmbi']);
+        $ok = mysqli_stmt_execute($query);
+        $res;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Dispositivo Ambiente modificado con exito',
+            );
+        }else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statustext' => 'Error al cambiar',
             );
         }
 
