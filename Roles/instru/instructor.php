@@ -93,10 +93,10 @@ while(mysqli_stmt_fetch($query)){
             <p class="pueba" >Equipos</p>
         </a>
 
-        <a href="" class="cuatro">
+       <!-- <a href="" class="cuatro">
             <span class="icon"><img src="../../assets/vigilancia.png" alt=""></span>
             <p class="pueba" >Buscar Informe</p>
-        </a>
+        </a> -->
    </div>
    <div class="grupos">
        <h3>GRUPOS</h3>
