@@ -4,15 +4,14 @@ require('fpdf.php');
 require 'proceso_asistencia.php';
 
 
-$ficha = $_POST['fichas'];
+
 
 
 $consulta = "SELECT entrada_aprendiz.documento, entrada_aprendiz.fecha, entrada_aprendiz.hora, 
 entrada_aprendiz.hora_salida,fichas.ficha,fichas.instructor from entrada_aprendiz, usuarios, fichas, matricula 
 where usuarios.documento=entrada_aprendiz.documento
 and usuarios.documento=matricula.aprendiz
-and fichas.ficha=matricula.ficha
-and fichas.ficha='$ficha'";
+and fichas.ficha=matricula.ficha";
 $ejecucion= $mysqli->query($consulta);
 
 
