@@ -28,6 +28,7 @@ import editSo from './edit_sistemaOpera.js';
 import addDispoPeri from './add_dispo_peri.js';
 import editProcesador from './edit_procesador.js';
 import editDispoAmbiente from './edit_dispo_ambientes.js';
+import addDispoAmbiente from './addDispoAmbiente.js';
 
 
 
@@ -525,10 +526,10 @@ document.addEventListener('submit', (e)=>{
     }else if(e.target.matches('#disposi_ambientes')){
         data = {
            tabla: 'disposi_ambientes',
-           IdCompuPeris: e.target.IdCompuPeris.value,
-           IdAmbiente: e.target.IdAmbiente.value,
+           IdCompuPeris: e.target.IdCompuPerisfe.value,
+           IdAmbiente: e.target.IdAmbientee.value,
         }
-        handleAdd(e, 'acciones.php', 'pag_admin/otro.php', data );
+        addDispoAmbiente(e, 'insert_dispo_ambiente.php', 'pag_admin/otro.php', data  );
     }
 });
 
