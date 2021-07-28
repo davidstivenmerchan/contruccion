@@ -292,8 +292,8 @@
             <p type="title">FORMACION</p>
             <div class="linea"></div>
             <form class="formulario" id="formacion" autocomplete="off">
-                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20"
-                <input type="submit" value="Guardar">
+                <input type="text" name="nom_formacion" id="nom_formacion" placeholder="Escribe el nombre de la Formacion" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20" />
+                <input type="submit" value="Guardar" />
             </form>
         </div>
 

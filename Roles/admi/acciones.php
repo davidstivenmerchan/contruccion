@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
     }
 
-    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'tipo_sistema' && $tabla !== 'almacenamiento' && $tabla !== 'procesadores'){
+    if ($tabla != 'dispositivo_electronico' && $tabla != 'detalle_formacion' && $tabla != 'ambiente' && $tabla !== 'periferico' && $tabla != 'usuarios' && $tabla != 'fichas' && $tabla != 'instructores' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'tipo_sistema' && $tabla !== 'almacenamiento' && $tabla !== 'procesadores' && $tabla !== 'disposi_ambientes' ){
         $resultados=[];
         $sql = "SELECT * from $tabla where id_$tabla= ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -73,22 +73,21 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     }
     elseif ($tabla == 'dispositivo_electronico'){
         $resultados = [];
-            $sql = "SELECT serial,placa_sena,tipo_dispositivo.id_tipo_dispositivo,tipo_dispositivo.nom_tipo_dispositivo,procesador,ramGB,tipo_sistema.id_tipo_sistema,tipo_sistema.nom_tipo_sistema,
-                    estado_disponibilidad.id_estado_disponibilidad,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.id_estado_dispositivo,estado_dispositivo.nom_estado_dispositivo,marca.id_marca,marca.nom_marca,almacenamiento,ambiente.id_ambiente,ambiente.n_ambiente
-                    FROM dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,ambiente
-                    WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
-                    AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
-                    AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
-                    AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo
-                    AND dispositivo_electronico.id_marca = marca.id_marca
-                    AND dispositivo_electronico.id_ambiente = ambiente.id_ambiente
-                    AND dispositivo_electronico.serial = ?
-                ";
+            $sql = "SELECT serial,placa_sena,tipo_dispositivo.id_tipo_dispositivo,tipo_dispositivo.nom_tipo_dispositivo,dispositivo_electronico.id_procesador, procesadores.nom_procesador,dispositivo_electronico.ramGB, ram.tamano_ram,tipo_sistema.id_tipo_sistema,tipo_sistema.nom_tipo_sistema,
+            estado_disponibilidad.id_estado_disponibilidad,estado_disponibilidad.nom_estado_disponibilidad,estado_dispositivo.id_estado_dispositivo,estado_dispositivo.nom_estado_dispositivo,marca.id_marca,marca.nom_marca,dispositivo_electronico.id_almacena, almacenamiento.tamano_almacena
+            FROM dispositivo_electronico,tipo_dispositivo,tipo_sistema,estado_disponibilidad,estado_dispositivo,marca,ambiente,procesadores, ram, almacenamiento
+            WHERE dispositivo_electronico.id_tipo_dispositivo = tipo_dispositivo.id_tipo_dispositivo
+            AND dispositivo_electronico.id_tipo_sistema = tipo_sistema.id_tipo_sistema
+            AND dispositivo_electronico.id_estado_disponibilidad = estado_disponibilidad.id_estado_disponibilidad
+            AND dispositivo_electronico.id_estado_dispositivo = estado_dispositivo.id_estado_dispositivo
+            AND dispositivo_electronico.id_marca = marca.id_marca
+            AND dispositivo_electronico.id_procesador = procesadores.id_procesador
+            AND dispositivo_electronico.serial = ? LIMIT 1";
         $query = mysqli_prepare($mysqli, $sql);
         $ok = mysqli_stmt_bind_param($query, 's', $id);
         $ok = mysqli_stmt_execute($query);
-        $ok = mysqli_stmt_bind_result($query, $serial, $placa_sena, $idTipoDispositivo, $nom_tipo_dispositivo,$procesador, $ramGB, $idTipoSistema, $NomTipoSistema,
-        $idEstadoDisponibilidad ,$nom_estado_disponibilidad , $idEstadoDispositivo,$nom_estado_dispositivo ,$idMarca, $nom_marca, $almacenamiento, $IdAmbiente, $N_Ambiente);
+        $ok = mysqli_stmt_bind_result($query, $serial, $placa_sena, $idTipoDispositivo, $nom_tipo_dispositivo,$procesador, $nomProcesador,$ramGB, $nameRam, $idTipoSistema, $NomTipoSistema,
+        $idEstadoDisponibilidad ,$nom_estado_disponibilidad , $idEstadoDispositivo,$nom_estado_dispositivo ,$idMarca, $nom_marca, $almacenamiento, $nameAlmacenamiento);
         while(mysqli_stmt_fetch($query)){
             array_push($resultados, [
                 'serial' => $serial ,
@@ -96,7 +95,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'idTipoDispositivo' => $idTipoDispositivo ,
                 'nom_tipo_dispositivo'=> $nom_tipo_dispositivo,
                 'procesador'=> $procesador,
+                'nomProcesador' => $nomProcesador,
                 'ramGB'=> $ramGB,
+                'nameRam' => $nameRam,
                 'idTipoSistema'=> $idTipoSistema,
                 'NomTipoSistema'=> $NomTipoSistema,
                 'idEstadoDisponibilidad' => $idEstadoDisponibilidad,
@@ -106,8 +107,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'idMarca' => $idMarca,
                 'nom_marca'=> $nom_marca,
                 'almacenamiento'=> $almacenamiento,
-                'IdAmbiente'=> $IdAmbiente,
-                'N_Ambiente'=> $N_Ambiente,
+                'nomAlmacena' => $nameAlmacenamiento
                 ]);
         }
         mysqli_stmt_close($query);
@@ -519,7 +519,68 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             }
 
             echo json_encode($res);
-        }
+        }elseif($tabla === 'disposi_ambientes'){
+            $resultados = [];
+            $sql = "SELECT * from disposi_ambientes where id_disposi_ambientes = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idProcesadaor, $TamProcesador);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, [
+                    'idProcesadaor' => $idProcesadaor,
+                    'TamProcesador' => $TamProcesador,
+                ]);
+            }
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'Procesador encontrado con exito',
+                    'data' => $resultados
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'hubo un error al hacer la peticion :)',
+                );
+            }
+
+            echo json_encode($res);
+        }elseif($tabla === 'disposi_ambientes'){
+            $resultados = [];
+            $sql = "SELECT * from $tabla where id_disposi_ambientes = ?";
+            $query = mysqli_prepare($mysqli, $sql);
+            $ok = mysqli_stmt_bind_param($query, 'i', $id);
+            $ok = mysqli_stmt_execute($query);
+            $ok = mysqli_stmt_bind_result($query, $idDisposiAmbientes,$idCompuPeris, $idAmbiente);
+            while(mysqli_stmt_fetch($query)){
+                array_push($resultados, [
+                    'idDisposiAmbientes' => $idDisposiAmbientes,
+                    'idProcesadaor' => $idProcesadaor,
+                    'TamProcesador' => $TamProcesador,
+                ]);
+            }
+            $res;
+            if($ok){
+                $res = array(
+                    'err' => false,
+                    'status' => http_response_code(200),
+                    'statusText' => 'Procesador encontrado con exito',
+                    'data' => $resultados
+                );
+            }else{
+                $res = array(
+                    'err' => true,
+                    'status' => http_response_code(500),
+                    'statusText' => 'hubo un error al hacer la peticion :)',
+                );
+            }
+
+            echo json_encode($res);
+        }   
 
 
 }elseif( $_SERVER['REQUEST_METHOD'] === 'POST' ){
@@ -616,7 +677,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     elseif ($tabla === 'almacenamiento'){
         $sql = "INSERT INTO almacenamiento (id_almacena, tamano_almacena) VALUES (NULL, ?)";
         $query = mysqli_prepare($mysqli, $sql);
-        $ok = mysqli_stmt_bind_param($query, 's', $_POST['almacenamiento']);
+        $ok = mysqli_stmt_bind_param($query, 's', $_POST['tama_almace']);
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
         $res;
@@ -633,6 +694,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
                 'statusText' => 'No se puede insertar el registro',
             );
         }
+
         echo json_encode($res);
 
     }elseif ($tabla === 'procesadores'){
@@ -768,6 +830,50 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         }
 
         echo json_encode($res);
+    }elseif($tabla === 'compu_peris'){
+
+        $sql = "INSERT INTO compu_peris(id_compu_peris, serial, id_periferico, fecha_compu_peris) values(null, ? , ? , CURDATE())";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'ss', $_POST['serialDispo'], $_POST['idPeriferico']);
+        $ok = mysqli_stmt_execute($query);
+        $res ;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Compu- peri creado con exito'
+            );
+        }else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'hubo  un error :)',
+            );
+        }
+
+        echo json_encode($res);
+    } elseif($tabla === 'disposi_ambientes'){
+
+        $sql = "INSERT INTO compu_peris(id_compu_peris, serial, id_periferico, fecha_compu_peris) values(null, ? , ? , CURDATE())";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'ss', $_POST['serialDispo'], $_POST['idPeriferico']);
+        $ok = mysqli_stmt_execute($query);
+        $res ;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'Compu- peri creado con exito'
+            );
+        }else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'hubo  un error :)',
+            );
+        }
+
+        echo json_encode($res);
     }
 
 }elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
@@ -839,11 +945,11 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         echo json_encode($res);
     }
     if($_PUT['tabla'] === 'dispositivo_electronico'){
-        $sql = "UPDATE $tabla set serial =? , placa_sena =?, id_tipo_dispositivo =?, procesador = ?, ramGB = ?, id_tipo_sistema = ?,
-        id_estado_disponibilidad = ?, id_estado_dispositivo = ?, id_marca = ?, almacenamiento = ?, id_ambiente = ? where serial = ?";
+        $sql = "UPDATE $tabla set serial = ? , placa_sena =?, id_tipo_dispositivo =?, id_procesador = ?, ramGB = ?, id_tipo_sistema = ?,
+        id_estado_disponibilidad = ?, id_estado_dispositivo = ?, id_marca = ?, id_almacena = ? where serial = ?";
         $query = mysqli_prepare($mysqli, $sql);
-        $ok = mysqli_stmt_bind_param($query, 'siisiiiiiiii',$_PUT['serial'], $_PUT['placaSena'], $_PUT['TipoDispo'], $_PUT['nameProcesador'], $_PUT['RamGB'], $_PUT['select_tipo_sistema'],
-                                    $_PUT['EstadoDisponibilidad'], $_PUT['EstadoDispositivo'], $_PUT['marca'], $_PUT['Almacenamiento'], $_PUT['select_ambi'], $_PUT['serialAntiguo'] );
+        $ok = mysqli_stmt_bind_param($query, 'siiiiiiiiis',$_PUT['serial'], $_PUT['placaSena'], $_PUT['TipoDispo'], $_PUT['nameProcesador'], $_PUT['RamGB'], $_PUT['select_tipo_sistema'],
+                                    $_PUT['EstadoDisponibilidad'], $_PUT['EstadoDispositivo'], $_PUT['marca'], $_PUT['Almacenamiento'], $_PUT['serialAntiguo'] );
         $ok = mysqli_stmt_execute($query);
         mysqli_stmt_close($query);
         $res;
@@ -1176,7 +1282,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
     $_DELETE = json_decode(file_get_contents('php://input'), true);
     $tabla = $_DELETE['tabla'];
     $id = $_DELETE['id'];
-    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios' && $tabla !== 'fichas' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'almacenamiento' && $tabla !== 'tipo_sistema' && $tabla !== 'procesadores'){
+    if($tabla !== 'dispositivo_electronico' && $tabla !== 'usuarios' && $tabla !== 'fichas' && $tabla !== 'compu_peris' && $tabla !== 'ram' && $tabla !== 'almacenamiento' && $tabla !== 'tipo_sistema' && $tabla !== 'procesadores' && $tabla !== 'disposi_ambientes'){
         $sql = "DELETE from $tabla where id_$tabla = ?";
         $query = mysqli_prepare($mysqli , $sql);
         $ok = mysqli_stmt_bind_param($query, 's' , $id);
@@ -1298,7 +1404,33 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
             'statusText' => 'Registro borrado con exito',
         );
         echo json_encode($res);
+
+    }if($tabla === 'disposi_ambientes'){
+        $sql = "DELETE from $tabla where id_disposi_ambientes = ?";
+        $query = mysqli_prepare($mysqli, $sql);
+        $ok = mysqli_stmt_bind_param($query, 'i', $id);
+        $ok = mysqli_stmt_execute($query);
+        mysqli_stmt_close($query);
+        $res ;
+        if($ok){
+            $res = array(
+                'err' => false,
+                'status' => http_response_code(200),
+                'statusText' => 'registro borrado con exito'
+            );
+        }
+        else{
+            $res = array(
+                'err' => true,
+                'status' => http_response_code(500),
+                'statusText' => 'no se puede borrar este registro'
+            );
+        }
+
+        echo json_encode($res);
+
     }
+
     if($tabla === 'compu_peris'){
         $sql = "DELETE from $tabla where id_compu_peris = ?";
         $query = mysqli_prepare($mysqli, $sql);
@@ -1324,4 +1456,5 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){ // aca hago la comprobacion si la peti
         echo json_encode($res);
 
     }
+
 }

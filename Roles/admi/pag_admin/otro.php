@@ -62,6 +62,15 @@
                 <button class="aparecerotros formula8" data-form="formu7"> <i class="aparecerotros formula8 fa fa-keyboard" title="Registrar dato de estado de disponibilidad" data-form="formu7"></i> </button>
             </div>
         </div>
+
+        <div class="card">
+            <h3>Dispositivos - Ambientes </h3>
+        
+            <div class="botones">
+                <button class="aparecerotros formula9" data-form="formu9"> <i class="aparecerotros formula9 fa fa-file-alt" title="Mostrar Datos Dispositivos ambientes de equipos" data-form="formu9"></i></button>
+                <button class="aparecerotros formula10" data-form="formu10"> <i class="aparecerotros formula10 fa fa-keyboard" title="Registrar dato Dispositivos ambientes  de equipo" data-form="formu10"></i> </button>
+            </div>
+        </div>
         <!-- /******* hasta aqui */ -->
         
     </section>
@@ -179,6 +188,45 @@
             </table>
         </div>
 
+        <div class="formu9 tablas">
+            <h2>Dispositivos Ambientes</h2>
+
+
+            <table class="tablamarca" border=1 cellspacing="0">
+                <tr class="header">
+                    <td>ID</td>
+                    <td>Serial Dispositivo</td>
+                    <td>Periferico Dispositivo</td>
+                    <td>Numero Ambiente</td>
+                    <td class="acciones">Acciones</td>
+                </tr>
+                <?php 
+            $con = "SELECT id_disposi_ambientes,dispositivo_electronico.serial,periferico.id_periferico,ambiente.n_ambiente
+                    FROM disposi_ambientes,dispositivo_electronico,ambiente,periferico,compu_peris
+                    WHERE disposi_ambientes.id_compu_peris = compu_peris.id_compu_peris
+                    AND compu_peris.serial = dispositivo_electronico.serial
+                    AND compu_peris.id_periferico = periferico.id_periferico
+                    AND disposi_ambientes.id_ambiente = ambiente.id_ambiente";
+            $m = mysqli_query($mysqli, $con);
+            while($eh = mysqli_fetch_array($m)){           
+            ?>
+
+                <tr class="datos">
+                    <td><?php echo $eh['id_disposi_ambientes']?></td>
+                    <td><?php echo $eh['serial']?></td>
+                    <td><?php echo $eh['id_periferico']?></td>
+                    <td><?php echo $eh['n_ambiente']?></td>
+                    <td class="imgs">
+                        <img src="./../../assets/edit-solid.svg" alt="editar" title="editar" class="edit disposi_ambiente" data-disposi_ambiente="<?php echo $eh['id_disposi_ambientes']; ?>">
+                        <img src="./../../assets/trash-solid.svg" alt="eliminar" title="eliminar" class="remove disposi_ambiente" data-disposi_ambiente="<?php echo $eh['id_disposi_ambientes']; ?>">                     
+                    </td>
+                </tr>
+                <?php
+            } 
+            ?>
+            </table>
+        </div>
+
         <!----------ACA COMIENZAN LOS FORMULARIOS----------->
             
 
@@ -226,6 +274,22 @@
                 <input type="text" name="nom_estado" id="nom_estado" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
                 <input type="submit" value="Guardar">
                     
+            </form>
+        </div>
+    </div>
+
+    <!--#Dispositivos Ambientes-->
+    <div class="form1 formu10 dispoAmbientes ">
+            <p type="title">Crear Dispositivos Ambientes</p>
+            <div class="linea"></div>
+            <form class="formulario" id="disposi_ambientes" autocomplete="off">
+                
+                
+                <input type="text" name="id_compuPeris " id="id_compuPeris" placeholder=" Id Computador Perisfericos ">
+
+                <input type="text" name="idAmbiente  " id="idAmbiente" placeholder= " Id Ambiente ">
+
+                <input type="submit" value="Guardar">
             </form>
         </div>
     </div>

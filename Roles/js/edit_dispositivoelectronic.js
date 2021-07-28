@@ -39,10 +39,41 @@ export const editdispoelectronico = ( id ) =>{
         </select> 
 
         <label for="nameProcesador"> Procesador  </label>
-        <input type="text" name="nameProcesador" id="nameProcesador" class="nameProcesador" value="${data[0].procesador}">
-
+        <select name="select_procesadores" id="select_procesadores">
+            <option value="${data[0].procesador}">${data[0].nomProcesador}</option>
+            ${ajax({
+                url: "./acciones.php?tabla=procesadores",
+                cbSuccess: ( { data: datos } ) => {
+                    const $select = document.getElementById('select_procesadores');
+                    let $html ;
+                    datos.forEach( el => {
+                        ( el.id !== data[0].procesador )
+                        ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                        : null;
+                    });
+                    $select.innerHTML += $html;
+                }
+            })}
+        </select>
+    
+    
         <label for="RamGB"> Ram (GB)  </label>
-        <input type="number" name="RamGB" id="RamGB" class="RamGB" value="${parseInt(data[0].ramGB)}">
+        <select name="select_ram" id="select_ram">
+            <option value="${data[0].ramGB}">${data[0].nameRam}</option>
+            ${ajax({
+                url: "./acciones.php?tabla=ram",
+                cbSuccess: ( { data: datos } ) => {
+                    const $select = document.getElementById('select_ram');
+                    let $html ;
+                    datos.forEach( el => {
+                        ( el.id !== data[0].ramGB )
+                        ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                        : null;
+                    });
+                    $select.innerHTML += $html;
+                }
+            })}
+        </select>
 
         <label for="select_tipo_sistema"> Tipo Sistema </label>
         <select name="select_tipo_sistema" id="select_tipo_sistema">
@@ -117,29 +148,27 @@ export const editdispoelectronico = ( id ) =>{
         })}
     </select>
 
-    <label for="select_ambi"> Ambiente </label>
-    <select name="select_ambi" id="select_ambi">
-        <option value="${data[0].IdAmbiente}"> ${data[0].N_Ambiente} </option>
-        ${ajax({
-            url: "./acciones.php?tabla=marca",
-            cbSuccess: ( { data: datos } ) => {
-                const $select = document.getElementById('select_ambi');
-                let $html ;
-                datos.forEach( el => {
-                    ( el.id !== data[0].IdAmbiente ) 
-                      ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
-                      : null;
-                });
-                $select.innerHTML += $html;
-            }
-        })}
-    </select>
 
-    <label for="Almacenamiento"> Almacenamiento  </label>
-        <input type="text" name="Almacenamiento" id="Almacenamiento" class="Almacenamiento" value="${data[0].almacenamiento}">
+    <label for="select_almacenamiento"> Almacenamiento  </label>
+    <select name="select_almacenamiento" id="select_almacenamiento">
+    <option value="${data[0].almacenamiento}">${data[0].nomAlmacena}</option>
+    ${ajax({
+        url: "./acciones.php?tabla=ram",
+        cbSuccess: ( { data: datos } ) => {
+            const $select = document.getElementById('select_almacenamiento');
+            let $html ;
+            datos.forEach( el => {
+                ( el.id !== data[0].almacenamiento )
+                ? $html += `<option value="${el.id}"> ${el.nameTipo} </option>`
+                : null;
+            });
+            $select.innerHTML += $html;
+        }
+    })}
+</select>
 
-        <input type="submit" value="actualizar"/>
-        </form>
+    <input type="submit" value="actualizar"/>
+    </form>
         `;
         const $formModal = document.querySelector('.formmodal');
         $formModal.classList.remove('desplazar');
@@ -179,14 +208,13 @@ export const editdispoelectronico = ( id ) =>{
                     serial: e.target.idserial.value,
                     placaSena: parseInt(e.target.placa_sena.value),
                     TipoDispo: parseInt(e.target.select_tipo_dispo.value),
-                    nameProcesador: e.target.nameProcesador.value,
-                    RamGB: parseInt(e.target.RamGB.value),
+                    nameProcesador: parseInt(e.target.select_procesadores.value),
+                    RamGB: parseInt(e.target.select_ram.value),
                     select_tipo_sistema: parseInt(e.target.select_tipo_sistema.value),
                     EstadoDisponibilidad: parseInt(e.target.select_estado_disponibilidad.value),
                     EstadoDispositivo: parseInt(e.target.select_estado_dispositivo.value), 
                     marca: parseInt(e.target.select_marca.value),
-                    Almacenamiento: e.target.Almacenamiento.value,
-                    select_ambi: parseInt(e.target.select_ambi.value),
+                    Almacenamiento: parseInt(e.target.select_almacenamiento.value),
                 }
             });
         }
