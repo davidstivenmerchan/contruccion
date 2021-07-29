@@ -48,13 +48,19 @@ if(isset($_POST['enviar'])){
                                 </script>";
 
             }else{
-                echo "<script> alert('NO Funciono el registro en tabla aceptacion'); </script>";
+                echo "<script> alert('NO Funciono el registro en tabla aceptacion'); 
+                window.location= '../index.html';
+                </script>";
             }
         }else{
-            echo "<script> alert('NO Funciono el registro en tabla matricula'); </script>";
+            echo "<script> alert('NO Funciono el registro en tabla matricula'); 
+            window.location= '../index.html';
+            </script>";
         }
     }else{
-        echo "<script> alert('NO Funciono el registro en tabla usu'); </script>";
+        echo "<script> alert('NO Funciono el registro porque esa cedula ya esta registrada!'); 
+        window.location= '../index.html';
+        </script>";
     }
     
 }

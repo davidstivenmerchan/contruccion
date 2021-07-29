@@ -251,7 +251,11 @@
             <form class="crearusuario" action="insertarusuarios.php" id="crearusuario" autocomplete="off">
                     <div class="doc">
                         <label for="doc">Documento</label>
+<<<<<<< HEAD
+                        <input type="number" name="doc" min="6"  title="Solo se minimo 6 y maximo 10" required>
+=======
                         <input type="number" name="cc" id="cc" required  title="Solo se permiten numeros" maxlenght="10" minlenght="6">
+>>>>>>> 02d364996072d9d9946e7405dd0a822a8b462054
                     </div>
                     <div class="tip_doc">
                     <label for="tipo_doc">Tipo de Documento</label>

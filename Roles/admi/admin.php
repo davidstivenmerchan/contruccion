@@ -1,5 +1,7 @@
 <?php
 
+
+
 require_once("../../includes/validacion.php");
 require_once './../../includes/conexion.php';
 $documento = $_SESSION['cc'];
@@ -75,5 +77,7 @@ while(mysqli_stmt_fetch($query)){
     </script>
     <script src="./../js/admin.js" type="module"></script>
     <script src="./../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    
 </body>
+<script src="../js/eequipos.js"></script>
 </html>

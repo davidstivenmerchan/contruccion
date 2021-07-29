@@ -6,6 +6,7 @@
 -->
 
 <?php
+    
     require_once './../../../includes/conexion.php';
     function consultarEquipos($mysqli, $consulta):mysqli_result 
     {
@@ -90,7 +91,6 @@
             $m = mysqli_query($mysqli, $con);
             while($eh = mysqli_fetch_array($m)){           
             ?>
-
                 <tr class="datos">
                     <td><?php echo $eh['nom_marca']?></td>
                     <td class="imgs">
@@ -231,14 +231,17 @@
             
 
         <div class="form1 formu4">
+       
             <p type="title">Crear la Marca de los Equipos</p>
             <div class="linea"></div>
+          <!--  <div class="men_marca" id="men_marca"><p>Solo puede ingresar letras</p></div>  -->
             <form class="formulario" id="marcaEquipos" autocomplete="off">
                     <!--  -->
                     <label for="nom">Nombre de la Marca</label><br>
-                    <input type="text" name="nom_marca" id="nom_marca" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras" >
+                    <input type="text" name="nom_marca" id="nom_marca" required pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]{3,20}$" title="Solo se permiten letras. minimo 3 y  maximo 20 caracteres">
                     <input type="submit" value="Guardar">
             </form>
+           
         </div>
 
         <div class="form1 formu5">
@@ -284,7 +287,6 @@
             <div class="linea"></div>
             <form class="formulario" id="disposi_ambientes" autocomplete="off">
                 
-                
                 <input type="text" name="IdCompuPeris" id="IdCompuPerisfe" placeholder=" Id Computador Perisfericos ">
 
                 <input type="text" name="IdAmbiente" id="IdAmbientee" placeholder= " Id Ambiente ">
@@ -294,6 +296,8 @@
         </div>
     </div>
 
-    <script src="../js/equipos.js" type="module"></script>
+    
 </body>
+
+<script src="../../js/eequipos.js"></script>
 </html>
