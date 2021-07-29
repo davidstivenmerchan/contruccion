@@ -248,10 +248,10 @@
     <h2>Crear usuarios</h2>
         <div class="linea"></div>
     
-            <form class="crearusuario" action="insertarusuarios.php" id="formulario" autocomplete="off">
+            <form class="crearusuario" action="insertarusuarios.php" id="crearusuario" autocomplete="off">
                     <div class="doc">
                         <label for="doc">Documento</label>
-                        <input type="number" name="cc" id="cc" required>
+                        <input type="number" name="cc" id="cc" required  title="Solo se permiten numeros" maxlenght="10" minlenght="6">
                     </div>
                     <div class="tip_doc">
                     <label for="tipo_doc">Tipo de Documento</label>
@@ -284,11 +284,11 @@
                     </div>
                     <div class="nombre">
                         <label for="nom">Nombre</label>
-                        <input type="text" name="nom" id="nom" autocomplete="off" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras" maxlength="20">
+                        <input type="text" name="nom" id="nom" autocomplete="off" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras" maxlength="30">
                     </div>
                     <div class="apellido">
                         <label for="ape">Apellido</label>
-                        <input type="text" name="ape" id="ape" autocomplete="off" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras">
+                        <input type="text" name="ape" id="ape" autocomplete="off" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required  title="Solo se permiten letras" maxlenght="30">
                     </div>
                     <div class="fecha_nacimiento">
                         <label for="fecha">Fecha de Nacimiento</label>
@@ -307,7 +307,7 @@
                     </div>
                     <div class="telefono">
                         <label for="telefono">Telefono</label> 
-                        <input type="number" name="tell" id="tell" autocomplete="off" required>
+                        <input type="number" name="tell" id="tell" autocomplete="off" required maxlength="10" minlength="2">
                     </div>
                     <div class="emailPersonal">
                         <label for="email_per">E-mail Personal</label> 
