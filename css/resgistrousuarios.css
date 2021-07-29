@@ -325,3 +325,109 @@ select:focus{
 .bloqueo p{
     color: red;
 }
+/*-----------------mensajeeeeeeesssssssssssssss----------------*/
+.mensaje{
+    color: red;
+    position: absolute;
+    top:160px;
+    left:850px;
+    font-size: 10px;
+    visibility: hidden;
+}
+.mensaje-mostrar{
+    visibility: visible;
+
+}
+.mensaje2{
+    color: red;
+    position: absolute;
+    top:160px;
+    left:320px;
+    font-size: 10px; 
+    visibility: hidden;
+}
+.mensaje2-mostrar{
+    visibility: visible;
+}
+.mensaje3{
+    color: red;
+    position: absolute;
+    top:220px;
+    left:320px;
+    font-size: 10px;
+    visibility: hidden; 
+}
+.mensaje3-mostrar{
+    visibility: visible;
+}
+.mensaje4{
+    color: red;
+    position: absolute;
+    top:220px;
+    left:580px;
+    font-size: 10px;
+    visibility: hidden;
+}
+.mensaje4-mostrar{
+    visibility: visible;
+}
+.mensaje5{
+    color: red;
+    position: absolute;
+    top:220px;
+    left:850px;
+    font-size: 10px;
+    visibility: hidden;
+}
+.mensaje5-mostrar{
+    visibility: visible;
+}
+.mensaje6{
+    color: red;
+    position: absolute;
+    top:280px;
+    left:320px;
+    font-size: 10px;
+    visibility: hidden;
+    
+}
+.mensaje6-mostrar{
+    visibility: visible;
+}
+.mensaje7{
+    color: red;
+    position: absolute;
+    top:280px;
+    left:600px;
+    font-size: 10px;
+    visibility: hidden;
+    
+    
+}
+.mensaje7-mostrar{
+    visibility: visible;
+}
+.mensaje8{
+    color: red;
+    position: absolute;
+    top:340px;
+    left:425px;
+    font-size: 10px;
+    visibility: hidden;
+    
+}
+.mensaje8-mostrar{
+    visibility: visible;
+}
+.mensaje9{
+    color: red;
+    position: absolute;
+    top:340px;
+    left:700px;
+    font-size: 10px;
+    visibility: hidden;
+    
+}
+.mensaje9-mostrar{
+    visibility: visible;
+}

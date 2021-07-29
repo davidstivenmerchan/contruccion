@@ -31,7 +31,7 @@
     <h1>REGISTRO DE APRENDICES</h1>
     <form action="registrousuarios/registro_usu.php" method="POST" autocomplete="off" id="formulario">
     <div>
-        <input type="number" name="cc" placeholder="Ingrese numero de documento">
+        <input type="number" name="cc" placeholder="Ingrese numero de documento" id="cedula">
         <i id ="ccm" class="cancelcedula fas fa-times-circle"></i>
         <i id ="ccb" class="correccedula fas fa-check-circle"></i>
         
@@ -44,7 +44,7 @@
                         endforeach;
                     ?>
         </select>
-        <input type="number" name="cod_carnet" id="" placeholder="Ingrese su numero de carnet">
+        <input type="number" name="cod_carnet" id="carnet" placeholder="Ingrese su numero de carnet">
         <i id ="codm" class="cancelcarnet fas fa-times-circle"></i>
         <i id ="codb" class="correccarnet fas fa-check-circle"></i>
         
@@ -119,7 +119,33 @@
     </form>   
     </div> 
 </div>
-
+<div class="mensaje" id="mensaje">
+    <p>la cedula y el codigo de carnet tiene que ser iguales</p>
+</div>
+<div class="mensaje2" id="mensaje2">
+    <p>solo puede ingresar numeros, minimo 7 maximo 14</p>
+</div>
+<div class="mensaje3" id="mensaje3">
+    <p>solo puede ingresar letras, minimo 3 letras y maximo 40</p>
+</div>
+<div class="mensaje4" id="mensaje4">
+    <p>solo puede ingresar letras, minimo 3 letras y maximo 40</p>
+</div>
+<div class="mensaje5" id="mensaje5">
+    <p>solo puede ingresar numeros, minimo 7 maximo 14</p>
+</div>
+<div class="mensaje6" id="mensaje6">
+    <p>necesita tener una direccion de correo</p>
+</div>
+<div class="mensaje7" id="mensaje7">
+    <p>necesita tener una direccion de correo</p>
+</div>
+<div class="mensaje8" id="mensaje8">
+    <p>necesita tener minimo 6 maximo 12 caracteres</p>
+</div>
+<div class="mensaje9" id="mensaje9">
+    <p>las contraseñas necesitan ser iguales</p>
+</div>
 <div class="ico">
     <a href="index.html"><i class="icono fas fa-sign-out-alt"></i></a>
 </div>

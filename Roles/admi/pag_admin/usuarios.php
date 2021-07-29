@@ -251,7 +251,7 @@
             <form class="crearusuario" action="insertarusuarios.php" id="crearusuario" autocomplete="off">
                     <div class="doc">
                         <label for="doc">Documento</label>
-                        <input type="number" name="doc" max="13" min="6" required>
+                        <input type="number" name="doc" min="6"  title="Solo se minimo 6 y maximo 10" required>
                     </div>
                     <div class="tip_doc">
                     <label for="tipo_doc">Tipo de Documento</label>
