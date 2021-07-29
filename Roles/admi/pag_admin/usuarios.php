@@ -182,7 +182,7 @@
 
     <div class="form1">
 
-    <table class="tabla">
+        <table class="tabla">
             <tr class="titulo">
                 <td>Nombre Tipo Documento</td>
                 <td>Acciones</td>
@@ -248,10 +248,10 @@
     <h2>Crear usuarios</h2>
         <div class="linea"></div>
     
-            <form class="crearusuario" action="insertarusuarios.php" id="crearusuario" autocomplete="off">
+            <form class="crearusuario" action="insertarusuarios.php" id="formulario" autocomplete="off">
                     <div class="doc">
                         <label for="doc">Documento</label>
-                        <input type="number" name="doc" max="13" min="6" required>
+                        <input type="number" name="cc" id="cc" required>
                     </div>
                     <div class="tip_doc">
                     <label for="tipo_doc">Tipo de Documento</label>
@@ -280,7 +280,7 @@
                     </div>
                     <div class="cod_carnet">
                         <label for="codigo">Codigo del Carnet</label>
-                        <input type="number" name="codigo" id="codigo" autocomplete="off" required>
+                        <input type="number" name="cod_carnet" id="cod_carnet" autocomplete="off" required>
                     </div>
                     <div class="nombre">
                         <label for="nom">Nombre</label>
@@ -307,19 +307,19 @@
                     </div>
                     <div class="telefono">
                         <label for="telefono">Telefono</label> 
-                        <input type="number" name="telefono" id="telefono" autocomplete="off" required>
+                        <input type="number" name="tell" id="tell" autocomplete="off" required>
                     </div>
                     <div class="emailPersonal">
                         <label for="email_per">E-mail Personal</label> 
-                        <input type="email" name="email_per" id="email per" autocomplete="off" required>
+                        <input type="email" name="correo_p" id="correo_p" autocomplete="off" required>
                     </div>
                     <div class="emailsena">
                         <label for="email_sena">E-mail Sena</label>
-                        <input type="email" name="email_sena" id="email_sena" autocomplete="off" required >
+                        <input type="email" name="correo_s" id="correo_s" autocomplete="off" required >
                     </div>
                     <div class="password">
                         <label for="clave">Contraseña</label>
-                        <input type="password" name="clave" id="clave" autocomplete="off" required>
+                        <input type="password" name="password" id="password" autocomplete="off" required>
                     </div>
                     <input type="submit" value="Registrar" name="enviar1">
             </form>
@@ -330,19 +330,19 @@
     <div class="linea"></div>
     <form class="formulario"  id="creartipodocu" autocomplete="off"> <!-- action="insertarusuarios.php" method-->
             <label for="nom">Nombre del Tipo de Documento</label><br>
-            <input type="text" name="nom_doc" id="nom_doc" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20">
+            <input type="text" name="nom_doc" id="nom_doc" required="" onkeypress="return sololestras(event)">
             <input type="submit" value="Guardar" name="enviar2">
         
     </form>
     </div>
-
+    
 
     <div class="form5">
     <p type="title">Crear tipos de Usuario</p>
     <div class="linea"></div>
     <form class="formulario" id="creartipusu" autocomplete="off"> <!-- action="insertarusuarios.php" method="POST" -->
             <label for="nom">Nombre del Tipo de Usuario</label><br>
-            <input type="text" name="nom_usu" id="nom_usu" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required title="Solo se permiten letras" maxlength="20">
+            <input type="text" name="nom_usu" id="nom_usu" required="">
             <input type="submit" value="Guardar" name="enviar3">    
     </form>
     </div>
@@ -350,14 +350,14 @@
 
 
     <!--muevo scripts aca todo por motivos de carga-->
+    <script src="../../js/validarusuarios.js"></script>
     <script src="https://use.fontawesome.com/aa14b1055f.js"></script>
     <script src="../../js/confirmacioneliminar.js"></script>
-
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
-    <script src="../../js/separarusuarios.js"></script>
+        crossorigin="anonymous">
+    </script>
 </body>
 
 
