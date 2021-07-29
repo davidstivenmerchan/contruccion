@@ -9,3 +9,17 @@
     color: white;
 }
 
+.men_marca{
+    position: absolute;
+    left: 680px;
+    top:510px;
+    visibility: hidden;
+  
+}
+.men_marca p{
+    width: 400px;
+    color: red;
+}
+.men_marca-activo{
+    visibility: visible;
+}
