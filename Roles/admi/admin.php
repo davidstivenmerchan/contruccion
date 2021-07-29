@@ -43,7 +43,7 @@ while(mysqli_stmt_fetch($query)){
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"></script>
-    <script src="../js/separarusuarios.js"></script>
+    <script src="../js/validarusuarios.js"></script>
 </head>
 <body>
     <div class="container">
